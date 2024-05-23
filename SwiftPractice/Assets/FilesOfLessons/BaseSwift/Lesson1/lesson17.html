@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_17">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#arg_func" class="yakor">&#128195; Аргументы в функциях</a>
+          <a href="#skip_arg" class="yakor">&#128195; Пропуск аргументов</a>
+          <a href="#default_param" class="yakor">&#128195; Значение параметров по умолчанию</a>
+          <a href="#variable_param" class="yakor">&#128195; Вариативый параметр</a>
+          <a href="#more_return_param" class="yakor">&#128195; Еще немного о возвращаемых значений</a>
+          <a href="#functional_type" class="yakor">&#128195; Функциональные типы данных</a>
+          <a href="#param_like_func" class="yakor">&#128195; Функции в качестве параметров</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 17. Функции. Часть2
+            </h2>
+            <p class="date_p"> 21 Февраля 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                    Продолжаем работать с функциями. Советую вам двигаться последовательно, от раздела к разделу, и стараться делать следующий шаг только после того, как раздел был усвоен.
+                </p>
+                <p>
+                    Так же в данном уроке, очень часто повторяются методы, поэтому после каждого раздела, лучше очищать ваш playground, что бы избежать ошибок из за дублирования имен и свойств.
+                </p>
+               <h2 id="arg_func">
+                   Аргументы в функциях
+               </h2>
+                <p>
+                    При создании функции, ваша задача придумать очень понятное название для нее, и это название должно быть созвучно с параметрами.
+                </p>
+                <p>
+                    Что я имею в виду?! Давайте рассмотрим следующий пример:
+                </p>
+                  <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getEvenNumbers(numbers: [Int]) -> [Int] {
+                                var evenNumbers: [Int] = []
+
+                                for number in numbers {
+                                    if number % 2 == 0 {
+                                        evenNumbers.append(number)
+                                    }
+                                }
+
+                                return evenNumbers
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getEvenNumbers</span>(<span class="language-swift">numbers</span>: [<span class="className">Int</span>]) -> [<span class="className">Int</span>] {
+        <span class="keywords">var</span> <span class="language-swift">evenNumbers</span>: [<span class="className">Int</span>] = []
+
+        <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> {
+            <span class="keywords">if</span> <span class="language-swift">number</span> % <span class="numbers">2</span> == <span class="numbers">0</span> {
+                evenNumbers.<span class="className">append</span>(number)
+            }
+        }
+
+        <span class="keywords">return </span><span class="className">evenNumbers</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Данная функция принимает в качестве параметра числовой массив и возвращает массив с четными значениями. Если вы не понимаете что происходит внутри данной функции, то вам следует ознакомится с прошлым уроком.
+                </p>
+                <p>
+                    Вызов данной функции будет выглядеть следующим образом:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            getEvenNumbers(numbers: [4, 5, 7, 23, 44])
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">getEvenNumbers(values: [<span class="numbers">4</span>, <span class="numbers">5</span>, <span class="numbers">7</span>, <span class="numbers">23</span>, <span class="numbers">44</span>])</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Имя такой функции будет звучать как get Even Numbers numbers. То есть у нас есть два повторяющихся слова в названии, и это ни как не повлияет на работоспособность вашей программы, но, согласитесь, глаз немного режет. В коде всё должно быть красиво и аккуратно, вы пишете код не для компилятора, а для людей, и рано или поздно в ваш проект кто-нибудь заглянет. На собеседовании очень часто обращают на это внимание, поэтому вы должны стараться сделать ваш код открытыми и понятным.
+                </p>
+                <p>
+                    Как же нам исправить ситуацию?
+                </p>
+                <p>
+                    Мы не можем избавится от этого параметра, и другое название не сильно улучшит ситуацию, например в прошлом уроке мы использовали для этого примера название values, но на тот момент мы не знали что с этим можно сделать.
+                </p>
+                <p>
+                    Существует механизм, так сказать “синтаксический сахар”, который может значительно улучшить визуально вашу функцию. <span class="accent">Ярлыки аргументов</span> или по простому <span class="accent">аргументы в функциях</span>, нам в этом помогут. Это дополнительное имя перед параметром:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getEvenNumbers(from numbers: [Int]) -> [Int] {
+                                var evenNumbers: [Int] = []
+
+                                for number in numbers {
+                                    if number % 2 != 0 {
+                                        evenNumbers.append(number)
+                                    }
+                                }
+
+                                return evenNumbers
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getEvenNumbers</span>(<span class="language-swift">from </span> numbers: [<span class="className">Int</span>]) -> [<span class="className">Int</span>] {
+        <span class="keywords">var</span> <span class="language-swift">evenNumbers</span>: [<span class="className">Int</span>] = []
+
+        <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> {
+            <span class="keywords">if</span> <span class="language-swift">number</span> % <span class="numbers">2</span> != <span class="numbers">0</span> {
+                evenNumbers.<span class="className">append</span>(number)
+            }
+        }
+
+        <span class="keywords">return </span><span class="className">evenNumbers</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Как вы можете заметить, теперь у нас перед параметром появилось слово from, это и есть аргумент, который делает ваш код более выразительным, и понятным. При вызове такой функции, мы увидим только аргумент, параметр опускается.
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            getEvenNumbers(from: [4, 5, 7, 23, 44])
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">getEvenNumbers(from: [<span class="numbers">4</span>, <span class="numbers">5</span>, <span class="numbers">7</span>, <span class="numbers">23</span>, <span class="numbers">44</span>])</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    По сути параметр numbers, является внутренним свойством, и вы используете его только во внутренней логике функции, а аргумент from не является свойством, он просто как продолжение имени функции при вызове.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Аргументы отвечают на вопрос куда? откуда? для чего? и так далее. Аргументы могут состоять из нескольких слов, в таком случае вы должны придерживаться стиля <a href="#" class="tooltipText"><span class="textInfo">
+                        <span class="accent">CamelCase</span> - стиль написания составных слов, при котором несколько слов пишутся слитно без пробелов, при этом каждое слово внутри фразы пишется с прописной буквы. Стиль получил название CamelCase, поскольку прописные буквы внутри слова напоминают горбы верблюда.
+                    </span>&#x270D;CamelCase</a>
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="skip_arg">
+                   Пропуск аргументов
+               </h2>
+                <p>
+                    Мы так же можем использовать пропуск аргумента, благодаря которому, скроем не нужный нам параметр при вызове функции.
+                </p>
+                <p>
+                    Давайте снова обратимся к примеру:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getSumOfNumbers(_ numberOne: Int, and numberTwo: Int) -> Int {
+                                numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getSumNumbers</span>(<span class="language-swift">_</span> numberOne: <span class="className">Int</span>, <span class="language-swift">and</span> numberTwo: <span class="className">Int</span>) -> <span class="className">Int</span> {
+        numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Перед параметром numberOne мы определили нижнее подчеркивание, после которого поставили пробел и сам параметр. У numberTwo есть аргумент and.
+                </p>
+                <p>
+                    Нижнее подчеркивание перед параметром это и есть пропуск аргумента, мы его не прописываем, но при этом говорим что параметр при вызове будет опускаться.
+                </p>
+                <p>
+                    Таким образом вызов этой функции будет выглядеть следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            getSumNumbers(8, and: 9)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">getSumNumbers(<span class="numbers">8</span>, and: <span class="numbers">9</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    При вызове функции параметр numberOne отсутствует, потому что мы поставили перед ним пропуск аргумента (_), а параметр numberTwo отсутствует, потому что мы поставили перед ним аргумент and.
+                </p>
+                <h2 id="default_param">
+                   Значение параметров по умолчанию
+                </h2>
+                <p>
+                    При объявлении функции (ее создании) вы можете задавать для параметров значения по умолчанию. Благодаря этому параметры с значением по умолчанию можно опускать (не использовать при вызове)
+                </p>
+                <p>
+                    Давайте обратимся к примеру:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func greet(name: String) {
+                                print("Hello, \(name)!")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">greet</span>(<span class="language-swift">name</span>: <span class="className">String</span>) {
+        <span class="className">print</span>(<span class="string">"Hello,</span> \(name)<span class="string">!"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Данная функция принимает имя в параметре и выводит на консоль фразу с этим именем. Соответсвенно при вызове данной функции мы обязаны инициализировать параметр name  (передать в name значение).
+                </p>
+                <p>
+                    Вызов будет выглядеть так:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            greet(name: "Ann")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">greet(name: <span class="string">"Ann"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Представьте ваше приложение. У вас на экране поле ввода и две кнопки снизу:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.1.png" />
+                <p>
+                    Если пользователь нажимает на кнопку “Зарегистрироваться”, то мы вызываем метод greet и передаем в параметр name то что внесет пользователь в текстовое поле. По нажатию на кнопку “Войти как гость”, мы вызываем метод, где параметр name имеет значение по умолчанию. Конечно, в реальных проектах это несколько иначе работает, и вы обязательно узнаете об этом на втором модуле, но для общего представления, что функция может быть вызвана в нескольких местах с разными параметрами, этот пример хороший.
+                </p>
+                <p>
+                    Чтобы задать параметр с значением по умолчанию, мы должны после типа данных поставить равно и задать любое нужное нам значение:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func greet(name: String = "Guest" ) {
+                                print("Hello, \(name)!")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">greet</span>(<span class="language-swift">name</span>: <span class="className">String</span> = <span class="string">"Guest"</span>) {
+        <span class="className">print</span>(<span class="string">"Hello,</span> \(name)<span class="string">!"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом при вызове данной функции мы данный параметр можем опускать (не прописывать при вызове):
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.2.png" />
+                <p>
+                    Обратите внимание, что параметр полупрозрачный, это нам говорит о том что параметр стал не обязательным и мы можем его не использовать:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func greet(name: String = "Guest" ) {
+                                print("Hello, \(name)!")
+                            }
+
+                            greet()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">greet</span>(<span class="language-swift">name</span>: <span class="className">String</span> = <span class="string">"Guest"</span>) {
+        <span class="className">print</span>(<span class="string">"Hello,</span> \(name)<span class="string">!"</span>)
+    }
+
+    greet()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Теперь вызывая функцию, вы решаете нужен вам параметр или нет.  Если вы его не зададите при вызове, то компилятор возьмет то значение, которое вы прописали при объявлении функции.
+                </p>
+                <p>
+                    Чтобы сделать не обязательный параметр активным нужно зажать кнопку option и нажать enter:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.3.png" />
+                <p>
+                    Теперь давайте подумаем какой мы получим результат на консоли при следующих вызовах:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func greet(name: String = "Guest" ) {
+                                print("Hello, \(name)!")
+                            }
+
+                            greet() // (1) "Hello, Guest!"
+
+                            greet(name: "Ann") // (2) "Hello, Ann!"
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">greet</span>(<span class="language-swift">name</span>: <span class="className">String</span> = <span class="string">"Guest"</span>) {
+        <span class="className">print</span>(<span class="string">"Hello,</span> \(name)<span class="string">!"</span>)
+    }
+
+    greet() <span class="comments">// (1) "Hello, Guest!"</span>
+
+    greet(name: <span class="string">"Ann"</span>) <span class="comments">// (2) "Hello, Ann!"</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    (1) Для свойства name при вызове функции не задано ни какого значения, оно у нас инициализированно заранее, при объявлении этой функции (ее создании), а это значит что результат будет: “Hello, Guest!”
+                </p>
+                <p>
+                    (2) Здесь мы инициализируем свойство в момент вызова, поэтому компилятор возьмет это значение, а значение по умолчанию использовать не будет, и мы получим следующий результат: “Hello, Ann!”
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если вы до конца не понимаете этот процесс, то просто запомните алгоритм, если вы используете параметр при вызове функции (2), то значение по умолчанию не используется, и наоборот, если вы не используете параметр при вызове функции (1),  то будет использовано значение по умолчанию.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте рассмотрим подобный пример, но уже с опциональным значением, это удобный механизм.
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printGreeting(name: String? = nil, message: String = "Hello") {
+                                if let name = name {
+                                    print("\(message), \(name)!")
+                                } else {
+                                    print("\(message)!")
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printGreeting</span>(<span class="language-swift">name</span>: <span class="className">String</span>? = <span class="string">nil</span>, <span class="language-swift">message</span>: <span class="className">String</span> = <span class="string">"Hello"</span> ) {
+        <span class="keywords">if</span> <span class="keywords">let</span> name = <span class="className">name</span> {
+            <span class="className">print</span>(<span class="string">"</span>\(message)<span class="string">, </span>\(name)<span class="string">!"</span>)
+        } <span class="keywords">else</span> {
+            <span class="className">print</span>(<span class="string">"</span>\(message)<span class="string"></span><span class="string">!"</span>)
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    У нас есть два параметра у функции, первый является опциональным, и каждый их них имеет значение по умолчанию. Внутри функции мы извлекаем опциональное  значение, если у нас это получается то мы отображаем и сообщение и имя, если нет, то только сообщение. Таким образом мы можем комбинировать параметры при вызове:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            // Вызов функции без параметров
+                            printGreeting() // Выведет "Hello!"
+
+                            // Вызов функции с одним параметром
+                            printGreeting(name: "John") // Выведет "Hello, John!"
+
+                            // Вызов функции со всеми параметрами
+                            printGreeting(name: "Ann", message: "Hi") // Выведет "Hi, Ann!"
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// Вызов функции без параметров</span>
+    <span class="operator">printGreeting()</span> <span class="comments">// Выведет "Hello!"</span>
+
+    <span class="comments">// Вызов функции с одним параметром</span>
+    <span class="operator">printGreeting(name: <span class="string">"John"</span>)</span> <span class="comments">// Выведет "Hello, John!"</span>
+
+    <span class="comments">// Вызов функции со всеми параметрами</span>
+    <span class="operator">printGreeting(name: <span class="string">"Ann"</span>, message: <span class="string">"Hi"</span>)</span> <span class="comments">// Выведет "Hi, Ann!"</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Первый вызов функции без параметровиспользует значения по умолчанию обоих параметров, что приводит к выводу сообщения “Hello!”. Второй вызов передает только name, а message использует значение по умолчанию “Hello”. Третий вызов передает оба параметра, и функция выводит приветствие “Hi, Ann!”
+                </p>
+                <p>
+                    То есть вы можете комбинировать параметры, и изменять только те которые необходимо.
+                </p>
+                <h2 id="variable_param">
+                   Вариативый параметр
+               </h2>
+                <p>
+                    С помощью вариативного параметра мы можем передать в функцию любое количество значений. Тип вариативного параметра выглядит как тип данных с тремя точкам после:
+                </p>
+                <p>
+                    Double…
+                </p>
+                <p>
+                    Int…
+                </p>
+                <p>
+                    String…
+                </p>
+                <p>
+                    Одним словом любой тип данных с тремя точками после.
+                </p>
+                <p>
+                    Давайте посмотрим на реализацию метода с таким параметром:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printNumbers(_ numbers: Int...) {
+                                for number in numbers {
+                                    print(number)
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printNumbers</span>(<span class="language-swift">_</span> numbers: <span class="className">Int</span>...) {
+        <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> {
+            <span class="className">print</span>(number)
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Объявляем функцию printNumbers. Что бы имя функции при вызове было красивым мы убираем повторяющиеся название numbers, используя для этой цели нижнее подчеркивание вместо аргумента.
+                </p>
+                <p>
+                    Внутри функции с вариативным параметром мы работаем как с обычным массивом, то есть делаем перебор по коллекции numbers.
+                </p>
+                <p>
+                    Вызов такой функции будет выглядеть следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            printNumbers(1, 2, 3, 4, 5)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">printNumbers(<span class="numbers">1</span>, <span class="numbers">2</span>, <span class="numbers">3</span>, <span class="numbers">4</span>, <span class="numbers">5</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В параметр мы просто передаем любые значения типа Int, потому что вариативный параметр был этого типа.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Вариативный параметр может иметь сразу несколько значений или не одного. Функция может иметь несколько вариативных параметра, но старайтесь использовать аргументы, что бы было понятно, что к чему относится.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="more_return_param">
+                    Еще немного о возвращаемых значений
+               </h2>
+                <p>
+                    Давайте посмотрим на простую функцию из прошлого урока без параметров и возвращаемых значений:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 78
+                            let numberTwo = 44
+
+                            func printSumOfNumbers() {
+                                let sum = numberOne + numberTwo
+                                print(sum)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> numberOne = <span class="numbers">78</span>
+    <span class="keywords">let</span> numberTwo = <span class="numbers">44</span>
+
+    <span class="keywords">func</span> <span class="language-swift">printSumNumbers</span>() {
+        <span class="keywords">let</span> sum = numberOne + numberTwo
+        <span class="className">print</span>(sum)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если мы присвоим результат работы данной функции новому свойству, то наше свойство будет иметь очень странный тип данных:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.4.png" />
+                <p>
+                    Давайте разбираться почему так.
+                </p>
+                <p>
+                    Создадим подобную функцию, но на этот раз она будет возвращать значение, и присвоим результат ее работы новому свойству:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 78
+                            let numberTwo = 44
+
+                            func getSumOfNumbers() -> Int {
+                                numberOne + numberTwo
+                                print(sum)
+                            }
+
+                            let value = getSumOfNumbers()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> numberOne = <span class="numbers">78</span>
+    <span class="keywords">let</span> numberTwo = <span class="numbers">44</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getSumOfNumbers</span>() -> <span class="className">Int</span> {
+        numberOne + numberTwo
+    }
+
+    <span class="keywords">let</span> value = <span class="className">getSumOfNumbers</span>()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если вы посмотрите на тип value, то вы обнаружите, что он  имеет тип Int, потому что наша функция вернула в него результат своей работы, то есть тот тип который мы определили после результирующей стрелки.
+                </p>
+                <p>
+                    В функциях которые ничего не возвращают тоже есть результирующая стрелка, просто она не прописывается по умолчанию:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.5.png" />
+                <p>
+                    Поэтому свойство result имеет в качестве типа данных пустые скобки. По сути это пустота, то есть ничего, и многие вместо круглых скобок используют Void, это псевдоним круглых скобок, так скажем для красивого отображения:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printSumOfNumbers() -> Void {
+                                let sum = numberOne + numberTwo
+                                print(sum)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printSumOfNumbers</span>() -> <span class="className">Void</span> {
+        <span class="keywords">let</span> <span class="language-swift">sum</span> numberOne + numberTwo
+        <span class="className">print</span>(sum)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае свойство result будет иметь в качестве типа данных этот псевдоним:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.6.png" />
+                <p>
+                    Конечно, не имеет смысл присваивать Void в свойство, вам об этом мягко намекнет xcode желтым уведомлением.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Раскрою вам секрет print является системной функцией, реализация которой скрыта от наших глаз, и она ничего не возвращает, а только принимает, поэтому если мы ее присвоим свойству, то тоже получим пустые круглые скобки.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="functional_type">
+                    Функциональные типы данных
+               </h2>
+                <p>
+                    В языке swift все объекты имеют свой тип данных, и функции не исключение.
+                </p>
+                <p>
+                    До этого момента мы с вами всегда запускали функцию, то есть прописывали круглые скобки при вызове, на этот раз мы с вами не будем вызывать функцию, а сделаем ее копию:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getSumOfNumbers() -> Int {
+                                numberOne + numberTwo
+                            }
+
+                            let action = getSumOfNumbers() // нет круглых скобок
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getSumOfNumbers</span>() -> <span class="className">Int</span> {
+        numberOne + numberTwo
+    }
+
+    <span class="keywords">let</span> action = <span class="className">getSumOfNumbers</span>() <span class="comments">// нет круглых скобок</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Как вы можете заметить, после имени функции нет круглых скобок, то есть функция не была вызвана, я присваиваю свойтству action не результат работы функции типа Int, а указатель на функцию, можно сказать копирую ее, и тип данных такого свойства будет следующим:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.7.png" />
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если у вас в коде есть две одноименные функции, но с разными параметрами или возвращаемыми значениями, что делает их разными, то вы не сможете из них сделать копию, потому что компилятору без скобок не понятно, что за функцию вы хотите копировать.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Тип функции строится из параметров функции и ее возвращаемого значения. Мы видим что функция getSumOfNumbers не имеет ни каких параметров, потому что круглые скобки пустые, но зато имеет возвращаемое значение типа Int.
+                </p>
+                <p>
+                    Для примера мы с вами рассмотрим некоторые ранее созданные функции:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printSumOfNumbers() -> Void {
+                                let sum = numberOne + numberTwo
+                                print(sum)
+                            }
+                            let result = printSumOfNumbers // () -> Void или () -> ()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printSumOfNumbers</span>() -> <span class="className">Void</span> {
+        <span class="keywords">let</span> sum = numberOne + numberTwo
+        <span class="className">print</span>(sum)
+    }
+
+    <span class="keywords">let</span> result = <span class="className">printSumOfNumbers</span></span><span class="comments"> // () -> Void или () -> ()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    свойство result будет ссылаться на функцию printSumOfNumbers, то есть по сути копировать ее, и тип данного свойства будет либо () -> (), либо () -> Void, это одно и тоже, просто Void выглядит более понятным. О чем нам говорит этот тип данных? О том что наша функция не имеет параметров, и ничего не возвращает.
+                </p>
+                <p>
+                    Скопируйте следующий код к себе в playground и ответьте на вопросы в коде:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreeting() -> String {
+                                "Hi everyone!"
+                            }
+
+                            let actionOne = getGreeting // Какой тип у свойства actionOne?
+
+                            let number = 7
+
+                            func printIntValue(number: Int) {
+                                let sum = number + 3
+                                print(sum)
+                            }
+
+                            let actionTwo = printIntValue // Какой тип у свойства actionTwo?
+
+                            func findValue(numbers: [Int], value: Int) {
+                                if numbers.contains(value) {
+                                    print("Значение \(value) есть в массиве")
+                                }
+                            }
+
+                            let actionThree = findValue // Какой тип у свойства actionThree?
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+        <span class="string">"Hi everyone!"</span>
+    }
+
+    <span class="keywords">let</span> actionOne = <span class="className">getGreeting</span><span class="comments"> // Какой тип у свойства actionOne?</span>
+
+    <span class="keywords">let</span> number = <span class="numbers">7</span>
+
+    <span class="keywords">func</span> <span class="language-swift">printIntValue</span>(<span class="language-swift">number</span>: <span class="className">Int</span>) {
+         <span class="keywords">let</span> sum = number + <span class="numbers">3</span>
+         <span class="className">print</span>(sum)
+    }
+
+    <span class="keywords">let</span> actionTwo = <span class="className">printIntValue</span><span class="comments"> // Какой тип у свойства actionTwo?</span>
+
+    <span class="keywords">func</span> <span class="language-swift">findValue</span>(<span class="language-swift">numbers</span>: [<span class="className">Int</span>], <span class="language-swift">value</span>: <span class="className">Int</span>) {
+         <span class="keywords">if</span> numbers.<span class="className">contains</span>(value) {
+            <span class="className">print</span>(<span class="string">"Значение </span>\(value)<span class="string"> есть в массиве"</span>)
+        }
+    }
+
+    <span class="keywords">let</span> actionThree = <span class="className">findValue</span><span class="comments"> // Какой тип у свойства actionThree?</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Самостоятельно проверьте тип этих свойств зажав option и кликнув по свойству (если не сработает, то попробуйте запустить компилятор и повторить действие).
+                </p>
+                <p>
+                    Ответ будем следующим:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.8.png" />
+                <p>
+                    Если функция имеет несколько параметров, то типы всех параметров, через запятую, будут отражены в типе самой функции, как в свойстве actionThree, которое в качестве параметра имеет и массив типа Int и значение типа Int, без возвращаемых значений.
+                </p>
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                           Зафиксируем один момент.
+                        </p>
+                        <p>
+                            Когда вы хотите вызвать функцию, то вы прописываете круглые скобки, если вы хотите просто сделать копию функции, то скобки прописывать не нужно.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+                <p>
+                    Скопированную функцию вы можете вызвать в дальнейшем:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreeting() -> String {
+                                "Hi everyone!"
+                            }
+
+                            let actionOne = getGreeting
+
+                            actionOne()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+        <span class="string">"Hi everyone!"</span>
+    }
+
+    <span class="keywords">let</span> actionOne = <span class="className">getGreeting</span>
+
+    actionOne()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    новая функция actionOne отрабатывает точно так же как и getGreeting, потому что по сути они обе ссылаются на одну и ту же реализацию.
+                </p>
+                <p>
+                    Чтобы вызвать новую функцию необходимо прописать круглые скобки.
+                </p>
+                <p>
+                    Если у функции есть параметры, то компилятор не поможет вам их проставить, это нужно будет сделать самостоятельно:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func findValue(numbers: [Int], value: Int) {
+                                if numbers.contains(value) {
+                                    print("Значение \(value) есть в массиве")
+                                }
+                            }
+
+                            let values = [3, 6, 4, 12]
+
+                            let actionThree = findValue
+                            actionThree(values, 4) // в копии функции не будет имен параметров, даже если они есть в findValue
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">findValue</span>(<span class="language-swift">numbers</span>: [<span class="className">Int</span>], <span class="language-swift">value</span>: <span class="className">Int</span>) {
+         <span class="keywords">if</span> numbers.<span class="className">contains</span>(value) {
+            <span class="className">print</span>(<span class="string">"Значение </span>\(value)<span class="string"> есть в массиве"</span>)
+        }
+    }
+
+    <span class="keywords">let</span> values = [<span class="numbers">3</span>, <span class="numbers">6</span>, <span class="numbers">4</span>, <span class="numbers">12</span>]
+
+    <span class="keywords">let</span> actionThree = <span class="className">findValue</span>
+    actionThree(values, <span class="numbers">4</span>)<span class="comments"> // в копии функции не будет имен параметров, даже если они есть в findValue</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Копия функции будет выполнять точно такие же действия что и findValue, как уже было сказано выше они ссылаются на одну и ту же реализацию.
+                </p>
+                <h2 id="param_like_func">
+                    Функции в качестве параметров
+               </h2>
+                <p>
+                    Мы с вами выяснили, что у функций есть тип данных, а это значит, что мы смело можем этот тип использовать либо в свойствах:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreeting() -> String {
+                                "Hi everyone!"
+                            }
+
+                            let actionOne: () -> String = getGreeting // задали тип для свойства, и можем присвоить ему любую функцию данной сигнатуры
+
+                            actionOne()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+        <span class="string">"Hi everyone!"</span>
+    }
+
+    <span class="keywords">let</span> actionOne: () -> <span class="className">String</span> = <span class="className">getGreeting</span> <span class="comments">// задали тип для свойства, и можем присвоить ему любую функцию данной сигнатуры</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Либо в параметрах других функций, одним словом делать все что и с обычными типами данных.
+                </p>
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                          <span class="accent">Сигнатура функции</span> – по сути тип какой то функции, не обязательно конкретной, например под сигнатуру свойства actionOne так же подойдет любая другая функция с типом () -> String
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте создадим функцию, которая будет принимать другую функцию в качестве параметра.
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func performOperation(_ operation: (Int, Int) -> Int) {
+                                let result = operation(4, 5) // вызываем функцию
+                                print("The result is: \(result)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">_</span> operation: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> result = operation(<span class="numbers">4</span>, <span class="numbers">5</span>) <span class="comments">// вызываем функцию</span>
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Ранее мы выяснили, что параметр функции это константа, по сути свойство, и сейчас наш параметр operation является свойством с типом (Int, Int) -> Int. то есть мы в него можем передать функцию данной сигнатуры, а если мы инициализируем свойство operation другой функцией, то operation будет ее копией, а это значит внутри функции performOperation мы можем вызвать эту копию функции.
+                </p>
+                <p>
+                    По сигнатуре мы видим что копия функции будет принимать два целых числа, и возвращать тип Int, который мы присваиваем свойству result.
+                </p>
+                <p>
+                    Да, звучит не совсем просто, но давайте создадим сперва, подходящую под сигнатуру параметра, функцию, а затем вызовем performOperation и проследим каждый шаг.
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getSumOfNumbers(_ numberOne: Int, and numberTwo: Int) -> Int {
+                                numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getSumOfNumbers</span>(<span class="language-swift">_</span> numberOne: <span class="className">Int</span>, <span class="language-swift">and</span> numberTwo: <span class="className">Int</span>) -> <span class="className">Int</span> {
+        numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Эта функция имеет тип (Int, Int) -> Int это как раз тот тип который нужен нам для параметра функции performOperation:
+                </p>
+               <img class="img_block" src="assets/Images/Lesson17/Lesson17.9.png" />
+                <p>
+                    Обращайте внимание на тип, который от нас ждет xcode, не вставляйте в параметр бездумно данные!
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func performOperation(_ operation: (Int, Int) -> Int) {
+                                let result = operation(4, 5)
+                                print("The result is: \(result)")
+                            }
+
+                            func getSumOfNumbers(_ numberOne: Int, and numberTwo: Int) -> Int {
+                                numberOne + numberTwo
+                            }
+
+                            performOperation(getSumOfNumbers) // getSumOfNumbers без скобок, так как мы делаем копию
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">_</span> operation: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> result = operation(<span class="numbers">4</span>, <span class="numbers">5</span>)
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }
+
+    <span class="keywords">func</span> <span class="language-swift">getSumOfNumbers</span>(<span class="language-swift">_</span> numberOne: <span class="className">Int</span>, <span class="language-swift">and</span> numberTwo: <span class="className">Int</span>) -> <span class="className">Int</span> {
+        numberOne + numberTwo
+    }
+
+    performOperation(getSumOfNumbers) <span class="comments">// getSumOfNumbers без скобок, так как мы делаем копию</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    в параметр нужно передать именно тип (Int, Int) -> Int, поэтому круглые скобки у метода getSumOfNumbers мы не прописываем. Если мы пропишем скобки и даже передадим туда значения, то функция getSumOfNumbers  будет вызвана и вернет нам результат свой работы, а это тип Int, вы получите ошибку не соответствия типов, так как от нас требуют тип (Int, Int) -> Int.
+                </p>
+                <p>
+                    Ну и давайте подумаем как это все работает:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.10.png" />
+                <p>
+                    Когда мы вызываем функцию performOperation мы ссылаемся на реализацию этой функции выше, далее компилятор видит переданную в параметр operation  функцию, и делает ее копию (потому что мы не поставили круглые скобки у getSumOfNumbers)
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.11.png" />
+                <p>
+                    после этого компилятор проваливается в реализацию performOperation, а там уже присваивает свойству result, результат работы копии функции operation, в параметры которой передает какие-то значения, то есть мы запускаем эту копию (так как есть круглые скобки):
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.12.png" />
+                <p>
+                    а она уже ссылается на реализацию getSumOfNumbes и выполняет код внутри:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.13.png" />
+                <p>
+                    После чего выводит на консоль сообщение с результатом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson17/Lesson17.14.png" />
+                <p>
+                    Подумайте какой результат мы увидим на консоли, чему будет равно свойство result? Если вы можете ответить на этот вопрос без компилятора, то тема вами усвоена, если нет, то следует еще раз прочитать все с самого начала.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

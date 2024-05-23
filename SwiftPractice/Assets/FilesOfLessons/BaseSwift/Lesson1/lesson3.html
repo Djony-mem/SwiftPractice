@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_3">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+<progress max="100" value="0" id="scroll-progress"></progress>
+<div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#arithmetic" class="yakor">&#128195; Арифметические операторы</a>
+          <a href="#composite" class="yakor">&#128195; Составные операторы присваивания.</a>
+          <a href="#comparisons" class="yakor">&#128195; Операторы сравнения</a>
+          <a href="#brain_teaser" class="yakor">&#128195; Логические операторы</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+ <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+    <div>
+            <h2 class="title_h2">
+                Урок 3. Операторы Swift.
+            </h2>
+            <p class="date_p"> 1 Ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p> Давайте начнем с самых простых операторов, которые вам точно знакомы. </p>
+                 <h2 id="arithmetic">
+                   Арифметические операторы
+                </h2>
+
+                <p>
+                    1. <strong><span class="accent">+</span></strong>
+                </p>
+
+                <p>
+                    2. <strong><span class="accent">-</span></strong>
+                </p>
+
+                <p>
+                    3. <strong><span class="accent">*</span></strong>
+                </p>
+
+                <p>
+                    4. <strong><span class="accent">/</span></strong>
+                </p>
+
+                <p>
+                    5. <strong><span class="accent">%</span></strong>
+                </p>
+            </div>
+            <p>
+                В школе на уроке математики вы все с ними сталкивались, кроме последнего, но об этом чуть позже. 
+            </p>
+            <p>
+                Как мы их можем применить в программировании?
+            </p>
+            <p>
+                Создадим пару переменных с целочисленными значениями:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                <div class="toolbar">
+                    <div class="toolbar-item">
+                        <button type="button" onclick="copyCode(this)" data-code-text='
+                        var quantityOfGoods = 20
+                        var unitPrice = 500
+                        '>Copy</button>
+                    </div>
+                </div>
+
+                <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> quantityOfGoods <span class="operator">= </span>20
+    <span class="keywords">var</span> unitPrice <span class="operator">= </span>500
+                </code></pre>
+
+                </div>
+            </div>
+
+            <p>
+                Представим что наше приложение должно рассчитывать общую сумму купленных нами товаров за неделю. У нас есть количество товаров <strong><span class="language-swift">quantityOfGoods</span></strong> и цена за единицу товара <strong><span class="language-swift">unitPrice</span></strong>.
+            <p>
+                Теперь нам нужно посчитать общую сумму. Мы можем написать следующим образом:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                <div class="toolbar">
+                    <div class="toolbar-item">
+                        <button type="button" onclick="copyCode(this)" data-code-text='
+                        var quantityOfGoods = 20
+                        var unitPrice = 500
+
+                        quantityOfGoods * unitPrice
+                        '>Copy</button>
+                    </div>
+                </div>
+
+                <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> quantityOfGoods <span class="operator">= </span>20
+    <span class="keywords">var</span> unitPrice <span class="operator">= </span>500
+
+    <span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+                </code></pre>
+
+                </div>
+            </div>
+            <br>
+            <img class="img_block" src="assets/Images/Lesson3/Lesson3.1.png" />
+
+            <p>
+               Мы действительно получили результат, но этот результат мы нигде в коде использовать не сможем, потому что мы его не сохранили в памяти. Например мы каждую неделю ходили в магазин и в конце месяца хотим проверить, сколько мы потратили на продукты:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                <div class="toolbar">
+                    <div class="toolbar-item">
+                        <button type="button" onclick="copyCode(this)" data-code-text='
+                        // Первая неделя
+
+                        var quantityOfGoods = 20
+                        var unitPrice = 500
+
+                        quantityOfGoods * unitPrice
+
+                        // Вторая неделя
+
+                        quantityOfGoods = 22
+                        unitPrice = 400
+
+                        quantityOfGoods * unitPrice
+
+                        // Третья неделя
+
+                        quantityOfGoods = 33
+                        unitPrice = 300
+
+                        quantityOfGoods * unitPrice
+
+                        // Четвертая неделя
+
+                        quantityOfGoods = 10
+                        unitPrice = 700
+
+                        quantityOfGoods * unitPrice
+                        '>Copy</button>
+                    </div>
+                </div>
+
+                <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// Первая неделя</span>
+
+    <span class="keywords">var</span> quantityOfGoods <span class="operator">= </span>20
+    <span class="keywords">var</span> unitPrice <span class="operator">= </span>500
+
+    <span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Вторая неделя</span>
+
+    <span class="className">quantityOfGoods </span> <span class="operator">= </span>22
+    <span class="className">unitPrice </span><span class="operator">= </span>400
+
+    <span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Третья неделя</span>
+
+    <span class="className">quantityOfGoods</span> <span class="operator">= </span>33
+    <span class="className">unitPrice</span> <span class="operator">= </span>300
+
+    <span class="className">quantityOfGoods</span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Четвертая неделя</span>
+
+    <span class="className">quantityOfGoods</span> <span class="operator">= </span>10
+    <span class="className">unitPrice</span> <span class="operator">= </span>700
+
+    <span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+                </code></pre>
+
+                </div>
+             </div>
+            <br>
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Не забываем, что компилятор читает код сверху вниз. Мы переопределяем свойства quantityOfGoods и unitPrace, после чего умножаем их. Таким образом нам не нужно для каждой недели создавать свойства для цены и для количества товара. 
+                    </p>
+                </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+            </div>
+
+            <p>
+                Хорошо. Но если нам теперь понадобится рассчитать какую общую сумму мы потратили за месяц. Данных о промежуточных рассчетов у нас нет, мы их никуда не сохранили. Давайте это исправим:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                <div class="toolbar">
+                    <div class="toolbar-item">
+                        <button type="button" onclick="copyCode(this)" data-code-text='
+                        // Первая неделя
+
+                        var quantityOfGoods = 20
+                        var unitPrice = 500
+
+                        let totalForFirstWeek = quantityOfGoods * unitPrice
+
+                        // Вторая неделя
+
+                        quantityOfGoods = 22
+                        unitPrice = 400
+
+                        let totalForSecondWeek = quantityOfGoods * unitPrice
+
+                        // Третья неделя
+
+                        quantityOfGoods = 33
+                        unitPrice = 300
+
+                        let totalForThirdWeek = quantityOfGoods * unitPrice
+
+                        // Четвертая неделя
+
+                        quantityOfGoods = 10
+                        unitPrice = 700
+
+                        let totalForFourthWeek = quantityOfGoods * unitPrice'>Copy</button>
+                    </div>
+                </div>
+
+                <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// Первая неделя</span>
+
+    <span class="keywords">var</span> quantityOfGoods <span class="operator">= </span>20
+    <span class="keywords">var</span> unitPrice <span class="operator">= </span>500
+
+    <span class="keywords">let</span> totalForFirstWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Вторая неделя</span>
+
+    <span class="className">quantityOfGoods </span> <span class="operator">= </span>22
+    <span class="className">unitPrice </span><span class="operator">= </span>400
+
+    <span class="keywords">let</span> totalForSecondWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Третья неделя</span>
+
+    <span class="className">quantityOfGoods</span> <span class="operator">= </span>33
+    <span class="className">unitPrice</span> <span class="operator">= </span>300
+
+    <span class="keywords">let</span> totalForThirdWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Четвертая неделя</span>
+
+    <span class="className">quantityOfGoods</span> <span class="operator">= </span>10
+    <span class="className">unitPrice</span> <span class="operator">= </span>700
+
+    <span class="keywords">let</span> totalForFourthWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+                </code></pre>
+
+                </div>
+             </div>
+            <p>
+                Таким образом мы сохранили промежуточные расчеты в свойствах, которыми мы можем воспользоваться для поиска общих затрат за месяц:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                <div class="toolbar">
+                    <div class="toolbar-item">
+                        <button type="button" onclick="copyCode(this)" data-code-text='
+                        // Первая неделя
+
+                        var quantityOfGoods = 20
+                        var unitPrice = 500
+
+                        let totalForFirstWeek = quantityOfGoods * unitPrice
+
+                        // Вторая неделя
+
+                        quantityOfGoods = 22
+                        unitPrice = 400
+
+                        let totalForSecondWeek = quantityOfGoods * unitPrice
+
+                        // Третья неделя
+
+                        quantityOfGoods = 33
+                        unitPrice = 300
+
+                        let totalForThirdWeek = quantityOfGoods * unitPrice
+
+                        // Четвертая неделя
+
+                        quantityOfGoods = 10
+                        unitPrice = 700
+
+                        let totalForFourthWeek = quantityOfGoods * unitPrice
+
+                        // Общий результат за месяц
+
+                        let total = totalForFirstWeek + totalForSecondWeek + totalForThirdWeek + totalForFourthWeek
+                        '>Copy</button>
+                    </div>
+                </div>
+
+                <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// Первая неделя</span>
+
+    <span class="keywords">var</span> quantityOfGoods <span class="operator">= </span>20
+    <span class="keywords">var</span> unitPrice <span class="operator">= </span>500
+
+    <span class="keywords">let</span> totalForFirstWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Вторая неделя</span>
+
+    <span class="className">quantityOfGoods </span> <span class="operator">= </span>22
+    <span class="className">unitPrice </span><span class="operator">= </span>400
+
+    <span class="keywords">let</span> totalForSecondWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Третья неделя</span>
+
+    <span class="className">quantityOfGoods</span> <span class="operator">= </span>33
+    <span class="className">unitPrice</span> <span class="operator">= </span>300
+
+    <span class="keywords">let</span> totalForThirdWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Четвертая неделя</span>
+
+    <span class="className">quantityOfGoods</span> <span class="operator">= </span>10
+    <span class="className">unitPrice</span> <span class="operator">= </span>700
+
+    <span class="keywords">let</span> totalForFourthWeek <span class="operator">= </span><span class="className">quantityOfGoods </span><span class="operator">* </span><span class="className">unitPrice</span>
+
+    <span class="comments">// Общий результат за месяц</span>
+
+    <span class="keywords">let</span> total <span class="operator">= </span><span class="className">totalForFirstWeek </span><span class="operator">+ </span><span class="className">totalForSecondWeek </span><span class="operator">+ </span><span class="className">totalForThirdWeek </span><span class="operator">+ </span><span class="className">totalForFourthWeek</span>
+
+
+                </code></pre>
+
+                </div>
+             </div>
+             <br>
+             <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Обратите внимание, что я делаю логические отступы, это очень важно! Писать код, это тоже самое что писать книгу, нужно везде делать логические отступы. Закончили мысль, поставили отступ (не больше одного).
+                    </p>
+                </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+             </div>
+
+            <p>
+                Думаю вы уловили суть и сможете с легкостью применить остальные арифметические операторы. 
+            </p>
+            <p>
+                Кроме этих стандартных операторов существует еще один интересный оператор, который не встречается в математике. Это оператор остатка от деления. Он выглядит как проценты %. Давайте рассмотрим, как он работает на примере следующего выражения:
+            </p>
+
+            <img class="img_block" src="assets/Images/Lesson3/Lesson3.2.png"/>
+
+            <p>
+                Для начала определим сколько троек входит в цифру 7:
+            </p>
+
+            <img class="img_block" src="assets/Images/Lesson3/Lesson3.3.png"/>
+
+            <p>
+                Всё что не влезет в это значение и будет остатком. Давайте теперь найдем остаток от деления восьми на 3, что бы окончательно понять суть: 
+            </p>
+
+            <img class="img_block" src="assets/Images/Lesson3/Lesson3.4.png"/>
+
+            <p>
+                Определяем сколько троек вместится в восьмерку:
+            </p>
+
+            <img class="img_block" src="assets/Images/Lesson3/Lesson3.5.png"/>
+
+            <p>
+                Таким образом, если мы будем находит остаток от деления девяти на три, то мы получим 0, потому что в девятке помещается три тройки без остатка.
+            </p>
+
+            <p>
+                Обычно этот оператор используют для нахождения четности числа. Давайте проверим является ли наше свойство <strong><span class="language-swift">total</span></strong> четным:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                <div class="toolbar">
+                    <div class="toolbar-item">
+                        <button type="button" onclick="copyCode(this)" data-code-text='
+                        let total = totalForFirstWeek + totalForSecondWeek + totalForThirdWeek + totalForFourthWeek
+
+                        let remainder = total % 2'>Copy</button>
+                    </div>
+                </div>
+
+                <pre class="language-swift"><code readonly="true" class="language-swift">
+
+    <span class="keywords">let</span> total <span class="operator">= </span><span class="className">totalForFirstWeek </span><span class="operator">+ </span><span class="className">totalForSecondWeek </span><span class="operator">+ </span><span class="className">totalForThirdWeek </span><span class="operator">+ </span><span class="className">totalForFourthWeek</span>
+
+    <span class="keywords">let</span> remainder = <span class="className">total </span><span class="operator">% </span>2
+
+                </code></pre>
+
+                </div>
+            </div>
+            <p>
+                Если наше свойство делится на два без остатка то значит оно четное, давайте запустим компилятор и проверим результат:
+            </p>
+
+            <img class="img_block" src="assets/Images/Lesson3/Lesson3.6.png"/>
+
+            <p>
+                Значение нашего свойства<strong><span class="language-swift"> total</span> </strong>является четным, потому что оно делится на два без остатка. Так же можно проверить кратное ли оно любому другому числу.
+            </p>
+
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        В Swift оператор остатка от деления работает как с положительными, так и с отрицательными числами. В том случае если total будет отрицательное, то остаток так же будет отрицательным, а если будет отрицательная двойка, то результат будет положительным. То есть выражение total % 2 и total % - 2, всегда будут выдавать одинаковый результат
+                    </p>
+                </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+             </div>
+
+             <p>
+                 Если делитель меньше делимого то вернется сам делитель:
+             </p>
+
+             <img class="img_block" src="assets/Images/Lesson3/Lesson3.7.png"/>
+
+             <p>
+                 В дальнейшем мы посмотрим как это можно использовать на практике.
+             </p>
+             <br>
+
+
+             <h2 id="composite">
+                 Составные операторы присваивания
+             </h2>
+
+
+            <p>
+                С оператором присваивания вы уже знакомы, и выглядит он как математический знак равно (=). Но не нужно его путать с математическим равно. 
+            </p>
+            <p>
+                В отличии от математики, где этот оператор говорит о равенстве величин или выражает результат каких либо операций над величинами, в Swift этот оператор именно присваивает значение одного свойства другому.
+            </p>
+            <p>
+                Обратимся к примеру:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 4
+                            var numberTwo = 6
+
+                            numberTwo = numberOne'>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> numberOne <span class="operator">= </span>4
+    <span class="keywords">let</span> numberTwo <span class="operator">= </span>6
+
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberOne</span>
+                    </code></pre>
+
+                </div>
+            </div>
+             <p>
+                Это не значит, что <strong><span class="language-swift">numberTwo</span></strong> равно <strong><span class="language-swift">numberOne</span></strong>, это значит, что мы присваиваем значение <strong><span class="language-swift">numberOne</span></strong> для <strong><span class="language-swift">numberTwo</span></strong>. По факту мы переопределили, то есть изменили, значение у свойства <strong><span class="language-swift">numberTwo</span></strong> и оно теперь равно 4:
+            </p>
+
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.8.png" />
+
+            <p>
+               Теперь что же такое составные операторы присвоения?
+            </p>
+            <p>
+                Давайте снова обратимся к примеру:
+            </p>
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 4
+                            var numberTwo = 6
+
+                            numberTwo = numberOne
+                            numberTwo = numberTwo + numberOne'>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> numberOne <span class="operator">= </span>4
+    <span class="keywords">let</span> numberTwo <span class="operator">= </span>6
+
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberOne</span>
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberTwo </span><span class="operator">+ </span><span class="className">numberOne</span>
+                    </code></pre>
+
+                </div>
+            </div>
+
+            <p>
+                Свойство <strong><span class="language-swift">numberTwo</span></strong> мы увеличиваем на значение <strong><span class="language-swift">numberOne</span></strong>, и такую запись можно сделать короче:
+            </p>
+
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 4
+                            var numberTwo = 6
+
+                            numberTwo = numberOne
+                            numberTwo = numberTwo + numberOne'>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> numberOne <span class="operator">= </span>4
+    <span class="keywords">let</span> numberTwo <span class="operator">= </span>6
+
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberOne</span>
+    <span class="className">numberTwo </span><span class="operator">+= </span><span class="className">numberOne</span>
+                    </code></pre>
+
+                </div>
+            </div>
+            <p>
+                Таким образом вы можете сократить любое из арифметических выражений, которое предполагает либо увеличение либо уменьшение начального значения свойства:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            numberTwo = numberOne
+                            numberTwo += numberOne
+
+                            numberTwo = numberTwo * numberOne
+                            numberTwo *= numberOne
+
+                            numberTwo = numberTwo / numberOne
+                            numberTwo /= numberOne
+
+                            numberTwo = numberTwo - numberOne
+                            numberTwo -= numberOne'>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> numberOne <span class="operator">= </span>4
+    <span class="keywords">let</span> numberTwo <span class="operator">= </span>6
+
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberOne</span>
+    <span class="className">numberTwo </span><span class="operator">+= </span><span class="className">numberOne</span>
+
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberTwo </span><span class="operator">* </span><span class="className">numberOne</span>
+    <span class="className">numberTwo </span><span class="operator">*= </span><span class="className">numberOne</span>
+
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberTwo </span><span class="operator">/ </span><span class="className">numberOne</span>
+    <span class="className">numberTwo </span><span class="operator">/= </span><span class="className">numberOne</span>
+
+    <span class="className">numberTwo </span><span class="operator">= </span><span class="className">numberTwo </span><span class="operator">- </span><span class="className">numberOne</span>
+    <span class="className">numberTwo </span><span class="operator">-= </span><span class="className">numberOne</span>
+                    </code></pre>
+
+                </div>
+            </div>
+
+            <p>
+                Давайте распишем каждый шаг:
+            </p>
+
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.9.png" />
+
+                           <p>
+               Свойство <strong><span class="language-swift">numberTwo</span></strong> в каждом вычислении принимает новое значение.
+                           </p>
+
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Лучше всегда отдавать предпочтение сокращенной версии записи, иначе запись a = a + b будет выдавать в вас дилетанта.  
+                    </p>
+                </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+            </div>
+            <br>
+
+
+            <h2 id="comparisons">
+                Операторы сравнения
+            </h2>
+
+
+             <div>
+                    <p>
+                        Некоторые операторы вам так же знакомы из математики:
+                    </p>
+
+                    <p>
+                        1. <strong><span class="accent">&#62;</span></strong>
+                    </p>
+
+                    <p>
+                        2. <strong><span class="accent">&#60;</span></strong>
+                    </p>
+
+                    <p>
+                        3. <strong><span class="accent">>=</span></strong>
+                    </p>
+
+                    <p>
+                        4. <strong><span class="accent">&#60;=</span></strong>
+                    </p>
+
+                    <p>
+                        5. <strong><span class="accent">==</span></strong>
+                    </p>
+                    <p>
+                        6. <strong><span class="accent">!=</span></strong>
+                    </p>
+            </div>
+
+            <p>
+                Операторы сравнения всегда возвращают <strong><span class="accent">true</span></strong> или <strong><span class="accent">false</span></strong> в зависимости от результата сравнения. Если результат сравнения верный, то возвращается значение <strong><span class="accent">true</span></strong>, иначе — <strong><span class="accent">false</span></strong>.
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            numberOne
+                            numberTwo
+
+                            numberOne > numberTwo
+                            numberOne < numberTwo
+                            numberOne >= numberTwo
+                            numberOne <= numberTwo
+                            numberOne == numberTwo
+                            numberOne != numberTwo'>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="className">numberOne </span>
+    <span class="className">numberTwo </span>
+
+    <span class="className">numberOne </span><span class="operator">&#62;</span><span class="className"> numberTwo</span>
+    <span class="className">numberOne </span><span class="operator">&#60;</span><span class="className"> numberTwo</span>
+    <span class="className">numberOne </span><span class="operator">>=</span><span class="className"> numberTwo</span>
+    <span class="className">numberOne </span><span class="operator">&#60;=</span><span class="className"> numberTwo</span>
+    <span class="className">numberOne </span><span class="operator">==</span><span class="className"> numberTwo</span>
+    <span class="className">numberOne </span><span class="operator">!=</span><span class="className"> numberTwo</span>
+                    </code></pre>
+
+                </div>
+            </div>
+            <p>
+                Первые две строчки, нам нужны что бы посмотреть результат после всех наших вычислений выше <strong><span class="className">numberOne <span class="operator">=</span><span class="language-swift"> 4</span></span></strong> и <strong><span class="className">numberTwo</span> </strong>тоже 4.
+            </p>
+            <p>
+                Далее мы их сравниваем. И результатом этих сравнений будет либо true либо false, давайте запустим компилятор:
+            </p>
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.10.png" />
+            <p>
+                Думаю стоит остановится на последних двух выражениях. Двойное равно можно соотнести с математическим равно, то есть проверка на равенство, и в том случае если значения равны, то нам возвращается true. Что же касается знака !=, то это проверка на не равенство, и если значения не равны, то возвращается true, в нашем случае у нас две четверки, поэтому вернулось false. 
+            </p>
+            <p>
+                Вы можете заметить что я сказала о возврате какого то значения, и действительно, все что мы видим  справа это значения которые мы можем сохранить в памяти. соответсвенно, мы с вами можем результат наших выражений положить в свойства и потом где нибудь в коде использовать этот результат:
+            </p>
+
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let firstProperty = numberOne > numberTwo
+                            let secondProperty = numberOne < numberTwo
+                            let thirdProperty = numberOne >= numberTwo
+
+                            numberOne <= numberTwo
+                            numberOne == numberTwo
+                            numberOne != numberTwo
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> firstProperty <span class="operator">= </span><span class="className">numberOne </span><span class="operator">&#62;</span><span class="className"> numberTwo</span>
+    <span class="keywords">let</span> secondProperty <span class="operator">= </span><span class="className">numberOne </span><span class="operator">&#60;</span><span class="className"> numberTwo</span>
+    <span class="keywords">let</span> thirdProperty <span class="operator">= </span><span class="className">numberOne </span><span class="operator">&#62;=</span><span class="className"> numberTwo</span>
+
+    <span class="className">numberOne </span><span class="operator">&#60;=</span><span class="className"> numberTwo</span>
+    <span class="className">numberOne </span><span class="operator">==</span><span class="className"> numberTwo</span>
+    <span class="className">numberOne </span><span class="operator">!=</span><span class="className"> numberTwo</span>
+                    </code></pre>
+
+                </div>
+            </div>
+            <p>
+                И так результат каждого выражения мы можем положить в какое либо свойство, в нашем случае мы положили в константу, потому что не планируем менять это значение.
+            </p>
+            <p>
+                Давайте посмотрим на тип данных этих свойств:
+            </p>
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.11.png" />
+            <p>
+                Они являются логическими свойствами, потому что выражение возвращает логическое значение.
+            </p>
+            <br>
+
+
+            <h2 id="brain_teaser">
+                Логические операторы
+            </h2>
+
+
+            <p>
+                Swift поддерживает три стандартных логических оператора:
+            </p>
+             <p>
+                 1. <strong><span class="accent">!</span></strong> - Логическое <strong><span class="accent">НЕ</span></strong>
+             </p>
+             <p>
+                 2. <strong><span class="accent">&amp;&amp;</span></strong> - Логическое <strong><span class="accent">И</span></strong>
+             </p>
+             <p>
+                 3. <strong><span class="accent">||</span></strong>- Логическое <strong><span class="accent">ИЛИ</span></strong>
+             </p>
+             <p>
+                 Давайте каждый из операторов рассмотрим на примере:
+             </p>
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.12.png" />
+            <p>
+                У нас есть свойство <strong><span class="className">firstProperty</span></strong>, которое содержит в себе значение false, но бывают случаи, о которых мы будем разговаривать на следующих уроках, когда нам нужно изменить это значение на противоположное. Для этого нам достаточно поставить оператор НЕ перед данным свойством:
+            </p>
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.13.png" />
+            <p>
+                В таком случае наше свойство будет возвращать значение true, то есть мы как бы говорим НЕ false. 
+            </p>
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Это значение точно так же можно сохранить в каком-либо свойстве. То есть определить его в качестве значения какого-либо свойства.   
+                    </p>
+                    <p>
+                        Данный оператор является префиксным оператором. Это значит, что он ставится непосредственно перед значением, без пробела 
+                    </p>
+                </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+            </div>
+            <p>
+                То что мы применили к свойству оператор <strong><span class="accent">!</span></strong> не меняет его фактически:
+            </p>
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.14.png" />
+            <p>
+                Оно как было false так им и осталось.
+            </p>
+            <p>
+                Следующий оператор который мы рассмотрим это логическое<strong><span class="accent">  И</span></strong>.
+            </p>
+            <p>
+                Оператор логического <strong><span class="accent">И</span> </strong>(<strong><span class="accent">&amp;&amp;</span></strong>) записывается между двух операндов, грубо говоря между двух логических выражений:
+            </p>
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            !firstProperty
+                            firstProperty && secondProperty
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">!</span><span class="className">firstProperty</span>
+    <span class="className">firstProperty </span> <span class="operator">&amp;&amp; </span><span class="className">secondProperty</span>
+                    </code></pre>
+                </div>
+            </div>
+            <p>
+                Или так:
+            </p>
+             <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            !firstProperty
+                            firstProperty && secondProperty
+                            numberOne <= numberTwo && numberOne == numberTwo
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">!</span><span class="className">firstProperty</span>
+    <span class="className">firstProperty </span> <span class="operator">&amp;&amp; </span><span class="className">secondProperty</span>
+    <span class="className">numberOne </span><span class="operator">&#60;=</span><span class="className"> numberTwo</span><span class="operator"> &amp;&amp; </span><span class="className">numberOne </span><span class="operator">==</span><span class="className"> numberTwo</span>
+                    </code></pre>
+                </div>
+            </div>
+            <p>
+                То есть слева и справа должно быть какое то логическое выражение. И выражение с использованием логического<span class="accent"> &amp;&amp; </span> возвращает true только в том случае если оба операнда возвращают true:
+            </p>
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.15.png" />
+            <p>
+                Проведем аналогию. Что бы получить права тебе нужно сдать и теорию И практику, без одного их этих условий не получится получить документы. То есть всегда должно выполнятся два условия, иначе вернется false. 
+            </p>
+            <p>
+                Ну и последний оператор на сегодня логическое <strong><span class="accent">ИЛИ</span></strong>. Записывается так же как и логическое <strong><span class="accent">И</span></strong> между двух операндов и обозначается как две вертикальные черты: <strong><span class="accent">|| </span></strong>
+            </p>
+            <div class="code-toolbar shadow_block code_review">
+               <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            !firstProperty
+                            firstProperty && secondProperty
+                            numberOne <= numberTwo && numberOne == numberTwo
+
+                            secondProperty || thirdProperty
+                            firstProperty || numberOne != numberTwo
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">!</span><span class="className">firstProperty</span>
+    <span class="className">firstProperty </span> <span class="operator">&amp;&amp; </span><span class="className">secondProperty</span>
+    <span class="className">numberOne </span><span class="operator">&#60;=</span><span class="className"> numberTwo</span><span class="operator"> &amp;&amp; </span><span class="className">numberOne </span><span class="operator">==</span><span class="className"> numberTwo</span>
+
+    <span class="className">secondProperty </span><span class="operator">|| </span><span class="className">thirdProperty</span>
+    <span class="className">thirdProperty </span><span class="operator">|| </span><span class="className">numberOne </span><span class="operator">!=</span><span class="className"> numberTwo</span>
+
+                    </code></pre>
+                </div>
+            </div>
+            <p>
+                Выражение с использованием логического <strong><span class="accent">||</span></strong> возвращает true в том случае если хотя бы один из операндов возвращает true:
+            </p>
+            <img class="img_block" src="assets/Images/Lesson3/lesson3.16.png" />
+            <p>
+                Ну и снова аналогия. На почте вы можете предъявить любой из документов, либо паспорт либо права, не обязательно два сразу, и вы получите свою посылку. То есть главное что бы хотя бы одно из условий выполнялось. Если у вас нет ни паспорта ни прав, то посылку вы не получите. 
+            </p>
+
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                       Обратите внимание на синтаксис, перед оператором и после мы ставим пробел, строка вида numberOne+numberTwo будет считаться ошибкой. 
+                    </p>
+                </div>
+                <div>
+                    <img class="img_circle" src="assets/Images/fingerUp.png" />
+                </div>
+            </div>
+        </div>
+      </div>
+     </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

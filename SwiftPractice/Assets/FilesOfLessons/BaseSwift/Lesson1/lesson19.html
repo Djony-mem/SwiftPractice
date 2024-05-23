@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_19">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#computed_prop" class="yakor">&#128195; Вычисляемые свойства</a>
+          <a href="#computed_prop_set" class="yakor">&#128195; Вычисляемое свойство. Сеттер</a>
+          <a href="#prop_observ" class="yakor">&#128195; Наблюдатели свойств</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 19. Вычисляемые свойства
+            </h2>
+            <p class="date_p"> 23 Апреля 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <h2 id="computed_prop">
+                   Вычисляемые свойства.
+               </h2>
+                <p>
+                    Вычисляемые свойства в Swift – это свойства, значения которых вычисляются каждый раз при доступе к ним, вместо того, чтобы хранить фиксированное значение, как это делают обычные свойства.
+                </p>
+                <p>
+                    Звучит не просто, но давайте посмотрим на пример и разберем как это работает:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let radius = 6.0
+
+                            var diameter: Double {
+                                radius * 2
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">radius</span> = <span class="numbers">6.0</span>
+
+    <span class="keywords">var</span> <span class="language-swift">diameter</span>: <span class="className">Double</span> {
+        <span class="className">radius</span> * <span class="numbers">2</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Свойство radius является обычной константой, тогда как diameter это вычисляемое свойство, разница между ними в том, что обычное свойство уже хранится в памяти, а вычисляемое сохранится только в тот момент когда мы к нему обратимся.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Обратите внимание на синтаксис вычисляемого свойства, тип данных должен быть прописан явно. Так же прошу заметить что таки свойства всегда являются переменными.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let radius = 6.0
+
+                            var diameter: Double {
+                                radius * 2
+                            }
+
+                            print(radius)
+                            print(diameter)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">radius</span> = <span class="numbers">6.0</span>
+
+    <span class="keywords">var</span> <span class="language-swift">diameter</span>: <span class="className">Double</span> {
+        <span class="className">radius</span> * <span class="numbers">2</span>
+    }
+
+    <span class="className">print</span>(<span class="className">radius</span>)
+    <span class="className">print</span>(<span class="className">diameter</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В тот момент, когда срабатывает последний принт, будет произведен расчет и мы увидим результат на консоли:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson19/Lesson19.1.png" />
+                <p>
+                    Чтобы понять как работает вычисляемое свойство, можно сравнить его с функцией, которая возвращает результат своей работы:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var diameter: Double {
+                                radius * 2
+                            }
+
+                            func getDiameter() -> Double {
+                                radius * 2
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">diameter</span>: <span class="className">Double</span> {
+        <span class="className">radius</span> * <span class="numbers">2</span>
+    }
+
+    <span class="keywords">func</span> <span class="language-swift">getDiameter</span>() -> <span class="className">Double</span> {
+        <span class="className">radius</span> * <span class="numbers">2</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    И в первом и во втором случае очень важно что бы внутри фигурных скобок в результате вернулся именно тот тип данных который был заявлен, в нашем случае это тип Double, и мы не можем вернуть что то другое. Оба варианта работают одинаково.
+                </p>
+                <p>
+                    Теперь посмотрите на следующее вычисляемое свойство:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var greeting: String {
+                                print("Hello, World!")
+                            }
+
+                            greeting
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">greeting</span>: <span class="className">String</span> {
+        <span class="className">print</span>(<span class="string">"Hello, World!"</span>)
+    }
+
+    greeting</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    И ответьте на вопрос, чему будет равно свойство greeting при обращении к нему?
+                </p>
+                <p>
+                    Если вы ответили “Hello, World!” то вам следует перечитать урок про функции с возвращаемым значением.
+                </p>
+                <p>
+                    Вычисляемое свойство должно возвращать тип String, а что нам возвращает метод print? Правильно пустые скобки (), потому что этот метод ничего не возвращает. Компилятор нам так и скажет:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson19/Lesson19.2.png" />
+                <p>
+                    Мы должны вернуть именно строку:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var greeting: String {
+                                "Hello, World!"
+                            }
+
+                            greeting // Hello, World!
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">greeting</span>: <span class="className">String</span> {
+        <span class="string">"Hello, World!"</span>
+    }
+
+    greeting <span class="comments">// Hello, World!</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Вот такой код будет отрабатывать отлично, и если мы обращаемся к свойству greeting мы получим нужную нам строку.
+                </p>
+                <p>
+                    Давайте представим аналогию с функцией, для лучшего понимания:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var greeting: String {
+                                "Hello, World!"
+                            }
+
+                            func getGreeting() -> String {
+                                "Hello, World!"
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">greeting</span>: <span class="className">String</span> {
+        <span class="string">"Hello, World!"</span>
+    }
+
+    <span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+        <span class="string">"Hello, World!"</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Хорошо, мы разобрались что вычисляемое свойство возвращает значение своего типа, не хранится в памяти пока мы к нему не обратимся, и очень похоже на работу функции с возвращаемым значением.
+                </p>
+                <p>
+                    Вычисляемые свойства, которые мы с вами рассмотрели выше называют <span class="accent">геттерами</span>, и они доступны только для чтения, то есть мы не сможем им присвоить другого значения.
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var greeting: String {
+                                "Hello, World!"
+                            }
+
+                            greeting = "Hello, Swift!"
+                            // Ошибка: Cannot assign to value: "greeting" is a get-only property
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">greeting</span>: <span class="className">String</span> {
+        <span class="string">"Hello, World!"</span>
+    }
+
+    greeting = <span class="string">"Hello, World!"</span><span class="comments"> // Ошибка: Cannot assign to value: 'greeting' is a get-only property</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <h2 id="computed_prop_set">
+                   Вычисляемое свойство. Сеттер.
+                </h2>
+                <p>
+                    Чтобы появилась возможность задавать новое значение для вычисляемого свойства, необходимо использовать следующий синтаксис:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var greeting: String {
+                                get {
+                                    "Hello, World!"
+                                }
+                                set {
+                                    print("Hello, \(newValue)")
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">greeting</span>: <span class="className">String</span> {
+        <span class="keywords">get</span> {
+            <span class="string">"Hello, World!"</span>
+        }
+        <span class="keywords">set</span> {
+            <span class="className">print</span>(<span class="string">"Hello,</span> \(newValue)<span class="string">"</span>)
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    внутри фигурных скобок мы прописываем два блока, первый блок <span class="accent">get</span>, определяет то значение, которое возвращает вычисляемое свойство, по сути это то что мы рассмотрели в прошлой главе, отсюда и название геттер. А второй блок <span class="accent">set</span>, в нем мы будем определять что делать с входным значением.
+                </p>
+                <p>
+                    И вот здесь вы можете заметить свойство интерполированное в строку – <span class="accent">newValue</span>,  это системная константа, она нам дана из коробки в блоке set, это как раз то новое значение, которое мы передадим в наше вычисляемое свойство:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var greeting: String {
+                                get {
+                                    "Hello, World!"
+                                }
+                                set {
+                                    print("Hello, \(newValue)")
+                                }
+                            }
+
+                            greeting = "Swift!"
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">greeting</span>: <span class="className">String</span> {
+        <span class="keywords">get</span> {
+            <span class="string">"Hello, World!"</span>
+        }
+        <span class="keywords">set</span> {
+            <span class="className">print</span>(<span class="string">"Hello,</span> \(newValue)<span class="string">"</span>)
+        }
+    }
+
+    greeting = <span class="string">"Swift!"</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    системное свойство newValue примет значение “Swift!” и в момент передачи этого значения, сработает блок set, и на консоли мы увидим следующий результат:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson19/Lesson19.3.png" />
+                <p>
+                    При этом свойство greeting все так же возвращает все что находится в блоке get, оно не переопределяется новым значением:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson19/Lesson19.4.png" />
+                <p>
+                    Грубо говоря, когда вы присваиваете новое значение свойству greeting, то срабатывает блок set, когда просто считываете это свойство, то срабатывает блок get. Любой из внутренних блоков get и set срабатывает в момент обращения к свойству.
+                </p>
+                <p>
+                    Давайте загадаю вам маленькую задачку, внимательно посмотрите на следующий код:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var radius = 6.0
+
+                            var diameter: Double {
+                                get {
+                                    radius * 2
+                                }
+                                set {
+                                    radius = newValue
+                                }
+                            }
+
+                            diameter = 2
+                            diameter // Что вернет вычисляемое свойство?
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">radius</span> = <span class="numbers">6.0</span>
+
+    <span class="keywords">var</span> <span class="language-swift">diameter</span>: <span class="className">Double</span> {
+        <span class="keywords">get</span> {
+            <span class="className">radius</span> * <span class="numbers">2</span>
+        }
+        <span class="keywords">set</span> {
+            <span class="className">radius = </span>newValue
+        }
+    }
+
+    diameter = <span class="numbers">2</span>
+    diameter <span class="comments">// Что вернет вычисляемое свойство?</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Ответьте на вопрос, что произойдет в случае присвоения значения 2 и в случае простого обращения к свойству?
+                </p>
+
+                <button class="accordion">Ответ</button>
+                <div class="panel">
+                  <p>
+                      Так как мы присваиваем новое значение, то срабатывает блок set, а это значит что для свойства radius будет присвоено новое значение 2:
+                  </p>
+                  <img class="img_block" src="assets/Images/Lesson19/Lesson19.7.png" />
+                  <p>
+                      И когда мы следующим действием просто обращаемся к свойству diameter, срабатывает блок get, в котором мы берем радиус с новым значением и умножаем его на 2, таким образом мы получим результат 4:
+                  </p>
+                  <img class="img_block" src="assets/Images/Lesson19/Lesson19.8.png" />
+                  <p>
+                      Обдумайте этот момент.
+                  </p>
+                </div>
+                <p>
+                </p>
+
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Главное что вам нужно запомнить, это то что при простом обращении к вычисляемому свойству срабатывает блок get, в котором необходимо вернуть тот тип данных, которым является свойство. Если мы присваиваем новое значение, в этот момент срабатывает блок set, именно в момент присвоения нового значения.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="prop_observ">
+                  Наблюдатели свойств.
+                </h2>
+                <p>
+                    В Swift наблюдатели свойств используются для отслеживания изменений значений свойств. Наблюдатели свойств могут быть добавлены для любых хранимых свойств.
+                </p>
+                <p>
+                    Давайте создадим обычное хранимое свойство с типом String:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var name = ""
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Чтобы объявить наблюдателя, нужно поставить фигурные скобки сразу после значения и определить внутри один из блоков, либо два сразу willSet и didSet:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var name = "" {
+                                willSet {
+
+                                }
+                                didSet {
+
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span> {
+        <span class="keywords">willSet</span> {
+
+        }
+        <span class="keywords">didSet</span> {
+
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    willSet вызывается перед установкой нового значения, а didSet после установки нового значения. У каждого из этих блоков есть системные константы, у <span class="accent">willSet</span> свойство <span class="accent">newValue</span>, которое будет хранить новое значение, давайте выведем его на консоль:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var name = "" {
+                                willSet {
+                                    print("Скоро изменится имя на \(newValue)")
+                                }
+                                didSet {
+
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span> {
+        <span class="keywords">willSet</span> {
+            <span class="className">print</span>(<span class="string">"Скоро изменится имя на</span> \(newValue)<span class="string">"</span>)
+        }
+        <span class="keywords">didSet</span> {
+
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    А у <span class="accent">didSet</span> системная константа называется <span class="accent">oldValue</span>, это предыдущее значение, в нашем случае это будет пустая строка, давайте в этом блоке выведем на консоль сообщение с этим значением:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var name = "" {
+                                willSet {
+                                    print("Скоро изменится имя на \(newValue)")
+                                }
+                                didSet {
+                                    print("Было изменено имя с \(oldValue) на \(name)")
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span> {
+        <span class="keywords">willSet</span> {
+            <span class="className">print</span>(<span class="string">"Скоро изменится имя на</span> \(newValue)<span class="string">"</span>)
+        }
+        <span class="keywords">didSet</span> {
+            <span class="className">print</span>(<span class="string">"Было изменено имя с</span> \(oldValue)<span class="string"> на</span>\(name)<span class="string">"</span>)
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Вы можете заметить в блоке didSet обращение к самому свойству name, в этот момент оно уже будет содержать в себе новое значение и мы его отобразим на консоле.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Наблюдатели срабатывают только в тот момент, когда вы хотите изменить свойство, то есть присвоить новое значение, во всех остальных случаях они не реагируют:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var name = "" {
+                                willSet {
+                                    print("Скоро изменится имя на \(newValue)")
+                                }
+                                didSet {
+                                    print("Было изменено имя с \(oldValue) на \(name)")
+                                }
+                            }
+
+                            name // Ни один из принтов внутри блоков не сработает
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span> {
+        <span class="keywords">willSet</span> {
+            <span class="className">print</span>(<span class="string">"Скоро изменится имя на</span> \(newValue)<span class="string">"</span>)
+        }
+        <span class="keywords">didSet</span> {
+            <span class="className">print</span>(<span class="string">"Было изменено имя с</span> \(oldValue)<span class="string"> на</span>\(name)<span class="string">"</span>)
+        }
+    }
+
+    name <span class="comments"> // Ни один из принтов внутри блоков не сработает</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Но как только мы присвоим новое значение, то отработает два блока сразу:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson19/Lesson19.5.png" />
+                <p>
+                    Так как изначально у нас имя было пустой строкой, то старое значение мы видим как дополнительный пробел, давайте присвоим новое значение для свойства name, а вы попробуете ответить на вопрос, как будет выглядеть фраза из блока didSet на консоле:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var name = "" {
+                                willSet {
+                                    print("Скоро изменится имя на \(newValue)")
+                                }
+                                didSet {
+                                    print("Было изменено имя с \(oldValue) на \(name)")
+                                }
+                            }
+
+                            name = "Tim"
+
+                            name = "Swift"
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span> {
+        <span class="keywords">willSet</span> {
+            <span class="className">print</span>(<span class="string">"Скоро изменится имя на</span> \(newValue)<span class="string">"</span>)
+        }
+        <span class="keywords">didSet</span> {
+            <span class="className">print</span>(<span class="string">"Было изменено имя с</span> \(oldValue)<span class="string"> на</span>\(name)<span class="string">"</span>)
+        }
+    }
+
+    name = <span class="string">"Tim"</span>
+
+    name = <span class="string">"Swift"</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Думаю вы догадались, что теперь старое значение будет Tim, а новое Swift, и на консоле мы увидим следующее:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson19/Lesson19.6.png" />
+                 <p>
+                </p>
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            Давайте подведем итог.
+                        </p>
+                        <p>
+                          <span class="accent">Вычисляемое свойство</span> – это свойства, значения которых вычисляются каждый раз при доступе к ним. Они не хранятся в памяти, а рассчитываются в момент обращения к ним. блок get срабатывает, когда мы просто обращаемся к свойству, блок set когда мы передаем значение в свойство. Вычисляемое свойство всегда является переменной.
+                        </p>
+                        <p>
+                            В Swift <span class="accent">наблюдатели</span> свойств используются для отслеживания изменений значений свойств. Наблюдатели свойств могут быть добавлены для любых хранимых свойств.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+    <script src="assets/js/accordion.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

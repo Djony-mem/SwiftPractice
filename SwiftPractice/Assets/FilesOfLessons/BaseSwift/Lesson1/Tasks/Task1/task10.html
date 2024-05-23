@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 10. Множества.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 10.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <p>
+                    Создайте множество colors, и наполните его разными цветами. Далее добавьте желтый цвет в том случае если количество элементов во множестве меньше трех.
+                </p>
+                <p>
+                    Выведите множество на консоль.
+                </p>
+
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var colors: Set = ["Red", "Blue"]
+
+                                if colors.count < 3 {
+                                    colors.insert("Yellow")
+                                }
+
+                                print(colors)
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">colors</span>: <span class="className">Set</span> = [<span class="string">"Red"</span>, <span class="string">"Blue"</span>]
+
+    <span class="keywords">if</span> <span class="className">colors</span>.<span class="className">count</span> &#60; <span class="numbers">3</span> {
+        <span class="className">colors</span>.<span class="className">insert</span>(<span class="string">"Yellow"</span>)
+    }
+
+    <span class="className">print</span>(<span class="className">colors</span>)</span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Множество является переменной, так как мы вносим в него изменения.  Что бы показать компилятору, что это именно множество, мы должны прописать тип явно, но не вес тип, а только Set, то есть следующая запись будет считаться избыточной:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var colors: Set<String> = ["Red", "Blue"]
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">colors</span>: <span class="className">Set&#60;String></span> = [<span class="string">"Red"</span>, <span class="string">"Blue"</span>]</span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+
+                <p>
+                    Компилятор и без вашей помощи видит что значения во множестве с типом String, поэтому это лишний код. Но это конечно не ошибка, а скорее рекомендация.
+                </p>
+                <p>
+                    В условии мы определяем если количество элементов меньше трех, то будет выполнен код в внутри фигурных скобок, и мы при помощи метода <span class="className">insert</span>() добавим элемент во множество.
+                </p>
+                <p>
+                    Давайте я вам накину еще один полезный метод и называется он <span class="className">joined</span>(<span class="className">separator</span>: ) более подробней о нем можно почитать в <a href="https://developer.apple.com/documentation/swift/array/joined(separator:)-5do1g" class="referes_a">документации Apple</a>
+                </p>
+                <p>
+                    Но если в коротко, то этот метод позволяет вывести на консоль элементы коллекции через любой разделитель, который вы определите в параметре separator, Как это будет выглядеть на нашем примере:
+                </p>
+                <img class="img_block" src="../../assets/Images/Task10/Task10.1.png" />
+                <p>
+                    В качестве разделителя мы определили запятую и пробел, поэтому видим на консоли не квадратные скобки, а просто список элементов перечисленных через запятую.
+                </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 10.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Для добавления используйте метод insert(), а для удаления remove(). Что бы вывести на консоль список имен через точку с запятой используйте метод joined(separator: )
+                    </span>
+                </span>
+                <p>
+                   Создайте множество с именами. Если окажется что множество пустое, то добавьте в него новое имя. Если же там элементов больше пяти, то удалите тот элемент, который внесет пользователь.
+                </p>
+                <p>
+                    Выведите на консоль список имен, через точку с запятой.
+                </p>
+
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var names: Set = ["Ann", "Bill", "Tim", "Bob", "Hloya", "Eva"]
+                            let name = "Ann"
+
+                            if names.isEmpty {
+                                names.insert("Bob")
+                            } else if names.count > 5 {
+                                names.remove(name)
+                            }
+
+                            print(names.joined(separator: ", "))
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">names</span>: <span class="className">Set</span> = [<span class="string">"Ann"</span>, <span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Bob"</span>, <span class="string">"Hloya"</span>, <span class="string">"Eva"</span>]
+    <span class="keywords">let</span> <span class="language-swift">name</span> = <span class="string">"Ann"</span>
+
+    <span class="keywords">if</span> <span class="className">names</span>.<span class="className">isEmpty</span> {
+        <span class="className">names</span>.<span class="className">insert</span>(<span class="string">"Bob"</span>)
+    } <span class="keywords">else if</span> <span class="className">names</span>.<span class="className">count</span> > <span class="numbers">5</span> {
+        <span class="className">names</span>.<span class="className">remove</span>(<span class="className">name</span>)
+    }
+
+    <span class="className">print</span>(<span class="className">names</span>.<span class="className">joined</span>(<span class="className">separator</span>: <span class="string">", "</span>))</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Множество является переменной, потому что мы вносим в него изменения. Так же у нас обязательно должно быть свойство name, оно в себе будет хранить внесенное значение пользователем. Так как мы его не меняем то оно является константой.
+            </p>
+            <p>
+                Далее определяем условие, если множество пустое, то мы добавляем элемент при помощи метода insert(). Если количество элементов множества перевалит за значение 5, то мы удалим тот элемент который внес пользователь.
+            </p>
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Если удаляемого элемента в множестве не окажется, то ничего не произойдет, метод просто вернет nil, но это уже другая история, к которой мы обратимся чуть позже.
+                    </p>
+                </div>
+            <div>
+                 <img class="img_circle" src="../../assets/Images/fingerUp.png" />
+            </div>
+            </div>
+            <p>
+                Определять свойство для значения 5 будет не лучшим решением:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var names: Set = ["Ann", "Bill", "Tim", "Bob", "Hloya", "Eva"]
+                            let name = "Ann"
+                            let counter = 5
+
+                            if names.isEmpty {
+                                names.insert("Bob")
+                            } else if names.count > counter {
+                                names.remove(name)
+                            }
+
+                            print(names.joined(separator: ", "))
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">names</span>: <span class="className">Set</span> = [<span class="string">"Ann"</span>, <span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Bob"</span>, <span class="string">"Hloya"</span>, <span class="string">"Eva"</span>]
+    <span class="keywords">let</span> <span class="language-swift">name</span> = <span class="string">"Ann"</span>
+    <span class="keywords">let</span> <span class="language-swift">counter</span> = <span class="numbers">5</span>
+
+    <span class="keywords">if</span> <span class="className">names</span>.<span class="className">isEmpty</span> {
+        <span class="className">names</span>.<span class="className">insert</span>(<span class="string">"Bob"</span>)
+    } <span class="keywords">else if</span> <span class="className">names</span>.<span class="className">count</span> > <span class="className">counter</span> {
+        <span class="className">names</span>.<span class="className">remove</span>(<span class="className">name</span>)
+    }
+
+    <span class="className">print</span>(<span class="className">names</span>.<span class="className">joined</span>(<span class="className">separator</span>: <span class="string">", "</span>))</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Конечно все будет зависеть от обстоятельств, и в некоторых случаях это будет оправдано, но в нашем контексте это вполне себе конкретное значение, которое мы используем в одном условии, поэтому дополнительное свойству будет лишним. “Лишний код – плохой код”
+            </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

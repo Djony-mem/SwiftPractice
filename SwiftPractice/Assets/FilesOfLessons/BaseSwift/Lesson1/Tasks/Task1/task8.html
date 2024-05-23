@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 8. Массивы.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 8.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                       Используй индексы элементов и метод print, для вывода на консоль.
+                    </span>
+                </span>
+                <p>
+                    Создайте массив с именами и выведите на консоль каждое имя на новой строке .
+                </p>
+                <p>
+                    <span class="accent">Используйте только пройденные концепции! Циклы на данном этапе использовать не нужно!</span>
+                </p>
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let names = ["Ann", "Bil", "Sem"]
+
+                                print(names[0])
+                                print(names[1])
+                                print(names[2])
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> names<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+
+    <span class="operator"><span class="className">print</span>(<span class="className">names</span>[<span class="numbers">0</span>])
+    <span class="className">print</span>(<span class="className">names</span>[<span class="numbers">1</span>])
+    <span class="className">print</span>(<span class="className">names</span>[<span class="numbers">2</span>])</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Свойство должно быть константой.  Сам по себе массив это достаточно тяжеловесный объект, и каждый раз когда мы в него вносим изменения, компилятору приходится пере индексировать все элементы, это достаточно ресурсоёмкая задача. И если массив изменяемый, компилятор при каждом обращении к нему проверяет произошли ли в нем изменения или нет. Поэтому по возможности лучше делать его константой!
+                </p>
+                <p>
+                    Так же обратите внимание на синтаксис, после запятой обязательно должен быть пробел!
+                </p>
+                <p>
+                    Что бы достать элемент из массива мы обращаемся к индексу элемента в квадратных скобках.
+                </p>
+                <p>
+                    Если вы создали дополнительные свойства для каждого элемента массива, то это так же считается приемлемым решением:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let names = ["Ann", "Bil", "Sem"]
+                                let firstName = names[0]
+                                let secondName = names[1]
+                                let thirdName = names[2]
+
+                                print(firstName)
+                                print(secondName)
+                                print(thirdName)
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> names<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+    <span class="keywords">let</span> firstName <span class="operator">= <span class="className">names</span>[<span class="numbers">0</span>]</span>
+    <span class="keywords">let</span> secondName <span class="operator">= <span class="className">names</span>[<span class="numbers">1</span>]</span>
+    <span class="keywords">let</span> thirdName <span class="operator">= <span class="className">names</span>[<span class="numbers">2</span>]</span>
+
+    <span class="operator"><span class="className">print</span>(<span class="className">firstName</span>)
+    <span class="className">print</span>(<span class="className">secondName</span>)
+    <span class="className">print</span>(<span class="className">thirdName</span>)                    </span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Да в контексте у нас не стоит задача создать дополнительные свойства, но в реальной разработке такое очень часто встречается.
+                </p>
+                <p>
+                    Так же важно уделить внимание именованию массива, если ваши имена похожи на следующие, то это будет не корректно:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = ["Ann", "Bil", "Sem"]
+                                let x = ["Ann", "Bil", "Sem"]
+                                let array = ["Ann", "Bil", "Sem"]
+                                let someArray = ["Ann", "Bil", "Sem"]
+                                let Names = ["Ann", "Bil", "Sem"]
+                                let strings = ["Ann", "Bil", "Sem"]
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+    <span class="keywords">let</span> x<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+    <span class="keywords">let</span> array<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+    <span class="keywords">let</span> someArray<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+    <span class="keywords">let</span> Names<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+    <span class="keywords">let</span> strings<span class="operator"> = [<span class="string">"Ann"</span>, <span class="string">"Bil"</span>, <span class="string">"Sem"</span>]</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    В первом случае имя в единственном числе, массив нужно называть во множественном!
+                </p>
+                <p>
+                    Во втором случае именование в одну букву не отражает суть содержимого, и в коде будет тяжело понять что это за свойство.
+                </p>
+                <p>
+                    Не называйте массив массивом, array не удачное название, это не swift стайл, ну и плюс ко всему не отражает суть содержания.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Прописывать тип явно не нужно, если есть значения, то компилятор определяет тип самостоятельно. Лишний код – плохой код.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="../../assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 8.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+               <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                       Для определения количества элементов массива используйте свойство count. Что бы добавить элемент в конец пассива используйте метод append()
+                    </span>
+                </span>
+                <p>
+                    Создайте массив целых чисел из 5 элементов.
+                </p>
+                <p>
+                    Определите количество элементов массива и прибавьте это значение к первому элементу.
+                </p>
+                <p>
+                    Далее добавьте полученное значение в конец массива.
+                </p>
+                <p>
+                    <span class="accent">Используйте только пройденные концепции урока.</span>
+                </p>
+
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers = [1, 4, 6, 7, 3]
+                            let count = numbers.count
+                            let firstElement = numbers[0]
+                            let sumNumber = count + firstElement
+
+                            numbers.append(sumNumber)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> numbers <span class="operator">= [<span class="numbers">1</span>, <span class="numbers">4</span>, <span class="numbers">6</span>, <span class="numbers">7</span>, <span class="numbers">3</span>]</span>
+    <span class="keywords">let</span> count <span class="operator">= </span><span class="className">numbers<span class="operator">.</span>count</span>
+    <span class="keywords">let</span> firstElement <span class="operator">= </span><span class="className">numbers</span><span class="operator">[<span class="numbers">0</span>]</span>
+    <span class="keywords">let</span> sumNumber <span class="operator">= </span><span class="className">count <span class="operator">+</span> firstElement</span>
+
+    <span class="className">numbers.append<span class="operator">(</span>sumNumber<span class="operator">)</span></span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+
+            <p>
+                Все свойства, кроме массива должны быть константами. Мы их не изменяем, а инициализируем.
+            </p>
+            <p>
+                Обратите внимание на именование, код должен быть как книга, понятный и открытый.
+            </p>
+            <p>
+                Если вы не создали свойства для количества элементов и первого элемента, это не считается ошибкой:
+            </p>
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers = [1, 4, 6, 7, 3]
+                            let sumNumber = numbers.count + numbers[0]
+
+                            numbers.append(sumNumber)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> numbers <span class="operator">= [<span class="numbers">1</span>, <span class="numbers">4</span>, <span class="numbers">6</span>, <span class="numbers">7</span>, <span class="numbers">3</span>]</span>
+    <span class="keywords">let</span> sumNumber <span class="operator">= </span><span class="className">numbers<span class="operator">.</span>count</span> <span class="operator">+</span> <span class="className">numbers</span><span class="operator">[<span class="numbers">0</span>]</span>
+
+
+    <span class="className">numbers.append<span class="operator">(</span>sumNumber<span class="operator">)</span></span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Все будет зависеть от ситуации, если логика не совсем объемная, то можно не создавать дополнительных свойств.
+            </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class=" shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 8.3 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Что бы решить эту задачу, вам понадобится дополнительное свойство с гостем, для проверки есть этот гость в списке или нет используйте метод contains(), а для добавления элемента в массив используйте метод append()
+                    </span>
+                </span>
+                <p>
+                    Разработайте программу, которая будет проверять, если ли в списке гость, или нет. В качестве списка используйте следующий массив:
+                </p>
+                <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var guests = ["Bill", "Tim", "Tom", "Ann"]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> guests <span class="operator">= [<span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Tom"</span>, <span class="string">"Ann"</span>]</span>
+                </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Если гость в списке есть, то на консоль выведите фразу “Welcome, &#60;…>” , иначе добавьте гостя в список.
+                </p>
+            </div>
+
+                <div>
+                    <a class="btn-two" href="#">Показать решение</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-subtask-two">
+           <div class="container-subtask-inside">
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var guests = ["Bill", "Tim", "Tom", "Ann"]
+                            let guest = "Tomy"
+
+                            if guests.contains(guest) {
+                                print("Welcom, \(guest)")
+                            } else {
+                                guests.append(guest)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> guests <span class="operator">= [<span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Tom"</span>, <span class="string">"Ann"</span>]</span>
+    <span class="keywords">let</span> guest <span class="operator">= </span><span class="string">"Tomy"</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">guests</span>.<span class="className">contains</span>(<span class="className">guest</span>) {
+        <span class="className">print</span>(<span class="string">"Welcom,</span> \(<span class="className">guest</span>)<span class="string">"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">guests</span>.<span class="className">append</span>(<span class="className">guest</span>)
+    }</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+                Массив должен быть изменяемым, так как мы добавляем элемент в массив, то есть изменяем его, а вот свойство guest является константой, так как мы просто берем от туда значение.
+            </p>
+            <p>
+                Свойство <span class="language-swift">guest</span> здесь обязательно, так как я его использую не в одном месте. Если вы решили следующим образом, то это будет не корректно:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var guests = ["Bill", "Tim", "Tom", "Ann"]
+
+                            if guests.contains("Tomy") {
+                                print("Welcom, Tomy!")
+                            } else {
+                                guests.append("Tomy")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> guests <span class="operator">= [<span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Tom"</span>, <span class="string">"Ann"</span>]</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">guests</span>.<span class="className">contains</span>(<span class="string">"Tomy"</span>) {
+        <span class="className">print</span>(<span class="string">"Welcom, Tomy!"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">guests</span>.<span class="className">append</span>(<span class="string">"Tomy"</span>)
+    }</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+            </div>
+            <p>
+                Если к вам придет новый гость, вашу программу придется переписывать ручками. Это затрудняет дальнейшее обслуживание программы. В корректном варианте выше вам достаточно изменить значение у свойства guest и веся программа будет  работать с новыми данными.
+            </p>
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Обратите внимание на синтаксис конструкции if, ключевое слово else идет сразу же после закрывающей скобки первого условия.
+                    </p>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerUp.png" />
+                </div>
+            </div>
+            <p>
+                Существует еще одно хорошее решение, этой задачи, и вы наверное уже догадались, что нужно использовать. Если у вас простая условная конструкция if из двух веток, то ее можно представить как тернарный оператор:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var guests = ["Bill", "Tim", "Tom", "Ann"]
+                            let guest = "Tomy"
+
+                            guests.contains(guest) ? print("Welcom, \(guest)") : guests.append(guest)
+
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> guests <span class="operator">= [<span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Tom"</span>, <span class="string">"Ann"</span>]</span>
+    <span class="keywords">let</span> guest <span class="operator">=</span> <span class="string">"Tomy"</span>
+
+    <span class="operator"><span class="className">guests</span>.<span class="className">contains</span>(<span class="className">guest</span>) ? <span class="className">print</span>(<span class="string">"Welcom, </span>\(<span class="className">guest</span>)<span class="string">"</span>) : <span class="className">guests</span>.<span class="className">append</span>(<span class="className">guest</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+                В этом коде мы сначала проверяем, есть ли <span class="string">“Tomy”</span> в списке гостей, используя выражение <span class="className">guests</span>.<span class="className">contains</span>(<span class="className">guest</span>) в качестве условия тернарного оператора. Если это выражение истинно, то мы выводим сообщение приветствия, а если ложно, то мы добавляем “Tomy” в список гостей с помощью метода <span class="className">append</span>(). Если у вас строка становится слишком длинной, то тернарный оператор можно снести:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var guests = ["Bill", "Tim", "Tom", "Ann"]
+                            let guest = "Tomy"
+
+                            guests.contains(guest)
+                            ? print("Welcom, \(guest)")
+                            : guests.append(guest)
+
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> guests <span class="operator">= [<span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Tom"</span>, <span class="string">"Ann"</span>]</span>
+    <span class="keywords">let</span> guest <span class="operator">=</span> <span class="string">"Tomy"</span>
+
+    <span class="operator"><span class="className">guests</span>.<span class="className">contains</span>(<span class="className">guest</span>)
+    ? <span class="className">print</span>(<span class="string">"Welcom, </span>\(<span class="className">guest</span>)<span class="string">"</span>)
+    : <span class="className">guests</span>.<span class="className">append</span>(<span class="className">guest</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-3" name="task1-3" value="yes">
+            <label for="task1-3">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 8.4 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                 </h2>
+                 <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Что бы проверить пустой массив или нет используйте свойство isEmpty. Для нахождения рандомного значения используйте метод Int.random(in:) в параметр которого определите диапазон, подумайте хорошо как ограничить диапазон, что бы не выйти за пределы массива. Ну и что бы добавить элемент в массив используйте метод append()
+                    </span>
+                </span>
+                <p>
+                    Создайте массив целых чисел.
+                </p>
+                <p>
+                    Напишите программу, которая будет брать элемент по рандомному индексу и удалять его из массива, в том случае если массив не пустой, если же массив пуст, то добавлять в него рандомное значение от 1 до 10
+                </p>
+
+                <div> <a class="btn-three" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask-three">
+            <div class="container-subtask-inside">
+
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var numbers = [4, 5, 9, 21, 33, 8]
+
+                                if !numbers.isEmpty {
+                                    let randomIndex = Int.random(in: 0..&#60;numbers.count)
+                                    numbers.remove(at: randomIndex)
+                                } else {
+                                    numbers.append(Int.random(in: 1...10))
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> numbers <span class="operator">= [<span class="numbers">4</span>, <span class="numbers">5</span>, <span class="numbers">9</span>, <span class="numbers">21</span>, <span class="numbers">33</span>, <span class="numbers">8</span>]</span>
+
+    <span class="operator"><span class="keywords">if</span> !<span class="className">numbers</span>.<span class="className">isEmpty</span> {
+        <span class="keywords">let</span> randomIndex = <span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">0</span>..&#60;<span class="className">numbers</span>.<span class="className">count</span>)
+        <span class="className">numbers</span>.<span class="className">remove</span>(<span class="className">at</span>: randomIndex)
+    } <span class="keywords">else</span> {
+        <span class="className">numbers</span>.<span class="className">append</span>(<span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>))
+    }</span>
+                     </code>
+                     </pre>
+                      </div>
+                       </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Обратите внимание что в первом условии я использую частичку отрицания “!” в том случае если свойство <span class="className">isEmpty</span> вернет <span class="keywords">true</span> то есть массив пуст, частичка отрицания поменяет  это значение на <span class="keywords">false</span>, соответсвенно первый блок не сработает и компилятор пойдет дальше.
+                </p>
+                <p>
+                    Можно было пойти от обратного:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var numbers = [4, 5, 9, 21, 33, 8]
+
+                                if numbers.isEmpty {
+                                    numbers.append(Int.random(in: 1...10))
+                                } else {
+                                    let randomIndex = Int.random(in: 0..&#60;numbers.count)
+                                    numbers.remove(at: randomIndex)
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> numbers <span class="operator">= [<span class="numbers">4</span>, <span class="numbers">5</span>, <span class="numbers">9</span>, <span class="numbers">21</span>, <span class="numbers">33</span>, <span class="numbers">8</span>]</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">numbers</span>.<span class="className">isEmpty</span> {
+        <span class="className">numbers</span>.<span class="className">append</span>(<span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>))
+    } <span class="keywords">else</span> {
+        <span class="keywords">let</span> randomIndex = <span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">0</span>..&#60;<span class="className">numbers</span>.<span class="className">count</span>)
+        <span class="className">numbers</span>.<span class="className">remove</span>(<span class="className">at</span>: randomIndex)
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                   Это тоже отличное решение.
+                </p>
+                <p>
+                    Так же прошу заметить, что я создаю дополнительное свойство randomIndex, для того что бы разгрузить достаточно объемную логику. Старайтесь сделать код простым, и не городить все в одну большую портянку.
+                </p>
+                <p>
+                    Если вы не использовали дополнительное свойство, то в вашем коде будет сложнее разбираться, это увеличит время отладки.
+                </p>
+                <p>
+                    Дополнительное свойство я определила внутри конструкции <span class="keywords">if</span> потому что за его пределами мы его не используем, и оно нам нужно только в этом моменте. Когда конструкция отработает, внутреннее свойство выгрузится из памяти, так как мы выйдем из локальной зоны <span class="keywords">if</span>. А если свойство определить выше, то оно так и будет висеть в памяти, пока мы не перезагрузим программу.
+                </p>
+                <p>
+                    При удалении я ограничиваю диапазон рандомного значения до количества элементов в массиве, таким образом мы не выйдем за пределы массива. Если вы захадкодили эти данные вручную, то это будет ошибкой:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var numbers = [4, 5, 9, 21, 33, 8]
+
+                                if numbers.isEmpty {
+                                    numbers.append(Int.random(in: 1...10))
+                                } else {
+                                    let randomIndex = Int.random(in: 0...5)
+                                    numbers.remove(at: randomIndex)
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> numbers <span class="operator">= [<span class="numbers">4</span>, <span class="numbers">5</span>, <span class="numbers">9</span>, <span class="numbers">21</span>, <span class="numbers">33</span>, <span class="numbers">8</span>]</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">numbers</span>.<span class="className">isEmpty</span> {
+        <span class="className">numbers</span>.<span class="className">append</span>(<span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>))
+    } <span class="keywords">else</span> {
+        <span class="keywords">let</span> randomIndex = <span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">0</span>...<span class="numbers">5</span>)
+        <span class="className">numbers</span>.<span class="className">remove</span>(<span class="className">at</span>: randomIndex)
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Значения должны от чего то зависеть, мы не всегда можем посчитать количество элементов в массиве, и за частую в другом месте твой программы количество элементов массива может изменяться, где то вы добавили элемент, где то удалили, поэтому вы должны отталкиваться от конкретного значения. Теперь к вопросу почему же диапозон полузакрытый <span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">0</span>..&#60;<span class="className">numbers</span>.<span class="className">count</span>).
+                </p>
+                <p>
+                    Дело в том что индексация элементов в массиве происходит от <span class="numbers">0</span>, а <span class="className">numbers</span>.<span class="className">count</span> возвращает фактическое количество элементов, соотвественно по факту у нас 6 элементов, а индекса 6 нет. Поэтому мы используем полузакрытый диапазон, что бы последнее значение компилятор не учитывал.
+                </p>
+                <p>
+                    Если вы использовали следующий вариант:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var numbers = [4, 5, 9, 21, 33, 8]
+
+                                if numbers.isEmpty {
+                                    numbers.append(Int.random(in: 1...10))
+                                } else {
+                                    let randomIndex = Int.random(in: 0...numbers.count - 1)
+                                    numbers.remove(at: randomIndex)
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> numbers <span class="operator">= [<span class="numbers">4</span>, <span class="numbers">5</span>, <span class="numbers">9</span>, <span class="numbers">21</span>, <span class="numbers">33</span>, <span class="numbers">8</span>]</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">numbers</span>.<span class="className">isEmpty</span> {
+        <span class="className">numbers</span>.<span class="className">append</span>(<span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>))
+    } <span class="keywords">else</span> {
+        <span class="keywords">let</span> randomIndex = <span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">0</span>...<span class="className">numbers</span>.<span class="className">count</span> - <span class="className">1</span>)
+        <span class="className">numbers</span>.<span class="className">remove</span>(<span class="className">at</span>: randomIndex)
+    }</span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+                <p>
+                    В целом он тоже рабочий, но с полузакрытым диапазоном логичней.
+                </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-4" name="task1-4" value="yes">
+            <label for="task1-4">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

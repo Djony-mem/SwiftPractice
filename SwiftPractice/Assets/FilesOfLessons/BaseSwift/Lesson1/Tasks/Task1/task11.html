@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 11. Кортежи.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 11.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <p>
+                    Создайте множество целых чисел от 1 до 5. Так же создайте свойство, которое будет хранить рандомное значение от 1 до 10. Добавьте в множество это рандомное значение, если оно уже будет в множестве, то выведите на консоль сообщение: “item &#60;…> already exists”, иначе “Item &#60;…> added to collection”.
+                </p>
+                <p class ="accent">
+                    Используйте только пройденные концепции.
+                </p>
+
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var numbers: Set = [1, 2, 3, 4, 5]
+                                let number = Int.random(in: 1...10)
+                                let (inserted, newElement) = numbers.insert(number)
+
+                                if !inserted {
+                                    print("item \(newElement) already exists")
+                                } else {
+                                    print("Item \(newElement) added to collection")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span>: <span class="className">Set</span> = [<span class="numbers">1</span>, <span class="numbers">2</span>, <span class="numbers">3</span>, <span class="numbers">4</span>, <span class="numbers">5</span>]
+    <span class="keywords">let</span> <span class="language-swift">number</span> = <span class="className">Int</span>.<span class="className">random</span>(<span class="keywords">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>)
+    <span class="keywords">let</span> (<span class="language-swift">inserted</span>, <span class="language-swift">newElement</span>) = <span class="className">numbers</span>.<span class="className">insert</span>(<span class="className">number</span>)
+
+    <span class="keywords">if</span> !<span class="className">inserted</span> {
+        <span class="className">print</span>(<span class="string">"item <span class="operator">\(<span class="className">newElement</span>)</span> already exists"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">print</span>(<span class="string">"Item <span class="operator">\(<span class="className">newElement</span>)</span> added to collection"</span>)
+    }
+    </span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Множество является переменной, потому как мы вносим в него изменения.
+                </p>
+                <p>
+                    Рандомное число, является константой, мы его менять не планируем.
+                </p>
+                <p>
+                    Далее мы группируем два свойства в кортеж, и достаем два значения, которые используем в условной конструкции. Если свойство inserted возвращает false, то есть элемент не был добавлен, частичка отрицания меняет его на противоположное, и срабатывает первый блок кода, иначе второй.
+                </p>
+                <p>
+                    Это задание можно было решить иначе:
+                </p>
+                                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var numbers: Set = [1, 2, 3, 4, 5]
+                                let number = Int.random(in: 1...10)
+                                let newElement = numbers.insert(number)
+
+                                if !newElement.inserted {
+                                    print("item \(newElement.memberAfterInsert) already exists")
+                                } else {
+                                    print("Item \(newElement.memberAfterInsert) added to collection")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span>: <span class="className">Set</span> = [<span class="numbers">1</span>, <span class="numbers">2</span>, <span class="numbers">3</span>, <span class="numbers">4</span>, <span class="numbers">5</span>]
+    <span class="keywords">let</span> <span class="language-swift">number</span> = <span class="className">Int</span>.<span class="className">random</span>(<span class="keywords">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>)
+    <span class="keywords">let</span> <span class="language-swift">newElement</span> = <span class="className">numbers</span>.<span class="className">insert</span>(<span class="className">number</span>)
+
+    <span class="keywords">if</span> !<span class="className">newElement</span>.<span class="className">inserted</span> {
+        <span class="className">print</span>(<span class="string">"item <span class="operator">\(<span class="className">newElement</span>.<span class="className">memberAfterInsert</span>)</span> already exists"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">print</span>(<span class="string">"Item <span class="operator">\(<span class="className">newElement</span>.<span class="className">memberAfterInsert</span>)</span> added to collection"</span>)
+    }
+    </span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+
+                <p>
+                    На этот раз мы создаем одно свойство, которое имеет тип кортежа, и обращаемся к его значениям. Но наш код стал немного объемней, поэтому я бы выбрала первый вариант.
+                </p>
+                <p>
+                    Можно еще немного оптимизировать наш код. Так как у нас достаточно простая конструкция if, то мы можем использовать тернарный оператор:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var numbers: Set = [1, 2, 3, 4, 5]
+                                let number = Int.random(in: 1...10)
+                                let (inserted, newElement) = numbers.insert(number)
+
+                                !inserted
+                                ? print("item \(newElement) already exists")
+                                : print("Item \(newElement) added to collection")
+
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span>: <span class="className">Set</span> = [<span class="numbers">1</span>, <span class="numbers">2</span>, <span class="numbers">3</span>, <span class="numbers">4</span>, <span class="numbers">5</span>]
+    <span class="keywords">let</span> <span class="language-swift">number</span> = <span class="className">Int</span>.<span class="className">random</span>(<span class="keywords">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>)
+    <span class="keywords">let</span> (<span class="language-swift">inserted</span>, <span class="language-swift">newElement</span>) = <span class="className">numbers</span>.<span class="className">insert</span>(<span class="className">number</span>)
+
+    !<span class="className">inserted</span>
+    ? <span class="className">print</span>(<span class="string">"item <span class="operator">\(<span class="className">newElement</span>)</span> already exists"</span>)
+    : <span class="className">print</span>(<span class="string">"Item <span class="operator">\(<span class="className">newElement</span>)</span> added to collection"</span>)
+    </span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Так код выглядит аккуратней.
+                </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 11.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <p>
+                   Создайте новый кортеж на основе следующего:
+                </p>
+                <p>
+                    let numbers = (1, 2.4, 3)
+                </p>
+                <p>
+                    Только что бы элементы размещались в обратном порядке 3, 2.4, 1
+                </p>
+                <p class="accent">
+                    Используйте только пройденные концепции. Циклы использовать не нужно.
+                </p>
+
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = (1, 2.4, 3)
+                            let newNumbers = (numbers.2, numbers.1, numbers.0)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = (<span class="numbers">1</span>, <span class="numbers">2.4</span>, <span class="numbers">3</span>)
+    <span class="keywords">let</span> <span class="language-swift">newNumbers</span> = (<span class="className">numbers</span>.<span class="numbers">1</span>, <span class="className">numbers</span>.<span class="numbers">2.4</span>, <span class="className">numbers</span>.<span class="numbers">3</span>)
+    </span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Обратите внимание что свойства должны быть константами, в контексте мы их не меняем.
+            </p>
+            <p>
+                В значениях нового кортежа мы обращаемся к индексам первого, что бы разместить элементы в нужном нам порядке, на выходе получим следующее:
+            </p>
+            <img class="img_block" src="../../assets/Images/Task11/Task11.1.png" />
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

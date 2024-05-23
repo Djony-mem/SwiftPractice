@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_9">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+      <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#value_key" class="yakor">&#128195; Достать значение по ключу</a>
+          <a href="#func_dict" class="yakor">&#128195; Методы Словаря</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 9. Словари.
+            </h2>
+            <p class="date_p"> 1 Ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                    Словарь – это тип коллекции, представляющий собой набор пар ключ и значение [kay: value].
+                </p>
+                <p>
+                   Давайте создадим один словарь с одной парой:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.1.png" />
+                <p>
+                    Перед вами словарь, который содержит в себе одну пару ключ и значение, давайте добавим еще две пары:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            // Словарь с ключами целых чисел и строковыми значениями
+                            let integers = [1: "one", 2: "two", 3: "three"]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// Словарь с ключами целых чисел и строковыми значениями.</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">integers</span> = [<span class="numbers">1</span>: <span class="string">"one"</span>, <span class="numbers">2</span>: <span class="string">"two"</span>, <span class="numbers">3</span>: <span class="string">"three"</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Таким образом через запятую вы можете добавлять любое количество пар.
+                </p>
+                <p>
+                    Давайте посмотрим на тип данного словаря (зажимаем клавишу option и кликаем по свойству, если окно не появляется то следует запустить playground):
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.2.png" />
+                <p>
+                    Вы можете видеть что все ключи имеют тип <span class="className">Int</span>, а все значения тип <span class="className">String</span>.
+                </p>
+                <p>
+                    Все ключи должны быть одного типа данных, и все значения должны быть одного типа. Вы не сможете создать словарь следующим образом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.3.png" />
+                <p>
+                    Первая пара будет иметь тип [<span class="className">String</span>: <span class="className">String</span>] тогда как вторая и третья тип [<span class="className">Int</span>: <span class="className">String</span>] это разные типы данных, поэтому компилятор нам выдает ошибку.
+                </p>
+                <p>
+                    Обратите внимание,  что ключи и значения могут быть любых типов.
+                </p>
+                <p>
+                    Давайте создадим еще пару словарей:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.4.png" />
+                <p>
+                    Ну и давайте посмотрим на тип данных каждого свойства:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.5.png" />
+                <br/>
+                <br/>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.6.png" />
+                <p>
+                    Как вы видите в качестве ключа и в качестве значения могут выступать любые типы данных даже ваши кастомные, но об этом вы узнаете чуть позже.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Ключи в словаре должны быть уникальными, то есть ты не сможешь создать словарь с одинаковыми ключами
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте создадим словарь с одинаковыми ключами и значениями:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.7.png" />
+                <p>
+                    Компилятор выдает нам ошибку, потому что ключи должны быть уникальными, давайте исправим один из ключей:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.8.png" />
+                <p>
+                    Ошибка пропадает. В отличие от ключей, значения могут повторятся.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Словарь это не упорядоченная коллекция, в отличие от массивов, там элементы располагаются в хаотичном порядке. Поэтому при каждом запуске компилятора, порядок будет изменяться.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <h2 id="value_key">
+                    Достать значение по ключу
+                </h2>
+
+                <p>
+                    Также как и в массиве, вы можете достать любое из значений словаря по его ключу:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let people = ["Anna": 32, "Bob": 45, "Charlie": 60]
+                            people["Anna"]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// Словарь с ключами целых чисел и строковыми значениями.</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">people</span> = [<span class="string">"Anna"</span>: <span class="numbers">32</span>, <span class="string">"Bob"</span>: <span class="numbers">45</span>, <span class="string">"Charlie"</span>: <span class="numbers">60</span>]
+    <span class="className">people</span>[<span class="string">"Anna"</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    если мы посмотрим с права, то увидим значение 32
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.9.png" />
+                <p>
+                    А если мы видим это значение с права, то мы это значение можем использовать, например присвоить новому свойству:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let people = ["Anna": 32, "Bob": 45, "Charlie": 60]
+                            let age = people["Anna"]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// Словарь с ключами целых чисел и строковыми значениями.</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">people</span> = [<span class="string">"Anna"</span>: <span class="numbers">32</span>, <span class="string">"Bob"</span>: <span class="numbers">45</span>, <span class="string">"Charlie"</span>: <span class="numbers">60</span>]
+    <span class="keywords">let</span> <span class="language-swift">age</span> = <span class="className">people</span>[<span class="string">"Anna"</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Свойство <span class="language-swift">age</span> будет иметь тип <span class="className">Int</span>, потому что по факту мы взяли значение по ключу Anna и присвоили его новому свойству.
+                </p>
+                <p>
+                    Мы можем присвоить новое значение по выбранному ключу, только словарь нужно сделать изменяемым, то есть переменной:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.10.png" />
+                <p>
+                    Мы присвоили новое значение по ключу Anna и оно равно теперь 44, хотя изначально было 32.
+                </p>
+                <p>
+                    Если мы обратимся к несуществующему ключу и присвоим новое значение, то мы создадим новую пару:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.11.png" />
+                <p>
+                    Иногда в разработке необходимо создать пустой словарь, что бы в дальнейшем его наполнить данными:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let dictionaryOne: [Int: String] = [:]
+                            let dictionaryTwo = [Int: String]()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">dictionaryOne</span>: [<span class="className">Int</span>: <span class="className">String</span>] = [:]
+    <span class="keywords">let</span> <span class="language-swift">dictionaryTwo</span> = [<span class="className">Int</span>: <span class="className">String</span>]()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Это два способа создать пустой словарь, можно использовать любой, какой ближе к сердцу.
+                </p>
+
+
+                <h2 id="func_dict">
+                    Методы Словаря
+                </h2>
+
+                <p>
+                    Так как словарь является коллекцией, то у него почти те же методы что и у массивов.
+                </p>
+                <p>
+                    <span class="className">count</span> – как вы помните это свойство возвращает количество пар ключ-значение в словаре
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.12.png" />
+                <p>
+                    В словаре people находится три пары ключа и значения.
+                </p>
+                <p>
+                    <span class="className">isEmpty</span> – возвращает true если в словаре нет ни одного элемента, то есть если он пустой. И false если элементы все таки есть.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.13.png" />
+                <p>
+                  так как в словаре есть элементы, то нам вернулось false.
+                </p>
+                <p>
+                    <span class="className">updateValue</span>(_: <span class="className">forKey</span>: ) – этот метод обновляет значение для указанного ключа, и возвращает старое значение.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.14.png" />
+                <p>
+                    Обратите внимание какие типы данных нам предлагает компилятор вставить в параметры. В первый параметр мы должны передать новое значение с типом Int. Откуда компилятору известно какого типа у меня значение?
+                </p>
+                <p>
+                    Дело в том что к какому мы словарю применяем этот метод, от этого и будет зависеть тип параметра, давайте вызовем этот метод у словаря другого типа:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.15.png" />
+                <p>
+                    Тип значения стал <span class="className">String</span>.
+                </p>
+                <p>
+                    Давайте теперь посмотрим как отработает этот метод, для каждого из словарей:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.16.png" />
+                <p>
+                    Мы с вами обновили значение <span class="string">“one”</span> на <span class="string">“two”</span> по ключу 2, и словарь теперь содержит новое значение, но сам метод updateValue вернул нам <span class="string">“one”</span>, а это значит мы можем его использовать в дальнейшем, если присвоим результат свойству:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let oneNumber = integers.updateValue("two", forKey: 2)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">oneNumber</span> = <span class="className">integers</span>.<span class="className">updateValue</span>(<span class="string">"two"</span>, <span class="className">forKey</span>: <span class="numbers">2</span>)</span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Угадайте какой тип данных имеет данное свойство?! Правильно это <span class="className">String</span>, потому что мы присвоили значение, которое вернул метод.
+                </p>
+                <p>
+                    Еще один очень полезный метод <span class="className">removeValue</span>(<span class="className">forKey</span>:) , он удаляет пару ключ-значение для указанного ключа, давайте снова обратимся к примеру
+                </p>
+                <img class="img_block" src="assets/Images/Lesson9/Lesson9.17.png" />
+                <p>
+                    Вы можете видеть, что мы удалили пару по ключу <span class="string">“Bob”</span>, при этом если мы видим с права значение 45, то метод <span class="className">removeValue</span> не только удаляет пару, но и возвращает значение по указанному ключу, а это значит что мы это значение можем присвоить свойству, и как то использовать:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let age = people.removeValue(forKey: "Bob")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">age</span> = <span class="className">people</span>.<span class="className">removeValue</span>(<span class="className">forKey</span>: <span class="string">"Bob"</span>)</span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    свойство <span class="language-swift">age</span> будет целым числом равным 45.
+                </p>
+                <p>
+                    Этих методов еще очень много, и каждый из них нет смысла рассматривать, главное уловить суть, что у коллекций есть методы и свойства, которые можно использовать. Мы с вами рассмотрели самые распространенные.
+                </p>
+
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            Давайте подведем итог.
+                        </p>
+                        <p>
+                            <span class="accent">Словарь</span> это не упорядоченная коллекция (элементы располагаются хаотично), ключи словаря должны быть уникальными, то есть не повторятся, а значения могут повторятся. При этом все ключи должны быть одного типа, так же как и значения должны быть одного типа, но тип ключа может отличатся от типа значения.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

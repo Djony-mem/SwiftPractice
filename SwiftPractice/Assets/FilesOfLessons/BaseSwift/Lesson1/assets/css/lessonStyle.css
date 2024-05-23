@@ -1,0 +1,69 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 6% 0% 0% 0%;
+}
+
+.container_lesson {
+     background-color: #484646;
+    padding: 10%;
+}
+
+/*SIDENAV*/
+
+.sidenav {
+    height: 50%;
+    border-radius: 20px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 30px;
+    left: 0;
+    background-color: #2E3035;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+    box-shadow: 2px 2px 15px black;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #BDC5CA;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #ff6600;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 26px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+div.sticky {
+    position: fixed;
+    width: 10%;
+    top: 20px;
+    bottom: 0px;
+    padding-left: 20px;
+}
+
+.table_of_contents {
+    font-size: 30px;
+    cursor: pointer;
+    color: #BDC5CA;
+}

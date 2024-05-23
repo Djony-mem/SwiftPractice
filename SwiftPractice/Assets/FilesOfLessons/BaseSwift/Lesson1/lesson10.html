@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_10">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#func_set" class="yakor">&#128195; Методы Множества</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 10. Множества.
+            </h2>
+            <p class="date_p"> 9 Января 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                    <span class="accent">Множество</span> – Это коллекция, все элементы которой являются уникальными, то есть не повторяются,  и хранятся в хаотичном порядке. Множества обозначаются как Set
+                </p>
+                <p>
+                  Давайте снова обратимся к примеру:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let colors: Set = ["Красный", "Желтый", "Зеленый"]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">colors</span>: <span class="className">Set</span> = [<span class="string">"Красный"</span>, <span class="string">"Желтый"</span>, <span class="string">"Зеленый"</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Множество выглядит как массив, единственное что бы это подчеркнуть, необходимо прописать тип явно, если этого не сделать то свойство будет массивом.
+                </p>
+                <p>
+                    Зачем же нам нужно множество, если есть уже массивы?!
+                </p>
+                <p>
+                    На самом деле это очень хорошая коллекция для определения все ли элементы в массиве уникальные, и мы обязательно на такой пример посмотрим, но в следующих уроках, пока вам не хватает знаний для обсуждения данного вопроса.
+                </p>
+                <p>
+                    У множеств есть некоторые преимущества по сравнению с массивами:
+                </p>
+                <p>
+                    <span class="accent">1</span>. Множества хранят только уникальные элементы, поэтому вы легко сможете проверить содержит ли множество, какой-либо элемент, использовав метод contains. Что бы проверить массив, нужен такой же метод, но компилятор будет перебирать каждый элемент последовательно что бы найти первый соотвествующий, отсюда вытекает второе преимущество.
+                </p>
+                <p>
+                    <span class="accent">2</span>. Множества работают быстрее, так как компилятору не приходится последовательно перебирать каждый элемент, и переиндексировать их в случае удаления, либо добавления элемента.
+                </p>
+                <p>
+                    Появляется резонный вопрос, зачем тогда массивы, если у нас есть множества?!
+                </p>
+                <p>
+                    В некоторых случаях нам необходима упорядоченность элементов, поэтому здесь все будет зависеть от ваших целей. Не бывает что-то не нужным, бывает просто не подходящий момент для той или иной концепции.
+                </p>
+                <p>
+                    Что бы создать пустое множество, нужно прописать не только Set, но и тип данных:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var colors: Set<String> = []
+                            var countLeg = Set<String>()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">colors</span>: <span class="className">Set</span>&#60;<span class="className">String</span>> = []
+    <span class="keywords">let</span> <span class="language-swift">countLeg</span> = <span class="className">Set</span>&#60;<span class="className">String</span>>()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    это два рабочих варианта, выбирайте любой удобный для вас.
+                </p>
+
+
+                <h2 id="func_set">
+                    Методы Множества
+                </h2>
+
+                <p>
+                    В целом здесь точно такие же свойства и методы, что и у массивов и у словарей, так как это тоже коллекция, но есть и специфичные. Давайте пройдемся по уже знакомым нам:
+                </p>
+                <p>
+                    <span class="className">count</span> – возвращает количество элементов в множестве
+                </p>
+                <p>
+                    <span class="className">first</span> – возвращает первый элемент множества
+                </p>
+                <p>
+                    <span class="className">isEmpty </span> – возвращает true, если множество пустое, иначе false
+                </p>
+                <p>
+                    <span class="className">contains</span>(_:) – возвращает ture, если множество содержит заданный элемент, иначе false
+                </p>
+                <p>
+                    <span class="className">insert</span>(_:) – добавляет новый элемент в множество. Давайте посмотрим на примере:
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson10/Lesson10.1.png" />
+                <p>
+                    Обратите внимание на тип параметра, это <span class="className">String</span>, потому что мы вызываем метод у множества с типом <span class="className">String</span>, если бы это было множество с типом Int, то и параметр был бы такого типа:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson10/Lesson10.2.png" />
+                <p>
+                    Ну и давайте добавим по элементу в каждое из множеств:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var colors: Set = ["Красный", "Желтый", "Зеленый"]
+                            colors.insert("Белый")
+
+                            var countLag: Set = [4, 6, 8]
+                            countLag.insert(2)
+
+                            colors
+                            countLag
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">colors</span>: <span class="className">Set</span> = [<span class="string">"Красный"</span>, <span class="string">"Желтый"</span>, <span class="string">"Зеленый"</span>]
+    <span class="className">colors</span>.<span class="className">insert</span>(<span class="string">"Белый"</span>)
+
+    <span class="keywords">var</span> <span class="language-swift">countLag</span>: <span class="className">Set</span> = [<span class="numbers">4</span>, <span class="numbers">6</span>, <span class="numbers">8</span>]
+    <span class="className">countLag</span>.<span class="className">insert</span>(<span class="numbers">2</span>)</span>
+
+    <span class="className">colors</span>
+    <span class="className">countLag</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    в строке с добавлением справа, вы можете видеть два параметра inserted равное true, оно говорит о том что элемент был добавлен, и memberAfterInsert, но показывает добавленный элемент.
+                </p>
+                <p>
+                    Но что будет если мы попытаемся добавить уже имеющийся во множестве элемент:
+                </p>
+                 <img class="img_block" src="assets/Images/Lesson10/Lesson10.3.png" />
+                <p>
+                    Как видите параметр inserted вернул false, то есть элемент не был добавлен.
+                </p>
+                <p>
+                    Но что будет если мы определим повторяющийся элемент непосредственно в само множество:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson10/Lesson10.4.png" />
+                <p>
+                    Компилятор это значение просто не учитывает.
+                </p>
+                <p>
+                    И последний метод который мы рассмотрим в данном уроке это
+                </p>
+                <p>
+                    <span class="className">remove</span>(_:) – удаляет элемент из множества
+                </p>
+                <img class="img_block" src="assets/Images/Lesson10/Lesson10.5.png" />
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            При каждом запуске компилятора, расстановка элементов может изменяться, так как множество это не упорядоченная коллекция.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Как вы видите мы удалили желтый цвет и цифру 6 из наших коллекций.
+                </p>
+
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            Давайте подведем итог.
+                        </p>
+                        <p>
+                            <span class="accent">Множество</span> это не упорядоченная коллекция (элементы располагаются хаотично), все элементы уникальные, то есть не повторятся.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

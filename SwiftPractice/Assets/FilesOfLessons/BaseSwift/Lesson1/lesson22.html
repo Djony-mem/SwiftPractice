@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_22">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#inheritance" class="yakor">&#128195; Наследование</a>
+          <a href="#init_for_inherit" class="yakor">&#128195; Инициализатор у класса-наследника</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 22. Наследование. Часть 1.
+            </h2>
+            <p class="date_p"> 28 Апреля 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <h2 id="inheritance">
+                   Наследование.
+                </h2>
+                <p>
+                    Класс обладает уникальной способностью наследовать свойства и методы других классов.
+                </p>
+                <p>
+                    Давайте посмотрим на следующий пример:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View {
+                                var background = "white"
+                                var alpha = 1.0
+                            }
+
+                            class Button {
+                                var background = "white"
+                                var alpha = 1.0
+                            }
+
+                            class Label {
+                                var background = "white"
+                                var alpha = 1.0
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> {
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">alpha</span> = <span class="numbers">1.0</span>
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">alpha</span> = <span class="numbers">1.0</span>
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Label</span> {
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">alpha</span> = <span class="numbers">1.0</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Перед вами 4 элемента интерфейса, <span class="accent">View</span> это белый кран, <span class="accent">Button</span> это кнопка, <span class="accent">Label</span> – текст на экране. Вы можете заметить что внутри каждого из этих классов абсолютно одинаковый код, у каждого есть <span class="accent">background</span> – цвет фона, у каждого есть <span class="accent">alpha</span> – прозрачность объекта.
+                </p>
+                <p>
+                    Как вы уже знаете, программисты ленивый народ, и им не очень хочется повторять каждый раз одни и те же действия. И вот в один из прекрасных дней им пришла в голову идея объединить общие свойства и методы всех этих элементов в один родительский класс. Таким образом, они могут наследовать эти свойства и методы и не повторять их каждый раз в каждом классе.
+                </p>
+                <p>
+                    Синтаксис наследования выглядит следующим образом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson22/Lesson22.1.png" />
+                <p>
+                    После имени класса, мы ставим двоеточие и следом тот класс, от которого хотим наследоваться
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Класс от которого наследуемся называется – суперклассом, а тот кто наследуется – подклассом.
+                        </p>
+                         <img class="img_block" src="assets/Images/Lesson22/Lesson22.2.png" />
+
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте сделаем класс View родительским, то есть суперклассом, а все остальные подклассами, то есть наследниками:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View {
+                                var background = "white"
+                                var alpha = 1.0
+                            }
+
+                            class Button: View {
+                            }
+
+                            class Label: View {
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> {
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">alpha</span> = <span class="numbers">1.0</span>
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span>: View {
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Label</span>: View {
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Класс Button и Label  унаследуют все что есть в классе View, все его свойства и методы, таким образом они нам будут доступны из коробки и мы можем спокойно к ним обращаться из экземпляра класса:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let button = Button()
+                            button.background // white
+                            button.alpha // 1
+
+                            let label = Label()
+                            label.background // white
+                            label.alpha // 1
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">button</span> = Button()
+    button.background <span class="comments">// white</span>
+    button.alpha <span class="comments">// 1</span>
+
+    <span class="keywords">let</span> <span class="language-swift">label</span> = Label()
+    label.background <span class="comments">// white</span>
+    label.alpha <span class="comments">// 1</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Не смотря на то что в данных классах не написано ни строчки кода, тем не менее у нас есть доступ ко всем свойствам класса View от которого мы унаследовались.
+                </p>
+                <p>
+                    Наследование можно сравнить с семейными отношениями, где родители передают свои свойства и характеристики потомкам, например цвет глаз и предрасположенность к аллергии. Но как вы понимаете потомки могут так же иметь свои собственные характеристики, не унаследованные, например скверный характер.
+                </p>
+                <p>
+                    То есть любой подкласс, может так же иметь и свои собственные свойства и методы:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button: View {
+                                var cornerRadius = 15
+                            }
+
+                            class Label: View {
+                                var title = "Label"
+                            }
+
+                            let button = Button()
+                            button.background // white
+                            button.alpha // 1
+                            button.cornerRadius // 15
+
+                            let label = Label()
+                            label.background // white
+                            label.alpha // 1
+                            label.title // Label
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span>: View {
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Label</span>: View {
+         <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">"Label"</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button()
+    button.background <span class="comments">// white</span>
+    button.alpha <span class="comments">// 1</span>
+    button.cornerRadius <span class="comments">// 15</span>
+
+    <span class="keywords">let</span> <span class="language-swift">label</span> = Label()
+    label.background <span class="comments">// white</span>
+    label.alpha <span class="comments">// 1</span>
+    label.title</span> <span class="comments">// Label</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    И здесь важный момент, ребенок наследует все что есть у родителя, но родитель никогда не сможет унаследовать что то от ребенка. То есть класс View не знает что происходит в его дочерних классах, их личные свойства и методы ему не доступны:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson22/Lesson22.3.png" />
+                <p>
+                    Если вы создадите экземпляр класса View, и попытаетесь обратиться к его свойствам, вы увидите в списке только alpha и background, а свойства cornarRadius не будет, потому что оно имеет отношение только к классу Button.
+                </p>
+                <p>
+                    Со всеми унаследованными от суперкласса свойствами вы можете работать как с родными, изменять их, использовать во внутренней логике.
+                </p>
+                <p>
+                    Давайте добавим нашему супер классу вычисляемое свойство с описанием:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View {
+                                var background = "white"
+                                var alpha = 1.0
+
+                                var description: String {
+                                    "background: \(background) and alpha: \(alpha)"
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> {
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">alpha</span> = <span class="numbers">1.0</span>
+
+        <span class="keywords">var</span> <span class="language-swift">description</span>: <span class="className">String</span> {
+            <span class="string">"background:</span> \(<span class="className">background</span>) <span class="string">and alpha:</span> \(<span class="className">alpha</span>)<span class="string">"</span>
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    вычисляемое свойство description выводит на консоль сообщение, которое включает в себя значения свойств background и alpha.
+                </p>
+                <p>
+                    А сейчас посмотрите на код ниже и ответьте на вопрос, что мы увидим на консоле, если обратимся к свойству description у кнопки?
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View { // Базовый класс
+                                var background = "white"
+                                var alpha = 1.0
+
+                                var description: String {
+                                    "background: \(background) and alpha: \(alpha)"
+                                }
+                            }
+
+                            class Button: View { // Класс наследник
+                                var cornarRadius = 15
+                            }
+
+                            let button = Button()
+                            button.background = "red"
+                            button.alpha = 0.5
+                            button.cornerRadius = 16
+
+                            print(button.description)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> { <span class="comments">// Базовый класс</span>
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">alpha</span> = <span class="numbers">1.0</span>
+
+        <span class="keywords">var</span> <span class="language-swift">description</span>: <span class="className">String</span> {
+            <span class="string">"background:</span> \(<span class="className">background</span>) <span class="string">and alpha:</span> \(<span class="className">alpha</span>)<span class="string">"</span>
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button()
+    button.background = <span class="string">"red"</span>
+    button.alpha = <span class="numbers">0.5</span>
+    button.cornerRadius = <span class="numbers">16</span>
+
+    <span class="className">print</span>(button.description)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если вы ответили: background: whith and alpha: 1.0, то это будет не верным решением. Давайте разбираться. Выше было сказано, что наследование можно расценивать как копирование всего публичного что находится в родительском классе.
+                </p>
+                <p>
+                    Когда создается класс для него выделяется определенное количество памяти. При этом в память загружаются все поля, методы и свойства, которые определены внутри этого класса.
+                </p>
+                <p>
+                    Когда создается класс-наследник, то он получает все поля и методы, определенные в его родительском классе (базовом классе). Для этого в памяти выделяется дополнительное место для хранения всех наследованных членов базового класса.
+                </p>
+                <p>
+                    Для понимания того как это все работает, можно представить класс наследник Button так:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson22/Lesson22.4.png" />
+                <p>
+                    В верхней части все свойства и методы, которые мы унаследовали у супер класса, в том числе и его пустой инициализатор, который мы не видим, но он нам дан по умолчанию, при создании экземпляра класса Button у нас выделилась дополнительная память для них. Конечно это грубое представление, того как это все размещается в памяти, но нам сейчас главное понимать как мы можем взаимодействовать с унаследованными свойствами и методами. таким образом когда мы меняем значения свойств <span class="accent">background</span> и <span class="accent">alpha</span>:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let button = Button()
+                            button.background = "red"
+                            button.alpha = 0.5
+                            button.cornerRadius = 16
+
+                            print(button.description)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">button</span> = Button()
+    button.background = <span class="string">"red"</span>
+    button.alpha = <span class="numbers">0.5</span>
+    button.cornerRadius = <span class="numbers">16</span>
+
+    <span class="className">print</span>(button.description)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    то description будет отображать новые значения: <span class="accent">background</span>: red and <span class="accent">alpha</span>: 0.5
+                </p>
+                <h2 id="init_for_inherit">
+                   Инициализатор у класса-наследника.
+                </h2>
+                <p>
+                    Думаю вы уже догадались что мы от супер класса так же наследуем и его инициализатор. В примерах выше, во всех классах, мы используем пустой инициализатор, так как все свойства инициализированы, и его по умолчанию можно не прописывать.
+                </p>
+                <p>
+                    Давайте инициализируем свойства супер класса через инициализатор:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View { // Базовый класс
+                                let background: String
+                                let alpha: Double
+
+                                init(background: String, alpha: Double) {
+                                    self.background = background
+                                    self.alpha = alpha
+                                }
+                            }
+
+                            class Button: View { // Класс наследник
+                            }
+
+                            let button = Button(background: "green", alpha: 1.0)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> { <span class="comments">// Базовый класс</span>
+        <span class="keywords">let</span> <span class="language-swift">background</span>: <span class="className">String</span>
+        <span class="keywords">let</span> <span class="language-swift">alpha</span>: <span class="className">Double</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">background</span>: <span class="className">String</span>, <span class="language-swift">alpha</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">background</span> = background
+            <span class="keywords">self</span>.<span class="className">alpha</span> = alpha
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button(background: <span class="string">"green"</span>, alpha: <span class="numbers">1.0</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Обратите внимание что мы  унаследовали от супер класса так же инициализатор. Для наглядности снова обратимся к нашей памяти:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson22/Lesson22.5.png" />
+                <p>
+                    Ответьте себе на вопрос, чему будут равны свойства alpha и background у кнопки:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View { // Базовый класс
+                                let background: String
+                                let alpha: Double
+
+                                init(background: String, alpha: Double) {
+                                    self.background = background
+                                    self.alpha = alpha
+                                }
+                            }
+
+                            class Button: View { // Класс наследник
+                            }
+
+                            let button = Button(background: "green", alpha: 1.0)
+                            button.background
+                            button.alpha
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> { <span class="comments">// Базовый класс</span>
+        <span class="keywords">let</span> <span class="language-swift">background</span>: <span class="className">String</span>
+        <span class="keywords">let</span> <span class="language-swift">alpha</span>: <span class="className">Double</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">background</span>: <span class="className">String</span>, <span class="language-swift">alpha</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">background</span> = background
+            <span class="keywords">self</span>.<span class="className">alpha</span> = alpha
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button(background: <span class="string">"green"</span>, alpha: <span class="numbers">1.0</span>)
+    button.background
+    button.alpha</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                </p>
+                <button class="accordion">Ответ</button>
+                <div class="panel">
+                  <p>
+                      button.background имеет значение “green”, а button.alpha значение 1.0
+                  </p>
+                </div>
+                <p>
+                    Button унаследует от View всё его содержимое в том числе и инициализатор. Но что если мы хотим создать в классе Button свой собственный инициализатор:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View { // Базовый класс
+                                let background: String
+                                let alpha: Double
+
+                                init(background: String, alpha: Double) {
+                                    self.background = background
+                                    self.alpha = alpha
+                                }
+                            }
+
+                            class Button: View { // Класс наследник
+                                let cornerRadius: Int
+
+                                init(cornerRadius: Int) { // Ошибка
+                                    self.cornerRadius = cornerRadius
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> { <span class="comments">// Базовый класс</span>
+        <span class="keywords">let</span> <span class="language-swift">background</span>: <span class="className">String</span>
+        <span class="keywords">let</span> <span class="language-swift">alpha</span>: <span class="className">Double</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">background</span>: <span class="className">String</span>, <span class="language-swift">alpha</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">background</span> = background
+            <span class="keywords">self</span>.<span class="className">alpha</span> = alpha
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+        <span class="keywords">let</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) { <span class="comments">// Ошибка</span>
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае у нас будет ошибка, прежде чем продолжить, подумайте почему она возникла.
+                </p>
+                <p>
+                    Давайте разбираться.
+                </p>
+                <p>
+                    Снова обратимся к наглядному примеру. Предположим мы попытаемся создать экземпляр класса button с его новым инициализатором:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button: View { // Класс наследник
+
+                                let cornerRadius: Int
+
+                                init(cornerRadius: Int) {
+                                    self.cornerRadius = cornerRadius
+                                }
+                            }
+
+                            let button = Button(cornerRadius: 7)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+
+        <span class="keywords">let</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) {
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button(cornerRadius: <span class="numbers">7</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В памяти мы увидим следующее:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson22/Lesson22.6.png" />
+                <p>
+                    Унаследованные нами свойства остались не инициализированными, потому что мы не можем вызвать два иниуиализатора сразу, но мы можем вызвать унаследованный инициализатор у супер класса:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button: View { // Класс наследник
+
+                                let cornerRadius: Int
+
+                                init(cornerRadius: Int) {
+                                    self.cornerRadius = cornerRadius
+                                    super.init(background: "white", alpha: 1.0) // Обращаемся к супер классу и вызываем его инициализатор
+                                }
+                            }
+
+                            let button = Button(cornerRadius: 7)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+
+        <span class="keywords">let</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) {
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+            <span class="keywords">super</span>.<span class="keywords">init</span>(background: <span class="string">"white"</span>, alpha: <span class="numbers">1.0</span>) <span class="comments">// Обращаемся к супер классу и вызываем его инициализатор</span>
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button(cornerRadius: <span class="numbers">7</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Чтобы обратиться к инициализатору супер класса мы должны прописать super и вызвать нужный инициализатор, как вы знаете их может быть несколько в классе.
+                </p>
+                <p>
+                    таким образом в момент создания экземпляра класса button мы вызовем инициализатор с cornerRadius и по цепочке зацепим инициализатор супер класса и инициализируем все свойства в супер классе.
+                </p>
+                <p>
+                    Вы могли заметить, что значения для свойств супер класса будут заданы автоматически, всегда белый цвет с прозрачностью 1 и мы их не сможем поменять. Это не очень удобно и чаше всего мы бы хотели контролировать инициализацию этих свойств. В таком случае можно добавить параметры в инициализатор класса Button:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button: View { // Класс наследник
+
+                                let cornerRadius: Int
+
+                                init(cornerRadius: Int, background: String, alpha: Double) {
+                                    self.cornerRadius = cornerRadius
+                                    super.init(background: background, alpha: alpha)
+                                }
+                            }
+
+                            let button = Button(cornerRadius: 7, background: "red", alpha: 1.0)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+
+        <span class="keywords">let</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">cornerRadius</span>: <span class="className">Int</span>, <span class="language-swift">background</span>: <span class="className">String</span>, <span class="language-swift">alpha</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+            <span class="keywords">super</span>.<span class="keywords">init</span>(<span class="language-swift">background</span>: background, <span class="language-swift">alpha</span>: alpha)
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button(cornerRadius: <span class="numbers">7</span>, background: <span class="string">"red"</span>, alpha: <span class="numbers">1.0</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Теперь мы можем задавать значения для этих свойств в момент создания экземпляра класса.
+                </p>
+                <p>
+                    Мы так же можем унаследоваться от этой кнопки и создать на ее основе кастомную кнопку:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View { // Базовый класс
+                                let background: String
+                                let alpha: Double
+
+                                init(background: String, alpha: Double) {
+                                    self.background = background
+                                    self.alpha = alpha
+                                }
+                            }
+
+                            class Button: View { // Класс наследник
+
+                                let cornerRadius: Int
+
+                                init(cornerRadius: Int, background: String, alpha: Double) {
+                                    self.cornerRadius = cornerRadius
+                                    super.init(background: background, alpha: alpha)
+                                }
+                            }
+
+                            class CustomButton: Button {
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> { <span class="comments">// Базовый класс</span>
+        <span class="keywords">let</span> <span class="language-swift">background</span>: <span class="className">String</span>
+        <span class="keywords">let</span> <span class="language-swift">alpha</span>: <span class="className">Double</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">background</span>: <span class="className">String</span>, <span class="language-swift">alpha</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">background</span> = background
+            <span class="keywords">self</span>.<span class="className">alpha</span> = alpha
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span>: View { <span class="comments">// Класс наследник</span>
+
+        <span class="keywords">let</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">cornerRadius</span>: <span class="className">Int</span>, <span class="language-swift">background</span>: <span class="className">String</span>, <span class="language-swift">alpha</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+            <span class="keywords">super</span>.<span class="keywords">init</span>(<span class="language-swift">background</span>: background, <span class="language-swift">alpha</span>: alpha)
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">CustomButton</span>: Button {
+
+    } </span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Подумайте какой инициализатор нам будет доступен если мы заходим создать экземпляр этого класса?!
+                </p>
+                <p>
+                    Нам будет доступен последний инициализатор в иерархии наследования, то есть тот который находится в Button:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class CustomButton: Button {
+
+                            }
+
+                            let customButton = CustomButton(cornerRadius: 6, background: "pink", alpha: 0.3)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">CustomButton</span>: Button {
+
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">customButton</span> = CustomButton(cornerRadius: <span class="numbers">6</span>, background: <span class="string">"pink"</span>, alpha: <span class="numbers">0.3</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    в памяти такой экземпляр будет выглядеть следующим образом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson22/Lesson22.7.png" />
+                <p>
+                    Подумайте как должен выглядеть инициализатор у класса CustomButton, если мы добавим ему одно свойство title:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class CustomButton: Button {
+                                let title: String
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">CustomButton</span>: Button {
+        <span class="keywords">let</span> <span class="language-swift">title</span>: <span class="className">String</span>
+    } </span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                </p>
+                <button class="accordion">Ответ</button>
+                <div class="panel">
+                  <p>
+                      Так как мы обязаны инициализировать все свойства всех своих унаследованых по цепочке классов, то мы обязаны вызвать инициализатор у супер класса:
+                  </p>
+                     <img class="img_block" src="assets/Images/Lesson22/Lesson22.8.png" />
+                </div>
+                <p>
+                    А теперь давайте посмотрим какие значения будут у всех свойств нашего экземпляра customButton:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class CustomButton: Button {
+                                let title: String
+
+                                init(title: String) {
+                                    self.title = title
+                                    super.init(cornerRadius: 10, background: "blue", alpha: 0.5)
+                                }
+                            }
+
+                            let customButton = CustomButton(title: "Done")
+                            customButton.title // "Done"
+                            customButton.background // "blue"
+                            customButton.alpha // 0.5
+                            customButton.cornerRadius // 10
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">CustomButton</span>: Button {
+        <span class="keywords">let</span> <span class="language-swift">title</span>: <span class="className">String</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">title</span>: <span class="className">String</span>) {
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+            <span class="keywords">super</span>.<span class="keywords">init</span>(<span class="language-swift">cornerRadius</span>: <span class="numbers">10</span>, <span class="language-swift">background</span>: <span class="string">"blue"</span>, <span class="language-swift">alpha</span>: <span class="numbers">0.5</span>)
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">customButton</span> = CustomButton(title: <span class="string">"Done"</span>)
+    customButton.title <span class="comments">// "Done"</span>
+    customButton.background <span class="comments">// "blue"</span>
+    customButton.alpha <span class="comments">// 0.5</span>
+    customButton.cornerRadius <span class="comments">// 10</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Обязательно разберитесь почему мы получили в результате такие данные.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если в классе Button не будет личного инициализатора, в таком случае CustomButton воспользуется инициализатором класса View.
+                        </p>
+                        <p>
+                            Обратите так же внимания что в инициализаторе мы должны сперва инициализировать все свойства подкласса, а потом уже свойства его супер класса.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Предлагаю на этом закончить урок, что бы закрепить полученные знания решением задач.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+    <script src="assets/js/accordion.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

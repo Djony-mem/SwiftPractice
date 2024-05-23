@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 4. Интерполяция строк и конкатенация строк
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 4.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+             </h2>
+                <p>
+                    Создайте два свойства, одно из которых будет хранить значение “Земли”, а второе   “Луна”.
+                </p>
+                <p>
+                    Создайте на основе объявленых свойств фразу: “Луна – спутник Земли!”
+                </p>
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let planet = "Земли"
+                                let sputnik = "Луна"
+
+                                let expression = "\(sputnik) - спутник \(planet)!"
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> planet<span class="operator"> = </span><span class="string">"Земли"</span>
+    <span class="keywords">let</span> sputnik<span class="operator"> = </span><span class="string">"Луна"</span>
+
+    <span class="keywords">let</span> expression<span class="operator"> = </span><span class="string">"<span class="operator">\(<span class="className">sputnik</span>) <span class="string">- спутник</span> \(<span class="className">planet</span>)</span>!"</span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p> Мы внедрили в строку значения при помощи конструкции \()
+                </p>
+                <p>
+                  Это задание можно решить при помощи конкатенации:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let planet = "Земли"
+                                let sputnik = "Луна"
+
+                                let expression = sputnik + "- спутник " + planet + "!"
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> planet<span class="operator"> = </span><span class="string">"Земли"</span>
+    <span class="keywords">let</span> sputnik<span class="operator"> = </span><span class="string">"Луна"</span>
+
+    <span class="keywords">let</span> expression<span class="operator"> = </span><span class="className">sputnik<span class="operator"> + </span><span class="string">"- спутник "</span><span class="operator"> + </span><span class="className">planet</span></span><span class="operator"> + </span><span class="string">"!"</span>
+                        </code>
+                       </pre>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Но лучше всегда отдавать предпочтение интерполяции!
+                </p>
+                <p>
+                    Все свойства этого задания должны быть константами.
+                </p>
+                <p>
+                    Обязательно нужно было создать свойство, которое хранит полную фразу. В коде всегда должен быть смысл, если мы эту фразу составили, то значит где то ее будем использовать, А как ее использовать если она у нас ни где не сохранена.
+                </p>
+                <p>
+                    Ошибкой будет следующая запись:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let planet = "Земли!"
+                                let sputnik = "Луна - спутник "
+
+                                let expression = "\(sputnik) \(planet)"
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> planet<span class="operator"> = </span><span class="string">"Земли!"</span>
+    <span class="keywords">let</span> sputnik<span class="operator"> = </span><span class="string">"Луна - спутник "</span>
+
+    <span class="keywords">let</span> expression<span class="operator"> = </span><span class="string"> "<span class="operator">\(<span class="className">sputnik</span>) \(<span class="className">planet</span>)</span>" </span>
+                        </code>
+                       </pre>
+                        </div>
+                    </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    В условии задачи четко заданы значения “Земли” и “Луна” без дополнительных символов.
+                </p>
+                <p>
+                    Так же не нужно создавать дополнительные свойства для дефиса и восклицательного знака, это все можно оставить в строке.
+                </p>
+                <p>
+                    Названия здесь можно было выбрать как конкретные earth и moon, так и общие как в примере.
+                </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

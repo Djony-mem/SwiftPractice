@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_13">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#initial_values" class="yakor">&#128195; Исходные значения</a>
+          <a href="#assoc_param" class="yakor">&#128195; Ассоциативные параметры</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 13. Перечисления
+            </h2>
+            <p class="date_p"> 24 Января 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+
+                <p>
+                    <span class="accent">Перечисление</span>, это тип данных, который определяет набор констант, значения которых являются альтернативами друг другу.
+                </p>
+                <p>
+                    Все типы данных пишутся с большой буквы, и вы уже знакомы с базовыми типами, такими как <span class="className">String</span>, <span class="className">Int</span>, <span class="className">Bool</span> и так далее, так вот перечисление является типом данных, который мы сами назвали, и сами создали.
+                </p>
+                <p>
+                    Давайте посмотрим на синтаксис:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum EnumirationName {
+                                case enumiration
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">EnumirationName</span> {
+        <span class="keywords">case</span> <span class="language-swift">enumiration</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    После ключевого слова <span class="keywords">enum</span> мы прописываем имя перечисления, оно должно быть обязательно с большой буквы, так как это тип данных. Имя должно отражать суть своего содержания. В фигурных скобках мы определяем кейсы, это набор каких то значений.
+                </p>
+                <p>
+                    Например у нас стоит задача хранить все стороны горизонта, север, юг, запад и восток:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum Direction {
+                                case north
+                                case south
+                                case east
+                                case west
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">Direction</span> {
+        <span class="keywords">case</span> <span class="language-swift">north</span>
+        <span class="keywords">case</span> <span class="language-swift">south</span>
+        <span class="keywords">case</span> <span class="language-swift">east</span>
+        <span class="keywords">case</span> <span class="language-swift">west</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Мы определили перечисление с именем <span class="typeDeclar">Direction</span>, а в блоке перечислили необходимые кейсы с маленькой буквы после ключевого слова <span class="keywords">case</span>
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Кейсы должны быть уникальными. По умолчанию, если не задать ни какого значения для кейса, то оно соответствует названию самого кейса. При этом сами кейсы являются константами и изменять их значения нельзя.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                   Кейсы обычно пишут в столбик, но можно писать и в строчку, при этом сильно увлекаться не стоит
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum Direction {
+                                case north, south
+                                case east, west
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">Direction</span> {
+        <span class="keywords">case</span> <span class="language-swift">north</span>, <span class="language-swift">south</span>
+        <span class="keywords">case</span> <span class="language-swift">east</span>, <span class="language-swift">west</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если у вас кейсов много, то лучше не делать длинные строки, а отдать предпочтение столбикам, так более наглядно и более привычно.
+                </p>
+                <p>
+                    Если перечисление является типом данных, так же как String, Int и так далее, в таком случае мы можем создать свойство с этим типом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDirection: Direction
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDirection</span>: Direction</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Мы создали свойство с типом <span class="className">Direction</span>, но никак его не инициализировали.
+                </p>
+                <p>
+                    Какое значение мы ему должны присвоить?!
+                </p>
+                <p>
+                    Значения типа <span class="className">String</span> определяются кавычками, типа <span class="className">Int</span> целым числом, логические значения двумя состояниями либо true либо false и так далее, у каждого типа есть свой вид значений.
+                </p>
+                <p>
+                    Перечисление инициализируется одним из своих кейсов:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDirection: Direction = .east
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDirection</span>: Direction = .east</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    То есть теперь мы создали свойство, которое содержит в себе один кейс перечисления, и если мы его выведем на консоль, то мы увидим значение <span class="className">east</span>:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.1.png" />
+                <p>
+                    Выше у нас есть пометка, что если не задать кейсу ни какого значения, то оно будет соответствовать своему кейсу, поэтому мы видим такое значение на консоли.
+                </p>
+                <p>
+                    Что бы <a href="#" class="tooltipText"><span class="textInfo">
+                        <span class="accent">Объявить</span> - по сути создать константу (в нашем случае с типом перечисления). Тот момент когда мы пишем let nameProperty: Тип перечисления
+                    </span>&#x270D;объявить</a> перечисление необходимо обязательно прописать тип данных.
+                </p>
+                <p>
+                    Есть еще один способ объявления свойства с типом перечисления:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDirection = Direction.east
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDirection</span> = Direction.east</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Мы сразу обращаемся к типу <span class="className">Direction</span> ставим точку и выбираем нужный кейс.
+                </p>
+                <p>
+                    В дальнейшем при изменении значений достаточно просто присвоить конкретный кейс из перечисления без обращения к самому типу:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDirection = Direction.east
+                            myDirection = .north
+                            myDirection = .south
+
+                            print(myDirection) // на консоли увидим south
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDirection</span> = Direction.east
+    <span class="className">myDirection</span> = .north
+    <span class="className">myDirection</span> = .south
+
+    <span class="className">print</span>(<span class="className">myDirection</span>) <span class="comments">// на консоли увидим south</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Обратите внимание, что свойство мы сделали переменной, что бы мы могли его изменять.
+                </p>
+                <p>
+                    Хорошо, с оформлением перечисления мы определились, давайте теперь разбираться, где же мы их можем использовать.
+                </p>
+                <p>
+                    Предположим что нам нужно сообщить пользователю куда он направляется, в зависимости от того что показывает компас. Перечисление отлично работает с условной конструкцией switch, поэтому давайте используем ее, и пройдемся по каждому нашему шагу:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var myDirection = Direction.east
+                            myDirection = .north
+                            myDirection = .south
+
+                            switch myDirection {
+                            case .north:
+                                print("You are heading north")
+                            case .south:
+                                print("You are heading south")
+                            case .east:
+                                print("You are heading east")
+                            case .west:
+                                print("You are heading west")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">myDirection</span> = Direction.east
+    <span class="className">myDirection</span> = .north
+    <span class="className">myDirection</span> = .south
+
+    <span class="keywords">switch</span> <span class="className">myDirection</span> {
+    <span class="keywords">case</span> .north:
+        <span class="className">print</span>(<span class="string">"You are heading north"</span>)
+    <span class="keywords">case</span> .south:
+        <span class="className">print</span>(<span class="string">"You are heading south"</span>)
+    <span class="keywords">case</span> .east:
+        <span class="className">print</span>(<span class="string">"You are heading east"</span>)
+    <span class="keywords">case</span> .west:
+        <span class="className">print</span>(<span class="string">"You are heading west"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    После ключевого слова <span class="keywords">switch</span> мы определяем значение, которое будем сопоставлять, в нашем случае это свойство <span class="className">myDirection</span>, которое является типом <span class="className">Direction</span>:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.2.png" />
+                <p>
+                    Свойство <span class="className">myDirection</span> содержит значение .<span class="className">south</span>, это последнее чем мы его пере определили. Далее идут кейсы с которыми мы это значение будем сопоставлять:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.3.png" />
+                <p>
+                    Когда компилятор натыкается на нужный ему кейс, остальные он не будет проверять.
+                </p>
+                <p>
+                    Обратите внимание что в данном случае в конструкции <a href="#" class="tooltipText"><span class="textInfo"><img class="img_block" src="assets/Images/Lesson7/Lesson7.1.png" /></span>&#x270D;switch</a> не будет дефолтной ветки, а все потому что перебирая перечисления у вас не будет случайных значений, только те, которые содержит наш новый тип Direction.
+                </p>
+                <p>
+                    На самом деле компилятор не даст вам продолжить работу, если у вас не хватает какого либо кейса:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.4.png" />
+                <p>
+                    И здесь есть два решения. Либо прописать не достающие кейсы, либо определить дефолтную ветку:
+                </p>
+                                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var myDirection = Direction.east
+                            myDirection = .north
+                            myDirection = .south
+
+                            switch myDirection {
+                            case .north:
+                                print("You are heading north")
+                            case .south:
+                                print("You are heading south")
+                            default:
+                                print("your direction is not certain")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">myDirection</span> = Direction.east
+    <span class="className">myDirection</span> = .north
+    <span class="className">myDirection</span> = .south
+
+    <span class="keywords">switch</span> <span class="className">myDirection</span> {
+    <span class="keywords">case</span> .north:
+        <span class="className">print</span>(<span class="string">"You are heading north"</span>)
+    <span class="keywords">case</span> .south:
+        <span class="className">print</span>(<span class="string">"You are heading south"</span>)
+    <span class="keywords">default</span>:
+        <span class="className">print</span>(<span class="string">"your direction is not certain"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае комиплятор не будет ругаться. То есть в случае востока и запада мы получим сообщение из дефолтной ветки. На самом деле switch и перечисления, они как будто созданы друг для друга, потому что switch перебирает списки значений, а  перечисления содержат эти списки
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Когда вы сопоставляете перечисление при помощи конструкции switch, компилятор помогает заполнить все необходимы кейсы. Достаточно прописать основной блок:
+                        </p>
+                        <img class="img_block" src="assets/Images/Lesson13/Lesson13.5.png" />
+                        <p>
+                            Компилятор предложит перечислить кейсы за вас, просто нажмите кнопку Fix.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <h2 id="initial_values">
+                    Исходные значения
+                </h2>
+                <p>
+                    Бывают случаи когда в коде или даже в интерфейсе необходимо использовать значение кейсов перечисления.
+                </p>
+                <p>
+                    Как вы уже знаете, каждый кейс по умолчанию имеет значение, которое соответсвует названию кейса, но не всегда значение кейсов должны соответствовать названию. Давайте сперва посмотрим, на примере, как определить эти исходные значения:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum ClothingSize: String {
+                                case small = "S"
+                                case medium = "M"
+                                case large = "L"
+                                case extraLarge = "XL"
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">ClothingSize</span>: <span class="className">String</span> {
+        <span class="keywords">case</span> <span class="language-swift">small</span> = <span class="string">"S"</span>
+        <span class="keywords">case</span> <span class="language-swift">medium</span> = <span class="string">"M"</span>
+        <span class="keywords">case</span> <span class="language-swift">large</span> = <span class="string">"L"</span>
+        <span class="keywords">case</span> <span class="language-swift">extraLarge</span> = <span class="string">"XL"</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Перед вами перечисление размеров одежды. После двоеточия мы определяем тип исходного значения: в нашем случае это тип String, далее мы можем присваивать кейсам значения этого типа.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Исходное значение должно быть уникальным, то есть мы не сможем два раза присвоить значение “S” или любое другое.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    И теперь мы можем брать значение этих кейсов и использовать их там где они нам понадобятся
+                </p>
+                <p>
+                    Для того что бы получить доступ к исходным значением кейсов перечисления, нам нужно обратиться к свойству <span class="className">rawValue</span> этого кейса.
+                </p>
+                <p>
+                    Давайте мы сейчас создадим переменную size:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var size = ClothingSize.small
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">size</span> = ClothingSize.small</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    И выведем на консоль исходное значение этого кейса:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var size = ClothingSize.small
+                            print(size.rawValue)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">size</span> = ClothingSize.small
+    <span class="className">print</span>(<span class="className">size</span>.<span class="className">rawValue</span>)</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Таким образом на консоли мы увидим значение <span class="string">“S”</span>. Свойство <span class="className">size</span> является кейсом <span class="className">small</span>, соответственно исходных значений будет соответствующим.
+                </p>
+                <p>
+                    Если вам для некоторых кейсов не нужно значение, то вы можете задать их не для всех:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum ClothingSize: String {
+                                case small = "S"
+                                case medium = "M"
+                                case large
+                                case extraLarge
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">ClothingSize</span>: <span class="className">String</span> {
+        <span class="keywords">case</span> <span class="language-swift">small</span> = <span class="string">"S"</span>
+        <span class="keywords">case</span> <span class="language-swift">medium</span> = <span class="string">"M"</span>
+        <span class="keywords">case</span> <span class="language-swift">large</span>
+        <span class="keywords">case</span> <span class="language-swift">extraLarge</span>
+    }</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Но это не значит что у двух последних кейсов нет значений, давайте в этом убедимся:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var size = ClothingSize.small
+                            print(size.rawValue)
+
+                            size = .large
+                            print(size.rawValue)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">size</span> = ClothingSize.small
+    <span class="className">print</span>(<span class="className">size</span>.<span class="className">rawValue</span>)
+
+    <span class="className">size</span> = .large
+    <span class="className">print</span>(<span class="className">size</span>.<span class="className">rawValue</span>)</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    на консоли мы сперва увидим <span class="string">“S”</span> а затем <span class="string">“large”</span>. В данном случае исходное значение будет соответствовать названию кейса, то есть если вы не присвоили значение явно, то значение будет равно названию самого кейса
+                </p>
+                <p>
+                    Давайте посмотрим еще один пример с исходными значениями, только на этот раз с типом <span class="className">Int</span>
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum Day: Int {
+                                case monday = 1
+                                case tuesday = 2
+                                case wednesday = 3
+                                case thursday
+                                case friday
+                                case saturday
+                                case sunday
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">Day</span>: <span class="className">Int</span> {
+        <span class="keywords">case</span> <span class="language-swift">monday</span> = <span class="numbers">1</span>
+        <span class="keywords">case</span> <span class="language-swift">tuesday</span> = <span class="numbers">2</span>
+        <span class="keywords">case</span> <span class="language-swift">wednesday</span> = <span class="numbers">3</span>
+        <span class="keywords">case</span> <span class="language-swift">thursday</span>
+        <span class="keywords">case</span> <span class="language-swift">friday</span>
+        <span class="keywords">case</span> <span class="language-swift">saturday</span>
+        <span class="keywords">case</span> <span class="language-swift">sunday</span>
+    }</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Как видите значения моего перечисления является типом <span class="className">Int</span>, и первым трем кейсам присвоено начальное значение <span class="numbers">1</span>, <span class="numbers">2</span> и <span class="numbers">3</span>. Если в качестве исходных значений используются целые числа, неявное значение для каждого кейса будет на единицу больше, чем в предыдущем кейсе, то есть дальше счет продолжится:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.6.png" />
+                <p>
+                    то есть справа значение кейса <span class="className">thuraday</span> будет <span class="numbers">4</span>, у <span class="className">friday</span> - <span class="numbers">5</span> и так далее. Если мы немного изменим расположение значений, то отсчет будет начинаться от этой отправной точки.
+                </p>
+                <p>
+                    Например:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum Day: Int {
+                                case monday = 1
+                                case tuesday
+                                case wednesday = 6
+                                case thursday
+                                case friday
+                                case saturday
+                                case sunday
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">Day</span>: <span class="className">Int</span> {
+        <span class="keywords">case</span> <span class="language-swift">monday</span> = <span class="numbers">1</span>
+        <span class="keywords">case</span> <span class="language-swift">tuesday</span>
+        <span class="keywords">case</span> <span class="language-swift">wednesday</span> = <span class="numbers">6</span>
+        <span class="keywords">case</span> <span class="language-swift">thursday</span>
+        <span class="keywords">case</span> <span class="language-swift">friday</span>
+        <span class="keywords">case</span> <span class="language-swift">saturday</span>
+        <span class="keywords">case</span> <span class="language-swift">sunday</span>
+    }</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    <span class="className">monday</span> имеет значение <span class="numbers">1</span>, отсюда следует, что <span class="className">tuesday</span> будет равно <span class="numbers">2</span>, далее <span class="className">wednesday</span> равно <span class="numbers">6</span>, а это значит что <span class="className">thursday</span> будет равна <span class="numbers">7</span> и так далее.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.7.png" />
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                             Если первый кейс не имеет заданного значения, то его значение будет равно 0. А дальше по порядку. При этом нельзя нарушить порядок, например задавать значение 1 последнему кейсу.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Еще один момент, который нужно осветить в данном уроке. Перечисление это  тип данных, а это значит что мы можем создать массив этого типа, например типа Day:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let days: [Day] = [
+                                .monday, .tuesday, .wednesday,
+                                .thursday, .friday, .saturday, .sunday
+                            ]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">days</span>: [<span class="className">Day</span>] = [
+        .<span class="className">monday</span>, .<span class="className">tuesday</span>, .<span class="className">wednesday</span>,
+        .<span class="className">thursday</span>, .<span class="className">friday</span>, .<span class="className">saturday</span>, .<span class="className">sunday</span>
+    ]</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Мы обязаны прописать тип данных, это массив перечислений <span class="className">Day</span>, ну а внутри самого массива определяем все необходимые кейсы, можно только те, которые здесь нужны. И теперь давайте попробуем из этого массива сделать обычный массив целых чисел.
+                </p>
+                <p>
+                    Как нам это сделать?
+                </p>
+                <p>
+                    У каждого значения в массиве есть исходный параметр, и мы можем перебрать массив с перечислениями, и добавлять в новый числовой массив только исходные значения этих кейсов:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let days: [Day] = [
+                                .monday, .tuesday, .wednesday,
+                                .thursday, .friday, .saturday, .sunday
+                            ]
+
+                            var integers = [Int]()
+
+                            for day in days {
+                                integers.append(day.rawValue)
+                            }
+
+                            integers
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">days</span>: [<span class="className">Day</span>] = [
+        .<span class="className">monday</span>, .<span class="className">tuesday</span>, .<span class="className">wednesday</span>,
+        .<span class="className">thursday</span>, .<span class="className">friday</span>, .<span class="className">saturday</span>, .<span class="className">sunday</span>
+    ]
+
+    <span class="keywords">var</span> <span class="language-swift">integers</span> = [<span class="className">Int</span>]()
+
+    <span class="keywords">for</span> day <span class="keywords">in</span> <span class="className">days</span> {
+        integers.<span class="className">append</span>(<span class="className">day</span>.<span class="className">rawValue</span>)
+    }
+
+    integers</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Перебираем при помощи цикла <span class="keywords">for</span> массив <span class="className">days</span>, берем каждый элемент и добавляем в новый массив <span class="className">integers</span> исходное значение кейса, при помощи свойства <span class="className">rawValue</span>. В результате мы получим массив <span class="className">integers</span>, наполненный целыми числами:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.8.png" />
+                <h2 id="assoc_param">
+                    Ассоциативные параметры
+                </h2>
+                <p>
+                    Ассоциативные параметры или по другому связанные значения перечисления – это дополнительные значения, которые можно связать с каждым из кейсов перечисления. Они объявляются в скобках после имени каждого члена перечисления.
+                </p>
+                <p>
+                    Например:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum TransportType {
+                                case car(make: String, model: String)
+                                case bike(brand: String)
+                                case walking
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">TransportType</span> {
+        <span class="keywords">case</span> <span class="language-swift">car</span>(make: <span class="className">String</span>, model: <span class="className">String</span>)
+        <span class="keywords">case</span> <span class="language-swift">bike</span>(brand: <span class="className">String</span>)
+        <span class="keywords">case</span> <span class="language-swift">walking</span>
+    }</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    В этом примере, каждый кейс перечисления <span class="typeDeclar">TransportType</span> имеет свои собственные ассоциативные параметры. Например кейс car имеет 2 ассоциативных параметра make и model типа <span class="className">String</span>, а кейс <span class="language-swift">bike</span> имеет один ассоциативный параметр brand типа <span class="className">String</span>,  walking, в свою очередь, не имеет ни каких параметров.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Так же как и в кортежах, параметры можно не называть, но в таком случае будет сложно разобраться, какой параметр за что отвечает:
+                        </p>
+                        <img class="img_block" src="assets/Images/Lesson13/Lesson13.9.png" />
+                        <p>
+                            поэтому названия параметров лучше использовать, так код будет более понятным и открытым
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Когда мы будем создавать свойство с типом перечисления, то мы увидим следующее:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.10.png" />
+                <p>
+                    Сперва тип, затем точка, и сам кейс, вы не сможете использовать кейс без скобок, это как раз те параметры, которые мы определили в перечислении
+                </p>
+                <p>
+                    Давайте передадим какие нибудь значения  в каждый из параметров и создадим еще два свойства под каждый кейс
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let car = TransportType.car(make: "Tesla", model: "Model S")
+                            let bike = TransportType.bike(brand: "Specialized")
+                            let walking = TransportType.walking
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">car</span> = TransportType.car(make: <span class="string">"Tesla"</span>, model: <span class="string">"Model S"</span>)
+    <span class="keywords">let</span> <span class="language-swift">bike</span> = TransportType.bike(brand: <span class="string">"Specialized"</span>)
+    <span class="keywords">let</span> <span class="language-swift">walking</span> = TransportType.walking</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Хорошо. Теперь у нас есть три константы с типом <span class="typeDeclar">TransportType</span>, но как же нам добраться до ассоциативных параметров, и например отобразить их на консоли. В этом нам поможет конструкция switch:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            switch car {
+                            case .car(let make, let model):
+                                print("Make: \(make), Model: \(model)")
+                            case .bike(let brand):
+                                print("Brand: \(brand)")
+                            case .walking:
+                                print("Walking")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">switch</span> <span class="className">car</span> {
+    <span class="keywords">case</span> .car(<span class="keywords">let</span> make, <span class="keywords">let</span> model):
+        <span class="className">print</span>(<span class="string">"Make: </span>\(make)<span class="string">, Model: </span>\(model)<span class="string">"</span>)
+    <span class="keywords">case</span> .bike(<span class="keywords">let</span> brand):
+        <span class="className">print</span>(<span class="string">"Brand: </span>\(brand)<span class="string">"</span>)
+    <span class="keywords">case</span> .walking:
+        <span class="className">print</span>(<span class="string">"Walking"</span>)
+    }</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Не переживайте если данный код вам кажется сложным, это действительно так. Его нужно разложить на шаги. Давайте попробуем это сделать.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.11.png" />
+                <p>
+                    Пишем <span class="keywords">switch</span>, далее сопоставляемое свойство, в нашем случае это свойство <span class="className">car</span>. Доверимся компилятору и нажимаем на кнопку Fix:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.12.png" />
+                <p>
+                    Смотрите как интересно у нас компилятор добавил кейсы, мы видим наши параметры, которые есть у кейса car и остальных, но после двоеточия мы так же видим объявление новой константы:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.13.png" />
+                <p>
+                    Эти константы <span class="keywords">let</span> make и <span class="keywords">let</span> model будут иметь в себе значения, которые мы передали в параметры.
+                </p>
+                <p>
+                    Таким образом мы можем взять значения этих свойств, и отобразить их в принт:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.14.png" />
+                <p>
+                    Мы можем опускать параметры, и оставить только новые свойства:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.15.png" />
+                <p>
+                    Если все связанные значения для кейсов перечисления извлекаются как константы или переменные, то для краткости вы можете разместить одиночное <span class="keywords">let</span> или <span class="keywords">var</span> перед именем кейса:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson13/Lesson13.16.png" />
+                <p>
+                    Все те же выводы и действия будут и с остальными кейсами:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let bike = TransportType.bike(brand: "Specialized")
+
+                            switch bike {
+                            case let .car(make, model):
+                                print("Make: \(make), Model: \(model)")
+                            case .bike(let brand):
+                                print("Brand: \(brand)")
+                            case .walking:
+                                print("Walking")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">bike</span> = TransportType.bike(brand: <span class="string">"Specialized"</span>)
+
+    <span class="keywords">switch</span> <span class="className">bike</span> {
+    <span class="keywords">case</span> <span class="keywords">let</span> .car(make, model):
+        <span class="className">print</span>(<span class="string">"Make: </span>\(make)<span class="string">, Model: </span>\(model)<span class="string">"</span>)
+    <span class="keywords">case</span> .bike(<span class="keywords">let</span> brand):
+        <span class="className">print</span>(<span class="string">"Brand: </span>\(brand)<span class="string">"</span>)
+    <span class="keywords">case</span> .walking:
+        <span class="className">print</span>(<span class="string">"Walking"</span>)
+    }</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    В данном случае, сработает второй кейс .bike, в параметре которого мы получаем значение <span class="string">“Specialized”</span> и передаем его в принт.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                             Ассоциативные параметры, не работают с исходными значениями.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

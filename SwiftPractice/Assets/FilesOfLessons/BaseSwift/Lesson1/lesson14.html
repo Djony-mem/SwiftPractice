@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_14">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#real_develop" class="yakor">&#128195; Зачем опциональные типы в реальной разработке?</a>
+          <a href="#optional_value" class="yakor">&#128195; Извлечение опционального значения</a>
+          <a href="#default_value" class="yakor">&#128195; Значение по умолчанию</a>
+          <a href="#optional_binding" class="yakor">&#128195; Опциональная привязка</a>
+          <a href="#bad_extraction" class="yakor">&#128195; Плохие способы извлечения</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 14. Опциональные типы
+            </h2>
+            <p class="date_p"> 3 Февраля 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+
+                <p>
+                    <span class="accent">Опциональный тип</span> – это специальный тип данных в языке Swift, который может содержать либо значение, либо отсутствие значения (nil). Они обозначаются знаком вопроса после типа данных (например, Int?). Это позволяет вам проверять наличие значения перед использованием и избегать возникновения неожиданных ошибок.
+                </p>
+                <p>
+                    Звучит не просто, но давайте разбираться
+                </p>
+                <p>
+                    Создадим несколько опциональных свойств:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let name: String? //  nil или какое-то значение тип Strin
+                            let age: Int? // nil или какое-то значение тип Int
+                            let salary: Double? // nil или какое-то значение тип Double
+                            let status: Bool? // nil или какое-то значение тип Bool
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">name</span>: <span class="className">String</span>?</span> <span class="comments">// nil или какое-то значение тип String</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">age</span>: <span class="className">Int</span>?</span> <span class="comments">// nil или какое-то значение тип Int</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">salary</span>: <span class="className">Double</span>?</span> <span class="comments">// nil или какое-то значение тип Double</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">status</span>: <span class="className">Bool</span>?</span> <span class="comments">// nil или какое-то значение тип Bool </span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Опционал в Swift представляет из себя объект – контейнер, который может содержать в себе либо nil, либо значение конкретного типа, который указывается при объявлении этого объекта. То есть в нашем случае свойство name будет содержать в себе либо nil, либо значение с типом String. Свойство age, будет содержать либо nil, либо значение с типом Int и так далее.
+                </p>
+                <p>
+                    Если мы этим свойствам не  присвоим какое-либо значение его типа, то оно будет иметь значение по умолчанию nil.
+                </p>
+                <p>
+                   Что же такое <span class="accent">nil</span> – это своего рода заглушка для компилятора, которая позволяет оставлять свойства без значений
+                </p>
+                <p>
+                    Зачем же нам нужны эти опциональные типы данных?
+                </p>
+                <p>
+                    Давайте посмотрим на следующий пример:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [3, 6, 8, 2]
+
+                            var maxNumber = numbers.max()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="numbers">3</span>, <span class="numbers">6</span>, <span class="numbers">8</span>, <span class="numbers">2</span>]</span>
+
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span> = <span class="className">numbers.max()</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   у нас есть массив целых чисел, и свойство maxNumber, которое хранит максимальное значение этого массива, так как мы использовали метод <span class="className">max()</span>
+                </p>
+                <p>
+                    и если мы посмотрим тип данных свойства maxNumber, мы увидим что это опциональный Int:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.1.png" />
+                <p>
+                    Xcode определил для свойства тип поционального Int. Это сделано для безопастности. В том случае, если массив вдруг окажется пустым, а вы применяете к ниму данный метод, то свойство просто примет значение nil.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.2.png" />
+                <p>
+                    Таким образом свойство maxNumber может содержать либо nil, либо какое то целое число.
+                </p>
+                <p>
+                    При этом обычный тип данных и опциональный – это разные типы данных и вы не сможете присвоить опциональный Int? свойству с типом Int. Если попытаться это сделать, то Xcode выдаст ошибку о несоответсвии типов данных:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.3.png" />
+                <p>
+                    Свойство integer имеет тип Int, а maxNumber является типа Int?, вы в этом можете убедится, если зажмете option и кликните по свойству, это будут разные типы данных.
+                </p>
+                <p>
+                    Свойство обычного типа не может принять опциональный, потому что там может быть либо nil либо реальное значение, тогда как свойство integer ожидает только Int. А вот обратная ситуация работает хорошо:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.4.png" />
+                <p>
+                    Потому что maxNumber, является контейнером и может принимать и nil и обычный Int.
+                </p>
+                <p>
+                    Давайте рассмотрим еще один пример на этот раз со словарем.
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let people = ["Tim": 59, "Bob": 48, "Ann": 34]
+
+                            let ageOfTim = people["Tim"]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">people</span> = [<span class="string">"Tim"</span>: <span class="numbers">59</span>, <span class="string">"Bob"</span>: <span class="numbers">48</span>, <span class="string">"Ann"</span>: <span class="numbers">34</span>]</span>
+
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">ageOfTim</span> = <span class="className">people</span>[<span class="string">"Tim"</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    у нас есть словарь, и следующим действием мы присваиваем свойству ageOfTim значение из словаря по ключу “Tim”, если вы посмотрите на тип данных этого свойства, то вы обнаружите что это опциональный Int:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.5.png" />
+                <p>
+                    А все потому что Xcode себя снова обезопасил, ведь такого ключа может не оказаться в словаре, и в таком случае свойство <span class="accent">ageOfTim</span> примет значение nil.
+                </p>
+                <p>
+                    Давайте немного побудем в шкуре системы. Программист ставит перед нами задачу, создать свойство <span class="accent">ageOfTim</span> и положить в него значение из словаря по определенному ключу, если бы мы не работали с опционалами, это выглядело бы следующим образом: Мы зарезервировали ячейку <span class="accent">ageOfTim</span>, отправились в ячейку памяти словаря, искать нужный нам ключ. Приходим туда, а там такого ключа нет, что же нам теперь делать? откуда взять значение? Что положить в свойство = <span class="accent">ageOfTim</span>
+                </p>
+                <p>
+                    В таких случаях мы определяем свойство как опциональное и просто ставим заглушку nil, это говорит нам о том что свойство не содержит ни какого значения.
+                </p>
+                <p>
+                    Отсюда следует вывод, когда система не уверена в том что получит какое либо значение, она определяет свойство как опциональное.
+                </p>
+
+                <h2 id="real_develop">
+                    Зачем опциональные типы в реальной разработке?
+                </h2>
+
+                <p>
+                    Хорошо, с системой все понятно, она просто пытается себя обезопасить, но зачем нам самим создавать опциональные свойства?
+                </p>
+                <p>
+                    Давайте представим что мы разрабатываем приложение, и в качестве входного экрана определяем форму регистрации. Пользователь вносит свои данные, имя, возраст, статус и так далее, и нажимает кнопку, после чего попадает на экран приветствия: ” Привет, Федор!” и все его внесенные данные. При разработке мы не знаем кто конкретно зарегистрируется в приложении и кого прописывать в приветствии. Но изначально нам нужно создать свойства, которые будут хранить эту инфу:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let name: String?
+                            let age: Int?
+                            let salary: Double?
+                            let status: Bool?
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">name</span>: <span class="className">String</span>?</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">age</span>: <span class="className">Int</span>?</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">salary</span>: <span class="className">Double</span>?</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">status</span>: <span class="className">Bool</span>?</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                  Мы их определяем как опциональные, а инициализировать их будет пользователь, когда внесет эти значения в текстовые поля.
+                </p>
+                <p>
+                    У вас может возникнуть резонный вопрос, зачем создавать опциональные свойства, если можно задать значения по умолчанию, в виде пустой строки или нуля. И это может сработать, но если у нас есть не обязательные поля для заполнения, в таком случае, в поле возраст пользователь будет видеть 0, а в качестве статуса будет по умолчанию логическое значение, которое пользователь не хотел отмечать. Удобней было бы оставить пустые поля, и с этим отлично справляются опциональные значения.
+                </p>
+                     <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            <span class="accent">Опционал</span> – это контейнер, который содержит в себе два значения nil и значения того типа, который мы определили перед вопросительным знаком.
+                        </p>
+                        <p>
+                            Не опциональное свойство не может присвоить к себе опциональное, а опциональное присвоить не опциональное может.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+                <h2 id="optional_value">
+                    Извлечение опционального значения
+                </h2>
+
+                <p>
+                    Опциональную переменную в Swift нельзя использовать точно так же, как неопциональную (за исключением неявно извлекаемых опционалов, но об этом чуть позже).
+                </p>
+                <p>
+                    Так как опциональные свойства могут иметь значения, как своего типа, так и nil то что бы с ними работать, нам необходимо извлекать значение своего типа, то есть из “контейнера” достать только конкретное значение.
+                </p>
+                <p>
+                    После извлечения свойство становится не опциональным, и существует несколько способов извлечь опциональное значение.
+                </p>
+                <p>
+                    Вернемся к нашему примеру со словарем:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.6.png" />
+                <p>
+                    Свойство ageOfTim опциональное. В данном случае Xcode сообщает нам желтым ворнингом о том, что мы используем опциональное свойство и оно не всегда может иметь значение, поэтому нам надо позаботиться о том, что выводить на консоль в том случае, если свойство будет иметь nil. Опциональное значение всегда нужно извлекать перед использованием, и есть несколько способов это сделать.
+                </p>
+                <p>
+                    Давайте разберем самые безопасные и предпочтительные, а потом перейдем к плохой практике.
+                </p>
+
+                <h2 id="default_value">
+                    Значение по умолчанию
+                </h2>
+                <p>
+                    Самый быстрый и простой способ это задать <span class="accent">значение по умолчанию</span> и делается это следующим образом:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let people = ["Tim": 59, "Bob": 48, "Ann": 34]
+                            let ageOfTim = people["Tim"]
+
+                            print(ageOfTim ?? 0)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">people</span> = [<span class="string">"Tim"</span>: <span class="numbers">59</span>, <span class="string">"Bob"</span>: <span class="numbers">48</span>, <span class="string">"Ann"</span>: <span class="numbers">34</span>]</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">ageOfTim</span> = <span class="className">people</span>[<span class="string">"Tim"</span>]</span>
+
+    <span class="operator"><span class="keywords">print</span>(ageOfTim ?? <span class="numbers">0</span>) </span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    после опционального свойства прописываем два вопросительных знака, после которых определяем значение по умолчанию. Значение по умолчанию должно быть такого же типа что и опциональное свойство.
+                </p>
+                <p>
+                    Давайте для понимания создадим 4 опциональных свойства и извлечем из них опциональное значение этим способом:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let name: String? = "Tim"
+                            let age: Int? = 59
+                            let salary: Double? = 1_000_000
+                            let status: Bool? = nil
+
+                            name ?? ""
+                            age ?? 0
+                            salary ?? 0.0
+                            status ?? true
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">name</span>: <span class="className">String</span>? = <span class="string">"Tim"</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">age</span>: <span class="className">Int</span>? = <span class="numbers">59</span> </span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">salary</span>: <span class="className">Double</span>? = <span class="numbers">1_000_000</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">status</span>: <span class="className">Bool</span>? = <span class="keywords">true</span></span>
+
+    <span class="operator">name ?? <span class="string">""</span></span>
+    <span class="operator">age ?? <span class="numbers">0</span></span>
+    <span class="operator">salary ?? <span class="numbers">0.0</span></span>
+    <span class="operator">status ?? <span class="keywords">true</span></span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Первые три свойства хранят в себе конкретные значения, а свойство status не содержит значения, а хранит в себе nil, то есть значения там нет. Если вы запустите компилятор и посмотрите в правое окно:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.7.png" />
+                <p>
+                    Если в свойстве не окажется значения, то компилятор возьмет то значение, которое вы определите после двух вопросительных знака. Давайте присвоим эти значения другим свойствам и посмотрим на их тип данных:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let name: String? = "Tim"
+                            let age: Int? = 59
+                            let salary: Double? = 1_000_000
+                            let status: Bool? = nil
+
+                            let unwrapName = name ?? ""
+                            let unwrapAge = age ?? 0
+                            let unwrapSalary = salary ?? 0.0
+                            let unwrapStatus = status ?? true                               '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">name</span>: <span class="className">String</span>? = <span class="string">"Tim"</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">age</span>: <span class="className">Int</span>? = <span class="numbers">59</span> </span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">salary</span>: <span class="className">Double</span>? = <span class="numbers">1_000_000</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">status</span>: <span class="className">Bool</span>? = <span class="keywords">true</span></span>
+
+    <span class="operator"><span class="keywords">let</span> unwrapName = name ?? <span class="string">""</span></span>
+    <span class="operator"><span class="keywords">let</span> unwrapAge = age ?? <span class="numbers">0</span></span>
+    <span class="operator"><span class="keywords">let</span> unwrapSalary = salary ?? <span class="numbers">0.0</span></span>
+    <span class="operator"><span class="keywords">let</span> unwrapStatus = status ?? <span class="keywords">true</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Эти свойства уже не будут опциональными, мы извлекли значение, давайте в этом убедимся, зажимаем option и кликаем по свойству:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.8.png" />
+                <p>
+                   Эти четыре константы теперь не опциональные, мы извлекли значение и присвоили его новому свойству. (посмотрите на тип каждого из свойств)
+                </p>
+                <h2 id="optional_binding">
+                    Опциональная привязка
+                </h2>
+                <p>
+                    Есть еще один хороший способ извлечь опциональное значение, и называется он опциональная привязка. В этом случае нам нужно использовать условную конструкицю if, логика будет следующей:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.9.png" />
+                <p>
+                    Давайте разбираться что здесь написано. после ключевого слова if мы определяем условие, на первый взгляд это не покажется вам условием, а скорее присвоением значения новому свойству. По факту так и есть мы пытаемся новому свойству присвоить значение из опционального свойства, и если у нас это получается, то в фигурных скобках мы можем работать с новым свойством, уже не опциональным.
+                </p>
+                <p>
+                    Вот реальный пример:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [1, 3, 8, 2]
+                            var maxNumber = numbers.max()
+
+                            if let unwrapMaxNumber = maxNumber {
+                               print(maxNumber)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="numbers">1</span>, <span class="numbers">3</span>, <span class="numbers">8</span>, <span class="numbers">2</span>]</span>
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">maxNumber</span> = <span class="className">numbers.</span><span class="keywords">max()</span></span>
+
+    <span class="operator"><span class="keywords">if let </span>unwrapMaxNumber = maxNumber {
+        <span class="keywords">print</span>(maxNumber)
+    }</span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                  у нас есть массив, максимальное значение которого мы передаем в новое свойство maxNumber, и это свойство будет опциональным, потому что не факт что массив вообще имеет какие – либо значения:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.10.png" />
+                <p>
+                    И мы извлекаем опциональное значение при помощи конструкции if:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.11.png" />
+                <p>
+                    если в свойстве maxNumber есть значение, то произойдет <a href="#" class="tooltipText"><span class="textInfo">
+                        <span class="accent">Присвоить значение</span> - после имени ставим равно и пишем какое-то значение
+                    </span>&#x270D;присвоение свойству</a> unwrapMaxNumber этого значения, и выражение после if вернет true, если же в свойстве maxNumber будет nil, то выражение после if вернет false, и присвоения не произойдет.
+                </p>
+                <p>
+                    Не пытайтесь понять механизм возврата логического значения выражения после if, эта логика вышита глубоко в систему, вам нужно просто запомнить это действие и использовать для извлечения опционального значения.
+                </p>
+                <p>
+                    Давайте проследим каждый шаг данного выражения:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.12.png" />
+                <p>
+                    в maxNumber есть значение, а это значит что оно будет присвоено новому свойству unwrapMaxNumber, и само выражение вернет true. Мы с вами знаем что если выражение после if возвращает true, то срабатывает блок кода в фигурных скобках. Свойство unwrapMaxNumber будет хранить в себе извлеченное значение, которое не будет опциональным:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.13.png" />
+                <p>
+                    то есть мы передали значение из maxNumber новому свойству, при этом maxNumber все так же осталось опциональным, но мы используем внутри фигурных скобок уже извлеченное значение, то есть новое свойство.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Свойство unwrapMaxNumber будет доступно только в пределах условной конструкции if, в том блоке к которому относится выражение:
+                        </p>
+                        <img class="img_block" src="assets/Images/Lesson14/Lesson14.14.png" />
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                   то есть мы передали значение из maxNumber новому свойству, при этом maxNumber все так же осталось опциональным, но мы используем внутри фигурных скобок уже извлеченное значение, то есть новое свойство.
+                </p>
+                <p>
+                    При таком решении мы увидим на консоли значение 8. Но что если в нашем массиве не будет значений, а мы запустим опциональную привязку:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [1, 3, 8, 2]
+                            var maxNumber = numbers.max()
+
+                            if let unwrapMaxNumber = maxNumber {
+                               print(maxNumber)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="className">Int</span>]()</span>
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">maxNumber</span> = <span class="className">numbers.</span><span class="keywords">max()</span></span>
+
+    <span class="operator"><span class="keywords">if let </span>unwrapMaxNumber = maxNumber {
+        <span class="keywords">print</span>(unwrapMaxNumber)
+    }</span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае на консоли мы ничего не увидим, а все потому что нам не удалось передать новому свойству значение, потому что свойство maxNumber содержит nil:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.15.png">
+                <p>
+                    Присвоения не произойдет, и выражение после if вернет false, а это значит что блок кода в фигурных скобках не будет выполнен и мы не увидим результат на консоли.
+                </p>
+                 <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Есть негласное правило при извлечении при помощи опциональной привязки, называть новое свойство, точно так же как и опциональное:
+                        </p>
+                        <img class="img_block" src="assets/Images/Lesson14/Lesson14.16.png" />
+                        <p>
+                        новое свойство локальное, а опциональное глобальное, поэтому никакого конфликта не будет. Внутри фигуных скобок мы используем новое уже не опциональное свойство.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="bad_extraction">
+                    Плохие способы извлечения
+                </h2>
+                <p>
+                    Мы с вами рассмотрели самые используемые варианты извлечения опционального значения, теперь давайте сосредоточимся на не желательных, которые вы можете встретить в чужом коде.
+                </p>
+                <p>
+                    Первый способ называется принудительным извлечением. Мы просто ставим восклицательный знак после опционального значения:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [Int]()
+                            var maxNumber = numbers.max()!
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="className">Int</span>]()</span>
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">maxNumber</span> = <span class="className">numbers.</span><span class="keywords">max()</span>!</span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Такой способ не безопасный, потому что если мы в коде будем работать с этим свойством, а там значения не окажется, то наша программа упадет с критической ошибкой. Следующий код приведет к падению программы:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [Int]()
+                            var maxNumber = numbers.max()!
+
+                            if maxNumber < 8 {
+                                print("maxNumber меньше 8")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="className">Int</span>]()</span>
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">maxNumber</span> = <span class="className">numbers.</span><span class="keywords">max()</span>!</span>
+
+    <span class="operator"><span class="keywords">if</span> maxNumber &lt; 8 {
+        <span class="keywords">print</span>("maxNumber меньше 8")
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                 компилятор использует, принудительно извлеченное, опциональное значение, а там его не оказывается, ему нужно сравнить конкретное значение с цифрой 8, а у него этого значения нет. Ему ничего не остается как упасть с ошибкой. Когда мы ставим восклицательный знак мы как будто говорим компилятору, что там сто процентов есть значение, компилятор нам доверяет, и продолжает свою работу, в данном случае мы не оправдали его ожидания.
+                </p>
+                <p>
+                 Давайте еще несколько значений извлечем таким способом, для общей картины:
+                </p>
+                   <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let name: String? = "Tim"
+                            let age: Int? = 59
+                            let salary: Double? = 1_000_000
+                            let status: Bool? = nil
+
+                            let unwrapName = name!
+                            let unwrapAge = age!
+                            let unwrapSalary = salary!
+                            let unwrapStatus = status!                              '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">name</span>: <span class="className">String</span>? = <span class="string">"Tim"</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">age</span>: <span class="className">Int</span>? = <span class="numbers">59</span> </span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">salary</span>: <span class="className">Double</span>? = <span class="numbers">1_000_000</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">status</span>: <span class="className">Bool</span>? = <span class="keywords">nil</span></span>
+
+    <span class="operator"><span class="keywords">let</span> unwrapName = name!</span>
+    <span class="operator"><span class="keywords">let</span> unwrapAge = age!</span>
+    <span class="operator"><span class="keywords">let</span> unwrapSalary = salary!</span>
+    <span class="operator"><span class="keywords">let</span> unwrapStatus = status!</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Последние четыре свойства теперь не опциональные:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson14/Lesson14.17.png">
+                <p>
+                   Но как мы уже выяснили выше, если вдруг там окажется nil, а ты это свойство где то используешь, то программа упадет с критической ошибкой.
+                </p>
+                <p>
+                    Есть еще одна полумера, как сделать код менее опасным, при работе с опционалами. Можно сделать проверку на nil, и потом уже извлечь опциональное значение:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let people = ["Tim": 59, "Bob": 48, "Ann": 34]
+                            let ageOfTim = people["Tim"]
+
+                            if ageOfTim != nil { // плохой способ
+                                print(ageOfTim!)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">people</span> = [<span class="string">"Tim"</span>: <span class="numbers">59</span>, <span class="string">"Bob"</span>: <span class="numbers">48</span>, <span class="string">"Ann"</span>: <span class="numbers">34</span>]</span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">ageOfTim</span> = <span class="className">people</span>[<span class="string">"Tim"</span>]</span>
+
+    <span class="operator"><span class="keywords">if</span> ageOfTim != nil { <span class="comments">// плохой способ</span>
+        <span class="keywords">print</span>(ageOfTim!)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Вы сперва проверяете есть ли в свойстве nil, а внутри производите принудительное извлечение. Это так же плохой способ, хоть и менее опасный. В дальнейшем, когда мы будем работать с реальными проектами, я вам покажу опасность такого подхода.
+                </p>
+                <p>
+                    Ну а пока всегда используйте для извлечения значение по умолчанию и опциональную превязку.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

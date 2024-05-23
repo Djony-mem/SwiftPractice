@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_23">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#override_func" class="yakor">&#128195; Переопределение методов</a>
+          <a href="#override_get" class="yakor">&#128195; Переопределение геттеров</a>
+          <a href="#override_init" class="yakor">&#128195; Переопределение инициализаторов</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 23. Наследование. Часть 2.
+            </h2>
+            <p class="date_p"> 30 Мая 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <h2 id="override_func">
+                   Переопределение методов.
+                </h2>
+                <p>
+                    На прошлом уроке мы с вами выяснили, что при наследовании нам доступны все публичные методы и свойства супер класса. Помимо того что мы можем ими пользоваться, у нас так же есть возможность их переопределять, то есть переписать их логику.
+                </p>
+                <p>
+                    Давайте обратимся к примеру:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class View {
+                                var background: String = "white"
+                            }
+
+                            class ViewController {
+                                let view = View()
+
+                                func viewDidLoad() {
+                                    print("Свойство view для ViewController загружен в память")
+                                }
+                            }
+
+                            class StartViewController: ViewController {
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">View</span> {
+        <span class="keywords">var</span> <span class="language-swift">background</span>: <span class="className">String</span> = <span class="string">"white"</span>
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">ViewController</span> {
+        <span class="keywords">let</span> <span class="language-swift">view</span> = View()
+
+        <span class="keywords">func</span> <span class="language-swift">viewDidLoad</span>() {
+            <span class="className">print</span>(<span class="string">"Свойство view для ViewController загружен в память"</span>)
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">StartViewController</span>: ViewController {
+
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Предположим у нас есть какой-то шаблонный класс для экрана телефона ViewController, в нем есть свойство view, которое отвечает за background экрана и является экземпляром класса View. На основе шаблона ViewController мы создаем стартовый экран, в котором нам доступны все свойство и методы супер класса (напомню, что супер классом называют тот класс от которого наследуемся).
+                </p>
+                <p>
+                    В данном случае метод viewDidLoad выводит на консоль сообщение о том что view класса ViewController была загружена в память, и если мы создадим экземпляр класса StartViewController, и вызовем этот метод, на косоли мы увидим соответствующее сообщение:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class StartViewController: ViewController {
+
+                            }
+
+                            let startViewController = StartViewController()
+                            startViewController.viewDidLoad() // Свойство view для ViewController загружен в память
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">StartViewController</span>: ViewController {
+
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">startViewController</span> = StartViewController()
+    startViewController.viewDidLoad() <span class="comments">// Свойство view для ViewController загружен в память</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Давайте примерно посмотрим как это будет выглядит в памяти:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson23/Lesson23.1.png" />
+                <p>
+                    Конечно в памяти все гораздо сложнее, но нам сейчас главное понимать откуда появляются наши свойства и методы, а более подробней о памяти мы поговорим с вами на втором модуле.
+                </p>
+                <p>
+                    Вернемся к нашей задачи, было бы хорошо что бы при вызове метода viewDidLoad из экземпляра класса startViewController мы видели сообщение: Свойство view для StartViewController загружен в память.
+                </p>
+                <p>
+                    Как уже было отмечено выше мы можем переопределять (переписывать)  логику методов и вычисляемых свойств супер класса, для этого нам необходимо создать <span class="accent">одноименный метод</span> в StarViewController,  который мы хотим переопределить с  ключевым словом override:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class StartViewController: ViewController {
+                                override func viewDidLoad() {
+                                    print("Свойство view для StartViewController загружен в память")
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">StartViewController</span>: ViewController {
+        <span class="keywords">override func</span> <span class="language-swift">viewDidLoad</span>() {
+            <span class="className">print</span>(<span class="string">"Свойство view для ViewController загружен в память"</span>)
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В целом, если вы начнете создавать в классе StartViewController метод с точно таким же именем что и метод супер класса, то компилятор сам вам подскажет добавить override.
+                </p>
+                <p>
+                    Таким образом мы переписываем логику метода viewDidLoad, и при вызове его из экземпляра класса StartViewController мы увидим новое сообщение:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let startViewController = StartViewController()
+                            startViewController.viewDidLoad() // Свойство view для StartViewController загружен в память
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">startViewController</span> = StartViewController()
+    startViewController.viewDidLoad() <span class="comments">// Свойство view для StartViewController загружен в память</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Давайте снова обратимся к нашей памяти и посмотрим что там изменилось:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson23/Lesson23.2.png" />
+                <p>
+                    Мы переписали метод, но родительская реализация метода все еще существует, она просто перекрывается новой реализацией в подклассе.
+                </p>
+                <p>
+                    При этом мы можем так же вызвать метод супер класса в нашем переопределенном методе, нам достаточно обратиться к нему через super:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class StartViewController: ViewController {
+                                override func viewDidLoad() {
+                                    super.viewDidLoad() // Это изначальная версия реализации, которая была до переопределения
+                                    print("Свойство view для StartViewController загружен в память")
+                                }
+                            }
+
+                            let startViewController = StartViewController()
+                            startViewController.viewDidLoad()
+                            // Свойство view для ViewController загружен в память
+                            // Свойство view для StartViewController загружен в память
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">StartViewController</span>: ViewController {
+        <span class="keywords">override func</span> <span class="language-swift">viewDidLoad</span>() {
+            <span class="keywords">super</span>.viewDidLoad() <span class="comments">// Это изначальная версия реализации, которая была до переопределения</span>
+            <span class="className">print</span>(<span class="string">"Свойство view для StartViewController загружен в память"</span>)
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">startViewController</span> = StartViewController()
+    startViewController.viewDidLoad()
+    <span class="comments">// Свойство view для ViewController загружен в память</span>
+    <span class="comments">// Свойство view для StartViewController загружен в память</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    super обозначает супер класс, от которого мы наследуемся. Таким образом мы получим на консоли два сообщения, первое от вызова метода super.viewDidLoad, а второе от переопределенного viewDidLoad. Это очень удобно когда вам нужна какая то своя реализация логики.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Мы можем переопределять (переписывать) любой из унаследованных методов, какая бы не была глубина наследования.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="override_get">
+                   Переопределение геттеров.
+                </h2>
+                <p>
+                    Помимо методов у нас так же есть возможность переопределять геттеры.
+                </p>
+                <p>
+                    Посмотрим на примере:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class ViewController {
+                                var title: String {
+                                    "ViewController"
+                                }
+
+                                func viewDidLoad() {
+                                    print("Свойство view для ViewController загружен в память")
+                                }
+                            }
+
+                            class StartViewController: ViewController {
+                                override var title: String {
+                                    "StartViewController"
+                                }
+                            }
+
+                            let startViewController = StartViewController()
+                            startViewController.title // StartViewController
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">ViewController</span> {
+        <span class="keywords">var</span> <span class="language-swift">title</span>: <span class="className">String</span> {
+            <span class="string">"ViewController"</span>
+        }
+
+        <span class="keywords">func</span> <span class="language-swift">viewDidLoad</span>() {
+            <span class="className">print</span>(<span class="string">"Свойство view для ViewController загружен в память"</span>)
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">StartViewController</span>: ViewController {
+        <span class="keywords">override var</span> <span class="language-swift">title</span>: <span class="className">String</span> {
+            <span class="string">"StartViewController"</span>
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">startViewController</span> = StartViewController()
+    startViewController.title<span class="comments"> // StartViewController</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В целом не сильно отличается от переопределения методов, мы точно так же должны пометить свойство ключевым словом override и переписать логику на новый лад.
+                </p>
+                <p>
+                    Точно так же мы можем обратиться к изначальному состоянию свойства из супер класса:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class StartViewController: ViewController {
+                                override var title: String {
+                                    "StartViewController унаследовал title от \(super.title) "
+                                }
+                            }
+
+                            let startViewController = StartViewController()
+                            startViewController.title // StartViewController унаследовал title от ViewController
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">StartViewController</span>: ViewController {
+        <span class="keywords">override var</span> <span class="language-swift">title</span>: <span class="className">String</span> {
+            <span class="string">"StartViewController унаследовал title от </span>\(<span class="keywords">super</span>.<span class="className">title</span>)<span class="string">"</span>
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">startViewController</span> = StartViewController()
+    startViewController.title<span class="comments">// StartViewController унаследовал title от ViewController</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <h2 id="override_init">
+                   Переопределение инициализаторов.
+                </h2>
+                <p>
+                    Из прошлых уроков мы выяснили что инициализатор это встроенный метод объекта, в нашем случае класса, а это значит что мы точно так же их можем переопределить.
+                </p>
+                <p>
+                    Давайте создадим шаблонный класс для кнопки Button:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                let width: Double
+                                var background = "white"
+                                var cornerRadius = 10.0
+
+                                init(width: Double) {
+                                    self.width = width
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">let</span> <span class="language-swift">width</span>: <span class="className">Double</span>
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">10.0</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">width</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">width</span> = width
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Далее создадим кастомную кнопку, и унаследуемся от базового класса Button:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                let width: Double
+                                var background = "white"
+                                var cornerRadius = 10.0
+
+                                init(width: Double) {
+                                    self.width = width
+                                }
+                            }
+
+                            class DoneButton: Button {
+
+                                func setupDoneButton() {
+                                    background = "red"
+                                    cornerRadius = 30
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">let</span> <span class="language-swift">width</span>: <span class="className">Double</span>
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">10.0</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">width</span>: <span class="className">Double</span>) {
+            <span class="keywords">self</span>.<span class="className">width</span> = width
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">DoneButton</span>: Button {
+
+        <span class="keywords">func</span> <span class="language-swift">setupDoneButton</span>() {
+            background = <span class="string">"red"</span>
+            cornerRadius = <span class="numbers">30</span>
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Внутри метода setupDoneButton, мы настраиваем цвет фона и радиус скругления для кнопки, и так как это первичная настройка, то эти свойства должны принять свои новые значения именно в момент создания этой кнопки, то есть в момент создания экземпляра класса DoneButton, но в данной реализации у нас не получится вызвать этот метод в момент создания экземпляра:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                             class DoneButton: Button {
+
+                                func setupDoneButton() {
+                                    background = "red"
+                                    cornerRadius = 30
+                                }
+                            }
+
+                            let doneButton = DoneButton(width: 100) // В этот момент пользователь увидит кнопку на экране
+
+                            doneButton.setupDoneButton() // это действие будет происходить на глазах у пользователя
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">DoneButton</span>: Button {
+
+        <span class="keywords">func</span> <span class="language-swift">setupDoneButton</span>() {
+            background = <span class="string">"red"</span>
+            cornerRadius = <span class="numbers">30</span>
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">doneButton</span> = DoneButton(width: <span class="numbers">100</span>)<span class="comments"> // В этот момент пользователь увидит кнопку на экране</span>
+
+    doneButton.setupDoneButton()<span class="comments"> // это действие будет происходить на глазах у пользователя</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Когда мы создали экземпляр класса doneButton, пользователь увидит эту кнопку на экране, всю целиком, с теми настройками которые были определены в супер классе, то есть с белым фоном и радиусом 10, так как метод по изменению этих значений пока не был вызван:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class DoneButton: Button {
+
+                                func setupDoneButton() {
+                                    background = "red"
+                                    cornerRadius = 30
+                                }
+                            }
+
+                            let doneButton = DoneButton(width: 100) // В этот момент пользователь увидит кнопку на экране
+                            doneButton.background // white
+                            doneButton.cornerRadius // 10
+
+                            doneButton.setupDoneButton() // это действие будет происходить на глазах у пользователя
+                            doneButton.background // red
+                            doneButton.cornerRadius // 30
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">DoneButton</span>: Button {
+
+        <span class="keywords">func</span> <span class="language-swift">setupDoneButton</span>() {
+            background = <span class="string">"red"</span>
+            cornerRadius = <span class="numbers">30</span>
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">doneButton</span> = DoneButton(width: <span class="numbers">100</span>)<span class="comments"> // В этот момент пользователь увидит кнопку на экране</span>
+    doneButton.background<span class="comments"> // white</span>
+    doneButton.cornerRadius<span class="comments"> // 10</span>
+
+    doneButton.setupDoneButton()<span class="comments"> // это действие будет происходить на глазах у пользователя</span>
+    doneButton.background<span class="comments"> // red</span>
+    doneButton.cornerRadius<span class="comments"> // 30</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Мы могли бы решить эту проблему созданием своего инициализатора в классе DoneButton:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class DoneButton: Button {
+
+                                init(width: Double, background: String, cornerRadius: Double) {
+                                    super.init(width: width)
+                                    self.background = background
+                                    self.cornerRadius = cornerRadius
+                                }
+                            }
+
+                            let doneButton = DoneButton(width: 100, background: "red", cornerRadius: 30)
+                            doneButton.background // red
+                            doneButton.cornerRadius // 30
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">DoneButton</span>: Button {
+
+        <span class="keywords">init</span>(<span class="language-swift">width</span>: <span class="className">Double</span>, <span class="language-swift">background</span>: <span class="className">String</span>, <span class="language-swift">cornerRadius</span>: <span class="className">Double</span>) {
+            <span class="keywords">super</span>.<span class="keywords">init</span>(<span class="language-swift">width</span>: width)
+            <span class="keywords">self</span>.<span class="className">background</span> = background
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">doneButton</span> = DoneButton(width: <span class="numbers">100</span>, background: <span class="string">"red"</span>, cornerRadius: <span class="numbers">30</span>)
+    doneButton.background<span class="comments"> // red</span>
+    doneButton.cornerRadius<span class="comments"> // 30</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    То есть мы создаем свой инициализатор и прописываем в нем все новые свойства, если вы не понимаете как работает этот инициализатор, то советую перечитать прошлый урок.
+                </p>
+                <p>
+                    Теперь пользователь будет видеть обновленные данные, но что если мы не хотим создавать инициализатор с дополнительными свойствам, ведь этих свойств может оказаться очень много, и нам будет не удобно их все перечислять в инициализаторе, и первое что приходит в голову, это инициализировать свойства внутри инициализатора:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                let width: Double
+                                var background = "white"
+                                var cornerRadius = 10.0
+
+                                init(width: Double) { // имена повторяются
+                                    self.width = width
+                                }
+                            }
+
+                            class DoneButton: Button {
+
+                                init(width: Double) { // имена повторяются ОШИБКА
+                                    super.init(width: width)
+                                    background = "red"
+                                    cornerRadius = 30
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">let</span> <span class="language-swift">width</span>: <span class="className">Double</span>
+        <span class="keywords">var</span> <span class="language-swift">background</span> = <span class="string">"white"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">10.0</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">width</span>: <span class="className">Double</span>) { <span class="comments"> // имена повторяются</span>
+            <span class="keywords">self</span>.<span class="className">width</span> = width
+        }
+    }
+
+    <span class="keywords">class</span> <span class="language-swift">DoneButton</span>: Button {
+
+        <span class="keywords">init</span>(<span class="language-swift">width</span>: <span class="className">Double</span>) { <span class="comments"> // имена повторяются ОШИБКА</span>
+            <span class="keywords">super</span>.<span class="keywords">init</span>(<span class="language-swift">width</span>: width)
+            <span class="className">background</span> = <span class="string">"white"</span>
+            <span class="className">cornerRadius</span> = <span class="numbers">30</span>
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Но здесь есть одна проблема, этот инициализатор выглядит точно так же как унаследованный, а это значит что система предложит вам добавить ключевое слово override:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class DoneButton: Button {
+
+                                override init(width: Double) {
+                                    super.init(width: width)
+                                    background = "red"
+                                    cornerRadius = 30
+                                }
+                            }
+
+                            let doneButton = DoneButton(width: 100)
+                            doneButton.background // red
+                            doneButton.cornerRadius // 30
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">DoneButton</span>: Button {
+
+        <span class="keywords">override init</span>(<span class="language-swift">width</span>: <span class="className">Double</span>) {
+            <span class="keywords">super</span>.<span class="keywords">init</span>(<span class="language-swift">width</span>: width)
+            <span class="className">background</span> = <span class="string">"white"</span>
+            <span class="className">cornerRadius</span> = <span class="numbers">30</span>
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">doneButton</span> = DoneButton(width: <span class="numbers">100</span>)
+    doneButton.background<span class="comments"> // red</span>
+    doneButton.cornerRadius<span class="comments"> // 30</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом в момент создании кнопки мы получим новые настройки и пользователь будет доволен.
+                </p>
+                <p>
+                    Нужно по возможности делать инициализаторы компактными, поэтому можно создать дополнительный метод, который будет заниматься настройкой, и его уже вызывать в инициализаторе:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class DoneButton: Button {
+
+                                override init(width: Double) {
+                                    super.init(width: width)
+                                    setupDoneButton()
+                                }
+
+                                func setupDoneButton() {
+                                    background = "red"
+                                    cornerRadius = 30
+                                }
+                            }
+
+                            let doneButton = DoneButton(width: 100)
+                            doneButton.background // red
+                            doneButton.cornerRadius // 30
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">DoneButton</span>: Button {
+
+        <span class="keywords">override init</span>(<span class="language-swift">width</span>: <span class="className">Double</span>) {
+            <span class="keywords">super</span>.<span class="keywords">init</span>(<span class="language-swift">width</span>: width)
+            setupDoneButton()
+        }
+
+         <span class="keywords">func</span> <span class="language-swift">setupDoneButton</span>() {
+            background = <span class="string">"red"</span>
+            cornerRadius = <span class="numbers">30</span>
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">doneButton</span> = DoneButton(width: <span class="numbers">100</span>)
+    doneButton.background<span class="comments"> // red</span>
+    doneButton.cornerRadius<span class="comments"> // 30</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Это очень популярный случай переопределения инициализатора.
+                </p>
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            Давайте подведем итог.
+                        </p>
+                        <p>
+                          <span class="accent">Переопределение</span> – задать новое значение для свойства, переписать логику метода или вычисляемого свойства.
+                        </p>
+                        <p>
+                            Все унаследованные от супер класса публичные (то есть доступные из экземпляра класса) методы и свойства можно переопределить.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

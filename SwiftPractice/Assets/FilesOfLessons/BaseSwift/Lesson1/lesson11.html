@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_11">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#tuples" class="yakor">&#128195; Tuples</a>
+          <a href="#access_tuple" class="yakor">&#128195; Доступ к элементам кортежа</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 11. Кортежи.
+            </h2>
+            <p class="date_p"> 14 Января 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+
+               <h2 id="tuples">
+                   Tuples
+               </h2>
+                <p>
+                    Кортежи своего рода тоже коллекции, но в отличии от массивов, множеств и словарей, они могут содержать разные типы данных. Такие объекты называются <span class="accent">Tuples</span>, что в переводе означает <span class="accent">Кортежи</span>.
+                </p>
+                <p>
+                  То есть у каждого значения в составе кортежей может быть свой тип данных, который не зависит от других.
+                </p>
+                <p>
+                    Давайте сперва посмотрим на его синтаксис:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.1.png" />
+                <p>
+                    В круглых скобках мы определяем необходимые нам элементы, при этом они могут иметь разные типы данных.
+                </p>
+                <p>
+                    Создадим для примера два кортежа:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let hotel = (4, "family")
+                            let pet = ("Cat", 6, true)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">hotel</span> = (<span class="numbers">4</span>, <span class="string">"family"</span>)
+    <span class="keywords">let</span> <span class="language-swift">pet</span> = (<span class="string">"Cat"</span>, <span class="numbers">6</span>, <span class="keywords">true</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Мы с вами создали два кортежа, первый отвечает за некоторые данные по отелю, а второй по питомцу.
+                </p>
+                <p>
+                    Каждый из этих кортежей группирует значения разных типов. Давайте посмотрим на типы данных наших свойств:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.2.png" />
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.3.png" />
+                <p>
+                    Так выглядит тип кортежа.
+                </p>
+
+                <h2 id="access_tuple">
+                    Доступ к элементам кортежа
+                </h2>
+
+                <p>
+                   Давайте запустим компилятор и посмотрим на окно справа:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.4.png" />
+                <p>
+                    Обратите внимания на цифры перед значениями в правом окне, это индексы ваших значений, то есть к элементам можно обратится по их индексам:
+                </p>
+                 <img class="img_block" src="assets/Images/Lesson11/Lesson11.5.png" />
+                <p>
+                    Ну и если мы видим элемент справа, то это значение мы можем присвоить какому-либо свойству:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let rating = hotel.0
+                            let type = hotel.1
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">rating</span> = <span class="className">hotel</span>.<span class="numbers">0</span>
+    <span class="keywords">let</span> <span class="language-swift">type</span> = <span class="className">hotel</span>.<span class="numbers">1</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Свойство <span class="language-swift">rating</span> будет типа <span class="className">Int</span>, а type типа <span class="className">String</span>
+                </p>
+                <p>
+                   Эти свойство можно теперь использовать в логике.
+                </p>
+                <p>
+                   Элементы кортежа можно именовать:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let hotel = (rating: 4, type: "family")
+                            let pet = (type: "Cat", age: 6, isfluffy: true)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">hotel</span> = (rating: <span class="numbers">4</span>, type: <span class="string">"family"</span>)
+    <span class="keywords">let</span> <span class="language-swift">pet</span> = (type: <span class="string">"Cat"</span>, age: <span class="numbers">6</span>, isfluffy: <span class="keywords">true</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом мы можем обращаться к элементам и по их индексам и по их параметрам:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.6.png" />
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Вы можете именовать только некоторые элементы кортежа, не обязательно задавать имена всем. Но если уж начали именовать, то лучше идти до конца.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    На самом деле мы с вами уже сталкивались с кортежем.
+                </p>
+                <p>
+                    Давайте создадим числовое множество и добавим в него новый элемент:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.7.png" />
+                <p>
+                    метод <span class="className">insert</span> нам возвращает кортеж, и элементы кортежа мы можем присвоить новым свойствам:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let (inserted, memberAfterInsert)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> (<span class="language-swift">inserted</span>, <span class="language-swift">memberAfterInsert</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Мы объявили две константы и поместила их в скобки, с наружи написали <span class="keywords">let</span>, и теперь нам нужно присвоить значение для каждой из этих констант:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers: Set = [5, 4, 9, 33, 58]
+                            let (inserted, memberAfterInsert) = numbers.insert(8)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var </span><span class="language-swift">numbers</span>: <span class="className">Set</span> = [<span class="numbers">5</span>, <span class="numbers">4</span>, <span class="numbers">9</span>, <span class="numbers">33</span>, <span class="numbers">58</span>]
+    <span class="keywords">let</span> (<span class="language-swift">inserted</span>, <span class="language-swift">memberAfterInsert</span>) = <span class="className">numbers</span>.<span class="className">insert</span>(<span class="numbers">8</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Количество свойств в скобках не должно превышать количества элементов самого кортежа.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Теперь свойство inserted будет содержать в себе логическое значение, а memberAfterInsert то значение, которое мы добавили в множество.
+                </p>
+                <p>
+                    Давайте посмотрим на эти значения:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.8.png" />
+                <p>
+                    Эти свойства можно отдельно друг от друга использовать в логике.
+                </p>
+                <p>
+                    Если из кортежа вы хотите достать только одно свойство, то ненужное вам замените на нижнее подчеркивание:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.9.png" />
+                <p>
+                    Но можно извлекать из кортежа данные первым способом описанном выше:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson11/Lesson11.10.png" />
+                <p>
+                    мы создаем свойство, и присваиваем ему кортеж, а уже к значениям в кортежа обращаемся через параметры, либо через индексы:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers: Set = [5, 4, 9, 33, 58]
+                            let newElement = numbers.insert(8)
+
+                            newElement.memberAfterInsert
+                            newElement.inserted
+
+                            //либо через индексы
+
+                            newElement.0
+                            newElement.1
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var </span><span class="language-swift">numbers</span>: <span class="className">Set</span> = [<span class="numbers">5</span>, <span class="numbers">4</span>, <span class="numbers">9</span>, <span class="numbers">33</span>, <span class="numbers">58</span>]
+    <span class="keywords">let</span> <span class="language-swift">newElement</span> = <span class="className">numbers</span>.<span class="className">insert</span>(<span class="numbers">8</span>)
+
+    <span class="className">newElement</span>.<span class="className">memberAfterInsert</span>
+    <span class="className">newElement</span>.<span class="className">inserted</span>
+
+    <span class="comments">//либо через индексы</span>
+
+    <span class="className">newElement</span>.<span class="numbers">0</span>
+    <span class="className">newElement</span>.<span class="numbers">1</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            Давайте подведем итог.
+                        </p>
+                        <p>
+                            <span class="accent">Кортеж</span> – это группировка нескольких значений в одно составное.
+                        </p>
+                        <p>
+                            Элементы в кортеже проиндексированы. Можно именовать значения, и использовать их вместо индексов.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

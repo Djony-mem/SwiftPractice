@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_12">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#for_in" class="yakor">&#128195; Цикл for in</a>
+          <a href="#cycle_while" class="yakor">&#128195; Цикл while</a>
+          <a href="#repeat_while" class="yakor">&#128195; Цикл repeat - while</a>
+          <a href="#break_continue" class="yakor">&#128195; Операторы break и continue в циклах</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 12. Циклы.
+            </h2>
+            <p class="date_p"> 14 Января 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+
+               <h2 id="for_in">
+                   Цикл for in
+               </h2>
+                <p>
+                    Само по себе слово <span class="accent">цикл</span> предполагает повторение каких-либо действий один или несколько раз.
+                </p>
+                <p>
+                    Циклы <span class="keywords">for-in</span> используется для перебора значений всех видов коллекций. давайте посмотрим на его синтаксис:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.1.png" />
+                <p>
+                    После ключевого слова <span class="keywords">in</span> мы определяем какую либо коллекцию, это может быть что угодно диапазоны чисел, элементы массива, элементы словарей, множеств, символов в строке и других последовательностей. А после ключевого слова <span class="keywords">for</span> мы определяем последовательно элемент этой коллекции.
+                </p>
+                <p>
+                    Для понимания работы цикла, мы с вами возьмем несколько коллекций и разложим их на элементы:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let names = ["Ann", "Tim", "Bob"]
+                            "Ann" // первый элемент массива
+                            "Tim" // второй элемент массива
+                            "Bob" // третий элемент массива
+
+                            let range = 1...3
+                            1 // первый элемент диапазона
+                            2 // второй элемент диапазона
+                            3 // третий элемент диапазона
+
+                            let semiClosedRange = 1..<3 // Здесь тройка не входит в диапазон
+                            1 // первый элемент диапазона
+                            2 // второй элемент диапазона
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">names</span> = [<span class="string">"Ann"</span>, <span class="string">"Tim"</span>, <span class="string">"Bob"</span>]
+    <span class="string">"Ann"</span> <span class="comments">// первый элемент массива</span>
+    <span class="string">"Tim"</span> <span class="comments">// второй элемент массива</span>
+    <span class="string">"Bob"</span> <span class="comments">// третий элемент массива</span>
+
+    <span class="keywords">let</span> <span class="language-swift">range</span> = <span class="numbers">1</span>...<span class="numbers">3</span>
+    <span class="numbers">1</span> <span class="comments">// первый элемент диапазона</span>
+    <span class="numbers">2</span> <span class="comments">// второй элемент диапазона</span>
+    <span class="numbers">3</span> <span class="comments">// третий элемент диапазона</span>
+
+    <span class="keywords">let</span> <span class="language-swift">semiClosedRange</span> = <span class="numbers">1</span>..&#60;<span class="numbers">3</span> <span class="comments">// Здесь тройка не входит в диапазон</span>
+    <span class="numbers">1</span> <span class="comments">// первый элемент диапазона</span>
+    <span class="numbers">2</span> <span class="comments">// второй элемент диапазона</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                  То есть эти значения мы будем перебирать в цикле. Это не функциональный код, я просто хочу вас навести на правильные мысли.
+                </p>
+                <p>
+                    Теперь обратимся снова к синтаксису цикла и постепенно попытаемся разложить наши коллекции:
+                </p>
+                 <img class="img_block" src="assets/Images/Lesson12/Lesson12.2.png" />
+                <p>
+                    После ключевого слова <span class="keywords">in</span> мы должны определить коллекцию,  мы начнем с массива names, то есть мы будем перебирать имена:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.3.png" />
+                <p>
+                   После ключевого слова for мы должны как то назвать элемент перебираемой коллекции, так как у нас это имена, то один элемент будет именем, так его и назовем:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.4.png" />
+                <p>
+                    После ключевого слова <span class="keywords">for</span> мы определили свойство <span class="className">name</span>, оно будет в себе хранить значение одного элемента из коллекции, которую мы определяем после ключевого слова <span class="keywords">in</span>.
+                </p>
+                <p>
+                    Возникает резонный вопрос, какое значение примет свойство name, если в коллекции не один элемент, а много?!
+                </p>
+                <p>
+                    Все очень просто, оно будет принимать последовательно каждый элемент коллекции, каждую <span class="accent">итерацию</span>(проход) цикла. Звучит очень страшно, но на самом деле все просто.
+                </p>
+                <p>
+                    Итерация, это по сути выполнение блока кода в фигурных скобках цикла:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.5.png" />
+                <p>
+                    Количество таких итераций, будет зависеть от количества элементов коллекции, которую вы определите после ключевого слова <span class="keywords">in</span>.
+                </p>
+                <p>
+                    Внутри фигурных скобок, вы можете использовать свойство name, оно доступно только в этой локальной зоне. Давайте выведем на консоль все имена из коллекции:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let names = ["Ann", "Tim", "Bob"]
+                            "Ann" // первый элемент массива
+                            "Tim" // второй элемент массива
+                            "Bob" // третий элемент массива
+
+                            for name in names {
+                                print(name)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">names</span> = [<span class="string">"Ann"</span>, <span class="string">"Tim"</span>, <span class="string">"Bob"</span>]
+    <span class="string">"Ann"</span> <span class="comments">// первый элемент массива</span>
+    <span class="string">"Tim"</span> <span class="comments">// второй элемент массива</span>
+    <span class="string">"Bob"</span> <span class="comments">// третий элемент массива</span>
+
+    <span class="keywords">for</span> name <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="className">print</span>(<span class="className">name</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Запустим проект и посмотрим на консоль:
+                </p>
+                 <img class="img_block" src="assets/Images/Lesson12/Lesson12.6.png" />
+                <p>
+                  Обратите внимание что все имена располагаются с новой строки, то есть цикл каждую новую итерацию вызвал новый принт, с новыми данными. Справа вы можете видеть в круглых скобках 3 итерации, то есть блок кода в фигурных скобках был выполнен 3 раза.
+                </p>
+                <p>
+                   давайте проследим каждую итерацию нашего цикла.
+                </p>
+                <p>
+                    Первая итерация, свойство name инициализируется первым элементом из коллекции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.7.png" />
+                <p>
+                    Вторая итерация, свойство <span class="className">name</span> инициализируется вторым элементом из коллекции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.8.png" />
+                <p>
+                    Третья итерация будет последняя, так как элементов в коллекции больше нет, свойство <span class="className">name</span> инициализируется третьим элементом из коллекции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.9.png" />
+                <p>
+                    Таким образом принт будет вызван три раза, и мы увидим три разных имени, потому что свойство name будет принимать последовательно(попорядку) каждый элемент коллекции
+                </p>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Свойство после ключевого слова for является константой, мы не можем его изменять, при этом ключевое слово let писать не нужно.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                   давайте для закрепления переберем оставшиеся наши две коллекции:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let range = 1...3
+                            1 // первый элемент диапазона
+                            2 // второй элемент диапазона
+                            3 // третий элемент диапазона
+
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">range</span> = <span class="numbers">1</span>...<span class="numbers">3</span>
+    <span class="numbers">1</span> <span class="comments">// первый элемент диапазона</span>
+    <span class="numbers">2</span> <span class="comments">// второй элемент диапазона</span>
+    <span class="numbers">3</span> <span class="comments">// третий элемент диапазона</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    после ключевого слова <span class="keywords">in</span> мы определяем эту коллекцию:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.11.png" />
+                <p>
+                    Теперь нужно подумать над названием одного элемента из нашего диапазона. На самом деле к именованию этого свойства нужно отнестись серьезно,  оно должно отражать суть перебираемой коллекции, а так же его цель в блоке цикла. Что я имею в виду, предположим что мы хотим при помощи данного диапазона отобразить на консоли все элементы из массива names.
+                </p>
+                <p>
+                   Как мне это сделать?!
+                </p>
+                <p>
+                    Давайте сперва инициализируем наш один элемент диапазона как index:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            for index in range {
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> index <span class="keywords">in</span> <span class="className">range</span> {
+
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    У нас будет три итерации, потому что в диапазоне три элемента (количество итераций равно количеству элементов коллекции):
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let range = 1...3
+                            1 // первый элемент диапазона
+                            2 // второй элемент диапазона
+                            3 // третий элемент диапазона
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">range</span> = <span class="numbers">1</span>...<span class="numbers">3</span>
+    <span class="numbers">1</span> <span class="comments">// первый элемент диапазона</span>
+    <span class="numbers">2</span> <span class="comments">// второй элемент диапазона</span>
+    <span class="numbers">3</span> <span class="comments">// третий элемент диапазона</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    свойство index будет последовательно принимать каждый из этих элементов, соответсвенно мы можем его использовать для того что бы взять каждый элемент из массива и вывести его на консоль.
+                </p>
+                <p>
+                    Вспоминаем как достать один элемент из массива:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            names[0]
+                            '>Copy</button>
+                        </div>
+                    </div>
+                    <pre class="language-swift"><code readonly="true">
+    <span class="operator"><span class="className">names</span>[<span class="numbers">0</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    у нас есть index, который последовательно принимает значение от 1 до 3, и мы можем эти значения использовать в качестве индекса массива:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let range = 1...3
+                            1 // первый элемент диапазона
+                            2 // второй элемент диапазона
+                            3 // третий элемент диапазона
+
+                            for index in range {
+                                 print(names[index - 1])
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">range</span> = <span class="numbers">1</span>...<span class="numbers">3</span>
+    <span class="numbers">1</span> <span class="comments">// первый элемент диапазона</span>
+    <span class="numbers">2</span> <span class="comments">// второй элемент диапазона</span>
+    <span class="numbers">3</span> <span class="comments">// третий элемент диапазона</span>
+
+    <span class="keywords">for</span> index <span class="keywords">in</span> <span class="className">range</span> {
+        <span class="className">print</span>(<span class="className">names</span>[<span class="className">index</span> - <span class="numbers">1</span>])
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Так как индексы элементов из массива начинаются с нуля, а диапазон с единицы, то мы должны вычесть 1
+                </p>
+                <p>
+                    Давайте проследим каждую итерацию:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.12.png" />
+                <p>
+                    Это была первая итерация, давайте взглянем на вторую:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.13.png" />
+                <p>
+                    Думаю вы уловили суть, третья итерация будет последней, потому что в коллекции range всего три элемента. И на кансоли мы снова увидим три имени подряд.
+                </p>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если у вас есть массив и вам нужно взять каждый его элемент, то используйте перебор по массиву, а не по диапазону.
+                        </p>
+                        <p>
+                            Так же нет необходимости определять для диапазона отдельное свойство, можно сразу его передать после ключевого слова in:
+                        </p>
+                        <p>
+                            <span class="accent">for index in 1…3 {}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Последнее что мы рассмотрим в этом блоке, это итерация по словарю
+                </p>
+                <p>
+                    Создадим словарь, и так же распишем каждый его элемент для понимания.
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let fruit = ["apple": 3, "banana": 2, "orange": 7]
+
+                            // Эти строчки кода будут выдавать ошибку, вам их не нужно прописывать!
+                            "apple": 3 // первый элемент словаря
+                            "banana": 2 // второй элемент словаря
+                            "orange": 7 // третий элемент словаря
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let </span><span class="language-swift">fruit</span> = [<span class="string">"apple"</span>: <span class="numbers">3</span>, <span class="string">"banana"</span>: <span class="numbers">2</span>, <span class="string">"orange"</span>: <span class="numbers">7</span>]
+
+    <span class="comments">// Эти строчки кода будут выдавать ошибку, вам их не нужно прописывать!</span>
+    <span class="string">"apple"</span>: <span class="numbers">3</span> <span class="comments">// первый элемент словаря</span>
+    <span class="string">"banana"</span>: <span class="numbers">2</span> <span class="comments">// второй элемент словаря</span>
+    <span class="string">"orange"</span>: <span class="numbers">7</span> <span class="comments">// третий элемент словаря</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Далее так же определяем в цикле необходимые элементы:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.13.1.png" />
+                <p>
+                    один элемент нашей коллекции состоит из ключа и значения, и мы можем эти два значения определить в кортеже:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            for (fruit, count) in fruits {
+                                print("фрукт: \(fruit), количество: \(count)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> (fruit, count) <span class="keywords">in</span> <span class="className">fruits</span> {
+        <span class="className">print</span>(<span class="string">"фрукт: </span>\(<span class="className">fruit</span>)<span class="string">, количество: </span>\(<span class="className">count</span>)<span class="string">"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    <span class="className">fruit</span> принимает последовательно каждый ключ словаря, а count каждое значение словаря. Таким образом в блоке цикла нам доступны два свойства, с которыми мы можем делать что захотим. например можем фрукты добавлять в массив имен:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.14.png" />
+                <p>
+                    Давайте рассмотрим самую первую итерацию, остальные вы уже додумаете самостоятельно:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.15.png" />
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если вы не используете свойство после ключевого слова for, например если вы хотите просто вывести на консоль слово “Hello” три раза, то его нужно заменить нижним подчеркиванием:Если у вас есть массив и вам нужно взять каждый его элемент, то используйте перебор по массиву, а не по диапазону.
+                        </p>
+                        <img class="img_block" src="assets/Images/Lesson12/Lesson12.16.png" />
+                        <p>
+                            то же самое и со словарями, если вам после ключевого слова for не нужен ключ или значение, то вы его просто опускаете, то есть заменяете нижним подчеркиванием.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Есть еще один способ перебрать словарь:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let fruit = ["apple": 3, "banana": 2, "orange": 7]
+
+                            for pair in fruit {
+                                print("фрукт: \(pair.key), количество: \(pair.value)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let </span><span class="language-swift">fruit</span> = [<span class="string">"apple"</span>: <span class="numbers">3</span>, <span class="string">"banana"</span>: <span class="numbers">2</span>, <span class="string">"orange"</span>: <span class="numbers">7</span>]
+
+    <span class="keywords">for</span> pair <span class="keywords">in</span> <span class="className">fruits</span> {
+        <span class="className">print</span>(<span class="string">"фрукт: </span>\(<span class="className">pair.key</span>)<span class="string">, количество: </span>\(<span class="className">pair.value</span>)<span class="string">"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    После ключевого слова <span class="keywords">in</span> прописываем коллекцию, в нашем случае это словарь, а после <span class="keywords">for</span> элемент этой коллекции, в нашем случае это пара. Каждую итерацию мы берем пару и выводим ключ и значение на консоль, обращаясь к соответствующим свойствам <span class="className">key</span> и <span class="className">value</span>, это системные названия.
+                </p>
+                <p>
+                    По традиции, давайте проследим первую итерацию:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.17.png" />
+                <p>
+                    Разница первого и второго варианта в том, что мы либо разделяем пару на два свойства, либо используем одно, но обращаемся к ключу и значению через свойства key и value.
+                </p>
+                <p>
+                    Можно использовать любой из способов.
+                </p>
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_terms">
+                       <p>
+                           Давайте подведем итог.
+                       </p>
+                        <p>
+                            – Цикл начинается с ключевого слова <span class="keywords">for</span>.
+                        </p>
+                        <p>
+                            – Свойство после <span class="keywords">for</span> является константой, но для ее определения ключевое слово <span class="keywords">let</span> писать не надо. И оно доступно только внутри цикла.
+                        </p>
+                        <p>
+                            – Количество итераций зависит от количества элементов коллекции после ключевого слова <span class="keywords">in</span>.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+                <h2 id="cycle_while">
+                    Цикл while
+                </h2>
+                <p>
+                    While цикл в Swift служит для повторения кода до тех пор, пока указанное условие истинно. Обычно используется, если вам не известен диапазон.
+                </p>
+                <p>
+                    Давайте посмотрим на синтаксис данного цикла:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.18.png" />
+                <p>
+                    Условие после ключевого слова <span class="keywords">while</span> это логическое выражение, которое проверяется на истинность перед каждой итерацией цикла. Если условие истинно, то код внутри цикла выполняется, и процесс повторяется, пока условие истинно.
+                </p>
+                <p>
+                    Давайте придумаем какой нибудь простой пример:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var count = 1
+
+                            while count < 5 {
+                                print(count)
+                                count += 1
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">count</span> = <span class="numbers">1</span>
+
+    <span class="keywords">while</span> <span class="className">count</span> &#60; <span class="keywords">5</span> {
+        <span class="className">print</span>(<span class="className">count</span>)
+        <span class="className">count</span> += <span class="numbers">1</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если запустить данный код, то на консоли мы увидим цифры от 1 до 4
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.19.png" />
+                <p>
+                    Давайте проследим каждый шаг компилятора при запуске.
+                </p>
+                <p>
+                    (1) Первым делом происходит инициализация и сохранение свойства count в памяти, <br/>(2) далее компилятор видит ключевое слово <span class="keywords">while</span>, понимает что это цикл, проверяет условное выражение после <span class="keywords">while</span>, если оно возвращает true то он выполняет блок кода в фигурных скобках.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.20.png" />
+                <p>
+                    В нашем случае условие <span class="className">count</span> &#60; <span class="numbers">5</span> возвращает true (потому что <span class="className">count</span> равен 1, а 1 &#60; 5), поэтому выполнится блок кода внутри цикла, а именно мы выведем значение count на консоль (в первую итерацию это значение равно 1), и после этого прибавим единицу к значению свойства count.
+                </p>
+                <p>
+                    Это была первая итерация (первое выполнение кода в фигурных скобках), так как условие count &#60; 5 вернуло true, то компилятор дальше не пойдет, а выполнит вторую итерацию.
+                </p>
+                <p>
+                    Давайте проследим вторую итерацию:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.21.png" />
+                <p>
+                    Условие после <span class="keywords">while</span> снова возвращает true. соответсвенно компилятор будет выполнять код внутри фигурных скобках. Выводим на консоль уже значение 2, и прибавляем к этой двойке 1.
+                </p>
+                <p>
+                    Таким образом пока условие после <span class="keywords">while</span> возвращает true, компилятор будет проверять условие и переходить на новые итерации.
+                </p>
+                <p>
+                    Давайте сразу перейдем к моменту когда count будет равен 5, условие <span class="className">count</span> &#60; <span class="numbers">5</span> вернет false, и компилятор завершит цикл:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.22.png" />
+                <p>
+                    Таким образом, пока условие возвращает true компилятор будет перепроверять это условие и выполнять код внутри фигурных скобок.
+                </p>
+                <p>
+                    Как только условие возвращает false цикл останавливается и компилятор идет дальше. Пока цикл не завершит свою работу код после цикла не выполнится. Давайте это проверим:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.23.png" />
+                <p>
+                    Цикл провел 4 итерации и только после того как остановился вывел на консоль приветствие <span class="string">“Hello!"</span>
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Нужно обязательно проследить что бы условие после while в какой то момент возвращало false иначе вы рискуете запустить бесконечный цикл.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте посмотрим на еще один интересный пример:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers: [Int] = []
+
+                            while numbers.isEmpty {
+                                print("Hello!")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span>: [<span class="className">Int</span>] = []
+
+    <span class="keywords">while</span> <span class="className">numbers</span>.<span class="className">isEmpty</span> {
+        <span class="className">print</span>(<span class="string">"Hello!"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Как вы думаете, что мы увидим на консоли если запустим данный цикл?!
+                </p>
+                <p>
+                    Если вы внимательно все читали, то ответ для вас будет очевиден, мы запустим бесконечный цикл, и бесконечные фразы <span class="string">“Hello!”</span> на консоли. А все потому, что условие <span class="className">numbers</span>.<span class="className">isEmpty</span> всегда возвращает true, и мы ничего не предприняли что бы это поменять.
+                </p>
+                <p>
+                    Давайте исправим ситуацию, и добавим в массив один элемент:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers: [Int] = []
+
+                            while numbers.isEmpty {
+                                print("Hello!")
+                                numbers.append(1)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span>: [<span class="className">Int</span>] = []
+
+    <span class="keywords">while</span> <span class="className">numbers</span>.<span class="className">isEmpty</span> {
+        <span class="className">print</span>(<span class="string">"Hello!"</span>)
+        <span class="className">numbers</span>.<span class="className">append</span>(<span class="className">1</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом у нас будет всего одна итерация и на консоли мы увидим всего одно приветствие, потому что когда компилятор пойдет проверять второй раз условие, оно вернет false, потому как в массиве уже появился один элемент.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если после прочтения все равно сложно, то возьмите лист бумаги, карандаш, и пропишите каждую итерацию, какое было начальное значение, где получили новое, и что происходит в условии.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <div>
+                    <div class="shadow_block container_terms">
+                       <p>
+                           Давайте подведем итог.
+                       </p>
+                        <p>
+                            – Цикл начинается с ключевого слова <span class="keywords">while</span>.
+                        </p>
+                        <p>
+                            – Количество итераций зависит от условия после <span class="keywords">while</span>. Пока условие возвращает true цикл будет перезапускаться.
+                        </p>
+                        <p>
+                            – Следите за тем что бы условие в какой то момент вернуло false, иначе будет бесконечный цикл, радужное колесико будет крутиться до тех пор пока вы не перезапустите playground.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+                <h2 id="repeat_while">
+                    Цикл repeat - while
+                </h2>
+
+                <p>
+                    Если вы хорошо усвоили цикл <span class="keywords">while</span>, то с <span class="keywords">repeat – while</span> точно не будет проблем.
+                </p>
+                <p>
+                    В целом он работает точно так же, только прежде чем проверить условие компилятор выполнит блок кода в фигурных скобках, то есть одна итерация будет гарантированной.
+                </p>
+                <p>
+                    Давайте посмотрим на синтаксис:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.24.png" />
+                <p>
+                    Что бы понять работу данного цикла, снова вернемся к примеру с циклом <span class="keywords">while</span>:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [1, 4]
+
+                            while numbers.isEmpty {
+                                print("Hello!")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="numbers">1</span>, <span class="numbers">4</span>]
+
+    <span class="keywords">while</span> <span class="className">numbers</span>.<span class="className">isEmpty</span> {
+        <span class="className">print</span>(<span class="string">"Hello!"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если мы запустим компилятор, то наша консоль будет пустой, а все потому что условное выражение <span class="className">numbers</span>.<span class="className">isEmpty</span> возвращает false (наш массив не является пустым), соответсвенно код в фигурных скобках не выполняется, и цикл даже не запускается.
+                </p>
+                <p>
+                    Теперь тоже самое мы проделаем с циклом <span class="keywords">repeat-whil</span>:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [1, 4]
+
+                            repeat {
+                                print("Hello!")
+                            } while numbers.isEmpty
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="numbers">1</span>, <span class="numbers">4</span>]
+
+    <span class="keywords">repeat</span> {
+        <span class="className">print</span>(<span class="string">"Hello!"</span>)
+    } <span class="keywords">while</span> <span class="className">numbers</span>.<span class="className">isEmpty</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В этот раз мы на консоли увидим одно приветствие, даже если условие вернуло false:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.25.png" />
+                <p>
+                    Как вы видите ничего сложного нет, главное уловить суть.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Данный цикл используется достаточно редко. Если у вас не стоит задачи точно выполнить одну итерацию до проверки условия, то используйте всегда while.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_terms">
+                       <p>
+                           Давайте подведем итог.
+                       </p>
+                        <p>
+                            – Цикл начинается с ключевого слова <span class="keywords">repeat</span>, после которого следует блок кода, который исполняется первым, и только после происходит проверка условия
+                        </p>
+                        <p>
+                            – Одна итерация будет выполнена гарантировано, а все последующие уже в зависимости от условия после ключевого слова <span class="keywords">while</span>.
+                        </p>
+                        <p>
+                            – Здесь так же нужно следить за тем что бы условие в какой то момент вернуло false, иначе будет бесконечный цикл.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+                <h2 id="break_continue">
+                    Операторы break и continue в циклах
+                </h2>
+                <p>
+                    На одном из уроков мы уже затронули оператор break  в условной конструкции switch, но это не единственное место где его можно использовать. Циклы так же отлично с ним работают.
+                </p>
+                <p>
+                    Если нам нужно остановить цикл в какой то момент, то мы можем использовать данный оператор.
+                </p>
+                <p>
+                    Обратимся к примеру:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let names = ["Ann", "Tim", "Bob"]
+
+                            for name in names {
+                                if name == "Tim" {
+                                    break
+                                }
+                                print("Hi, \(name)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">names</span> = [<span class="string">"Ann"</span>, <span class="string">"Tim"</span>, <span class="string">"Bob"</span>]
+
+    <span class="keywords">for</span> name <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+            <span class="keywords">break</span>
+        }
+        <span class="className">print</span>(<span class="string">"Hi, </span>\(<span class="className">name</span>)<span class="string">"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Давайте снова пройдемся по всем шагам, которые выполнит компилятор.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.26.png" />
+                <p>
+                    Это была первая итерация, давайте прогоним вторую:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.27.png" />
+                <p>
+                    Таким образом мы можем останавливать цикл в нужный нам момент.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            При помощи этого оператора так же можно останавливать циклы while и repeat-while.
+                        </p>
+                        <p>
+                            Код находящийся сразу после break в локальной зоне фигурных скобок, не будет выполнен.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте теперь посмотрим как работает оператор <span class="keywords">continue</span>.
+                </p>
+                <p>
+                    Он создан для того что бы в нужный момент запустить следующую итерацию. Как это работает?!
+                </p>
+                <p>
+                    Обратимся к тому же примеру, только вместо break поставим <span class="keywords">continue</span>
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let names = ["Ann", "Tim", "Bob"]
+
+                            for name in names {
+                                if name == "Tim" {
+                                    continue
+                                }
+                                print("Hi, \(name)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">names</span> = [<span class="string">"Ann"</span>, <span class="string">"Tim"</span>, <span class="string">"Bob"</span>]
+
+    <span class="keywords">for</span> name <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+            <span class="keywords">continue</span>
+        }
+        <span class="className">print</span>(<span class="string">"Hi, </span>\(<span class="className">name</span>)<span class="string">"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    На этот раз на консоли мы увидим два имени.
+                </p>
+                <p>
+                    Снова пройдемся по итерациям:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.28.png" />
+                <p>
+                    Срабатывает вторая итерация:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson12/Lesson12.29.png" />
+                <p>
+                    То есть когда компилятор натыкается на оператор  <span class="keywords">continue</span>, он сразу же перескакивает на новую итерацию, то есть берет следующий элемент для проверки. при этом все что вы определите после ключевого слова continue, не будет выполнено:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let names = ["Ann", "Tim", "Bob"]
+
+                            for name in names {
+                                if name == "Tim" {
+                                    continue // Все что ниже не выполнится
+                                    print("Этого сообщения мы никогда не увидим на консоли")
+                                }
+                                print("Hi, \(name)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">names</span> = [<span class="string">"Ann"</span>, <span class="string">"Tim"</span>, <span class="string">"Bob"</span>]
+
+    <span class="keywords">for</span> name <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+            <span class="keywords">continue</span> <span class="comments">// Все что ниже не выполнится</span>
+            <span class="className">print</span>(<span class="string">"Этого сообщения мы никогда не увидим на консоли"</span>)
+        }
+        <span class="className">print</span>(<span class="string">"Hi, </span>\(<span class="className">name</span>)<span class="string">"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+
+</html>

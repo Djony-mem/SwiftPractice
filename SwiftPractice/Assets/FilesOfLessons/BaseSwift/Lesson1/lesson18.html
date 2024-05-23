@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_18">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#closur_w_return" class="yakor">&#128195; Блок замыкания, без возврата значения и параметров</a>
+          <a href="#closur_param" class="yakor">&#128195; Замыкание принимающее параметры</a>
+          <a href="#closur_return" class="yakor">&#128195; Замыкание возвращающие значения</a>
+          <a href="#quiz" class="yakor">&#128195; Викторина с разъяснениями</a>
+          <a href="#closure_in_param" class="yakor">&#128195; Замыкание в качестве параметров</a>
+          <a href="#closing_expressions" class="yakor">&#128195; Замыкающие выражения</a>
+          <a href="#short_param" class="yakor">&#128195; Сокращенные имена параметров</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 18. Замыкания (Closures)
+            </h2>
+            <p class="date_p"> 1 Марта 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                    В этом уроке будет очень много вопросов, на которые желательно ответить, что бы разобраться в теме, и старайтесь не продвигаться дальше, пока не ответите на вопрос.
+                </p>
+                <p>
+                    Эта тема достаточно сложная для восприятия, поэтому запаситесь терпением и свободным временем. Ну а я постараюсь донести ее вам на простом языке.
+                </p>
+               <h2 id="closur_w_return">
+                   Блок замыкания, без возврата значения и параметров.
+               </h2>
+                <p>
+                    В прошлых двух уроках вы познакомились с функциями, вы теперь понимаете как сделать какое-то действие в нужный момент времени, так вот функция, это частный случай замыкания.
+                </p>
+                <p>
+                    Что же такое closure или блок замыкания?  Давайте обратимся к документации Apple. “Это автономные блоки функции, которые можно  передавать и использовать в вашем коде.”
+                </p>
+                <p>
+                    То есть это самостоятельный блок, который выполняет какую то конкретную задачу. Звучит знакомо не правда ли? Дело в том что блок замыкания по сути является функцией без имени, с дополнительным функционалом, они могут захватывать значения из окружающего контекста, но об этом чуть позже, а пока давайте разберем что значит функция без имени.
+                </p>
+                <p>
+                    Ниже представлен синтаксис самого простого блока замыкания, который ничего не принимает и ничего не возвращает:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.1.png" />
+                <p>
+                    Как вы можете заметить у нас нет ни ключевого слова func ни имени, мы сразу определяем фигурные скобки, внутри которых мы определяем какой то функциональный код.
+                </p>
+                <p>
+                    Давайте создадим свойство, которому присвоим присвоим простой блок замыкания
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let greeting = {
+                                print("Hello, Swift!")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">greeting</span> = {
+        <span class="className">print</span>(<span class="string">"Hello, Swift!"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если вы посмотрите на тип данного свойства, то вы увидите знакомую сигнатуру:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.2.png" />
+                <p>
+                    У данного замыкания нет ни каких параметров, и нет никакого возвращаемого значения.
+                </p>
+                <p>
+                    Помните момент из прошлой лекции про копирование функции. Если мы передавали свойству функцию без круглых скобок, то по факту мы делали ее копию, здесь точно такой же механизм.
+                </p>
+                <p>
+                    По типу данных мы видим что свойство greeting это блок замыкания, воспринимайте его как копию функции, а это значит, что бы вызвать его, нам нужно поставить круглые скобки:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let greeting = {
+                                print("Hello, Swift!")
+                            }
+
+                            greeting()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">greeting</span> = {
+        <span class="className">print</span>(<span class="string">"Hello, Swift!"</span>)
+    }
+
+    greeting()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Что бы осмыслить что мы только что сделали, давайте подумаем как бы мы это реализовали с использованием обычной функции:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreting() {
+                                print("Hello, Swift!")
+                            }
+
+                            let greeting = getGreting // делаем копию функции
+
+                            greeting() // вызываем копию
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() {
+        <span class="className">print</span>(<span class="string">"Hello, Swift!"</span>)
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">greeting</span> = getGreeting <span class="comments">// делаем копию функции </span>
+
+    greeting() <span class="comments">// вызываем копию </span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Оба примера работают одинаково, но разница в том что в случае с замыканием, мы сразу передаем реализацию свойству:
+                </p>
+
+                <video class="img_block" controls>
+                    <source src="assets/Images/Lesson18/Lesson18.3.mov">
+                    Can't load the video.
+                </video>
+
+                <p>
+                    Мы так же можем сразу запустить блок замыкания если после фигурных скобок определим круглые скобки
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let greeting = {
+                                print("Hello, Swift!")
+                            }()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">greeting</span> = {
+        <span class="className">print</span>(<span class="string">"Hello, Swift!"</span>)
+    }()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Как вы думаете, какой тип данных будет теперь у свойства greeting?
+                </p>
+                <p>
+                    Мы вызываем блок замыкания, который ничего не возвращает, а это значит, что свойство greeting будет иметь значение Void:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.4.png" />
+                <p>
+                    Это был самый простой блок замыкания. Как вы уже поняли в фигурных скобках так же как и в обычной функции может находится абсолютно любая логика.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Мы можем передавать эти замыкания, хранить их, передавать аргументы как функции и обращаться с ними почти так же, как с любым другим объектом в Swift.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="closur_param">
+                   Замыкание принимающее параметры.
+                </h2>
+                <p>
+                    Обратимся к синтаксису:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.5.png" />
+                <p>
+                    В круглых скобках определяем параметры, после чего ключевое слово in. Это ключевое слово указывает, что объявление параметров замыкания закончено, и тело замыкания начинается.
+                </p>
+                <p>
+                    Давайте сделаем так, что бы наш блок замыкания принимал параметр String, обратимся к синтаксису выше, и реализуем следующий код:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let greeting = { (name: String) in
+                                print("Hello, \(name)!")
+                            }
+
+                            greeting("Tim")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">greeting</span> = { (name: <span class="className">String</span>) <span class="keywords">in</span>
+        <span class="className">print</span>(<span class="string">"Hello, </span>\(name)<span class="string">!"</span>)
+    }
+
+    greeting(<span class="string">"Tim"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    После открывающей фигурной скобки, мы можем определить входные параметры, так же как у обычной функции, а после ключевого слова in логику, в которой можем использовать параметр.
+                </p>
+                <p>
+                    Вызов такого блока замыкания выглядит точно так же как и копия функции, снова приведу пример:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printGreeting(name: String) {
+                                print("Hello, \(name)!")
+                            }
+
+                            let greeting = printGreeting
+
+                            greeting("Tim")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printGreeting</span>(name: <span class="className">String</span>) {
+        <span class="className">print</span>(<span class="string">"Hello, </span>\(name)<span class="string">!"</span>)
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">greeting</span> = printGreeting
+
+    greeting(<span class="string">"Tim"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Код будет работать одинаково и вызов выглядит одинаково.
+                </p>
+                <video class="img_block" controls>
+                    <source src="assets/Images/Lesson18/Lesson18.6.mov">
+                    Can't load the video.
+                </video>
+                <p>
+                    Есть еще один вариант объявить параметры:
+                </p>
+
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let greeting: (String) -> () = { name in
+                                print("Hello, \(name)!")
+                            }
+
+                            greeting("Tim")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">greeting</span>: (<span class="className">String</span>) -> () = { name <span class="keywords">in</span>
+        <span class="className">print</span>(<span class="string">"Hello, </span>\(name)<span class="string">!"</span>)
+    }
+
+    greeting(<span class="string">"Tim"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если мы пропишем тип данных замыкания явно, то нам не нужно прописывать тип у параметра в фигурных скобках, такая запись короче  и выглядит аккуратней
+                </p>
+
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Название для параметра вы придумываете сами, он должен отражать суть своего содержания.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <p>
+                    Давайте посмотрим еще на один пример, но на этот раз с двумя параметрами:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let multiply: (Int, Int) -> Void = { numberOne, numberTwo in
+                                print(numberOne * numberTwo)
+                            }
+
+                            multiply(3, 5) // в консоли будет 15
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">multiply</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Void</span> = { numberOne, numberTwo <span class="keywords">in</span>
+        <span class="className">print</span>(numberOne * numberTwo)
+    }
+
+    multiply(<span class="numbers">3</span>, <span class="numbers">5</span>) <span class="comments">// в консоли будет 15</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            <span class="accent">Void</span> это тоже самое что и пустые скобки (), вы можете для себя выбрать то что больше всего нравится, на логику это ни как не влияет, просто иногда круглые скобки заменяют на Void.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <p>
+                    Это замыкание принимает в качестве параметров два целых числа, и выводит на консоль их произведение.
+                </p>
+                <p>
+                    Как вы уже знаете есть еще один вариант записи такого замыкания:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let multiply = { (numberOne: Int, numberTwo: Int) in
+                                print(numberOne * numberTwo)
+                            }
+
+                            multiply(3, 5) // в консоли будет 15
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">multiply</span> = { (numberOne: <span class="className">Int</span>, numberTwo: <span class="className">Int</span>) <span class="keywords">in</span>
+        <span class="className">print</span>(numberOne * numberTwo)
+    }
+
+    multiply(<span class="numbers">3</span>, <span class="numbers">5</span>) <span class="comments">// в консоли будет 15</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    На самом деле последний вариант редко используется, в основном прописывают тип явно. Для компилятора не имеет значение как вы объявите блок замыкания, главное что бы были прописаны типы данных, что бы он мог понимать с чем работает.
+                </p>
+                <p>
+                    Ну и давайте посмотрим как бы выглядела функция с точно такой же логикой:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func multiply(numberOne: Int, numberTwo: Int) {
+                                print(numberOne * numberTwo)
+                            }
+
+                            multiply(numberOne: 3, numberTwo: 5) // в консоли будет 15
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">multiply</span>(numberOne: <span class="className">Int</span>, numberTwo: <span class="className">Int</span>) {
+        <span class="className">print</span>(numberOne * numberTwo)
+    }
+
+    multiply(numberOne: <span class="numbers">3</span>, numberTwo: <span class="numbers">5</span>) <span class="comments">// в консоли будет 15</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    То есть по факту, блок замыкания это безымянная функция, и работает она точно так же, конечно есть некоторые отличия и возможности, но о них мы поговорим чуть позже.
+                </p>
+                <h2 id="closur_return">
+                   Замыкание возвращающие значения.
+                </h2>
+                <p>
+                    Как вы уже поняли замыкание может не только принимать значения, но и возвращать, точно так же как функции.
+                </p>
+                <p>
+                    Обратимся к синтаксису:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.7.png" />
+                <p>
+                    Давайте немного изменим наш блок замыкания multiply:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let multiply = { (numberOne: Int, numberTwo: Int) -> Int in
+                                numberOne * numberTwo
+                            }
+
+                            let result = multiply(3, 5) // свойству result будет присвоено значение 15
+                            print(result)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">multiply</span> = { (numberOne: <span class="className">Int</span>, numberTwo: <span class="className">Int</span>) -> <span class="className">Int</span> <span class="keywords">in</span>
+        numberOne * numberTwo
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = multiply(<span class="numbers">3</span>, <span class="numbers">5</span>) <span class="comments">// свойству result будет присвоено значение 15</span>
+    <span class="className">print</span>(result)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Прежде чем продолжить, подумайте какой тип данных имеет свойство multiply?
+                </p>
+                <p>
+                    Данный блок замыкания будет принимать два целых числа, и возвращать их произведение, и здесь работают точно такие же правила что и в функции, если у вас логика в одну строчку, то компилятор понимает что нужно вернуть произведение, а если у вас объемная логика, то необходимо добавить ключевое слово return.
+                </p>
+                <p>
+                    Давайте посмотрим на реализацию с явно прописанным типом:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let multiply: (Int, Int) -> Int = { numberOne, numberTwo in
+                                numberOne * numberTwo
+                            }
+
+                            let result = multiply(3, 5) // свойству result будет присвоено значение 15
+                            print(result)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">multiply</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span> = { numberOne, numberTwo <span class="keywords">in</span>
+        numberOne * numberTwo
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = multiply(<span class="numbers">3</span>, <span class="numbers">5</span>) <span class="comments">// свойству result будет присвоено значение 15</span>
+    <span class="className">print</span>(result)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Как уже было сказано выше, такая запись предпочтительней.
+                </p>
+                <p>
+                    Рассмотрим еще один пример, он вам покажется сложным, но если вы хорошо усвоили предыдущие темы, то проблем в понимании у вас точно не будет:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let  getEvenNumbers: ([Int]) -> [Int] = { numbers in
+                                var evenNumbers = [Int]()
+
+                                for number in numbers {
+                                    if number % 2 == 0 {
+                                        evenNumbers.append(number)
+                                    }
+                                }
+
+                                return evenNumbers
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">getEvenNumbers</span>: ([<span class="className">Int</span>]) -> [<span class="className">Int</span>] { numbers <span class="keywords">in</span>
+        <span class="keywords">var</span> <span class="language-swift">evenNumbers</span> = [<span class="className">Int</span>]()
+
+        <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> {
+            <span class="keywords">if</span> <span class="language-swift">number</span> % <span class="numbers">2</span> == <span class="numbers">0</span> {
+                evenNumbers.<span class="className">append</span>(number)
+            }
+        }
+
+        <span class="keywords">return </span><span class="className">evenNumbers</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Замыкание getEvenNumbers принимает в качестве параметра массив целых чисел, и возвращает массив только с четными числами. Вспомните вариант с функцией и сравните их.
+                </p>
+                <p>
+                    Давайте запустим этот блок замыкания и передадим массив в его параметр.
+                </p>
+                <p>
+                    Чтобы сделать вызов блока замыкания, так же как у функции, мы должны определить круглые скобки:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [3, 6, 5, 99, 32, 51]
+
+                            let evenNumbers = getEvenNumbers(numbers)
+                            print(evenNumbers)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="numbers">3</span>, <span class="numbers">6</span>, <span class="numbers">5</span>, <span class="numbers">99</span>, <span class="numbers">32</span>, <span class="numbers">51</span>]
+
+    <span class="keywords">let</span> evenNumbers = getEvenNumbers(<span class="className">numbers</span>)
+    <span class="className">print</span>(<span class="className">evenNumbers</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    таким образом свойство evenNumbers будет содержать в себе массив только с четными числами.
+                </p>
+                <h2 id="quiz">
+                   Викторина с разъяснениями.
+                </h2>
+                <p>
+                    Прежде чем продолжить, давайте проведем небольшую викторину с еще некоторыми примерами, которые требуют разъяснения.
+                </p>
+                <p>
+                    Посмотрите внимательно на следующий closure, и подумайте какой тип данных будет иметь свойство result (постарайтесь ответить на вопрос без помощи компилятора):
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 6
+                            let numberTwo = 5
+
+                            let result = {
+                                numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numberOne</span> = <span class="numbers">6</span>
+    <span class="keywords">let</span><span class="language-swift"> numberTwo</span> = <span class="numbers">5</span>
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = {
+        numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Внутри фигурных скобок происходит вычисление суммы двух значений, как вы уже знаете компилятор достаточно умный, вы ему не прописали тип явно, а это значит, что он должен сам его додумать. Он действует логично, смотрит на выражение видит что результат вы ни куда не присваиваете, а это значит его нужно вернуть, поэтому он определит для свойства result следующий тип: () -> Int.
+                </p>
+                <p>
+                    Если мы немного изменим логику, и присвоим результат свойству sum. Какой теперь тип данных будет свойство result?
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 6
+                            let numberTwo = 5
+
+                            let result = {
+                                let sum = numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numberOne</span> = <span class="numbers">6</span>
+    <span class="keywords">let</span><span class="language-swift"> numberTwo</span> = <span class="numbers">5</span>
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = {
+        <span class="keywords">let</span><span class="language-swift"> sum</span> = numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    И снова включаем логику, конкретное значение присвоено свойству sum, компилятор не видит возвращаемого значения, а это значит, что тип данных он определит как () -> (), но если вы напишите ключевое слово return и покажете что возвращать:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 6
+                            let numberTwo = 5
+
+                            let result = {
+                                let sum = numberOne + numberTwo
+                                return sum
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numberOne</span> = <span class="numbers">6</span>
+    <span class="keywords">let</span><span class="language-swift"> numberTwo</span> = <span class="numbers">5</span>
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = {
+        <span class="keywords">let</span><span class="language-swift"> sum</span> = numberOne + numberTwo
+        <span class="keywords">return</span> sum
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    То компилятор снова определит тип как () -> Int. Конечно, в такой записи нет смысла, лучше возвращать сразу выражение, чем плодить не нужные дополнительные свойства.
+                </p>
+                <p>
+                    И последний вопрос, на который вы точно знаете ответ. Какой тип данных будет у свойства result в следующей реализации:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne = 6
+                            let numberTwo = 5
+
+                            let result = {
+                                numberOne + numberTwo
+                            }()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numberOne</span> = <span class="numbers">6</span>
+    <span class="keywords">let</span><span class="language-swift"> numberTwo</span> = <span class="numbers">5</span>
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = {
+        numberOne + numberTwo
+    }()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Мы запускаем блок замыкания (прописываем круглые скобки после блока замыкания) в момент присвоения свойству, блок замыкания возвращает нам целое число, результат сложения, поэтому свойство result будет типа Int.
+                </p>
+                <h2 id="closure_in_param">
+                   Замыкание в качестве параметров.
+                </h2>
+                <p>
+                    Так же как и функции, блоки замыканиям мы можем передавать в качестве параметров.
+                </p>
+                <p>
+                    Давайте посмотрим на следующий пример:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            // Блок замыкания с типом (Int, Int) -> Int
+                            let multiplyClosure = { (numberOne: Int, numberTwo: Int) -> Int in
+                                numberOne * numberTwo
+                            }
+
+                            // Функция с типом (Int, Int) -> Int
+                            func multiply(numberOne: Int, numberTwo: Int) -> Int {
+                                numberOne * numberTwo
+                            }
+
+                            let action = multiply // копия функции
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="comments">// Блок замыкания с типом (Int, Int) -> Int</span>
+    <span class="keywords">let</span> <span class="language-swift">multiplyClosure</span> = { (numberOne: <span class="className">Int</span>, numberTwo: <span class="className">Int</span>) -> <span class="className">Int</span> <span class="keywords">in</span>
+        numberOne * numberTwo
+    }
+
+    <span class="comments">// Функция с типом (Int, Int) -> Int</span>
+    <span class="keywords">func</span> <span class="language-swift">multiply</span>(<span class="language-swift">numberOne</span>: <span class="className">Int</span>, <span class="language-swift">numberTwo</span>: <span class="className">Int</span>) -> <span class="className">Int</span> {
+        numberOne * numberTwo
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">action</span> = <span class="className">multiply</span> <span class="comments">// копия функции</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Если вы посмотрите на тип данных свойств multiplyClosure и action (зажимаете option и кликаете по свойству, если не срабатывает, запустите компилятор и повторите снова), то это будут абсолютно одинаковые типы данных. И вызываться они будут одинаково:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            multiplyClosure(4, 3)
+                            action(4, 3)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">multiplyClosure(<span class="numbers">4</span>, <span class="numbers">3</span>)
+    action(<span class="numbers">4</span>, <span class="numbers">3</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    А теперь давайте обратимся к функции из 16 урока:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            // Блок замыкания с типом (Int, Int) -> Int
+                            let multiplyClosure = { (numberOne: Int, numberTwo: Int) -> Int in
+                                numberOne * numberTwo
+                            }
+
+                            // Функция с типом (Int, Int) -> Int
+                            func multiply(numberOne: Int, numberTwo: Int) -> Int {
+                                numberOne * numberTwo
+                            }
+
+                            // Функция, которая принимает в качестве параметра тип блока замыкания
+                            func performOperation(_ operation: (Int, Int) -> Int) {
+                                let result = operation(4, 5)
+                                print("The result is: \(result)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="comments">// Блок замыкания с типом (Int, Int) -> Int</span>
+    <span class="keywords">let</span> <span class="language-swift">multiplyClosure</span> = { (numberOne: <span class="className">Int</span>, numberTwo: <span class="className">Int</span>) -> <span class="className">Int</span> <span class="keywords">in</span>
+        numberOne * numberTwo
+    }
+
+    <span class="comments">// Функция с типом (Int, Int) -> Int</span>
+    <span class="keywords">func</span> <span class="language-swift">multiply</span>(<span class="language-swift">numberOne</span>: <span class="className">Int</span>, <span class="language-swift">numberTwo</span>: <span class="className">Int</span>) -> <span class="className">Int</span> {
+        numberOne * numberTwo
+    }
+
+   <span class="comments">// Функция, которая принимает в качестве параметра тип блока замыкания</span>
+    <span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">_ </span>operation: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = operation(<span class="numbers">4</span>, <span class="numbers">5</span>)
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Как вы можете заметить тип блока замыкания и функции multiple, подходит к параметру operation, и мы можем, при вызове функции performOperation, передать наш блок замыкания или функцию:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            // Функция, которая принимает в качестве параметра тип блока замыкания
+                            func performOperation(_ operation: (Int, Int) -> Int) {
+                                let result = operation(4, 5)
+                                print("The result is: \(result)")
+                            }
+
+                            performOperation(multiplyClosure)
+                            performOperation(multiply)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="comments">// Функция, которая принимает в качестве параметра тип блока замыкания</span>
+    <span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">_ </span>operation: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = operation(<span class="numbers">4</span>, <span class="numbers">5</span>)
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }
+
+    performOperation(<span class="className">multiplyClosure</span>)
+    performOperation(<span class="className">multiply</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Оба вызова отработают одинаково. В первый раз мы передали блок замыкания, а во второй копию функции. Параметр operation будет вызываться как копия функции или блока замыкания, в зависимости от того что вы передадите в параметр.
+                </p>
+                <p>
+                    Очевидно, что в реальной жизни мы бы хотели целые числа передавать в параметрах:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func performOperation(between numberOne: Int, and numberTwo: Int, operation: (Int, Int) -> Int) {
+                                let result = operation(numberOne, numberTwo)
+                                print("The result is: \(result)")
+                            }
+
+                            performOperation(between: 4, and: 5, operation: multiplyClosure) // The result is: 20
+                            performOperation(between: 3, and: 5, operation: multiply) // The result is: 15
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">between </span>numberOne: <span class="className">Int</span>, <span class="language-swift">and </span>numberTwo: <span class="className">Int</span>, <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = operation(numberOne, numberTwo)
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }
+
+    performOperation(between: <span class="numbers">4</span>, and: <span class="numbers">5</span>, operation: <span class="className">multiplyClosure</span>) <span class="comments">// The result is: 20</span>
+    performOperation(between: <span class="numbers">3</span>, and: <span class="numbers">5</span>, operation: <span class="className">multiply</span>) <span class="comments">// The result is: 15</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Теперь мы передаем значения для параметра operation при вызове функции performOperation.
+                </p>
+
+                </div>
+                </div>
+
+                <p>
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Параметр с типом блока замыкания, лучше определять в конце.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="closing_expressions">
+                   Замыкающие выражения.
+                </h2>
+                <p>
+                    Замыкающие выражения, это способ написания встроенных замыканий.
+                </p>
+                <p>
+                    Давайте вернемся к нашей функции performOperation. И попробуем сделать вызов, но немного иначе:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.8.png" />
+                <p>
+                    Если вы выделите тип блока замыкания, и нажмете enter, то вам раскроется знакомый вам блок:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.9.png" />
+                <p>
+                    это автономный блок замыкания, и вы можете придумать логику “не отходя от кассы”. Если вам нужны входные параметры, то вы их инициализируете:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func performOperation(between numberOne: Int,and numberTwo: Int , operation: (Int, Int) -> Int) {
+                                let result = operation(numberOne, numberTwo)
+                                print("The result is: \(result)")
+                            }
+
+                            performOperation(between: 5, and: 7) { numberOne, numberTwo in
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">between </span>numberOne: <span class="className">Int</span>, <span class="language-swift">and </span>numberTwo: <span class="className">Int</span>, <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = operation(numberOne, numberTwo)
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }
+
+    performOperation(between: <span class="numbers">5</span>, and: <span class="numbers">7</span>) { numberOne, numberTwo <span class="keywords">in</span>
+
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Как вы думаете какие значения примут свойства numberOne и numberTwo в вызываемой функции? (Подумайте над этим моментом прежде чем продолжить)
+                </p>
+                <p>
+                    Ну а пока вы думаете давайте их сложим в теле блока замыкания, потому что нам нужно вернуть какое то целое число:
+                </p>
+
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            performOperation(between: 5, and: 7) { numberOne, numberTwo in
+                                numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"> performOperation(between: <span class="numbers">5</span>, and: <span class="numbers">7</span>) { numberOne, numberTwo <span class="keywords">in</span>
+        numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                 </div>
+
+                <p>
+                    Что бы понять какие же значения принимают параметры numberOne и numberTwo, давайте визуально вынесем параметр operation из функции, в том виде как мы его увидели перед раскрытием:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.10.png" />
+                <p>
+                    Вы все знаете, что параметры функции являются константами, поэтому этот параметр можно представить как константа:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let operation: (Int, Int) -> Int
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Как должен выглядеть блок замыкания такого типа?! Очевидно, что у него должно быть два входных параметра:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            performOperation(between: 5, and: 7) { numberOne, numberTwo in
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span> = { numberOne, numberTwo <span class="keywords">in</span>
+
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Это же как раз наш раскрывшийся блок замыкания, не правда ли? и внутри мы можем определить любую логику, главное что бы возвращалось целое число:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            performOperation(between: 5, and: 7) { numberOne, numberTwo in
+                                numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span> = { numberOne, numberTwo <span class="keywords">in</span>
+        numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Как будет выглядеть вызов этого блока? (Прежде чем продолжить, напишите код самостоятельно)
+                </p>
+                <p>
+                    Мы должны поставить круглые скобки и определить параметры:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let operation: (Int, Int) -> Int = { numberOne, numberTwo in
+                                numberOne * numberTwo
+                            }
+
+                            let value = operation(4, 5)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span> = { numberOne, numberTwo <span class="keywords">in</span>
+        numberOne * numberTwo
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">value</span> = operation(<span class="numbers">4</span>, <span class="numbers">5</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Какое значение примет свойство value?
+                </p>
+                <p>
+                    Отсюда можно сделать выводы, когда мы раскрываем параметр с типом блока замыкания он выглядит как блок без самого свойства:
+                </p>
+                <p>
+                    Если здесь все понятно, то давайте теперь вернемся к нашему вызову основной функции:
+                </p>
+
+                <video class="img_block" controls>
+                    <source src="assets/Images/Lesson18/Lesson18.11.mov">
+                    Can't load the video.
+                </video>
+
+                <p>
+                    Таким образом вы можете не передавать в параметр функцию или уже готовый блок замыкания, а реализовать логику здесь и сейчас. Это очень удобно в некоторых моментах.
+                </p>
+                <p>
+                    Если посмотреть реализацию метода, то вы увидите что значения для numberOne и numberTow мы получаем из параметров функции preformOperation, так как мы вызываем блок замыкания с этими значениями.
+                </p>
+                <p>
+                    То есть вызов функции ссылается на ее реализацию:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func performOperation(between numberOne: Int,and numberTwo: Int, operation: (Int, Int) -> Int) {
+                                let result = operation(numberOne, numberTwo)
+                                print("The result is: \(result)")
+                            }
+
+                            performOperation(between: 5, and: 7) { numberOne, numberTwo in
+                                numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">between </span>numberOne: <span class="className">Int</span>, <span class="language-swift">and </span>numberTwo: <span class="className">Int</span>, <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = operation(numberOne, numberTwo)
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }
+
+    performOperation(between: <span class="numbers">5</span>, and: <span class="numbers">7</span>) { numberOne, numberTwo <span class="keywords">in</span>
+        numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    параметр operation (это блок замыкания, который мы реализуем при раскрытии), при вызове он будет принимать два параметра, в нашем случае это numberOne и numberTwo и возвращать результат.
+                </p>
+                <p>
+                    Соответсвенно numberOne примет значение  5, а numberTwo 7:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            performOperation(between: 5, and: 7) { numberOne, numberTwo in
+                                numberOne + numberTwo
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">performOperation(between: <span class="numbers">5</span>, and: <span class="numbers">7</span>) { numberOne, numberTwo <span class="keywords">in</span>
+        numberOne + numberTwo
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    И результат работы этой функции мы увидим на консоли: “The result is: 12”
+                </p>
+                <p>
+                    Теперь давайте рассмотрим более простой пример, который очень часто используется в реальной разработке:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func multiply(numberOne: Int, numberTwo: Int, closure: (Int) -> Void) {
+                                let result = numberOne * numberTwo
+                                closure(result)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">multiply</span>(<span class="language-swift">numberOne</span>: <span class="className">Int</span>, <span class="language-swift">numberTwo</span>: <span class="className">Int</span>, <span class="language-swift">closure</span>: (<span class="className">Int</span>) -> <span class="className">Void</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = numberOne * numberTwo
+        closure(result)
+    }
+ </span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Данная функция принимает в качестве параметров два целых числа и блок замыкания, который захватывает целое число. Внутри функции мы находим результат умножения двух чисел и передаем этот результат в параметр closure, таким образом closure как бы захватывает значение и возвращает нам его в блоке замыкания при вызове этой функции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson18/Lesson18.12.png" />
+                <p>
+                    Когда мы раскрываем блок замыкания, мы получаем тот самый result, и теперь мы можем делать с этим результатом что угодно, например вывести на консоль:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func multiply(numberOne: Int, numberTwo: Int, closure: (Int) -> Void) {
+                                let result = numberOne * numberTwo
+                                closure(result)
+                            }
+
+                            multiply(numberOne: 4, numberTwo: 2) { result in
+                                print(result)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">multiply</span>(<span class="language-swift">numberOne</span>: <span class="className">Int</span>, <span class="language-swift">numberTwo</span>: <span class="className">Int</span>, <span class="language-swift">closure</span>: (<span class="className">Int</span>) -> <span class="className">Void</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = numberOne * numberTwo
+        closure(result)
+    }
+
+     multiply(numberOne: <span class="numbers">4</span>, numberTwo: <span class="numbers">2</span>) { result <span class="keywords">in</span>
+        <span class="className">print</span>(result)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Подумайте какой результат мы получим.
+                </p>
+                <p>
+                    В реальной разработке очень часто стоит задача вернуть данные в блоке замыкания и это значит, что блок замыкания должен захватить нужное значение внутри функции, и когда мы вызываем функцию мы получаем его в этом блоке.
+                </p>
+                <h2 id="short_param">
+                   Сокращенные имена параметров.
+                </h2>
+                <p>
+                    Каждый параметр в блоке замыкания проиндексирован и мы можем к ним обращаться на прямую через индексы, без ключевого слова in:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let operation: (Int, Int) -> Int = { $0 + $1 }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span> = { $<span class="numbers">0</span> + $<span class="numbers">1</span> }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Вызов такого блока замыкания будет выглядеть без изменений.
+                </p>
+                <p>
+                    Соответсвенно раскрытый блок замыкания у функции performOperation будет выглядеть так:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func performOperation(between numberOne: Int,and numberTwo: Int , operation: (Int, Int) -> Int) {
+                                let result = operation(numberOne, numberTwo)
+                                print("The result is: \(result)")
+                            }
+
+                            performOperation(between: 5, and: 7) { $0 + $1 }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">performOperation</span>(<span class="language-swift">between </span>numberOne: <span class="className">Int</span>, <span class="language-swift">and </span>numberTwo: <span class="className">Int</span>, <span class="language-swift">operation</span>: (<span class="className">Int</span>, <span class="className">Int</span>) -> <span class="className">Int</span>) {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = operation(numberOne, numberTwo)
+        <span class="className">print</span>(<span class="string">"The result is: </span>\(result)<span class="string">"</span>)
+    }
+
+    performOperation(between: <span class="numbers">5</span>, and: <span class="numbers">7</span>) { $<span class="numbers">0</span> + $<span class="numbers">1</span> }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Это избавляет от ключевого слова in, хотя, возможно, выражение становится труднее читать, поскольку в этом случае мы не можем назвать параметры. В этом случае разработчик должен решить, выгодна ли краткость функции по сравнению с именованием параметров.
+                </p>
+                <p>
+                    То есть мы не называем параметры перед in, мы просто обращаемся к ним через индексы и знак доллара.
+                </p>
+                <p>
+                    Есть еще много интересных моментов в работе с замыканиями, но на данном этапе этой информации вам будет достаточно. Во втором модуле мы обязательно вернемся к замыканиям и вы узнаете о них чуть больше, поэтому не расстраивайтесь если сейчас не до конца все понимаете, это нормально.
+                </p>
+
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                           Давайте подведем итог.
+                        </p>
+                        <p>
+                            <span class="accent">Замыкания</span> очень похожи на функции, они так же могут принимать параметры и возвращать какое то значение. В отличии от функции блок замыкания можно раскрыть в параметре функции и реализовать. Так же в отличии от функций, к параметрам замыканий мы можем обращаться через их индексы избегая именования.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

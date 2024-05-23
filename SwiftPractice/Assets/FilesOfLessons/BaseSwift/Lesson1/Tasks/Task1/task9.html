@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 9. Словари.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 9.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                       Что бы найти количество элементов в словаре используйте свойство count
+                    </span>
+                </span>
+                <p>
+                    Создайте словарь в качестве ключей который содержит название стран, а в качестве значений их столицы.
+                </p>
+                <p>
+                    Добавьте в словарь новую пару если количество элементов в словаре меньше трех.
+                </p>
+                <p>
+                    Затем выведите на консоль первые три столицы
+                </p>
+                <p>
+                    <span class="accent">Используйте только пройденные концепции. До циклов вы еще не дошли!</span>
+                </p>
+                <p>
+                    <span class="accent">При выведении на консоль элементов вы можете увидеть обертку Option() над вашим значением, пока пусть вас это не тревожит, точно так же как и желтые ворнинги.</span>
+                </p>
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var capitals = ["Russia": "Moscow",
+                                               "USA": "Washington",
+                                               "France": "Paris"]
+
+                                if capitals.count < 4 {
+                                    capitals["Italy"] = "Rome"
+                                }
+
+                                print(capitals["Russia"])
+                                print(capitals["USA"])
+                                print(capitals["France"])
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">capitals</span> = [<span class="string">"Russia"</span>: <span class="string">"Moscow"</span>,
+                    <span class="string">"USA"</span>: <span class="string">"Washington"</span>,
+                    <span class="string">"France"</span>: <span class="string">"Paris"</span>]
+
+    <span class="keywords">if</span> <span class="className">capitals</span>.<span class="className">count</span> &#60; 4 {
+        <span class="className">capitals</span>[<span class="string">"Italy"</span>] = <span class="string">"Rome"</span>
+    }
+
+    <span class="className">print</span>(<span class="className">capitals</span>[<span class="string">"Russia"</span>])
+    <span class="className">print</span>(<span class="className">capitals</span>[<span class="string">"USA"</span>])
+    <span class="className">print</span>(<span class="className">capitals</span>[<span class="string">"France"</span>])</span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    В первую очередь обратите внимание, что если у вас достаточно длинный словарь то его нужно сносить, можно по одной паре, а можно по две и по три, смотрите что бы это смотрелось органично. При этом закрывающая и открывающая скобка может быть либо как у меня в примере, то есть на тех же строках что и пары, либо как в примере ниже:
+                </p>
+                                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var capitals = [
+                                    "Russia": "Moscow",
+                                    "USA": "Washington",
+                                    "France": "Paris"
+                                ]
+
+                                if capitals.count < 4 {
+                                    capitals["Italy"] = "Rome"
+                                }
+
+                                print(capitals["Russia"])
+                                print(capitals["USA"])
+                                print(capitals["France"])
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">capitals</span> = [
+        <span class="string">"Russia"</span>: <span class="string">"Moscow"</span>,
+        <span class="string">"USA"</span>: <span class="string">"Washington"</span>,
+        <span class="string">"France"</span>: <span class="string">"Paris"</span>
+    ]
+
+    <span class="keywords">if</span> <span class="className">capitals</span>.<span class="className">count</span> &#60; 4 {
+        <span class="className">capitals</span>[<span class="string">"Italy"</span>] = <span class="string">"Rome"</span>
+    }
+
+    <span class="className">print</span>(<span class="className">capitals</span>[<span class="string">"Russia"</span>])
+    <span class="className">print</span>(<span class="className">capitals</span>[<span class="string">"USA"</span>])
+    <span class="className">print</span>(<span class="className">capitals</span>[<span class="string">"France"</span>])</span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+
+                <p>
+                    в условной конструкции <span class="keywords">if</span> я делаю проверку, если количество элементов меньше 4 то создаю новую пару, для создания новой пары я использую обращение к не существующему ключу <span class="string">“Italy”</span>, к которому присваиваю значение <span class="string">“Rome”</span>.
+                </p>
+                <p>
+                    Ну и чтобы вывести столицы на консоль, мы обращаемся к ключу нашей пары.
+                </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 9.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Что бы достать значение из массива используйте обращение к элементу по индексу, а что бы добавить его в массив используйте метод updateValue().
+                    </span>
+                </span>
+                <p>
+                   Создайте словарь с тремя фруктами, где в качестве ключа сам фрукт, а к качестве значений нули. Так же создайте массив с тремя целыми числами.
+                </p>
+                <p>
+                    Замените нули в словаре на значения из массива.
+                </p>
+                <p>
+                    <span class="accent">Используйте только пройденные концепции. До циклов вы еще не дошли!</span>
+                </p>
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let count = [5, 7, 11]
+                            var fruit = ["apple": 0, "banana": 0, "orange": 0]
+
+                            fruit["apple"] = count[0]
+                            fruit.updateValue(count[1], forKey:  "banana")
+                            fruit.updateValue(count[2], forKey: "orange")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">count</span> = [<span class="numbers">5</span>, <span class="numbers">7</span>, <span class="numbers">11</span>]
+    <span class="keywords">var</span> <span class="language-swift">fruit</span> = [<span class="string">"apple"</span>: <span class="numbers">0</span>, <span class="string">"banana"</span>: <span class="numbers">0</span>, <span class="string">"orange"</span>: <span class="numbers">0</span>]
+
+    <span class="className">fruit</span>[<span class="string">"apple"</span>] = <span class="className">count</span>[<span class="numbers">0</span>]
+    <span class="className">fruit</span>.<span class="className">updateValue</span>(<span class="className">count</span>[<span class="numbers">1</span>], <span class="className">forKey</span>:  <span class="string">"banana"</span>)
+    <span class="className">fruit</span>.<span class="className">updateValue</span>(<span class="className">count</span>[<span class="numbers">2</span>], <span class="className">forKey</span>: <span class="string">"orange"</span>)</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Массив должен быть константой, так как мы его не меняем, тогда как словарь является изменяемым, то есть переменной, потому что мы в него вносим изменения.
+            </p>
+            <p>
+                Тип явно прописывать не нужно, компилятор и так понимает какой тип у свойств из их значений.
+            </p>
+            <p>
+                Я использую два подхода по замене значения, первый это обращение к значению через его ключ <span class="className">fruit</span>[<span class="string">"apple"</span>] = <span class="className">count</span>[<span class="numbers">0</span>], а второй с использованием метода <span class="className">updateValue</span>, мне он больше нравится. Но оба они верные.
+            </p>
+            <p>
+                К элементам массива я обращаюсь через их индекс, если вам эта конструкция не знакома, обратитесь к прошлому уроку.
+            </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

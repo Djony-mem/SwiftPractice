@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 12. Циклы.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 12.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Используйте цикл for in для вывода имени 10 раз. Для проверки содержится ли элемент в массиве, используйте метод <span class="accent">contains()</span>.
+                    </span>
+                </span>
+                <p>
+                    Перед вами массив имен:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let names = ["Bill" , "Tim", "Tom", "Sem"]
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">names</span> = [<span class="string">"Bill"</span>, <span class="string">"Tim"</span>, <span class="string">"Tom"</span>, <span class="string">"Sem"</span>]</span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+
+                <p>
+                     Вам нужно найти в этом массиве имя “Tim”, и вывести его на консоль 10 раз.
+                </p>
+
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Tim"
+
+                                if names.contains(name) {
+                                    for _ in 1...10 {
+                                        print(name)
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">name</span> = <span class="string">"Tim"</span>
+
+    <span class="keywords">if</span> <span class="className">names</span>.<span class="className">contains</span>(<span class="className">name</span>) {
+        <span class="keywords">for</span> _ <span class="keywords">in</span> <span class="numbers">1</span>...<span class="numbers">10</span> {
+            <span class="className">print</span>(<span class="className">name</span>)
+        }
+    }
+    <span class="className">print</span>(<span class="className">colors</span>)</span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    У вас обязательно должно быть создано свойство для хранения проверяемого имени. Мы его менять не планируем, поэтому оно является константой.
+                </p>
+                <p>
+                    Проверяем хранится ли это значение в массиве при помощи метода contains, и если он возвращает true, то мы запускаем цикл, который отработает 10 раз. Таким образом мы 10 раз выведем на консоль <span class="string">"Tim"</span>.
+                </p>
+                <p>
+                    Это решение самое оптимальное, но есть еще два варианта:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var counter = 10
+                                let person = "Tim"
+
+                                if names.contains(person) {
+                                    while counter > 0 {
+                                        print(person)
+                                        counter -= 1
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">counter</span> = <span class="numbers">10</span>
+    <span class="keywords">let</span> <span class="language-swift">person</span> = <span class="string">"Tim"</span>
+
+    <span class="keywords">if</span> <span class="className">names</span>.<span class="className">contains</span>(<span class="className">person</span>) {
+        <span class="keywords">while</span> <span class="className">counter</span> > <span class="numbers">0</span> {
+            <span class="className">print</span>(<span class="className">person</span>)
+            <span class="className">counter</span> -= <span class="numbers">1</span>
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var counter = 10
+                                let person = "Tim"
+
+                                while counter > 0 && names.contains(person) {
+                                    print(person)
+                                    counter -= 1
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">counter</span> = <span class="numbers">10</span>
+    <span class="keywords">let</span> <span class="language-swift">person</span> = <span class="string">"Tim"</span>
+
+    <span class="keywords">while</span> <span class="className">counter</span> > <span class="numbers">0</span> &amp;&amp; <span class="className">names</span>.<span class="className">contains</span>(<span class="className">person</span>) {
+        <span class="className">print</span>(<span class="className">person</span>)
+        <span class="className">counter</span> -= <span class="numbers">1</span>
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+
+                <p>
+                    В первом варианте мы сперва делаем проверку, содержится ли элемент в массиве, и только потом запускаем цикл. И что бы наш цикл не был бесконечным, мы каждую итерацию уменьшаем counter на единицу. И как только counter станет больше нуля цикл остановится. Но если вам известен диапазон, то логичней использовать цикл for.
+                </p>
+                <p>
+                    Во втором варианте мы запускаем цикл только при определенных условиях и это тоже отлично.
+                </p>
+                <p>
+                    Давайте рассмотрим парочку не корректных решений:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                for name in names {
+                                    if name.contains("Tim") {
+                                        print(name)
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> <span class="className">name</span> <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="keywords">if</span> <span class="className">name</span>.<span class="className">contains</span>(<span class="string">"Tim"</span>) {
+            <span class="className">print</span>(<span class="className">name</span>)
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Здесь метод contains используется к одному элементу массива, а это значит что компилятор будет проверять содержатся ли буквы Tim в строке name. А это значит что под это условие будет попадать все имена, которые начинаются на Tim, и если в массиве будет имя “Timy” то оно так же пройдет это условие. Поэтому здесь лучше использовать метод contains ко всему массиву.
+                </p>
+                <p>
+                    Так же на консоли мы увидим всего одного Tim, что не соответсвует заданию, потому что метод contains только на одно свойство вернет true, на все остальные <span class="keywords">false</span>.
+                </p>
+                <p>
+                    Давайте еще одно рассмотрим решение:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                for name in names {
+                                    if name == "Tim" {
+                                        for _ in 1...10 {
+                                            print(name)
+                                        }
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> <span class="className">name</span> <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+            <span class="keywords">for</span> _ <span class="keywords">in</span> <span class="numbers">1</span>...<span class="numbers">10</span> {
+                <span class="className">print</span>(<span class="className">name</span>)
+            }
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Нет ничего плохого в цикле, внутри другого цикла, но только если это обосновано. В данном случае это нагружает систему, цикл это достаточно трудоемкий процесс, и если можно сделать меньше циклов, то лучше этим воспользоваться. Здесь можно снизить немного нагрузку и после внутреннего цикла установить ключевое слово brake, что бы выйти из внешнего цикла, и не делать перебор всей коллекции.
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                for name in names {
+                                    if name == "Tim" {
+                                        for _ in 1...10 {
+                                            print(name)
+                                        }
+                                        break
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> <span class="className">name</span> <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+            <span class="keywords">for</span> _ <span class="keywords">in</span> <span class="numbers">1</span>...<span class="numbers">10</span> {
+                <span class="className">print</span>(<span class="className">name</span>)
+            }
+            <span class="keywords">break</span>
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    В данном случае, если компилятор натыкается на значение которое есть в массиве, то он запустит внутренний цикл, и после того как внутренний цикл отработает,  компилятор пойдет дальше, наткнется на оператор break и мы остановим внешний цикл, таким образом мы не будем перебирать всю коллекцию, если уже нашли нужный нам результат.
+                </p>
+                <p>
+                    И вот еще одно решение:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let anyName = "Tim"
+                                var count = 10
+
+                                if names.contains(anyName) {
+                                    repeat {
+                                        print(anyName)
+                                        count -= 1
+                                    } while count > 0
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">anyName</span> = <span class="string">"Tim"</span>
+    <span class="keywords">var</span> <span class="language-swift">count</span> = <span class="numbers">10</span>
+
+    <span class="keywords">if</span> <span class="className">names</span>.<span class="className">contains</span>(<span class="className">anyName</span>) {
+        <span class="keywords">repeat</span> {
+            <span class="className">print</span>(<span class="className">anyName</span>)
+            <span class="className">count</span> -= <span class="numbers">1</span>
+        } <span class="keywords">while</span> <span class="className">count</span> > <span class="numbers">0</span>
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Здесь нет смысла использовать цикл repeat, цикл while с этой задачей справится лучше, этот цикл нужно использовать если вам необходимо обязательно выполнить хотя бы одну итерацию, а это очень редкий случай. И так как мы знаем что у нас должно быть именно 10 итераций, то сподручней использовать цикл for.
+                </p>
+                <p>
+                    И еще одно не совсем оптимальное решение:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                for _ in 1...10 {
+                                if people.contains("Tim") {
+                                        print("Tim")
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> _ <span class="keywords">in</span> <span class="numbers">1</span>...<span class="numbers">10</span> {
+        <span class="keywords">if</span> <span class="className">people</span>.<span class="className">contains</span>(<span class="string">"Tim"</span>) {
+            <span class="className">print</span>(<span class="string">"Tim"</span>)
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Как уже было сказано выше цикл достаточно трудоемкий процесс, и лучше сперва проверить содержится ли элемент в массиве и только потом запускать цикл, в этом же случае цикл будет крутить 10 раз не зависимо от того есть элемент в массиве или нет.
+                </p>
+                <p>
+                    Еще одно решение, которое я бы тоже хотела затронуть:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                for name in names {
+                                    if name == "Tim" {
+                                        for _ in 1...10 {
+                                            print("\(name)")
+                                        }
+                                    } else {
+                                        continue
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> <span class="className">name</span> <span class="keywords">in</span> <span class="className">names</span> {
+        <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+            <span class="keywords">for</span> _ <span class="keywords">in</span> <span class="numbers">1</span>...<span class="numbers">10</span> {
+                <span class="className">print</span>(<span class="string">"</span>\(<span class="className">name</span>)<span class="string">"</span>)
+            }
+        } <span class="keywords">else</span> {
+            <span class="keywords">continue</span>
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Обратите внимание что ветка else здесь абсолютно лишняя. Если не будет выполнено первое условие, то компилятор и без того пойдет на новую итерацию, если убрать ветку else ничего не изменится.
+                </p>
+                <p>
+                    Так же посмотрите что мы интерполируем в функцию print - имя name, которое и без того является строкой, поэтому здесь можно было избежать интерполяции, а просто передать name: <span class="className">print</span>(<span class="className">name</span>)
+                </p>
+                <p>
+                    И последнее не оптимальное решение:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                for _ in 1...10 {
+                                    for name in names {
+                                        if name == "Tim" {
+                                            print(name)
+                                        }
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> _ <span class="keywords">in</span> <span class="numbers">1</span>...<span class="numbers">10</span> {
+        <span class="keywords">for</span> <span class="className">name</span> <span class="keywords">in</span> <span class="className">names</span> {
+            <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+                <span class="className">print</span>(<span class="className">name</span>)
+            }
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Здесь слишком много лишних действий. Давайте проследим пару итераций.
+                </p>
+                <p>
+                    Запускается первая итерация внешнего цикла, мы запускаем еще один цикл, в котором перебираем массив, пока не закончится этот перебор, второй итерации внешнего цикла не будет. То есть мы запускаем внутренний цикл 10 раз. Что бы вывести на консоль 10 элементов, внутренний цикл сделает 30 итераций (Это если в массиве три элемента). Вы в этом можете убедится, поместив print(“Hi”) в конец внутреннего цикла:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                for _ in 1...10 {
+                                    for name in names { // пока этот цикл не отработает, внешний не запустит новую итерацию.
+                                        if name == "Tim" {
+                                            print(name)
+                                        }
+                                         print("Hi")
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> _ <span class="keywords">in</span> <span class="numbers">1</span>...<span class="numbers">10</span> {
+        <span class="keywords">for</span> <span class="className">name</span> <span class="keywords">in</span> <span class="className">names</span> { <span class="comments">// пока этот цикл не отработает, внешний не запустит новую итерацию.</span>
+            <span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Tim"</span> {
+                <span class="className">print</span>(<span class="className">name</span>)
+            }
+            <span class="className">print</span>(<span class="string">"Hi"</span>)
+        }
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+                <p>
+                    Обратите внимание сколько раз вы увидите приветствие <span class="string">“Hi”</span>.
+                </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 12.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Для решения этого задания используйте цикл for in для перебора массива products, далее вспомните как создать новую пару в словаре.
+                    </span>
+                </span>
+                <p>
+                   Вы ведете учет товаров в своем игрушечном магазине, и вам нужно внести их в базу, в качестве базы у вас будет пустой словарь. В качестве начальное значения будет два массива, один с наименованием товаров, а второй с количеством этих товаров. Наполните пустой словарь данными.
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let products = ["bear", "frog", " hare", "elephant", "mouse"]
+                                let quantityOfproducts = [13, 24, 17, 11, 38]
+
+                                var database: [String: Int] = [:]
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">products</span> = [<span class="string">"bear"</span>, <span class="string">"frog"</span>, <span class="string">"hare"</span>, <span class="string">"elephant"</span>, <span class="string">"mouse"</span>]
+    <span class="keywords">let</span> <span class="language-swift">quantityOfproducts</span> = [<span class="numbers">13</span>, <span class="numbers">24</span>, <span class="numbers">17</span>, <span class="numbers">11</span>, <span class="numbers">38</span>]
+
+    <span class="keywords">var</span> <span class="language-swift">database</span>: [<span class="className">String</span>: <span class="className">Int</span>] = [:]
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var count = 0
+
+                            for product in products {
+                                database[product] = quantityOfproducts[count]
+                                count += 1
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">count</span> = <span class="numbers">0</span>
+
+    <span class="keywords">for</span> <span class="className">product</span> <span class="keywords">in</span> <span class="className">products</span> {
+        <span class="className">database</span>[<span class="className">product</span>] = <span class="className">quantityOfproducts</span>[<span class="className">count</span>]
+        <span class="className">count</span> += <span class="numbers">1</span>
+    }
+    </span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Перебираем коллекицю products и на основе каждого элемента создаем новую пару, где в качестве ключа выступает product, а в качесте значения элемент из массива quantityOfproducts. что бы достать один элемент нам нужен индекс, поэтому мы создаем еще одно свойство count, которое будет считать итерации.
+            </p>
+            <p>
+                Давайте разберем еще способы с использованием методов, которые мы не проходили, но они так же часто используются в разработке:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            for (product, quantity) in zip(products, quantityOfproducts) {
+                                database[product] = quantity
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> (<span class="className">product</span>, <span class="className">quantity</span>) <span class="keywords">in</span> <span class="className">zip</span>(<span class="className">products</span>, <span class="className">quantityOfproducts</span>) {
+        <span class="className">database</span>[<span class="className">product</span>] = <span class="className">quantity</span>
+    }
+    </span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Есть такой замечательный метод zip, который позволяет перебирать сразу две коллекции, в круглые скобки после zip мы передаем сразу две коллекции, а после ключевого слова for нам доступны в кортеже по одному элементу из этих коллекций. Мы последовательно берем каждый элемент из коллекций и используем их для создание новой пары с ключем product и значением quantity.
+            </p>
+            <p>
+                Можете почитать о нем в документации <a href="https://developer.apple.com/documentation/swift/zip(_:_:)" class="referes_a">zip</a>
+            </p>
+            <p>
+                Есть еще одна отличная реализация:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            for (index, product) in products.enumerated() {
+                                database[product] = quantityOfproducts[index]
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> (<span class="className">index</span>, <span class="className">product</span>) <span class="keywords">in</span> <span class="className">products</span>.<span class="className">enumerated</span>() {
+        <span class="className">database</span>[<span class="className">product</span>] = <span class="className">quantityOfproducts</span>[<span class="className">index</span>]
+    }
+    </span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                метод <a href="https://developer.apple.com/documentation/swift/array/enumerated()" class="referes_a">enumerated()</a> при переборе коллекции при помощи цикла for in возвращает индекс и элемент коллекции. Таким образом после ключевого слова for нам доступен кортеж с двумя элементами, индексом элемента коллекции, и самим элементом.
+            </p>
+            <p>
+                Есть еще один интересный вариант решения:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            for number in 0..&#60;products.count {
+                                database.updateValue(quantityOfproducts[number], forKey: products[number])
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> <span class="className">number</span> <span class="keywords">in</span> <span class="numbers">0</span>..&#60;<span class="className">products</span>.<span class="className">count</span> {
+        <span class="className">database</span>.<span class="className">updateValue</span>(<span class="className">quantityOfproducts</span>[<span class="className">number</span>], <span class="className">forKey</span>: <span class="className">products</span>[<span class="className">number</span>])
+    }
+    </span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Здесь мы перебираем полузакрытый диапазон от 0 до количества элементов в массиве. Диапазон должен быть обязательно полузакрытым, потому что индексы в массиве идут от нуля, а свойство count возвращает фактическое количество элементов в массиве, если использовать открытый диапазон то вы рискуете выйти за пределы массива, и обратиться к несуществующему индексу.
+            </p>
+
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Правильно диапазон в цикле for in делать зависимым от внешних данных. Старайтесь не хардкодить значения из головы. В нашем случае диапазон зависит от количества элементов в массиве, изменится массив, изменится и цикл.
+                    </p>
+                </div>
+            <div>
+                 <img class="img_circle" src="../../assets/Images/fingerUp.png" />
+            </div>
+            </div>
+            <p>
+                Думаю здесь описывать происходящее нет необходимости, потому что о методе updateValue мы уже разговаривали на уроке.
+            </p>
+            <p>
+                Конечно есть еще методы решения этой задачи, но мы с вами разобрали самые распространенные.
+            </p>
+            <p>
+                Теперь давайте взглянем на не рабочие варианты:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            for product in products {
+                                for quantityOfproduct in quantityOfproducts {
+                                    database.updateValue(quantityOfproduct, forKey: product)
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> <span class="className">product</span> <span class="keywords">in</span> <span class="className">products</span> {
+        <span class="keywords">for</span> <span class="className">quantityOfproduct</span> <span class="keywords">in</span> <span class="className">quantityOfproducts</span> {
+            <span class="className">database</span>.<span class="className">updateValue</span>(<span class="className">quantityOfproduct</span>, <span class="className">forKey</span>: <span class="className">product</span>)
+        }
+    }</span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Здесь мы берем первый элемент из коллекции <span class="className">products</span>, и на основе этого элемента создаем словарь с ключами из массива <span class="className">quantityOfproducts</span> и одинаковым значением, так как пока не закончит перебор внутренний цикл, внешний не запустит следующую итерацию. Итого мы получим следующий результат:
+            </p>
+            <img class="img_block" src="../../assets/Images/Task12/Task12.1.png" />
+            <p>
+                Почему будет только одно значение 38, потому что вторая итерация внешнего цикла закончится неудачей. потому что мы снова запустим внутренний цикл, который попытается добавить в наш уже наполненный словарь данные с теми же ключами, а мы с вами знаем что в словаре все ключи уникальные.
+            </p>
+            <p>
+                Следующий вариант так же не будет работать, по той же причине:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            for quantity in quantityOfproducts {
+                                for product in products {
+                                   database[product] = quantity
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">for</span> <span class="className">quantity</span> <span class="keywords">in</span> <span class="className">quantityOfproducts</span> {
+        <span class="keywords">for</span> <span class="className">product</span> <span class="keywords">in</span> <span class="className">products</span> {
+            <span class="className">database</span>[<span class="className">product</span>] = <span class="className">quantity</span>
+        }
+    }</span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Вот еще одно не оптимальное решение:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var database: [String: Int] = [products[0]: quantityOfproducts[0],
+                                                           products[1]: quantityOfproducts[1],
+                                                           products[2]: quantityOfproducts[2],
+                                                           products[3]: quantityOfproducts[3],
+                                                           products[4]: quantityOfproducts[4]]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">database</span>: [<span class="className">String</span>: <span class="className">Int</span>] = [<span class="className">products</span>[<span class="numbers">0</span>]: <span class="className">quantityOfproducts</span>[<span class="numbers">0</span>],
+                                   <span class="className">products</span>[<span class="numbers">1</span>]: <span class="className">quantityOfproducts</span>[<span class="numbers">1</span>],
+                                   <span class="className">products</span>[<span class="numbers">2</span>]: <span class="className">quantityOfproducts</span>[<span class="numbers">2</span>],
+                                   <span class="className">products</span>[<span class="numbers">3</span>]: <span class="className">quantityOfproducts</span>[<span class="numbers">3</span>],
+                                   <span class="className">products</span>[<span class="numbers">4</span>]: <span class="className">quantityOfproducts</span>[<span class="numbers">4</span>]]</span>
+                                   </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Если у вас встанет задача наполнить словарь на основе массивов, которые в себе содержать 100 и более элементов, это будет достаточно сложная для вас задача. Такое решение не гибкое и вы будете каждый раз к нему возвращаться, если надо добавить элемент в словарь. Решение должно быть универсальным.
+            </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

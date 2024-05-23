@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 13. Перечисления.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 13.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Выполните перебор по массиву, для проверки значения используйте условную конструкцию if.
+                    </span>
+                </span>
+                <p>
+                    Создайте массив на основе следующего перечисления:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                enum CarBrand {
+                                    case toyota
+                                    case honda
+                                    case bmv
+                                    case tesla
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">CarBrand</span> {
+        <span class="keywords">case</span> <span class="language-swift">toyota</span>
+        <span class="keywords">case</span> <span class="language-swift">honda</span>
+        <span class="keywords">case</span> <span class="language-swift">bmv</span>
+        <span class="keywords">case</span> <span class="language-swift">tesla</span>
+    }</span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+
+                <p>
+                     Выведете на консоль сообщение: “Снижение цены на 30%”,  в том случае если в списке будет .toyota
+                </p>
+
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                enum CarBrand {
+                                    case toyota
+                                    case honda
+                                    case bmv
+                                    case tesla
+                                }
+
+                                let carBrands: [CarBrand] = [.tesla, .bmv, .honda, .toyota]
+
+                                for carBrand in carBrands {
+                                    if carBrand == .toyota {
+                                        print("Снижение цены на 30%")
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">CarBrand</span> {
+        <span class="keywords">case</span> <span class="language-swift">toyota</span>
+        <span class="keywords">case</span> <span class="language-swift">honda</span>
+        <span class="keywords">case</span> <span class="language-swift">bmv</span>
+        <span class="keywords">case</span> <span class="language-swift">tesla</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">carBrands</span>: [<span class="className">CarBrand</span>] = [.<span class="className">tesla</span>, .<span class="className">bmv</span>, .<span class="className">honda</span>, .<span class="className">toyota</span>]
+
+    <span class="keywords">for</span> <span class="className">carBrand</span> <span class="keywords">in</span> <span class="className">carBrands</span> {
+        <span class="keywords">if</span> <span class="className">carBrand</span> == .<span class="className">toyota</span> {
+            <span class="className">print</span>(<span class="string">"Снижение цены на 30%"</span>)
+        }
+    }</span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Обратите внимание, что массив carBrands должен быть константой, мы его не изменяем, а просто перебираем.
+                </p>
+                <p>
+                    Что бы найти в списке кейс .toyota, делаем перебор при помощи цикла for, внутри которого проверяем равен ли элемент из списка .toyota, если условие удовлетворяет, то выводим на консоль сообщение.
+                </p>
+                <p>
+                    Есть еще более элегантное решение с использованием метода .contains():
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                enum CarBrand {
+                                    case toyota
+                                    case honda
+                                    case bmv
+                                    case tesla
+                                }
+
+                                let carBrands: [CarBrand] = [.toyota, .honda, .bmv, .tesla]
+
+                                if carBrands.contains(.toyota) {
+                                    print("Cнижение цены")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">CarBrand</span> {
+        <span class="keywords">case</span> <span class="language-swift">toyota</span>
+        <span class="keywords">case</span> <span class="language-swift">honda</span>
+        <span class="keywords">case</span> <span class="language-swift">bmv</span>
+        <span class="keywords">case</span> <span class="language-swift">tesla</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">carBrands</span>: [<span class="className">CarBrand</span>] = [.<span class="className">tesla</span>, .<span class="className">bmv</span>, .<span class="className">honda</span>, .<span class="className">toyota</span>]
+
+    <span class="keywords">if</span> <span class="className">carBrands</span>.<span class="className">contains</span>(.<span class="className">toyota</span>) {
+        <span class="className">print</span>(<span class="string">"Снижение цены на 30%"</span>)
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                   <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+
+                <p>
+                    Метод contains проверит наличие элемента в массиве и вернет логическое значение, true если элемент есть, и false если элемента нет. Таким образом нам нет необходимости перебирать массив.
+                </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 13.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Для решения этой задачи, вам понадобится свойство с типом дроги и пустой массив, с типами автомобилей (массив может быть типа String, это будут исходные значения кейсов). В алгоритме используйте конструкцию switch, где значение для сопоставления это тип дороги.
+                    </span>
+                </span>
+                <p>
+                   Перед вами два перечисления:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                enum CarType {
+                                    case sedan
+                                    case suv
+                                    case hatchback
+                                    case truck
+                                }
+
+                                enum RoadType {
+                                    case paved
+                                    case gravel
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">CarType</span> {
+        <span class="keywords">case</span> <span class="language-swift">sedan</span>
+        <span class="keywords">case</span> <span class="language-swift">suv</span>
+        <span class="keywords">case</span> <span class="language-swift">hatchback</span>
+        <span class="keywords">case</span> <span class="language-swift">truck</span>
+    }
+
+    <span class="keywords">enum</span> <span class="typeDeclar">RoadType</span> {
+        <span class="keywords">case</span> <span class="language-swift">paved</span>
+        <span class="keywords">case</span> <span class="language-swift">gravel</span>
+    }
+    </span></code>
+                 </pre>
+                  </div>
+                   </div>
+                </div>
+                <p>
+                    Первое отвечает за тип автомобиля, а второе за тип дорожного покрытия. Продумайте алгоритм, при котором в зависимости от покрытия, будут фильтроваться типы автомобилей. Если покрытие paved то это sedan и hatchback, если gravel то suv и truck. Выведите на консоль сообщение: ” type road: &#60;тип дороги>, cars: &#60;список автомобилей, подходящих под эту дорогу>
+                </p>
+
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum CarType: String {
+                                case sedan
+                                case suv
+                                case hatchback
+                                case truck
+                            }
+
+                            enum RoadType {
+                                case paved
+                                case gravel
+                            }
+
+                            let roadType = RoadType.gravel
+
+                            switch roadType {
+                            case .paved:
+                                print("type road: \(roadType), cars \(CarType.sedan), \(CarType.hatchback)")
+                            case .gravel:
+                                print("type road: \(roadType): \(CarType.suv), \(CarType.truck)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">CarType</span> {
+        <span class="keywords">case</span> <span class="language-swift">sedan</span>
+        <span class="keywords">case</span> <span class="language-swift">suv</span>
+        <span class="keywords">case</span> <span class="language-swift">hatchback</span>
+        <span class="keywords">case</span> <span class="language-swift">truck</span>
+    }
+
+    <span class="keywords">enum</span> <span class="typeDeclar">RoadType</span> {
+        <span class="keywords">case</span> <span class="language-swift">paved</span>
+        <span class="keywords">case</span> <span class="language-swift">gravel</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">roadType</span> = <span class="className">RoadType</span>.<span class="className">gravel</span>
+
+    <span class="keywords">switch</span> <span class="className">roadType</span> {
+    <span class="keywords">case</span> .<span class="className">paved</span>:
+        <span class="className">print</span>(<span class="string">"type road: </span>\(<span class="className">roadType</span>)<span class="string">, cars</span> \(<span class="className">CarType</span>.<span class="className">sedan</span>)<span class="string">,</span> \(<span class="className">CarType</span>.<span class="className">hatchback</span>)<span class="string">"</span>)
+    <span class="keywords">case</span> .<span class="className">gravel</span>:
+        <span class="className">print</span>(<span class="string">"type road:</span> \(<span class="className">roadType</span>)<span class="string">:</span> \(<span class="className">CarType</span>.<span class="className">suv</span>)<span class="string">,</span> \(<span class="className">CarType</span>.<span class="className">truck</span>)<span class="string">"</span>)
+    }
+    </span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Нам обязательно нужно свойство для сопоставления roadType, которое будет хранить текущее покрытие. Оно является константой, потому что мы его не меняем, а просто сопоставляем.
+            </p>
+            <p>
+                Обратите внимание, что нам не обязательно прописывать исходные значения, если мы хотим использовать название самого кейса.
+            </p>
+            <p>
+                К конструкции switch если кейс .paved то мы выводим одно сообщение, если .gravel то другое. В рамках данного контекста это не плохое решение, но мне больше нравится следующее:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum CarType: String {
+                                case sedan
+                                case suv
+                                case hatchback
+                                case truck
+                            }
+
+                            enum RoadType {
+                                case paved
+                                case gravel
+                            }
+
+                            let roadType = RoadType.gravel
+
+                            var carTypes: [String] = []
+
+                            switch roadType {
+                            case .paved:
+                                carTypes.append(CarType.sedan.rawValue)
+                                carTypes.append(CarType.hatchback.rawValue)
+                            case .gravel:
+                                carTypes.append(CarType.suv.rawValue)
+                                carTypes.append(CarType.truck.rawValue)
+                            }
+
+
+                            print("type road: \(roadType), cars: \(carTypes.joined(separator: ", "))")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">CarType</span> {
+        <span class="keywords">case</span> <span class="language-swift">sedan</span>
+        <span class="keywords">case</span> <span class="language-swift">suv</span>
+        <span class="keywords">case</span> <span class="language-swift">hatchback</span>
+        <span class="keywords">case</span> <span class="language-swift">truck</span>
+    }
+
+    <span class="keywords">enum</span> <span class="typeDeclar">RoadType</span> {
+        <span class="keywords">case</span> <span class="language-swift">paved</span>
+        <span class="keywords">case</span> <span class="language-swift">gravel</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">roadType</span> = <span class="className">RoadType</span>.<span class="className">gravel</span>
+    <span class="keywords">var</span> <span class="language-swift">carTypes</span>: [<span class="className">String</span>] = []
+
+    <span class="keywords">switch</span> <span class="className">roadType</span> {
+    <span class="keywords">case</span> .<span class="className">paved</span>:
+        <span class="className">carTypes</span>.<span class="className">append</span>(<span class="className">CarType</span>.<span class="className">sedan</span>.<span class="className">rawValue</span>)
+        <span class="className">carTypes</span>.<span class="className">append</span>(<span class="className">CarType</span>.<span class="className">hatchback</span>.<span class="className">rawValue</span>)
+    <span class="keywords">case</span> .<span class="className">gravel</span>:
+        <span class="className">carTypes</span>.<span class="className">append</span>(<span class="className">CarType</span>.<span class="className">suv</span>.<span class="className">rawValue</span>)
+        <span class="className">carTypes</span>.<span class="className">append</span>(<span class="className">CarType</span>.<span class="className">truck</span>.<span class="className">rawValue</span>)
+    }
+
+
+    <span class="className">print</span>(<span class="string">"type road:</span> \(<span class="className">roadType</span>)<span class="string">, cars: </span>\(<span class="className">carTypes</span>.<span class="className">joined</span>(<span class="className">separator</span>: <span class="string">", "</span>))<span class="string">"</span>)
+    </span></code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Здесь мы в конструкции switch добавляем в новый массив исходные значения нужных нам кейсов. и уже после конструкции switch  выводим один print.
+            </p>
+            <p>
+                Этот код легче дорабатывать, и если нам вдруг, в дальнейшем, потребуется результат, мы возьмем список автомобилей carTypes. В первом же варианте результат скрыт глубоко в логику switch, и он нам не доступен.
+            </p>
+            <p>
+                Всегда старайтесь думать наперед!
+            </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+        </div>
+       <br/>
+        <div class=" shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 13.3 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        У двух перечислений должны быть исходные значения с типом String. Так же тебе потребуется пустой массив с типом String, или с типом Vegetabel (из этого массива в дальнейшем придется сделать строковый), а так же свойство содержащее время принятия пищи. Для определения какое сейчас время используйте switch. Для вывода списка ингредиентов используйте метод <a href="https://developer.apple.com/documentation/swift/array/joined(separator:)-5do1g" class="referes_a">joined(separator:)</a>
+                    </span>
+                </span>
+                <p>
+                    Создайте два перечисления, первое будет содержать время принятия пищи (завтрак, обед и ужин), а второе овощи (например картошка, морковка, брокколи и другие). Продумайте алгоритм при котором в зависимости от времени принятия пищи, в блюдо будут добавляться определенные овощи. В конце выведите на экран сообщение: “Для приготовления &#60;время принятия пищи>, потребуются следующие овощи &#60;список овощей>”.
+                </p>
+                <div>
+                    <a class="btn-two" href="#">Показать решение</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-subtask-two">
+           <div class="container-subtask-inside">
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            enum Vegetable: String {
+                                case carrot = "Морковь"
+                                case potato = "Картошка"
+                                case broccoli = "Брокколи"
+                                case cucumber = "Огурец"
+                                case tomato = "Помидор"
+                            }
+
+                            enum Meal: String {
+                                case breakfast = "Завтрака"
+                                case lunch = "Обеда"
+                                case dinner = "Ужина"
+                            }
+
+                            var ingredients = [String]() // 1
+                            let meal = Meal.breakfast // 2
+
+                            switch meal { // 3
+                            case .breakfast:
+                                ingredients.append(Vegetable.broccoli.rawValue) // 4
+                                ingredients.append(Vegetable.cucumber.rawValue) // 5
+                            case .lunch:
+                                ingredients.append(Vegetable.potato.rawValue)
+                                ingredients.append(Vegetable.tomato.rawValue)
+                            case .dinner:
+                                ingredients.append(Vegetable.cucumber.rawValue)
+                                ingredients.append(Vegetable.carrot.rawValue)
+                            }
+
+
+                            print("Для приготовления \(meal.rawValue), нужны следующие ингредиенты: \(ingredients.joined(separator: ", "))")
+                            '>Copy</button>
+                        </div>
+                    </div>
+    <pre class="language-swift"><code readonly="true" class="language-swift">
+
+    <span class="operator"><span class="keywords">enum</span> <span class="typeDeclar">Vegetable</span>: <span class="className">String</span> {
+        <span class="keywords">case</span> <span class="language-swift">carrot</span> = <span class="string">"Морковь"</span>
+        <span class="keywords">case</span> <span class="language-swift">potato</span> = <span class="string">"Картошка"</span>
+        <span class="keywords">case</span> <span class="language-swift">broccoli</span> = <span class="string">"Брокколи"</span>
+        <span class="keywords">case</span> <span class="language-swift">cucumber</span> = <span class="string">"Огурец"</span>
+        <span class="keywords">case</span> <span class="language-swift">tomato</span> = <span class="string">"Помидор"</span>
+    }
+
+    <span class="keywords">enum</span> <span class="typeDeclar">Meal</span>: <span class="className">String</span> {
+        <span class="keywords">case</span> <span class="language-swift">breakfast</span> = <span class="string">"Завтрака"</span>
+        <span class="keywords">case</span> <span class="language-swift">lunch</span> = <span class="string">"Обеда"</span>
+        <span class="keywords">case</span> <span class="language-swift">dinner</span> = <span class="string">"Ужина"</span>
+    }
+
+    <span class="keywords">var</span> <span class="language-swift">ingredients</span>: [<span class="className">String</span>] = [] <span class="comments">// 1</span>
+    <span class="keywords">let</span> <span class="language-swift">meal</span> = <span class="className">Meal</span>.<span class="className">breakfast</span> <span class="comments">// 2</span>
+
+    <span class="keywords">switch</span> <span class="className">meal</span> { <span class="comments">// 3</span>
+    <span class="keywords">case</span> .<span class="className">breakfast</span>:
+        <span class="className">ingredients</span>.<span class="className">append</span>(<span class="className">Vegetable</span>.<span class="className">broccoli</span>.<span class="className">rawValue</span>) <span class="comments">// 4</span>
+        <span class="className">ingredients</span>.<span class="className">append</span>(<span class="className">Vegetable</span>.<span class="className">cucumber</span>.<span class="className">rawValue</span>) <span class="comments">// 5</span>
+    <span class="keywords">case</span> .<span class="className">lunch</span>:
+        <span class="className">ingredients</span>.<span class="className">append</span>(<span class="className">Vegetable</span>.<span class="className">potato</span>.<span class="className">rawValue</span>)
+        <span class="className">ingredients</span>.<span class="className">append</span>(<span class="className">Vegetable</span>.<span class="className">tomato</span>.<span class="className">rawValue</span>)
+    <span class="keywords">case</span> .<span class="className">dinner</span>:
+        <span class="className">ingredients</span>.<span class="className">append</span>(<span class="className">Vegetable</span>.<span class="className">cucumber</span>.<span class="className">rawValue</span>)
+        <span class="className">ingredients</span>.<span class="className">append</span>(<span class="className">Vegetable</span>.<span class="className">carrot</span>.<span class="className">rawValue</span>)
+    }
+
+
+    <span class="className">print</span>(<span class="string">"Для приготовления:</span> \(<span class="className">meal</span>.<span class="className">rawValue</span>)<span class="string">, нужны следующие ингредиенты: </span>\(<span class="className">ingredients</span>.<span class="className">joined</span>(<span class="className">separator</span>: <span class="string">", "</span>))<span class="string">"</span>)
+    </span></code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+               У вас есть два перечисления с строковыми исходными значениями, они нам нужны для красивого отображения в print.
+            </p>
+            <p>
+               Пустой массив с типом String, является переменной, в который мы планируем добавить ингредиентов (1). Так же у нас есть свойство meal, которое хранит в себе определенный кейс типа Meal, то есть время приема пищи (2). В конструкции switch мы проверяем, если свойство meal хранит в себе .breakfast (3), то мы добавляем в массив исходное значение кейса .broccoli и .cucumber (шаг 4 и 5)
+            </p>
+            <p>
+                Можно было решить задание немного иначе:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                           enum Vegetable: String {
+                                case carrot = "Морковь"
+                                case potato = "Картошка"
+                                case broccoli = "Брокколи"
+                                case cucumber = "Огурец"
+                                case tomato = "Помидор"
+                            }
+
+                            enum Meal: String {
+                                case breakfast = "Завтрака"
+                                case lunch = "Обеда"
+                                case dinner = "Ужина"
+                            }
+
+                            var ingredients = [Vegetable]() // 1
+
+                            let meal = Meal.breakfast
+
+                            switch meal {
+                            case .breakfast:
+                                ingredients.append(.broccoli) // 2
+                                ingredients.append(.cucumber)
+                            case .lunch:
+                                ingredients.append(.potato)
+                                ingredients.append(.tomato)
+                            case .dinner:
+                                ingredients.append(.cucumber)
+                                ingredients.append(.carrot)
+                            }
+
+                            var vegetables = [String]() // 3
+
+                            for ingredient in ingredients {  // 4
+                                vegetables.append(ingredient.rawValue)
+                            }
+
+                            print("Для приготовления \(meal.rawValue), нужны следующие ингредиенты: \(vegetables.joined(separator: ", "))") // 5
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="operator">
+    <span class="keywords">enum</span> <span class="typeDeclar">Vegetable</span>: <span class="className">String</span> {
+        <span class="keywords">case</span> <span class="language-swift">carrot</span> = <span class="string">"Морковь"</span>
+        <span class="keywords">case</span> <span class="language-swift">potato</span> = <span class="string">"Картошка"</span>
+        <span class="keywords">case</span> <span class="language-swift">broccoli</span> = <span class="string">"Брокколи"</span>
+        <span class="keywords">case</span> <span class="language-swift">cucumber</span> = <span class="string">"Огурец"</span>
+        <span class="keywords">case</span> <span class="language-swift">tomato</span> = <span class="string">"Помидор"</span>
+    }
+
+    <span class="keywords">enum</span> <span class="typeDeclar">Meal</span>: <span class="className">String</span> {
+        <span class="keywords">case</span> <span class="language-swift">breakfast</span> = <span class="string">"Завтрака"</span>
+        <span class="keywords">case</span> <span class="language-swift">lunch</span> = <span class="string">"Обеда"</span>
+        <span class="keywords">case</span> <span class="language-swift">dinner</span> = <span class="string">"Ужина"</span>
+    }
+
+    <span class="keywords">var</span> <span class="language-swift">ingredients</span>: [<span class="className">Vegetable</span>] = [] <span class="comments">// 1</span>
+    <span class="keywords">let</span> <span class="language-swift">meal</span> = <span class="className">Meal</span>.<span class="className">breakfast</span>
+
+    <span class="keywords">switch</span> <span class="className">meal</span> {
+    <span class="keywords">case</span> .<span class="className">breakfast</span>:
+        <span class="className">ingredients</span>.<span class="className">append</span>(.<span class="className">broccoli</span>) <span class="comments">// 2</span>
+        <span class="className">ingredients</span>.<span class="className">append</span>(.<span class="className">cucumber</span>)
+    <span class="keywords">case</span> .<span class="className">lunch</span>:
+        <span class="className">ingredients</span>.<span class="className">append</span>(.<span class="className">potato</span>)
+        <span class="className">ingredients</span>.<span class="className">append</span>(.<span class="className">tomato</span>)
+    <span class="keywords">case</span> .<span class="className">dinner</span>:
+        <span class="className">ingredients</span>.<span class="className">append</span>(.<span class="className">cucumber</span>)
+        <span class="className">ingredients</span>.<span class="className">append</span>(.<span class="className">carrot</span>)
+    }
+
+    <span class="keywords">var</span> <span class="language-swift">vegetables</span>: [<span class="className">String</span>] = [] <span class="comments">// 3</span>
+
+    <span class="keywords">for</span> <span class="className">ingredient</span> <span class="keywords">in</span> <span class="className">ingredients</span> {  <span class="comments">// 4</span>
+        <span class="className">vegetables</span>.<span class="className">append</span>(<span class="className">ingredient</span>.<span class="className">rawValue</span>)
+    }
+
+    <span class="className">print</span>(<span class="string">"Для приготовления:</span> \(<span class="className">meal</span>.<span class="className">rawValue</span>)<span class="string">, нужны следующие ингредиенты: </span>\(<span class="className">vegetables</span>.<span class="className">joined</span>(<span class="className">separator</span>: <span class="string">", "</span>))<span class="string">"</span>) <span class="comments">// 5</span>
+    </span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+                На этот раз массив с типом Vegetable (1), а это значит что в switch мы будем добавлять в массив сами кейсы, а не исходные значения (2). Что бы вывести на консоль готовый список с исходными значениями, мы создаем новый строковый массив (3), после чего перебираем массив с кейсами (4) и добавляем исходное значение каждого из элементов массива ingredients в массив vegetables. После чего выводим результат на консоль (5)
+            </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-3" name="task1-3" value="yes">
+            <label for="task1-3">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+        <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 13.4 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                 </h2>
+                 <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                       Создайте свойство с типом Activity, в ассоциативный параметр передайте нужные данные, и в конструкции switch сопоставьте это свойство с кейсами Activity. Что бы сделать из массива список используйте метод joined(separator:)
+                    </span>
+                </span>
+                <p>
+                   Создайте перечисление Activity , со следующими кейсами: reading, running, shopping.
+                </p>
+                <p>
+                   первый кейс должен иметь ассоциативный параметр типа: (book: String), второй: (distance: Double) и третий: (items: [String]). В зависимости от, того какой кейс с типом Activity выбран, выведите на консоль сообщение, если кейс reading: “В настоящее время читаю &#60;книга>”, если кейс running: “Пробежать сегодня &#60;дистанция> км “, если кейс shopping: “Сходить в магазин за: &#60;список покупок>”
+                </p>
+
+                <div> <a class="btn-three" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask-three">
+            <div class="container-subtask-inside">
+
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                enum Activity {
+                                    case reading(book: String)
+                                    case running(distance: Double)
+                                    case shopping(items: [String])
+                                }
+
+                                let activity = Activity.running(distance: 5.0)
+
+                                switch activity {
+                                case .reading(let book):
+                                    print("В настоящее время читаю \(book)")
+                                case .running(let distance):
+                                    print("Пробежать сегодня \(distance) км")
+                                case .shopping(let items):
+                                    print("Сходить в магазин за \(items.joined(separator: ", "))")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator">
+    <span class="keywords">enum</span> <span class="typeDeclar">Activity</span> {
+        <span class="keywords">case</span> <span class="language-swift">reading</span>(<span class="className">book</span>: <span class="className">String</span>)
+        <span class="keywords">case</span> <span class="language-swift">running</span>(<span class="className">distance</span>: <span class="className">Double</span>)
+        <span class="keywords">case</span> <span class="language-swift">shopping</span>(<span class="className">items</span>: [<span class="className">String]</span>)
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">activity</span> = <span class="className">Activity</span>.<span class="className">running</span>(<span class="className">distance</span>: <span class="numbers">5.0</span>)
+
+    <span class="keywords">switch</span> <span class="className">activity</span> {
+    <span class="keywords">case</span> .<span class="className">reading</span>(<span class="keywords">let</span> book):
+        <span class="className">print</span>(<span class="string">"В настоящее время читаю </span>\(<span class="className">book</span>)<span class="string">"</span>)
+    <span class="keywords">case</span> .<span class="className">running</span>(<span class="keywords">let</span> distance):
+        <span class="className">print</span>(<span class="string">"Пробежать сегодня </span>\(<span class="className">distance</span>) <span class="string">км"</span>)
+    <span class="keywords">case</span> .<span class="className">shopping</span>(<span class="keywords">let</span> items):
+        <span class="className">print</span>(<span class="string">"Сходить в магазин за </span>\(<span class="className">items</span>.<span class="className">joined</span>(<span class="className">separator</span>: <span class="string">", "</span>))<span class="string">"</span>)
+    }
+    </span>
+                     </code>
+                     </pre>
+                      </div>
+                       </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    кейсы перечисления обязательно должны быть с маленькой буквы, а ассоциативные параметры с названиями, следующая запись не желательна:
+                </p>
+
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                enum Activity {
+                                    case reading(String)
+                                    case running(Double)
+                                    case shopping([String])
+                                }
+
+                                let activity = Activity.running(5.0)
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="operator">
+    <span class="keywords">enum</span> <span class="typeDeclar">Activity</span> {
+        <span class="keywords">case</span> <span class="language-swift">reading</span>(<span class="className">String</span>)
+        <span class="keywords">case</span> <span class="language-swift">running</span>(<span class="className">Double</span>)
+        <span class="keywords">case</span> <span class="language-swift">shopping</span>([<span class="className">String]</span>)
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">activity</span> = <span class="className">Activity</span>.<span class="className">running</span>(<span class="numbers">5.0</span>)
+    </span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                   В таком случае не понятно за что отвечают ассоциативные параметры. Лучше всегда прописывать параметры.
+                </p>
+                <p>
+                    Далее в условной конструкции switch мы сопоставляем свойство activity со всеми кейсами типа Activity. В скобках каждого кейса нам возвращается ассоциативный параметр, который мы инициализировали в момент создания свойства activity. Если вам не понятно как это работает, то предлагаю еще раз пройти урок 13 раздел Ассоциативные параметры.
+                </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-4" name="task1-4" value="yes">
+            <label for="task1-4">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

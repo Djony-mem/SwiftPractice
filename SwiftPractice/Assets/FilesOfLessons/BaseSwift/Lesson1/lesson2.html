@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_2">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#string" class="yakor">&#128195; Тип String</a>
+          <a href="#integer" class="yakor">&#128195; Тип Int</a>
+          <a href="#float" class="yakor">&#128195; Типы Double и Float</a>
+          <a href="#bollin" class="yakor">&#128195; Тип Boolin</a>
+          <a href="#character" class="yakor">&#128195; Тип Character</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 2. Базовые типы данных.
+            </h2>
+            <p class="date_p"> 1 ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p> Swift имеет несколько базовых типов: </p>
+
+                <p>
+                    1. <strong><span class="className">String</span></strong> (текстовая строка)
+                </p>
+
+                <p>
+                    2. <strong><span class="className">Int</span></strong> (целое число)
+                </p>
+
+                <p>
+                    3. <strong><span class="className">Float</span></strong> (32-битное число с плавающей точкой)
+                </p>
+
+                <p>
+                    4. <strong><span class="className">Double</span></strong> (64-битное число с плавающей точкой для более длинных переменных)
+                </p>
+
+                <p>
+                    5. <strong><span class="className">Bool</span></strong> (логическое значение «true» или «false»).
+                </p>
+
+                <p>
+                    6. <strong><span class="className">Character</span></strong> (один символ)
+                </p>
+            </div>
+
+            <div>
+                <div class="shadow_block container_info">
+                    <p>
+                        Обратите внимание, что название типов должны начинаться с заглавной буквы.
+                    </p>
+                    <p>
+                       Это единственное что в языке Swift пишется с большой буквы.
+                    </p>
+                </div>
+                <div> <img class="img_circle" src="assets/Images/fingerUp.png" /> </div>
+            </div>
+            <div>
+                <h2 id="string">
+                   Тип String.
+                </h2>
+                <p>
+                    Мы уже познакомились с типом <span class="className">String</span> когда присвоили текстовое значение свойству:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let nameOfNeighbor = "Tom"
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> nameOfNeighbor <span class="operator">= </span><span class="string">"Tom"</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Swift знает что свойство <strong><span class="language-swift">nameOfNeighbor</span></strong> содержит строку, поскольку мы поместили ее значение в кавычки.
+                </p>
+
+                <p>
+                    Когда мы присваиваем нашему свойству значение и записываем его в кавычках, система понимает, что данная константа имеет тип <strong><span class="className">String</span></strong>, и мы даже можем в этом убедится.
+                </p>
+
+                <p>
+                    Зажмите <strong><span class="accent">option</span></strong>  и наведите на свойство, после того как увидите вопросительный знак, кликайте по свойству. Перед вами откроется следующее окно:
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.1.png" />
+
+                <p>
+                    В графе <strong><span class="accent">Declaration</span></strong> вы можете видеть наше свойство, и после двоеточия тип данных нашей константы.
+                </p>
+                <p>
+                    В нашем коде не может быть ни одного объекта, который бы не имел определенного типа.
+                </p>
+                <p>
+                    Давайте в этом убедимся, а именно, попробуем создать свойство без типа данных:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let country
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> country
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                 <p>
+                    Компилятор сразу же выдаст нам следующую ошибку:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.2.png" />
+
+                <p>
+                    Что означает <strong><span class="accent">"Я не могу определить тип данных"</span></strong>. Системе нужно понимать что за тип данных она будет хранить в ячейке памяти, для того, что бы работать с информацией более эффективно.
+                </p>
+                <p>
+                    Когда мы присваивали значение свойству, то система смотрела на значение и понимала какой тип данных хранится в ячейки, но если не присвоить значения, то система не сможет определить тип свойства. В этом случае его придется задать явно:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let country: String
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> country: <span class="className">String</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Такая запись не будет вызывать ошибку, поскольку система знает  какой тип данных свойство country получит в будущем.
+                </p>
+
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Обратите внимание на синтаксис, перед двоеточием не ставится пробела, а после только один! 
+                        </p>
+                    </div>
+                        <div>
+                            <img class="img_circle" src="assets/Images/fingerUp.png" />
+                        </div>
+                </div>
+
+                <p>
+                    Не инициализированное свойство мы не можем никак использовать в коде, система только зарезервировала для этой переменной ячейку в памяти, но не выделила место, а это значит что этого свойства в памяти пока еще нет, и соответсвенно использовать его мы не можем.
+                </p>
+                <p>
+                    Давайте посмотрим на примере:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var biggestCountry = "" // 1
+                                let country: String // 2
+
+                                biggestCountry = country // 3
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> biggestCountry <span class="operator">= </span> <span class="string">"" </span><span class="comments">// 1</span>
+    <span class="keywords">let</span> country: <span class="className">String </span><span class="comments">// 2</span>
+
+    <span class="className">biggestCountry</span> <span class="operator">= </span><span class="className">country</span> <span class="comments">// 3</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    1. Мы объявили переменную <span class="language-swift">biggestCountry</span> и инициализировали ее пустой строкой (между кавычек пусто, поэтому это считается пустой строкой).
+                </p>
+
+                <p>
+                    2. Мы объявили константу <span class="language-swift">country</span>, но никак ее не инициализировали.
+                </p>
+                <p>
+                    3. Мы пытаемся присвоить свойству <span class="language-swift">biggestCountry</span> новое значение, которое хранится в свойстве <span class="language-swift">country</span>. Но так как константа <span class="language-swift">country</span> не имеет значения, и в целом система ее даже не сохранила в памяти, то и брать нам из нее не чего. Поэтому мы увидим ошибку:
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.3.png" />
+
+                <p>
+                    которая гласит: <strong><span class="accent">"Переменная country используется до ее инициализации"</span></strong>. Давайте используем ее после ее инициализации:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var biggestCountry = ""
+                                let country: String,country = "Russia"
+
+                                biggestCountry = country
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> biggestCountry <span class="operator">= </span> <span class="string">"" </span>
+    <span class="keywords">let</span> country: <span class="className">String </span>
+    country <span class="operator">= </span><span class="string">"Russia" </span>
+
+    <span class="className">biggestCountry</span> <span class="operator">= </span><span class="className">country</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Прежде чем к ней обратиться, мы ее инициализировали и все ошибки нас покинули, а свойство <span class="language-swift">biggestCountry</span> теперь имеет значение <span class="string">"Russia"</span>, вы можете в этом убедится, если запустите компилятор и посмотрите на правую часть окна.
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.4.png" />
+                <p></p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Компилятор читает код с верху вниз, на первой строке мы создаем свойства потом инициализируем свойство country и только потом используем. 
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Вы наверняка спросите, как это мы константе <strong><span class="accent">country</span></strong> присвоили на следующей строке новое значение, это же вроде не изменяемое свойство?
+                </p>
+
+                <p>
+                    Но никаких противоречий нет, на первой строке мы объявили свойство, но ни как его не инициализировали, то есть по факту у него нет значения, а значит, на второй строке мы его не переопределяем а инициализируем.
+                </p>
+
+                <p>
+                    Конечно, нет смысла на первой строке прописывать не инициализированное свойство, а на следующей его инициализировать. Если вам известно начальное значение, то задавайте его сразу:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var biggestCountry = ""
+                                let country = "Russia"
+
+                                biggestCountry = country
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> biggestCountry <span class="operator">= </span> <span class="string">"" </span>
+    <span class="keywords">let</span> country <span class="operator">= </span><span class="string">"Russia" </span>
+
+    <span class="className">biggestCountry</span> <span class="operator">= </span><span class="className">country</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    При этом тип данных явно прописывать не нужно система с легкостью определяет тип данных из значения. 
+                </p>
+                <p>
+                    Ну а если у вас пока нет значения, то можно задать в качестве значения по умолчанию пустую строку:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var biggestCountry = ""
+                                var country = ""
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> biggestCountry <span class="operator">= </span> <span class="string">"" </span>
+    <span class="keywords">var</span> country <span class="operator">= </span><span class="string">"" </span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Но в таком случае ваше свойство лучше сделать переменной, потому что нет смысла хранить пустую строку, вы ее точно будете переопределять.
+                </p>
+
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Строка может быть любой длинны, а это значит что в кавычках вы можете определить любое количество символов от 0 до бесконечности.  
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <h2 id="integer">
+                    Тип Integer
+                </h2>
+
+                <p>
+                    Свойства с типом <span class="className">Int</span> могут содержать в себе целые числа, т.е. числа без дробной части. Это могут быть, как положительные, так и отрицательные числа, а так же 0.
+                </p>
+
+                <p>
+                    Давайте все удалим из нашего playground и объявим два свойства:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var country = "Andorra"
+                                var countryArea = 468
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> country <span class="operator">= </span><span class="string">"Andorra" </span>
+    <span class="keywords">var</span> countryArea <span class="operator">= </span><span class="numbers">468</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Первое свойство имеет тип данных <span class="className">String</span>, система определила этот тип из значения. Второе свойство имеет тип Intger, то есть целое число, давайте в этом убедимся (option + клик)
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.5.png" />
+
+                <p>
+                    При объявлении этой переменной мы присвоили ей числовое значение без кавычек и без разделительной запятой, поэтому данная переменная будет иметь тип <span class="className">Int</span>.
+                </p>
+
+                <p>
+                    Задав свойству определенный тип данных, в дальнейшем мы можем присваивать ему значения только этого типа. В этом и заключается строгая типизация языка. Т.е. мы не можем смешивать разные типы данных между собой. 
+                </p>
+
+                <p>
+                    Что я имею в виду:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var country = "Andorra"
+                                var countryArea = 468
+
+                                countryArea = country
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> country <span class="operator">= </span><span class="string">"Andorra" </span>
+    <span class="keywords">var</span> countryArea <span class="operator">= </span><span class="numbers">468</span>
+    <span class="className">countryArea </span><span class="operator">= </span><span class="className">country</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Код выше выдаст ошибку:
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.6.png" />
+
+                <p>
+                    Которая говорит нам что мы не можем присвоить значение типа <span class="className">String</span>, свойству с типом <span class="className">Int</span>. 
+                </p>
+                <p>
+                    Так же и в обратную сторону, мы не сможем присвоить свойству <span class="language-swift">country</span> целочисленное значение:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var country = "Andorra"
+                                var countryArea = 468
+
+                                country = 468
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> country <span class="operator">= </span><span class="string">"Andorra" </span>
+    <span class="keywords">var</span> countryArea <span class="operator">= </span><span class="numbers">468</span>
+
+    <span class="className">country </span><span class="operator">= </span><span class="numbers">468</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Будет точно такая же ошибка, только теперь мы не можем присвоить целочисленное значение к строковой переменной. 
+                </p>
+
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если вы не знаете какое значение присвоить свойству, то по умолчанию можно написать 0, которое в дальнейшем переопределить на реальные данные.  
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <h2 id="float">
+                    Типы Double и Float
+                </h2>
+
+                <p>
+                    Типы <span class="className">Float</span> и <span class="className">Double</span> в Swift используются для хранения чисел с плавающей запятой. И отличаются они только количеством чисел после запятой. Тип данных <span class="className">Float</span> способен содержать до 6 чисел после запятой, а тип данных <span class="className">Double</span> способен содержать до 15 чисел. 
+                </p>
+                <p>
+                    Для начала удалим весь код, который вызывает ошибки и оставим только два свойства <span class="language-swift">country</span> и <span class="language-swift">countryArea</span>
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var country = "Andorra"
+                                var countryArea = 468
+
+                                country = "Vatican"
+
+                                let areaOfSmallestCountry = 0.44
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> country <span class="operator">= </span><span class="string">"Andorra" </span>
+    <span class="keywords">var</span> countryArea <span class="operator">= </span><span class="numbers">468</span>
+
+    <span class="className">country </span><span class="operator">= </span><span class="string">"Vatican"</span>
+
+    <span class="keywords">let</span> areaOfSmallestCountry <span class="operator">= </span><span class="numbers">0.44</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    На четвертой строчке мы переопределили значение переменной <span class="language-swift">country</span>, а на пятой объявили новую константу с значением плавающей точки, давайте посмотрим на его тип данных:
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.7.png" />
+
+                <p>
+                    По умолчанию, Xcode, когда видит значение с плавающей точкой, определяет для свойства тип <span class="className">Double</span>. 
+                </p>
+                <p>
+                    Тип <span class="className">Double</span> может принимать так же целые числа, но в таком случае нужно прописать тип явно:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var country = "Andorra"
+                                var countryArea = 468
+
+                                country = "Vatican"
+
+                                let areaOfSmallestCountry = 0.44
+                                var randomArea: Double = 316
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> country <span class="operator">= </span><span class="string">"Andorra" </span>
+    <span class="keywords">var</span> countryArea <span class="operator">= </span><span class="numbers">468</span>
+
+    <span class="className">country </span><span class="operator">= </span><span class="string">"Vatican"</span>
+
+    <span class="keywords">let</span> areaOfSmallestCountry <span class="operator">= </span><span class="numbers">0.44</span>
+    <span class="keywords">var</span> randomArea: <span class="className">Double </span><span class="operator">= </span><span class="numbers">316</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Но в тоже время мы не сможем сделать так:
+                </p>
+
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var country = "Andorra"
+                                var countryArea = 468
+
+                                country = "Vatican"
+
+                                let areaOfSmallestCountry = 0.44
+                                var randomArea: Double = 316
+
+                                randomArea = countryArea
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> country <span class="operator">= </span><span class="string">"Andorra" </span>
+    <span class="keywords">var</span> countryArea <span class="operator">= </span><span class="numbers">468</span>
+
+    <span class="className">country </span><span class="operator">= </span><span class="string">"Vatican"</span>
+
+    <span class="keywords">let</span> areaOfSmallestCountry <span class="operator">= </span><span class="numbers">0.44</span>
+    <span class="keywords">var</span> randomArea: <span class="className">Double </span><span class="operator">= </span><span class="numbers">316</span>
+
+    <span class="className">randomArea </span><span class="operator">= </span><span class="className">countryArea</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Если мы запустим компилятор, то мы получим ошибку не соответствия типов данных:
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.8.png" />
+
+                <p>
+                    Переменная <span class="language-swift">countryArea</span> является типом <span class="className">Int</span>, а свойство randomArea типом <span class="className">Double</span>, то есть это разные типы данных.
+                </p>
+
+                <p>
+                    В этой ошибке так же предлагается вариант решения этой проблемы, но об этом мы будем разговаривать на следующих уроках. 
+                </p>
+                <p>
+                    Давайте удалим строку, которая вызывает ошибку и перейдем к типу <span class="className">Float</span>.
+                </p>
+                <p>
+                    Если вы создадите переменную или константу без явного указания типа и присвоите ей числовое значение с плавающей точкой, то по умолчанию ваша переменная будет иметь тип <span class="className">Double</span>. 
+                </p>
+                <p>
+                    Давайте посмотрим на код который у нас получился. Нас интересует два свойства:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let areaOfSmallestCountry = 0.44
+                                var randomArea: Double = 316
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> areaOfSmallestCountry <span class="operator">= </span><span class="numbers">0.44 </span>
+    <span class="keywords">var</span> randomArea: <span class="className">Double </span><span class="operator">= </span><span class="numbers">316</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Первая константа объявлена без явного обозначения типа данных, и по умолчанию компилятор определил для нее тип <span class="className">Double</span>.
+                </p>
+                <p>
+                    Во втором свойстве мы обозначили тип явно, поэтому оно имеет тип <span class="className">Double</span>, если бы мы этого не сделали, то система определила для этой переменной тип <span class="className">Int</span>, потому как в значении целое число. 
+                </p>
+
+                <p>
+                    Тип <span class="className">Float</span> тоже является числом с плавающей точкой, но как нам создать свойство с этим типом?
+                </p>
+                <p>
+                    Ответ напрашивается сам собой, мы должны прописать тип явно:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let areaOfSmallestCountry: Float = 0.44
+                                var randomArea: Double = 316
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> areaOfSmallestCountry: <span class="className">Float </span><span class="operator">= </span><span class="numbers">0.44 </span>
+    <span class="keywords">var</span> randomArea: <span class="className">Double </span><span class="operator">= </span><span class="numbers">316</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом наше свойство <span class="language-swift">areaOfSmallestCountry</span> является типа <span class="className">Float</span>. 
+                </p>
+                <p>
+                    Для чего вообще нужно это разделение на <span class="className">Float</span> и <span class="className">Doubl</span>?  
+                </p>
+                <p>
+                    Все дело в памяти. Языки с течением времени очень сильно изменились, но вот основные типы данных остались неизменными, и раньше память измерялась килобайтами, сейчас память измеряется гигабайтами. <span class="className">Float</span> занимает 32 бита, а <span class="className">Double</span> 64 и если вы знали что вам нужно использовать дробное число, но не большое, то вы использовали <span class="className">Float</span>, если вам не хватало этого то тогда уже Double. Сейчас в такой экономии нет смысла.
+                </p>
+                <p>
+                    Компания Apple рекомендует всегда использовать тип <span class="className">Double</span> по умолчанию. 
+                </p>
+                 <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если вы не знаете какое значение присвоить свойству, то по умолчанию можно написать 0.0  
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="bollin">
+                    Тип Boolean
+                </h2>
+                <p>
+                    У языка Swift есть базовый тип данных, который используется для хранения значений false и true. 
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var isFederalState = false
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> isFederalState <span class="operator">= </span><span class="keywords">false </span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Давайте посмотрим на его аннотацию:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.9.png" />
+                <p>
+                    Этот логический тип данных мы используем когда нам нужно решить в какую сторону должна двигаться программа в ту или в иную, а таких разветвлений в программе очень много и они встречаются повсюду.
+                </p>
+                <p>
+                    На следующих уроках мы познакомимся с ним подробней.
+                </p>
+                <h2 id="character">
+                    Тип Character
+                </h2>
+                <p>
+                    В Swift все строки представляют из себя совокупность символов, которые в свою очередь определяются типом <span class="className">Character</span>. По сути тип <span class="className">Character</span> это один символ.
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let symbol = "$"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> symbol <span class="operator">= </span><span class="string">"$" </span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    По умолчанию компилятор определит это свойство как тип <span class="className">String</span>, и если мы хотим что бы это свойство было типа <span class="className">Character</span>, то мы должны тип прописать явно:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let symbol: Character = "$"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> symbol: <span class="className">Character </span><span class="operator">= </span><span class="string">"$" </span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом мы не сможем прописать в эту строку больше одного символа:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson2/lesson2.10.png" />
+                <p>
+                    Даже дополнительный пробел будет вызывает ошибку. 
+                </p>
+                <p>
+                    Теперь мы знаем что все переменные и константы имеют свои типы, и мы не можем смешивать их между собой. 
+                </p>
+                <div>
+                <div class="shadow_block container_terms">
+                    <p>
+                       <strong>Прописать тип явно</strong> - это тот случай когда мы после имени ставим двоеточие и прописываем тип данных: let name: String, let number: Int ...
+                    </p>
+                    <p>
+                        <strong>Переопределение свойства</strong> - задаем новое значение для свойства, которое ранее уже было инициализировано.
+                    </p>
+                    <p>
+                        <strong>Инициализировать свойство</strong> - присвоить значение свойству в момент его создания.
+                    </p>
+                </div>
+                <div> <img class="img_circle" src="assets/Images/readBook.png" /> </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

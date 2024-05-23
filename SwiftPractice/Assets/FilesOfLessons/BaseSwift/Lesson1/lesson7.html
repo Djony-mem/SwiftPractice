@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_7">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+ <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#oper_break" class="yakor">&#128195; Оператор break</a>
+          <a href="#oper_where" class="yakor">&#128195; Оператор where</a>
+          <a href="#comb_cases" class="yakor">&#128195; Объединение кейсов</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 7. Условная конструкция switch.
+            </h2>
+            <p class="date_p"> 1 Ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                    Что же такое условная конструкция <span class="keywords">switch</span>, на самом деле она очень похожа на конструкцию <span class="keywords">if</span>, только здесь синтаксис выглядит немного иначе.
+                </p>
+                <p>
+                    Давайте сперва рассмотрим пример с условной конструкцией <span class="keywords">if</span>:
+                </p>
+                                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let coin = "Gold"
+                            var price = 0
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> coin<span class="operator"> = </span><span class="string">"Gold"</span>
+    <span class="keywords">var</span> price<span class="operator"> = </span><span class="numbers">0</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    У нас есть свойство coin, которое хранит в себе какую то монетку, это может быть золотая, монетка, может быть серебряная, либо медная.
+                </p>
+                <p>
+                    Представим приложение, в котором есть только текстовое поле, куда пользователь сам вносит значение для монеты. И вот наш вымышленный пользователь внес в текстовое поле значение Gold. Далее он жмет на кнопочку, и должно произойти какое то действие. В зависимости от того какая это монета, программа будет отображать на консоли ее  стоимость:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                           let coin = "Gold"
+                           var price = 0
+
+                           if coin == "Gold" {
+                               price = 46220
+                            } else if coin == "Silver" {
+                                price = 5500
+                            } else {
+                                price = 498
+                            }
+
+                            print("\(coin) coin worth \(price) rubles")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> coin<span class="operator"> = </span><span class="string">"Gold"</span>
+    <span class="keywords">var</span> price<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">coin</span> == <span class="string">"Gold"</span> {
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">46220</span>
+    } <span class="keywords">else if</span><span class="className"> coin</span> == <span class="string">"Silver"</span> {
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">5500</span>
+    } <span class="keywords">else</span> {
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">498</span>
+    }
+
+    <span class="className">print</span>(<span class="string">"</span>\(<span class="className">coin</span>) <span class="string">coin worth</span> \(<span class="className">price</span>) <span class="string">rubles"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Что мы тут делаем?! Мы берем значение <span class="className">coin</span> и сравниваем с значениями, которые мы прописали в условиях, то есть мы сопоставляем их. И когда стоит задача именно сопоставить, то здесь лучше подойдет конструкция <span class="keywords">switch</span>. Давайте сперва посмотрим на его синтаксис:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson7/Lesson7.1.png" />
+                <p>
+                    Конструкция всегда начинается с ключевого слова <span class="keywords">switch</span>, после которого мы определяем то значение, которое будем сравнивать. В нашем случае это свойство <span class="className">coin</span>.
+                </p>
+                <p>
+                    Внутри конструкции, после ключевого слова case мы прописываем значения для сопоставления. в нашем случае это <span class="string">“Gold”</span>, <span class="string">“Silver”</span> и <span class="string">“Copper”</span>, Кейсов может быть любое необходимое количество. После двоеточия определяем действие, которое должно случится, в том случае если сопоставляемое значение совпадет с кейсом. Если не один из кейсов не сработает, то будет выполнена дефолтная ветка.
+                </p>
+                <p>
+                    Наша конструкция будет выглядеть следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                           let coin = "Gold"
+                           var price = 0
+
+                           switch coin {
+                           case "Gold":
+                               price = 46220
+                           case "Silver":
+                               price = 5500
+                           default:
+                               price = 498
+                           }
+
+                           print("\(coin) coin worth \(price) rubles")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> coin<span class="operator"> = </span><span class="string">"Gold"</span>
+    <span class="keywords">var</span> price<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">coin</span> {
+    <span class="keywords">case</span> <span class="string">"Gold"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">46220</span>
+    <span class="keywords">case</span> <span class="string">"Silver"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">5500</span>
+    <span class="keywords">default</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">498</span>
+    }
+
+    <span class="className">print</span>(<span class="string">"</span>\(<span class="className">coin</span>) <span class="string">coin worth</span> \(<span class="className">price</span>) <span class="string">rubles"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    по сути мы берем свойство <span class="className">coin</span> и сравниваем по очередно с каждым кейсом <span class="className">coin</span> == <span class="string">“Gold”</span>.  Первый кейс нам подходит, поэтому на консоли мы увидим следующее сообщение:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson7/Lesson7.2.png" />
+                <p>
+                    Когда компилятор находит нужный кейс он дальше не будет делать проверку, он просто выйдет из конструкции. Давайте посмотрим как отрабатывает switch, если мы зададим для свойства coin значение <span class="string">“Copper”</span>:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson7/Lesson7.3.png" />
+                <p>
+                    Мы видим что отработала дефолтная ветка, которая срабатывает в том случае если остальные кейсы не соответствуют сопоставляемому значению.
+                </p>
+                <p>
+                    Давайте пойдем путем компилятора, и проследим каждый его шаг.
+                </p>
+                <p>
+                    Сперва он видит два свойства <span class="className">coin</span> и <span class="className">price</span> и сохраняет их в памяти, затем он видит ключевое слово <span class="keywords">switch</span>, понимает что нужно сопоставлять значения, берет значение, в нашем случае coin, и сравнивает  <span class="className">coin</span> == <span class="string">“Gold”</span>, в новой реализации, не равно, значит этот кейс он проходит мимо, и не реализует то что будет после двоеточия. Идет дальше и проверяет второй кейс <span class="className">coin</span> == <span class="string">“Silver”</span> – нет не равно, пропускает его. Все кейсы не прошли проверку на сопоставление, компилятору ничего не остается как выполнить дефолтную ветку, поэтому мы видим значение 498.
+                </p>
+                <p>
+                    То есть компилятор не уйдет из конструкции <span class="keywords">switch</span> без результата, либо сработает какой то кейс, либо дефолтная ветка.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            После switch, мы всегда уходим с результатом, это исчерпывающая конструкция.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <h2 id="oper_break">
+                    Оператор break
+                </h2>
+                <p>
+                    Предположим, что в нашей конструкции switch мы решили определить в дефолтной ветке, следующий код:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                           let coin = "Gold"
+                           var price = 0
+
+                           switch coin {
+                           case "Gold":
+                               price = 46220
+                           case "Silver":
+                               price = 5500
+                           case "Copper":
+                               price = 498
+                           default:
+                               print("unknown coins")
+                           }
+
+                           print("\(coin) coin worth \(price) rubles")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> coin<span class="operator"> = </span><span class="string">"Gold"</span>
+    <span class="keywords">var</span> price<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">coin</span> {
+    <span class="keywords">case</span> <span class="string">"Gold"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">46220</span>
+    <span class="keywords">case</span> <span class="string">"Silver"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">5500</span>
+    <span class="keywords">case</span> <span class="string">"Copper"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">498</span>
+    <span class="keywords">default</span>:
+        <span class="className">print</span>(<span class="string">"unknown coins"</span>)
+    }
+
+    <span class="className">print</span>(<span class="string">"</span>\(<span class="className">coin</span>) <span class="string">coin worth</span> \(<span class="className">price</span>) <span class="string">rubles"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае, если у нас будет какая то не известная монета, то отработает дефолтная ветка, и мы увидим два сообщения – принт с не известной монетой, и принт с типом монеты и ее нулевой ценой.
+                </p>
+                <p>
+                    Если вы пока не знаете что определить в дефолтной ветке, но она вам нужна что бы обработать дополнительные значения, то можете в ней просто прописать оператор break
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                           switch coin {
+                           case "Gold":
+                               price = 46220
+                           case "Silver":
+                               price = 5500
+                           case "Copper":
+                               price = 498
+                           default:
+                               break // Компилятор в этом месте просто выйдет из конструкции, и остановит все проверки.
+                           }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">switch</span> <span class="className">coin</span> {
+    <span class="keywords">case</span> <span class="string">"Gold"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">46220</span>
+    <span class="keywords">case</span> <span class="string">"Silver"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">5500</span>
+    <span class="keywords">case</span> <span class="string">"Copper"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">498</span>
+    <span class="keywords">default</span>:
+         <span class="keywords">break</span> <span class="comments">// Компилятор в этом месте просто выйдет из конструкции, и остановит все проверки.</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            break вы можете определить в любом из кейсов, в этот момент компилятор просто выйдет из конструкции и никакие значения больше проверять не будет.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте представим, что нам ничего не нужно делать, если монета серебренная. В таком случае наша конструкция будет выглядеть следующим образом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson7/Lesson7.4.png" />
+                <p>
+                    Компилятор проверил кейс с значением <span class="string">“Silver”</span> и этот кейс подходит под наше сопоставляемое значение coin, соответсвенно реализуется код внутри кейса, после двоеточия, а там <span class="keywords">break</span>, это команда компилятору, ничего не делать, просто выйти из конструкции <span class="keywords">switch</span>, и пойти дальше. Поэтому на консоли мы видим только принт, с нулевым значением.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Внутри кейса, либо в дефолтной ветки, после оператора break код не будет выполнятся.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <h2 id="oper_where">
+                   Оператор where
+                </h2>
+
+                <p>
+                    Оператор where может использоваться в <span class="keywords">switch</span> конструкции, когда следует указать дополнительное условие,  которое должно быть выполнено для сопоставления с кейсом. Давайте продолжим наш пример с монетами.
+                </p>
+                <p>
+                    Добавим условие при котором цена золотой монеты будет <span class="numbers">46.220</span>. Если у нашего пользователя есть клубная карта, то мы предложим ему эту цену, иначе сообщим, что у нас нет подходящего товара для него:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let coin = "Gold"
+                            let isCard = false
+                            var price = 0
+
+                            switch coin {
+                            case "Gold" where isCard: // После where мы определяем логическое значение
+                                price = 46220
+                            case "Silver":
+                                price = 5500
+                            case "Сopper":
+                                price = 498
+                            default:
+                                print("we have nothing to offer you")
+                            }
+
+                            if price > 0 {
+                                print("\(coin) coin worth \(price) rubles")
+                            } // это условие нам нужно, в том случае если сработает дефолтная ветка, мы на консоли видели только один принт.
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> <span class="className">coin</span> <span class="operator">=</span> <span class="string">"Gold"</span>
+    <span class="keywords">let</span> <span class="className">isCard</span> <span class="operator">=</span> <span class="keywords">false</span>
+    <span class="keywords">var</span> <span class="className">price</span> <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">coin</span> {
+    <span class="keywords">case</span> <span class="string">"Gold"</span> <span class="keywords">where</span> <span class="className">isCard</span>: <span class="comments">// После where мы определяем логическое значение</span>
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">46220</span>
+    <span class="keywords">case</span> <span class="string">"Silver"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">5500</span>
+    <span class="keywords">case</span> <span class="string">"Copper"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">498</span>
+    <span class="keywords">default</span>:
+         <span class="className">print</span>(<span class="string">"we have nothing to offer you"</span>)
+    }
+
+    <span class="keywords">if</span> <span class="className">price</span> > <span class="numbers">0</span> {
+        <span class="className">print</span>(<span class="string">"</span>\(<span class="className">coin</span>) <span class="string">coin worth</span> \(<span class="className">price</span>) <span class="string">rubles"</span>)
+    } <span class="comments">// это условие нам нужно, в том случае если сработает дефолтная ветка, мы на консоли видели только один принт.</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    мы сопоставляем значение coin с каждым кейсом.
+                </p>
+                <p>
+                    Компилятор проходит первый кейс и сравнивает значение из <span class="className">coin</span> с значением кейса <span class="string">“Gold”</span>, они равны, но этого не достаточно, компилятор видит оператор where и проверят какое логическое значение возвращается, <span class="className">isCard</span> хранит в себе значение false, это говорит нам о том что кейс не будет выполнен. То есть должно совпадать и сопоставляемое значение и условное выражение после where должно вернуть true.
+                </p>
+                <p>
+                    В нашем случае первый кейс не будет выполнен, сработает дефолтная ветка.
+                </p>
+                <p>
+                    После оператора where так же могут быть и логические выражения, например мы будем давать за золотую монету такую стоимость, только если она номиналом 10 рублей:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let coin = "Gold"
+                            let denomination = 10
+                            var price = 0
+
+                            switch coin {
+                            case "Gold" where denomination == 10:
+                                price = 46220
+                            case "Silver":
+                                price = 5500
+                            case "Сopper":
+                                price = 498
+                            default:
+                                print("we have nothing to offer you")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> <span class="className">coin</span> <span class="operator">=</span> <span class="string">"Gold"</span>
+    <span class="keywords">let</span> <span class="className">denomination</span> <span class="operator">=</span> <span class="numbers">10</span>
+    <span class="keywords">var</span> <span class="className">price</span> <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">coin</span> {
+    <span class="keywords">case</span> <span class="string">"Gold"</span> <span class="keywords">where</span> <span class="className">denomination</span> == <span class="numbers">10</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">46220</span>
+    <span class="keywords">case</span> <span class="string">"Silver"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">5500</span>
+    <span class="keywords">case</span> <span class="string">"Copper"</span>:
+        <span class="className">price</span><span class="operator"> = </span><span class="numbers">498</span>
+    <span class="keywords">default</span>:
+         <span class="className">print</span>(<span class="string">"we have nothing to offer you"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В данном случае у нас сработает первый кейс, потому что у нас сопоставляемое значение совпадает с <span class="string">“Gold”</span> и условное выражение после where возвращает true.
+                </p>
+
+
+                <h2 id="comb_cases">
+                    Объединение кейсов
+                </h2>
+
+                <p>
+                    Бывают случаи, когда вам необходимо выполнить одно и то же действие в двух разных кейсах, в этом случае их можно объединить в один, просто прописав кейсы через запятую.
+                </p>
+                <p>
+                    Давайте рассмотрим пример
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let number = 2
+                            var value = 0
+
+                            switch number {
+                            case 1:
+                                value += number
+                            case 2:
+                                value -= number
+                            case 3:
+                                value += number
+                            case 4:
+                                value -= number
+                            default:
+                                print("indefinitely")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> <span class="className">number</span> <span class="operator">=</span> <span class="number">2</span>
+    <span class="keywords">var</span> <span class="className">value</span> <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">number</span> {
+    <span class="keywords">case</span> <span class="numbers">1</span>:
+        <span class="className">value</span><span class="operator"> += </span><span class="className">number</span>
+    <span class="keywords">case</span> <span class="numbers">2</span>:
+        <span class="className">value</span><span class="operator"> -= </span><span class="className">number</span>
+    <span class="keywords">case</span> <span class="numbers">3</span>:
+        <span class="className">value</span><span class="operator"> += </span><span class="className">number</span>
+    <span class="keywords">case</span> <span class="numbers">4</span>:
+        <span class="className">value</span><span class="operator"> -= </span><span class="className">number</span>
+    <span class="keywords">default</span>:
+         <span class="className">print</span>(<span class="string">"indefinitely"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если у нас number равен 1 то сработает первый кейс и мы к свойству <span class="className">value</span> будем прибавлять это значение, то же самое действие мы будем производить если <span class="className">number</span> равен 3. Та же история со вторым и четвертым кейсом, действия повторяются. И это можно оптимизировать, просто прописав кейсы через запятую:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let number = 2
+                            var value = 0
+
+                            switch number {
+                            case 1, 3:
+                                value += number
+                            case 2, 4:
+                                value -= number
+                            default:
+                                print("indefinitely")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> <span class="className">number</span> <span class="operator">=</span> <span class="number">2</span>
+    <span class="keywords">var</span> <span class="className">value</span> <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">number</span> {
+    <span class="keywords">case</span> <span class="numbers">1</span>, <span class="numbers">3</span>:
+        <span class="className">value</span><span class="operator"> += </span><span class="className">number</span>
+    <span class="keywords">case</span> <span class="numbers">2</span>, <span class="numbers">4</span>:
+        <span class="className">value</span><span class="operator"> -= </span><span class="className">number</span>
+    <span class="keywords">default</span>:
+         <span class="className">print</span>(<span class="string">"indefinitely"</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В данном случае запятая выступает оператором ИЛИ, то есть если number равен 1 или 3 то сработает первый кейс, если number равен 2 или 4 то сработает второй кейс. Во всех остальных случаях будет выполнена дефолтная ветка.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

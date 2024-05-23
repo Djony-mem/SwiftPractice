@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_5">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+  <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#const_if" class="yakor">&#128195; Конструкция if</a>
+          <a href="#const_if-else" class="yakor">&#128195; Конструкция if /else</a>
+          <a href="#const_if-else_if" class="yakor">&#128195; Конструкция if / else if</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 5. Условная конструкция if/else.
+            </h2>
+            <p class="date_p"> 1 Ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                   Прежде чем мы погрузимся в условные конструкции, давайте рассмотрим одну очень полезную функцию, которая нам поможет выводить результат на консоль.
+                </p>
+                <p>
+                   Вам еще эта тема не знакома, но я о ней обязательно расскажу на одном из уроков. Ну а пока нам нужна функция которая называется print и выглядит она следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            print()
+                            '>Copy</button>
+                        </div>
+                    </div>
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">print() </span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Все что мы поместим в круглые скобки этой функции будет отображаться на консоли:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.1.png" />
+                <p>
+                   Таким образом мы можем выводить на консоль любой тип данных, давайте выведем число:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.2.png" />
+
+                <p>
+                    С остальными базовыми типами данных (<span class="className">Bool</span>, <span class="className">Double</span> ….) будет работать точно так же
+                </p>
+                <p>
+                    Улавливаете суть?!
+                </p>
+                <p>
+                    Пока вам этой информации будет достаточно. Давайте уже перейдем к основной теме урока.
+                </p>
+
+
+                <h2 id="const_if">
+                    Конструкция if
+                </h2>
+
+
+                <p>
+                    При разработке приложений, очень часто бывает нужно выполнить какой то код в зависимости от условий.
+                </p>
+                <p>
+                    Что я имею в веду?!
+                </p>
+                <p>
+                    Обратимся к жизненному примеру. Вы отправляетесь в магазин за хлебушком. Купить его вы сможете только если у вас есть 50 рублей. Если будет меньше пятидесяти то вы не купите хлебушек.
+                    То есть в зависимости от условия ты либо сможешь что то сделать, либо нет.
+                </p>
+                <p>
+                    Давайте теперь представим что вы разрабатываете приложение по продажам хлебушка, пользователь выбирает булочку и жмет на кнопку “Купить”, и в этот момент мы запускаем проверку, если у пользователя в кошельке есть эта сумма, то мы кладем хлебушек на оплату, если нет то ничего не происходит (мы только начали разработку и еще не все шаги продумали)
+                </p>
+                <p>
+                    Отразим это в коде:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let product = "Булочка"
+                                let price = 50
+                                let wallet = 50
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> product<span class="operator"> = </span><span class="string">"Булочка"</span>
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">50</span>
+    <span class="keywords">let</span> wallet<span class="operator"> = </span><span class="numbers">50</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                 <p>
+                     У нас есть три свойства, <strong><span class="language-swift">product</span></strong> будет хранить в памяти тот товар который выберет пользователь, <strong><span class="language-swift">price</span></strong> – это стоимость товара, а <strong><span class="language-swift">wallet</span></strong> будет отражать баланс в кошельке пользователя.
+                </p>
+                <p>
+                    Теперь нам нужно придумать условие при котором эту булочку можно будет купить.
+                </p>
+                <p>
+                    Условная конструкця if записывается следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let product = "Булочка"
+                                let price = 50
+                                let wallet = 50
+
+                                if wallet >= price {
+                                    print("Купить товар: \(product)")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> product<span class="operator"> = </span><span class="string">"Булочка"</span>
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">50</span>
+    <span class="keywords">let</span> wallet<span class="operator"> = </span><span class="numbers">50</span>
+
+    <span class="keywords">if</span><span class="className">wallet</span><span class="operator"> >= </span><span class="className">price</span><span class="operator"> { </span>
+        <span class="className">print</span><span class="operator">( </span><span class="string">Купить товар: </span><span class="operator">\( </span><span class="className">product</span><span class="operator">)</span><span class="operator"><span class="string">"</span>)</span>
+    <span class="operator"> } </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                   Ключевым словом <span class="keywords">if</span> мы показываем компилятору, что здесь будет условие, далее идет само условие, которое должно вернуть либо true, либо false, и в зависимости от результата, код в фигурных скобках либо будет выполнен либо нет.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.3.png" />
+                <p>
+                    Если денег в кошельке больше или равно стоимости товара, то мы выводим на консоль сообщение Купить товар: Булочка, иначе ничего не происходит. Давайте запустим компилятор и посмотрим на результат:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.4.png" />
+                <p>
+                    34 это вывод свойства <span class="className">myAge</span>, которое мы реализовали ранее. Ну а фраза “Купить товар: Булочка” это то что мы ожидали увидеть.
+                </p>
+                <p>
+                    Давайте разберем наш код по частям:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.5.png" />
+                <p>
+                    Если прописать данное выражение отдельно, то мы можем увидеть что оно возвращает true, а если оно возвращает true то выполняется тот код, который мы определили в фигурных скобках:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.6.png" />
+                <p>
+                    В фигурных скобках мы отображаем тело условной конструкции. Там можно прописать совершенно любую логику.
+                </p>
+                <p>
+                    Давайте теперь немного изменим входные данные:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.7.png" />
+                <p>
+                    Булочка вдруг подорожала и наше условие начало возвращать false, соответсвенно и код в фигурных скобках не выполняется и результат на консоли мы не увидим, компилятор его проигнорирует.
+                </p>
+                <p>
+                    То есть он проверяет, если условие вернуло false, то можно в блок с кодом даже не заглядывать и не выполнять его.
+                </p>
+                <p>
+                    Давайте посмотрим на синтаксис условной конструкции <span class="keywords">if</span>:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.8.png" />
+                <p>
+                    В качестве условия может быть и обычное логическое свойство:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let product = "Булочка"
+                                let price = 50
+                                let wallet = 50
+
+                                let result = wallet >= price
+
+                                if result {
+                                    print("Купить товар: \(product)")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> product<span class="operator"> = </span><span class="string">"Булочка"</span>
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">50</span>
+    <span class="keywords">let</span> wallet<span class="operator"> = </span><span class="numbers">50</span>
+
+    <span class="keywords">let</span> result<span class="operator"> = </span><span class="className">wallet</span><span class="operator"> >= </span><span class="className">price</span><span class="operator">
+
+    <span class="keywords">if </span><span class="className">result</span> { </span>
+        <span class="className">print</span><span class="operator">( </span><span class="string">Купить товар: </span><span class="operator">\( </span><span class="className">product</span><span class="operator">)</span><span class="operator"><span class="string">"</span>)</span>
+    <span class="operator"> } </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Мы присваиваем свойству  result результат логического выражения, таким образом данное свойство будет иметь логическое значение:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.9.png" />
+                <p>
+                    Если свойство содержит в себе true то блок кода в условной конструкции будет выполнен, если false то компилятор его проигнорирует.
+                </p>
+                <p>
+                    Но не нужно создавать свойство для условия, только для того что бы передать его в условную конструкцию <span class="keywords">if</span>.
+                </p>
+
+                <h2 id="const_if-else">
+                   Конструкция if /else
+                </h2>
+
+                <p>
+                    Отлично! Мы теперь можем запускать определенный блок кода, только в тот момент когда условие возвращает true. но что если мы хотим что то выполнить если условие вернет false, например если у нас не достаточно денег на булочку, то мы выводим сообщение на консоль о том что нужно пополнить кошелек. Для этого можно использовать дополнительную ветку else у конструкции <span class="keywords">if</span>:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let result = wallet >= price
+
+                                if result {
+                                    print("Купить товар: \(product)")
+                                } else {
+                                    print("Не достаточно денег в кошельке")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> result<span class="operator"> = </span><span class="className">wallet</span><span class="operator"> >= </span><span class="className">price</span>
+
+    <span class="keywords">if </span><span class="className">result</span> <span class="operator">{ </span>
+        <span class="className">print</span><span class="operator">( </span><span class="string">Купить товар: </span><span class="operator">\(</span><span class="className">product</span><span class="operator">)</span><span class="operator"><span class="string">"</span>)</span>
+    <span class="operator"> } </span><span class="keywords">else </span><span class="operator">{ </span>
+        <span class="className">print</span><span class="operator">(<span class="string">"Не достаточно денег в кошельке"</span>)</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Запустим компилятор:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.10.png" />
+                <p>
+                    Так как выражение <span class="className">wallet</span><span class="operator"> >= </span><span class="className">price</span> возвращает false (выше мы установили стоимость 70 а денег в кошельке 50) то result у нас хранит значение false, а это значит что первый блок кода не срабатывает, а вот ветка else будет срабатывать каждый раз когда первый блок не отрабатывает.
+                </p>
+                <p>
+                    Но стоит нам поменять значение у цены на 40, то мы увидим другой результат:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.11.png" />
+                <p>
+                    Компилятор проверяет первое условие, оно возвращает ture, соответсвенно выполняется блок кода: <span class="className">print</span><span class="operator">( </span><span class="string">"Купить товар: </span><span class="operator">\(</span><span class="className">product</span><span class="operator">)</span><span class="operator"><span class="string">"</span>)</span>, а ветку else компилятор игнорирует, то есть выполняется что то одно, две ветки в одно время выполнится не могут.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Обратите внимание на синтаксис конструкции открывающая фигурная скобка идет сразу после условия, код внутри фигурных скобок записывается на новой строке с надлежащим отступом. И закрывающая скобка так же на новой строке. 
+                        </p>
+                        <p>
+                            Если у вас проблема с отступами, то выделите блок кода, который вы хотите выровнять и нажмите <strong><span class="accent">control + i</span></strong>
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                   Синтаксис такой конструкции будет выглядеть следующим образом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.12.png" />
+                <p>
+                    Ветка <span class="keywords">else</span> является дефолтной, то есть если не выполнится не одно из условий, то сработает она. Таким образом мы всегда получим результат.
+                </p>
+
+                <h2 id="const_if-else_if">
+                   Конструкция if / else if
+                </h2>
+
+                <p>
+                    Продолжаем развивать нашу программу, и следующим шагом будет обработать еще одно условие.
+                </p>
+                <p>
+                    Предположим нам нужно вернуть сдачу за купленный товар, для этого нам нужно добавить одно свойство change и еще одно условие для проверки, мы немного изменим наше ветвление <span class="keywords">if</span>:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let product = "Булочка"
+                                let price = 50
+                                let wallet = 50
+                                let change: Int
+
+                                if wallet == price {
+                                    print("Купить товар: \(product)")
+                                } else if wallet > price {
+                                    change = wallet - price
+                                    print("Вы купили товар, ваша сдача: \(change)")
+                                } else {
+                                    print("Не достаточно денег в кошельке")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> product<span class="operator"> = </span><span class="string">"Булочка"</span>
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">50</span>
+    <span class="keywords">let</span> wallet<span class="operator"> = </span><span class="numbers">50</span>
+    <span class="keywords">let</span> change<span class="operator">: </span><span class="className">Int</span>
+
+    <span class="operator"><span class="keywords">if </span><span class="className">wallet</span> == <span class="className">price</span>{
+       <span class="className">print</span>(<span class="string">"Купить товар: </span>\(<span class="className">product</span>)<span class="string">"</span>)
+    } <span class="keywords">else if </span> <span class="className">wallet</span> > <span class="className">price</span> {
+       <span class="className">change</span> = <span class="className">wallet</span> - <span class="className">price</span>
+       <span class="className">print</span>(<span class="string">Вы купили товар, ваша сдача: </span>\(<span class="className">change</span>)<span class="string">"</span>)
+    } <span class="keywords">else if</span> {
+       <span class="className">print</span>(<span class="string">"Не достаточно денег в кошельке"</span>)
+    }</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Можно было сразу передать в принт вычисления без дополнительного свойства: print(“Вы купили товар, ваша сдача: \(wallet – price)”, без создания дополнительного свойства, но это будет ошибкой. Никакие расчеты не нужно выносить в print
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте вместе с компилятором проследим логику. Компилятор читает код с верху в низ, сперва сохраняет свойства в оперативной памяти, дальше видит первое условие if, проверяет его:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.13.png" />
+                <br/>
+                <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Что бы выделить блок нужно два раза кликнуть по фигурной скобке.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                   Получает true, потому что 50 = 50, а это значит что он может выполнить тот код, который находится в фигурных скобках. Он его выполняет, то есть выводит на консоль сообщение: Купить товар: Булочка.
+                </p>
+                <p>
+                   Дальше компилятор не будет проверять условия, он просто пройдет мимо. Давайте в этом убедимся, для этого разместим еще один принт после условной конструкции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.14.png" />
+                <p>
+                    Как видите компилятор вывел на консоль сообщение из первого блока и самое последнее, которое находится после конструкции if.
+                </p>
+                <p>
+                   Давайте изменим входные параметры, что бы выполнилось второе условие:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.15.png" />
+                <p>
+                    Компилятор проверяет сперва первое условие, оно возвращает false, потому что выражение 76 == 50 возвращает false, и первый блок кода после условия не выполняется, компилятор движется дальше, и проверяет вторую ветку 76 > 50, это выражение возвращает true, соответственно выполняется блок внутри этого условия. Мы инициализируем свойство change и на следующей строке выводим результат на консоль. Остальные ветки компилятор игнорирует, и после конструкции if выполняет принт “Сработала только одна ветка”.
+                </p>
+                <p>
+                    Одним словом, сколько бы не было веток у конструкции if, сработает только одна, или не одной, если нет дефолтной ветки else. Давайте снова изменим входные параметры и уберем ветку else:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson5/Lesson5.16.png" />
+                <p>
+                    Как видите, не одно из условий не было выполнено.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Веток else if может быть сколько угодно, то есть мы можем добавить еще дополнительные условия для проверки.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_8">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+  <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#func_array" class="yakor">&#128195; Методы массива</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 8. Массивы.
+            </h2>
+            <p class="date_p"> 1 Ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                    Массив – это тип коллекции, представляющий собой набор не уникальных значений одного типа, каждый из которых имеет свой индекс.
+                </p>
+                <p>
+                    Давайте создадим несколько массивов:
+                </p>
+
+
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numbers = [3, 5, 11, 44, 44, 7]
+                            let strings = ["apple", "banana", "cherry"]
+                            let doubles = [4.5, 7.9, 1.8, 1]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="numbers">3</span>, <span class="numbers">5</span>, <span class="numbers">11</span>, <span class="numbers">44</span>, <span class="numbers">44</span>, <span class="numbers">7</span>]
+    <span class="keywords">let</span> <span class="language-swift">strings</span> = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
+    <span class="keywords">let</span> <span class="language-swift">doubles</span> = [<span class="numbers">4.5</span>, <span class="numbers">7.9</span>, <span class="numbers">1.8</span>, <span class="numbers">1</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Перед вами три массива, в квадратных скобках мы определяем значения, тип данных компилятор определяет из этих значений, как вы можете догадаться, первый массив имеет тип [<span class="className">Int</span>], второй [<span class="className">String</span>] ну и третий по умолчанию компилятор определит как [<span class="className">Double</span>], вы в этом можете убедиться если зажмете клавишу option и кликните по свойству:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.1.png" />
+                <p>
+                    Но у вас может возникнуть вопрос, почему же компилятор не ругается на нас из за единички, среди значений с плавающей точкой. А все потому что целые числа отлично подстраиваются под типы Double и Float, главное показать компилятору что это не целое число а, например, Double:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                           let numbers: [Double] = [3, 5, 11, 44, 44, 7]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span>: [<span class="className">Double</span>] = [<span class="numbers">3</span>, <span class="numbers">5</span>, <span class="numbers">11</span>, <span class="numbers">44</span>, <span class="numbers">44</span>, <span class="numbers">7</span>]</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Вот так вот с легкой руки, мы с вами из целочисленого массива сделали тип <span class="className">Double</span>, просто прописав его явно.
+                </p>
+                <p>
+                    Но тот же фокус не сработает с массивом <span class="language-swift">doubles</span>, мы сможем из него сделать массив типа <span class="className">Float</span>, но не сможем сделать типа <span class="className">Int</span>.
+                </p>
+                <p>
+                    Как вы можете заметить тип массива мы определяем как квадратные скобки, внутри которых тип значений, таким образом мы сможем создать пустой массив определенного типа:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers: [Int] = []
+                            var strings: [String] = []
+                            var doubles: [Double] = []
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span>: [<span class="className">Int</span>] = []
+    <span class="keywords">let</span> <span class="language-swift">strings</span>: [<span class="className">String</span>] = []
+    <span class="keywords">let</span> <span class="language-swift">doubles</span>: [<span class="className">Double</span>] = []</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае это должны быть переменные, потому что в логике обычно пустые массивы в дальнейшем наполняют.
+                </p>
+                <p>
+                    Таким образом мы можем создать массив абсолютно любого типа.
+                </p>
+                <p>
+                    Давайте рассмотрим еще пару способов объявить пустой массив:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers = [Int]()
+                            var strings = [String]()
+                            var doubles = [Double]()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span> = [<span class="className">Int</span>]()
+    <span class="keywords">let</span> <span class="language-swift">strings</span> = [<span class="className">String</span>]()
+    <span class="keywords">let</span> <span class="language-swift">doubles</span> = [<span class="className">Double</span>]()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <br/>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers: Array<Int> = []
+                            var strings: Array<String> = []
+                            var doubles: Array<Double> = []
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numbers</span>: <span class="className">Array</span>&#60;<span class="className">Int</span>> = []
+    <span class="keywords">let</span> <span class="language-swift">strings</span>: <span class="className">Array</span>&#60;<span class="className">String</span>> = []
+    <span class="keywords">let</span> <span class="language-swift">doubles</span>: <span class="className">Array</span>&#60;<span class="className">Double</span>> = []</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Последний, не особо популярный, и обычно вы его можете встретить внутри системы.
+                </p>
+                <p>
+                    Одной из важных особенностей массивов, является то, что все элементы проиндексированы. Что это значит? А это значит, что каждый элемент имеет свой индекс по порядку, отсчет всегда начинается с 0, давайте вернем наши первоначальные массивы, только сделаем их, на этот раз, переменными, и расставим у элементов индексы:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.2.png" />
+                <p>
+                    То есть массив это упорядоченная коллекция и каждый элемент имеет свой индекс, при этом элементы могут спокойно повторятся как в первом массиве число 44.
+                </p>
+                <p>
+                    Раз коллекция проиндексирована, то мы можем обратиться к конкретному элементу через его индекс, давайте достанем число 5 из первого массива. Это значение находится по индексу 1:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.3.png" />
+                <p>
+                   Сперва мы пишем имя массива, и в квадратных скобках определяем индекс, того элемента к которому хотим обратиться. Вы можете видеть значение в правом окне, а это значит, что значение можно присвоить какому либо свойству:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.4.png" />
+                <p>
+                    То есть теперь наше новое свойство number является целым числом, и хранит в себе значение 5. Таким образом мы можем достать любой элемент, зная его индекс, давайте достанем строку “cherry” из нашего массива strings. Данное значение находится по индексу 2:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.5.png" />
+                <p>
+                    Снова пишем имя массива и в квадратных скобках индекс нужного нам элемента. Если мы видим значение с права, это значит что мы его можем использовать, например присвоить новому свойству:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let string = strings[2]
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">string</span> = <span class="className">strings</span>[<span class="numbers">2</span>]</span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Вы так же можете заменить одно значение другим по указанному индексу. Давайте заменим значение 5 на 79 из нашего первого массива, а строку “cherry” на “orange” из второго массива:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            numbers[1] = 79
+                            strings[2] = "orange"
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="className">numbers</span>[<span class="numbers">1</span>] = <span class="numbers">79</span>
+    <span class="className">strings</span>[<span class="numbers">2</span>] = <span class="string">"orange"</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    То есть мы снова обращаемся к нашему элементу по индексу, и просто присваиваем ему новое значение того же типа.
+                </p>
+
+                <h2 id="func_array">
+                    Методы массива
+                </h2>
+
+                <p>
+                    Хорошо, теперь вы знаете что такое массив, это по сути набор упорядоченных, не уникальных элементов одного типа.
+                </p>
+                <p>
+                    Помимо доступа к элементам и их изменения, вы также можете использовать их различные методы и свойства.
+                </p>
+                <p>
+                    Что бы обратиться к методами и свойствам массива, вы должны прописать имя массива и поставить точку:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.6.png" />
+                <p>
+                    Перед вами появится список всех возможных вариантов. Буква <span class="accent">P</span> с лева означает property, то есть свойства, <span class="accent">M</span> – означает метод (Пока для вас это слово пустой звук и это нормально).
+                </p>
+                <p>
+                    Давайте выберем свойство <span class="className">count</span>, начните писать первые буквы, и компилятор будет предлагать его первым:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.7.png" />
+                <p>
+                    Свойство <span class="className">count</span> показывает сколько элементов находится в массиве, это фактическое количество.
+                </p>
+                <p>
+                    И если мы его видим справа, то мы это значение можем присвоить какому либо новому свойству.
+                </p>
+                <p>
+                    Следующее свойство <span class="className">isEmpty</span>, оно возвращает логическое значение, указывающее, пуст ли массив.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            В данном уроке, я очень часто говорю “возвращать значение”. Что значит свойство вернуло значение?! Оно его никуда не возвращало, это просто такое выражение, на самом деле оно хранит в себе это значение. Пусть вас не сбивает с толку такая формулировка.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте обнулим наш числовой массив, для этого просто пере определим его пустым массивом, и применим ко всем массивам  <span class="className">isEmpty</span>:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.8.png" />
+                <p>
+                    В первом случае массив numbers является пустым, поэтому свойство возвращает true, во всех остальных массивах элементы есть, поэтому они вернули false.
+                </p>
+                <p>
+                    Метод <span class="className">append</span>()  Добавляет новый элемент в конец массива:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.9.png" />
+                <p>
+                    Обратите внимание что методы всегда с круглыми скобками в конце, это их параметр, и здесь мы можем видеть что компилятор просит добавить в круглые скобки тип Int, а если мы применим этот метод к другим нашим массивам:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.10.png" />
+                <p>
+                    То в параметр мы должны передать именно тот тип какой имеет прямое отношение к массиву, то есть для строкового массива мы должны добавить тип <span class="className">String</span>, для целочисленного <span class="className">Int</span>, ну и для массива с типом <span class="className">Double</span>, мы добавляем элемент соответствующего типа. Давайте добавим эти элементы:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.11.png" />
+                <p>
+                    Таким образом мы добавили элементы в конец массива. Так как ранее мы обнулили массив numbers, поэтому он сейчас содержит всего один элемент.
+                </p>
+                <p>
+                    Что бы добавить новый элемент по определенному индексу в массиве, нужно использовать метод <span class="className">insert</span>(<span class="className">at</span>:)
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.12.png" />
+                <p>
+                    В первый параметр мы передаем новый элемент, а в параметр at определяем индекс по которому будем добавлять:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.13.png" />
+                <p>
+                    Мы с вами добавили в первый массив значение 6 по индексу 0, то есть в начало массива. Во второй массив мы добавили значение <span class="string">“cherry”</span> по индексу 3, ну и в последний массив мы добавили 9 по индексу 3.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если вы определите индекс выходящий за две позиции вперед, например индекс 2 вместо 0 в первом массиве, то у вас будет ошибка.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Следующий достаточно популярный метод <span class="className">remove</span>(<span class="className">at</span>:),  он удаляет элемент по определенному индексу из массива:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson8/Lesson8.14.png" />
+                <p>
+                    Справа мы видим то значение которое мы удалили по индексу 1, это цифра 3, Ну и раз мы его видим справа значит мы его можем присвоить к новому свойству, либо как то использовать его в коде.
+                </p>
+                <p>
+                    Я назову еще несколько самых используемых методов, но мы на них уже не будем так подробно останавливаться.
+                </p>
+                <p>
+                    <span class="className">reverse</span>() – переворачивает элементы в массиве.
+                </p>
+                <p>
+                    <span class="className">sorted</span>() –  возвращает новый массив с элементами, отсортированными в порядке возрастания.
+                </p>
+                <p>
+                    <span class="className">min</span>() –  возвращает минимальный элемент в массиве.
+                </p>
+                <p>
+                    <span class="className">max</span>() – возвращает максимальный элемент в массиве.
+                </p>
+                <p>
+                    <span class="className">contains</span>() – возвращает логическое значение, указывающее, содержит ли массив определенный элемент. В скобках определяете элемент, который хотите проверить, и если этот элемент есть в массиве, то метод вернет true иначе false.
+                </p>
+                <p>
+                    Это всего лишь несколько примеров для работы с массивами, но на самом деле этих методов большое количество, с которыми вы уже будете знакомится в процессе разработки приложений.
+                </p>
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            Давайте подведем итог.
+                        </p>
+                        <p>
+                            <span class="accent">Массив</span> это упорядоченная коллекция (то есть все элементы размещены в определенном порядке). У каждого элемента есть индекс, первый элемент всегда под индексом 0.  Элементы в массиве могут повторятся.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 5. Условная конструкция If/else.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 5.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                 </h2>
+                 <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Используйте условную конструкцию if и оператор &amp;&amp;. Что бы отобразить имя в принт, вам понадобится интерполяция.
+                    </span>
+                </span>
+                <p>
+                    Представьте что вы разрабатываете приложение, и первое что видит пользователь это экран регистрации. Создайте два свойства, для имени и для возраста пользователя.
+                </p>
+                <p>
+                    Выведите на консоль приветствие: “Welcome, &#60;….>!” , только в том случае если у пользователя имя “Tim” и возраст не меньше 18.
+                </p>
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Tim"
+                                let age = 17
+
+                                if name == "Tim" && age >= 18 {
+                                    print("Welcome, \(name)!")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name<span class="operator"> = </span><span class="string">"Tim"</span>
+    <span class="keywords">let</span> age<span class="operator"> = </span><span class="numbers">17</span>
+
+    <span class="keywords">if</span> <span class="className">name</span><span class="operator"> == </span><span class="string">"Tim"</span><span class="operator"> &amp;&amp; </span> <span class="className">age</span><span class="operator"> >= </span><span class="numbers">18</span> <span class="operator">&#123;</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Welcome,</span> \(<span class="className">name</span>)<span class="string">!"</span>)
+    &#125;</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Все свойства этого задания должны быть константами.
+                </p>
+                <p>
+                    Здесь мы используем логический оператор И (&amp;&amp;) чтобы именно два условия вернули <span class="keywords">ture</span>, если мы используем оператор ИЛИ (||), то будет возможность не учитывать один из параметров, либо возраст, либо имя.
+                </p>
+                <p>
+                    Обратите внимание что мы интерполируем в строку свойство <span class="className">name</span>, а не хардкодим данные, просто прописывая их ручками.
+                </p>
+                <p>
+                    Следующее решение так же считается хорошим и верным:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Timbo"
+                                let age = 17
+                                let nameInDatabase = "Tim"
+
+                                if name == nameInDatabase && age >= 18 {
+                                    print("Welcome, \(name)!")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name<span class="operator"> = </span><span class="string">"Timbo"</span>
+    <span class="keywords">let</span> age<span class="operator"> = </span><span class="numbers">17</span>
+    <span class="keywords">let</span> nameInDatabase<span class="operator"> = </span><span class="string">"Tim"</span>
+
+    <span class="keywords">if</span> <span class="className">name</span><span class="operator"> == </span><span class="className">nameInDatabase</span><span class="operator"> &amp;&amp; </span> <span class="className">age</span><span class="operator"> >= </span><span class="numbers">18</span> <span class="operator">&#123;</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Welcome,</span> \(<span class="className">name</span>)<span class="string">!"</span>)
+    &#125;</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Почему такой вариант хороший. Давайте представим экран регистрации. У пользователя есть два текстовых поля, для имени и возраста. Он вносит данные, и эти данные сохраняются в свойствах name и age, то есть эти свойства инициализируются в момент внесения пользователем данных. Далее он нажимает на кнопку, и запускается процесс обработки внесенных значений, то есть мы запускаем конструкцию if, в которой берем свойство name и сравниваем его с значением из нашей импровизированной базы nameInDatabase , либо из того места где мы будем хранить эти данные.
+                </p>
+                <p>
+                    Для значения 18 не нужно создавать свойства, потому как здесь идет конкретное значение, людей ниже 18 лет не пускать.
+                </p>
+                <p>
+                    Если вы сделали дополнительную ветку else, где определили ошибочный принт, это тоже не считается ошибкой:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                if name == nameInDatabase && age >= 18 {
+                                    print("Welcome, \(name)!")
+                                } else {
+                                    print("error")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">if</span> <span class="className">name</span><span class="operator"> == </span><span class="className">nameInDatabase</span><span class="operator"> &amp;&amp; </span> <span class="className">age</span><span class="operator"> >= </span><span class="numbers">18</span> <span class="operator">&#123;</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Welcome,</span> \(<span class="className">name</span>)<span class="string">!"</span>)
+    &#125; <span class="keywords">else</span> &#123;
+        <span class="className">print</span>(<span class="string">"error"</span>)
+    &#125;</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Обратите внимание на синтаксис, перед открывающей фигурной скобкой должен быть пробел, после закрывающей тоже один пробел. На следующей строке прописываем условие, обязательно условие сносить на новую строку, следующая запись будет не рекомендованной:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                if name == nameInDatabase && age >= 18 { print("Welcome, \(name)!")}
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">if</span> <span class="className">name</span><span class="operator"> == </span><span class="className">nameInDatabase</span><span class="operator"> &amp;&amp; </span> <span class="className">age</span><span class="operator"> >= </span><span class="numbers">18</span> <span class="operator">&#123;</span> <span class="operator"><span class="className">print</span>(<span class="string">"Welcome,</span> \(<span class="className">name</span>)<span class="string">!"</span>) &#125;</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Такой код тяжело читать и понимать.
+                </p>
+                <p>
+                    Если вы создали дополнительные свойства для условий, то это будет перебор:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let nameEquality = name == nameInDatabase
+
+                                if nameEquality && age >= 18 {
+                                    print("Welcome, \(name)!")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> nameEquality<span class="operator"> = </span><span class="className">name</span><span class="operator"> == </span><span class="className">nameInDatabase</span>
+
+    <span class="keywords">if</span> <span class="className">nameEquality</span><span class="operator"> &amp;&amp; </span> <span class="className">age</span><span class="operator"> >= </span><span class="numbers">18</span> <span class="operator">&#123;</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Welcome,</span> \(<span class="className">name</span>)<span class="string">!"</span>)
+    &#125;</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 5.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+               <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        У вас должно быть два объявленных свойства. Следом условная конструкция if с веткой else.
+                    </span>
+                </span>
+                <p>
+                    Давайте вспомним задачу 3.4, и попытаемся решить ее несколько иначе
+                </p>
+                <p>
+                    Мы снова разрабатываем приложение для университета. Наше приложение будет проверять проходит абитуриент по балам или нет.
+                </p>
+                <p>
+                    Создайте свойство для балов одного из абитуриентов, и инициализируйте его любым значением от 1 до 100.
+                </p>
+                <p>
+                    Проверьте проходит ли абитуриент по балам на свою специальность, если проходной бал начинается от 80 до 100, и если проходит, то выведите на консоль приветствие: “Вы набрали &#60;…> баллов. Поздравляем, вы прошли! “. В том случае если пользователь не прошел, то выведите на консоль сколько ему не хватило баллов: “Вам не хватило &#60;…> баллов  попробуйте в следующий раз”
+                </p>
+                <br/>
+                <p>
+                    <span class="accent">Используйте только пройденные концепции урока.</span>
+                </p>
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let score = 89
+                            let passingScore = 80
+
+                            if score >= passingScore {
+                                print("Вы набрали \(score) баллов. Поздравляем, вы прошли! ")
+                            } else {
+                                let result = passingScore - score
+                                print("Вам не хватило \(result) баллов  попробуйте в следующий раз")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> score <span class="operator">= </span><span class="numbers">89</span>
+    <span class="keywords">let</span> passingScore <span class="operator">= </span><span class="numbers">80</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">score</span> >= <span class="className">passingScore</span> {
+        <span class="className">print</span>(<span class="string">"Вы набрали </span>\(<span class="className">score</span>) <span class="string">баллов. Поздравляем, вы прошли!"</span>)
+    } <span class="keywords">else</span> {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = <span class="className">passingScore</span> - <span class="className">score</span>
+        <span class="className">print</span>(<span class="string">"Вам не хватило </span>\(<span class="className">result</span>) <span class="string">баллов  попробуйте в следующий раз"</span>)
+    }</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+
+            <p>
+                Если вы определили условие под отрицательные значения, то это тоже отличное решение:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let score = 89
+                            let passingScore = 80
+
+                            if score < 0 {
+                                print("Не корректные данные!")
+                            } else if score >= passingScore {
+                                print("Вы набрали \(score) баллов. Поздравляем, вы прошли! ")
+                            } else {
+                                let result = passingScore - score
+                                print("Вам не хватило \(result) баллов  попробуйте в следующий раз")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> score <span class="operator">= </span><span class="numbers">89</span>
+    <span class="keywords">let</span> passingScore <span class="operator">= </span><span class="numbers">80</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">score</span> &#60; <span class="numbers">0</span> {
+        <span class="className">print</span>(<span class="string">"Не корректные данные!"</span>)
+    }</span> <span class="operator"><span class="keywords">else if</span> <span class="className">score</span> >= <span class="className">passingScore</span> {
+        <span class="className">print</span>(<span class="string">"Вы набрали </span>\(<span class="className">score</span>) <span class="string">баллов. Поздравляем, вы прошли!"</span>)
+    } <span class="keywords">else</span> {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = <span class="className">passingScore</span> - <span class="className">score</span>
+        <span class="className">print</span>(<span class="string">"Вам не хватило </span>\(<span class="className">result</span>) <span class="string">баллов  попробуйте в следующий раз"</span>)
+    }</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Будет ошибкой, если вы условие с не корректными данными определите в конце следующим образом:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            if score >= passingScore {
+                                print("Вы набрали \(score) баллов. Поздравляем, вы прошли! ")
+                            } else if score < passingScore {
+                                let result = passingScore - score
+                                print("Вам не хватило \(result) баллов  попробуйте в следующий раз")
+                            } else {
+                                print("Не корректные данные")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">if</span> <span class="className">score</span> >= <span class="className">passingScore</span> {
+        <span class="className">print</span>(<span class="string">"Вы набрали </span>\(<span class="className">score</span>) <span class="string">баллов. Поздравляем, вы прошли!"</span>)
+    } <span class="keywords">else if <span class="className">score</span> <span class="operator">&#60;</span> <span class="className">passingScore</span></span> {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = <span class="className">passingScore</span> - <span class="className">score</span>
+        <span class="className">print</span>(<span class="string">"Вам не хватило </span>\(<span class="className">result</span>) <span class="string">баллов  попробуйте в следующий раз"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">print</span>(<span class="string">"Не корректные данные"</span>)
+    }</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Во вторую ветку попадают все значения в том числе 0 и отрицательные. а все что больше входного параметра попадает в первую ветку, поэтому ветка <span class="keywords">else</span> никогда не будет выполнена.
+            </p>
+            <p>
+                Все свойства этого задания должны быть константами.
+            </p>
+            <p>
+                Как вы видите, в отличии от решения в задании 3.4, здесь мы создали дополнительное свойство для проходного балла <span class="className">passingScore</span>, так как это значение мы будем использовать в расчетах, а не просто в сравнении, и в расчетах совсем не очевидно за что отвечает цифра 80:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let score = 89
+
+                            if score >= 80 {
+                                print("Вы набрали \(score) баллов. Поздравляем, вы прошли! ")
+                            } else {
+                                let result = 80 - score
+                                print("Вам не хватило \(result) баллов  попробуйте в следующий раз")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> score <span class="operator">= </span><span class="numbers">89</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">score</span> >= <span class="numbers">80</span> {
+        <span class="className">print</span>(<span class="string">"Вы набрали </span>\(<span class="className">score</span>) <span class="string">баллов. Поздравляем, вы прошли!"</span>)
+    } <span class="keywords">else</span> {
+        <span class="keywords">let</span> <span class="language-swift">result</span> = <span class="numbers">80</span> - <span class="className">score</span>
+        <span class="className">print</span>(<span class="string">"Вам не хватило </span>\(<span class="className">result</span>) <span class="string">баллов  попробуйте в следующий раз"</span>)
+    }</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+
+            <p>
+                Так же обратите внимание что для расчетов у нас создано дополнительное локальное свойство <span class="language-swift">result</span>, не лучшим решением будет выносить все расчеты в <span class="className">print</span>:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let score = 89
+
+                            if score >= 80 {
+                                print("Вы набрали \(score) баллов. Поздравляем, вы прошли! ")
+                            } else {
+                                 print("Вам не хватило \(80 - score) баллов  попробуйте в следующий раз")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> score <span class="operator">= </span><span class="numbers">89</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">score</span> >= <span class="numbers">80</span> {
+        <span class="className">print</span>(<span class="string">"Вы набрали </span>\(<span class="className">score</span>) <span class="string">баллов. Поздравляем, вы прошли!"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">print</span>(<span class="string">"Вам не хватило </span>\(<span class="numbers">80</span> - <span class="className">score</span>) <span class="string">баллов  попробуйте в следующий раз"</span>)
+    }</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Обратите внимание на синтаксис, именно так должна выглядеть конструкция <span class="keywords">if</span> с веткой <span class="keywords">else</span>, следующий синтаксис будет считаться не корректным:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let score = 89
+
+                            if score >= 80 {
+                                print("Вы набрали \(score) баллов. Поздравляем, вы прошли! ")
+                            }
+                            else {
+                                 print("Вам не хватило \(80 - score) баллов  попробуйте в следующий раз")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> score <span class="operator">= </span><span class="numbers">89</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">score</span> >= <span class="numbers">80</span> {
+        <span class="className">print</span>(<span class="string">"Вы набрали </span>\(<span class="className">score</span>) <span class="string">баллов. Поздравляем, вы прошли!"</span>)
+    }
+    <span class="keywords">else</span> {
+        <span class="className">print</span>(<span class="string">"Вам не хватило </span>\(<span class="numbers">80</span> - <span class="className">score</span>) <span class="string">баллов  попробуйте в следующий раз"</span>)
+    }</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Так же нет смысла свойство <span class="language-swift">result</span> определять за пределами условной конструкции, контекст не предполагает дальнейшего его использования.
+            </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class=" shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 5.3 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Создайте свойство для количества тикетов, инициализируйте его любым целочисленным значением. Так же у вас должно быть свойство для цены за игрушку, свойство для начисленной суммы и свойство для доплаты. В условной конструкции if вы определяете какая сумма будет начислена, после условной конструкции рассчитываете доплату.
+                    </span>
+                </span>
+                <p>
+                    Представьте заведение с игровыми автоматами, за каждую победу игроку выдаются тикеты, которые он может обменять на баллы. 1 балл равен 1 рублю. после этого игрок может купить игрушку с вычетом этих баллов.
+                </p>
+                <p>
+                    Давайте теперь напишем программу.
+                </p>
+                <p>
+                    Игрок приносит в кассу какое то количество тикетов (это может быть любое число от 1 до 50, больше игрок за день не может выиграть), кассир их вносит в базу, а программа должна начислить за принятые тикеты определенную сумму на бонусную карту.
+                </p>
+                <p>
+                    За 20 тикетов начисляют 100 баллов, за 30 – 200 баллов, за 40 – 300 баллов. Лишние тикеты возвращаются игроку.
+                </p>
+                <p>
+                    Определите какую сумму начислят клиенту на карту за тикеты, и рассчитайте сколько ему нужно будет доплатить за игрушку, стоимостью 450 рублей. Выведите следующий результат на консоль: “Вам начислено на карту клиента  &#60;….> рублей, осталось доплатить  &#60;….> рублей”
+                </p>
+                <div>
+                    <a class="btn-two" href="#">Показать решение</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-subtask-two">
+           <div class="container-subtask-inside">
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let ticket = 33
+                            var accruedAmount = 0
+                            let toyPrice = 450
+                            let addedValue: Int
+
+                            if ticket >= 40 {
+                                accruedAmount = 300
+                            } else if ticket >= 30 {
+                                accruedAmount = 200
+                            } else if ticket >= 20 {
+                                accruedAmount = 100
+                            } else {
+                                accruedAmount = 0
+                            }
+
+                            addedValue = toyPrice - accruedAmount
+
+                            print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(addedValue) рублей")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> ticket <span class="operator">= </span><span class="numbers">33</span>
+    <span class="keywords">var</span> accruedAmount <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> toyPrice <span class="operator">= </span><span class="numbers">450</span>
+    <span class="keywords">let</span> addedValue<span class="operator">: </span><span class="className">Int</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">100</span>
+    } <span class="keywords">else</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">0</span>
+    }</span>
+
+    <span class="className">addedValue <span class="operator">=</span> toyPrice <span class="operator">-</span> accruedAmount</span>
+
+    <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">addedValue</span>) <span class="string">рублей"</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+                Можно было инициализировать свойство addedValue сразу, но в таком случае ее придется сделать переменной и убрать ветку else:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let ticket = 33
+                            var accruedAmount = 0
+                            let toyPrice = 450
+                            var addedValue = 0
+
+                            if ticket >= 40 {
+                                accruedAmount = 300
+                            } else if ticket >= 30 {
+                                accruedAmount = 200
+                            } else if ticket >= 20 {
+                                accruedAmount = 100
+                            }
+
+                            addedValue = toyPrice - accruedAmount
+
+                            print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(addedValue) рублей")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> ticket <span class="operator">= </span><span class="numbers">33</span>
+    <span class="keywords">var</span> accruedAmount <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> toyPrice <span class="operator">= </span><span class="numbers">450</span>
+    <span class="keywords">var</span> addedValue<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">100</span>
+    }</span>
+
+    <span class="className">addedValue <span class="operator">=</span> toyPrice <span class="operator">-</span> accruedAmount</span>
+
+    <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">addedValue</span>) <span class="string">рублей"</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+                И еще одно решение будет считаться корректным:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let ticket = 33
+                            var accruedAmount = 0
+                            let toyPrice = 450
+                            var addedValue = 0
+
+                            if ticket >= 20 && ticket >= 30 {
+                                accruedAmount = 100
+                            } else if ticket >= 30 && ticket < 40 {
+                                accruedAmount = 200
+                            } else if ticket >= 40 {
+                                accruedAmount = 300
+                            }
+
+                            addedValue = toyPrice - accruedAmount
+
+                            print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(addedValue) рублей")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> ticket <span class="operator">= </span><span class="numbers">33</span>
+    <span class="keywords">var</span> accruedAmount <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> toyPrice <span class="operator">= </span><span class="numbers">450</span>
+    <span class="keywords">var</span> addedValue<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> &#38;&#38; <span class="className">ticket</span> &#60; <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">100</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> &#38;&#38; <span class="className">ticket</span> &#60; <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    }</span>
+
+    <span class="className">addedValue <span class="operator">=</span> toyPrice <span class="operator">-</span> accruedAmount</span>
+
+    <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">addedValue</span>][]]]]][p]) <span class="string">рублей"</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+                Первым делом обратите внимание на структуру кода, все свойства мы объявляем в одном месте, самыми первыми, Не нужно объявлять свойства там где они становятся нужными, все должно быть на своих местах:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let ticket = 33
+                            var accruedAmount = 0
+                            let toyPrice = 450
+
+                            if ticket >= 40 {
+                                accruedAmount = 300
+                            } else if ticket >= 30 {
+                                accruedAmount = 200
+                            } else if ticket >= 20 {
+                                accruedAmount = 100
+                            }
+
+                            let addedValue = toyPrice - accruedAmount
+
+                            print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(addedValue) рублей")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> ticket <span class="operator">= </span><span class="numbers">33</span>
+    <span class="keywords">var</span> accruedAmount <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> toyPrice <span class="operator">= </span><span class="numbers">450</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    } </span>
+
+    <span class="keywords">let</span> <span class="language-swift">addedValue</span>  <span class="operator">=</span> <span class="className">toyPrice</span> <span class="operator">-</span> <span class="className">accruedAmount</span>
+
+    <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">addedValue</span>) <span class="string">рублей"</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Пока вы работаете в глобальной зоне плейграунда, это не особо имеет значение, но язык swift это объектно ориентированный язык, и в дальнейшем вы будете работать в объектах, а там есть четкая структура, которой нужно придерживаться, поэтому сразу учимся все делать правильно.
+            </p>
+            <p>
+                Все свойства являются константами кроме свойства accruedAmount, мы его в логике изменяем.
+            </p>
+            <p>
+                В условной конструкции должна быть только логика переопределения свойства accruedAmount, ничего другого там быть не должно, следующая запись будет не корректной:
+            </p>
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let ticket = 33
+                            var accruedAmount = 0
+                            let toyPrice = 450
+                            var addedValue = 0
+
+                            if ticket >= 40 {
+                                accruedAmount = 300
+                                addedValue = toyPrice - accruedAmount
+                                print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(addedValue) рублей")
+                            } else if ticket >= 30 {
+                                accruedAmount = 200
+                                addedValue = toyPrice - accruedAmount
+                                print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(addedValue) рублей")
+                            } else if ticket >= 20 {
+                                accruedAmount = 100
+                                addedValue = toyPrice - accruedAmount
+                                print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(addedValue) рублей")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> ticket <span class="operator">= </span><span class="numbers">33</span>
+    <span class="keywords">var</span> accruedAmount <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> toyPrice <span class="operator">= </span><span class="numbers">450</span>
+    <span class="keywords">var</span> addedValue<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+        <span class="className">addedValue <span class="operator">=</span> toyPrice <span class="operator">-</span> accruedAmount</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">addedValue</span>) <span class="string">рублей"</span>)</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+        <span class="className">addedValue <span class="operator">=</span> toyPrice <span class="operator">-</span> accruedAmount</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">addedValue</span>) <span class="string">рублей"</span>)</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">100</span>
+        <span class="className">addedValue <span class="operator">=</span> toyPrice <span class="operator">-</span> accruedAmount</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">addedValue</span>) <span class="string">рублей"</span>)</span>
+    } </span>
+
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+            </div>
+            <p>
+                Здесь происходит дублирование кода из условия в условие. Дублировать код плохо, а у вас print, повторяется слово в слово в каждой ветке. То же касается расчета. Так быть не должно, если вы видите что дублируете код, то значит ваш код требует оптимизации.
+            </p>
+            <p>
+                Еще большей ошибкой будет определить конечные расчеты в принт:
+            </p>
+                        <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let ticket = 33
+                            var accruedAmount = 0
+                            let toyPrice = 450
+
+                            if ticket >= 40 {
+                                accruedAmount = 300
+                                print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(toyPrice - accruedAmount) рублей")
+                            } else if ticket >= 30 {
+                                accruedAmount = 200
+                                print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(toyPrice - accruedAmount) рублей")
+                            } else if ticket >= 20 {
+                                accruedAmount = 100
+                                print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(toyPrice - accruedAmount) рублей")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> ticket <span class="operator">= </span><span class="numbers">33</span>
+    <span class="keywords">var</span> accruedAmount <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> toyPrice <span class="operator">= </span><span class="numbers">450</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">toyPrice <span class="operator">-</span> accruedAmount</span>) <span class="string">рублей"</span>)</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">toyPrice <span class="operator">-</span> accruedAmount</span>) <span class="string">рублей"</span>)</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">100</span>
+        <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">toyPrice <span class="operator">-</span> accruedAmount</span>) <span class="string">рублей"</span>)</span>
+    } </span>
+
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Либо таким образом:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let ticket = 33
+                            var accruedAmount = 0
+                            let toyPrice = 450
+
+                            if ticket >= 40 {
+                                accruedAmount = 300
+                            } else if ticket >= 30 {
+                                accruedAmount = 200
+                            } else if ticket >= 20 {
+                                accruedAmount = 100
+                            }
+
+                            print("Вам начислено на карту клиента \(accruedAmount) рублей, осталось доплатить \(toyPrice - accruedAmount) рублей")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> ticket <span class="operator">= </span><span class="numbers">33</span>
+    <span class="keywords">var</span> accruedAmount <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> toyPrice <span class="operator">= </span><span class="numbers">450</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+    } <span class="keywords">else if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    }</span>
+
+    <span class="operator"><span class="className">print</span>(<span class="string">"Вам начислено на карту клиента</span> \(<span class="className">accruedAmount</span>) <span class="string">рублей, осталось доплатить</span> \(<span class="className">toyPrice <span class="operator">-</span> accruedAmount</span>) <span class="string">рублей"</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Никогда не выносите расчеты в print.
+            </p>
+            <p>
+                Теперь что касается условия, здесь нужно было использовать оператор >=, если вы определили ==, то это будет не совсем верным решением, потому что у пользователя на руках может быть и 33 и 41 тикет.
+            </p>
+            <p>
+                Так же будет не лучшим решением определять отдельную условную конструкцию под каждое условие:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            if ticket >= 40 {
+                                accruedAmount = 300
+                            }
+
+                            if ticket >= 30 {
+                                accruedAmount = 200
+                            }
+
+                            if ticket >= 20 {
+                                accruedAmount = 100
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">40</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    }
+
+    <span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">30</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">200</span>
+    }
+
+    <span class="keywords">if</span> <span class="className">ticket</span> >= <span class="numbers">20</span> {
+        <span class="className">accruedAmount</span> = <span class="numbers">300</span>
+    }</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Здесь компилятор проверяет каждое условие. В корректном варианте выше, компилятор находит верное условие и спрыгивает с условной конструкции <span class="keywords">if</span>, в вашем же случае, компилятор проверяет их все, это не оптимально и затрачивает ресурсы.
+            </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-3" name="task1-3" value="yes">
+            <label for="task1-3">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 5.4 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                 </h2>
+                 <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Необходимо создать свойство для результата спортсмена, так же свойство для категории и разряда. По условию задачи категория и результат спортсмена вам известен (Придумайте любые значения), а вот разряд нужно найти, поэтому пока можете задать для него значение 0, что будет значить что пока разряда нет. Первым делом вам нужно определить спортсмен является мужчиной или женщиной. Далее взять его результат и проверить, входит он в нужный диапазон или нет, и в зависимости от диапазона задать разряд. Не бойтесь использовать одно условие в другом условии.
+                    </span>
+                </span>
+                <p>
+                    Давайте разработаем приложение для тренера по бегу, он будет вносить в приложение пол спортсмена и секунды, за которые спортсмен пробежал 100 метровку.
+                </p>
+                <p>
+                    Напишите программу, которая будет показывать на какой разряд пробежал спортсмен.
+                </p>
+                <p>
+                    Есть две категории Мужчина и Женщина
+                </p>
+                <p>
+                    1 разряд у мужчин дают от 10.95 – 11.44, у женщин от 12.65 – 13.44<br/>2 разряд у мужчин дают от 11.55 – 12.04 , у женщин от 13.45 – 14.34<br/>3 разряд у мужчин дают от 12.05 – 12.84, у женщин от 14.35 – 15.34
+                </p>
+                <p>
+                    Выведите результат на консоль: “Спортсмену присвоен &#60;….> разряд по бегу на дистанцию 100 метров, в категории &#60;….> “
+                </p>
+                <p>
+                    <span class="accent">Используйте только пройденные концепции урока.</span>
+                </p>
+                <div> <a class="btn-three" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask-three">
+            <div class="container-subtask-inside">
+               <p>
+                   Ребята, задание достаточно сложное для новичков, поэтому если у вас не получилось его решить, то пожалуйста не расстраивайтесь, а просто прочитайте подробный разбор и попытайтесь понять как строится логика.
+               </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let gender = "Женщина"
+                                let result = 12.05
+                                var rank = 0
+
+                                if gender == "Мужчина" {
+                                    if result <= 11.44 {
+                                        rank = 1
+                                    } else if result <= 12.04 {
+                                        rank = 2
+                                    } else if result <= 12.84 {
+                                        rank = 3
+                                    }
+                                } else {
+                                    if result <= 13.44 {
+                                        rank = 1
+                                    } else if result <= 14.34 {
+                                        rank = 2
+                                    } else if result <= 15.34 {
+                                        rank = 3
+                                    }
+                                }
+
+                                print("Спортсмену присвоин \(rank) разряд, по бегу на дистанцию 100 метров, в катигории \(gender)")
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> gender<span class="operator"> = </span><span class="string">"Женщина"</span>
+    <span class="keywords">let</span> result<span class="operator"> = </span><span class="numbers">12.05</span>
+    <span class="keywords">var</span> rank<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="keywords">if</span> <span class="className">gender</span><span class="operator"> == </span><span class="string">"Мужчина"</span><span class="operator">&#123;</span><span class="operator">
+        <span class="keywords">if</span> <span class="className">result</span> &#60;= <span class="numbers">11.44</span> {
+            <span class="className">rank</span> = <span class="numbers">1</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">12.04</span> {
+            <span class="className">rank</span> = <span class="numbers">2</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">12.84</span> {
+            <span class="className">rank</span> = <span class="numbers">3</span>
+        }
+    &#125; <span class="keywords">else</span> {
+        <span class="keywords">if</span> <span class="className">result</span> &#60;= <span class="numbers">13.44</span> {
+            <span class="className">rank</span> = <span class="numbers">1</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">14.34</span> {
+            <span class="className">rank</span> = <span class="numbers">2</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">15.34</span> {
+            <span class="className">rank</span> = <span class="numbers">3</span>
+        }
+    }
+
+   <span class="className">print</span>(<span class="string">"Спортсмену присвоин</span> \(<span class="className">rank</span>) <span class="string">разряд, по бегу на дистанцию 100 метров, в катигории</span> \(<span class="className">gender</span>)<span class="string">"</span>)</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Если вы определили дополнительные свойства для нормативных секунд, то это не будет считаться ошибкой, напротив, будет воспринята как хорошее решение. Так как мы работаем с нормативами, а эти данные должны доставаться из какой то базы.
+                </p>
+                <p>
+                    В качестве второй ветки я использую <span class="keywords">else</span> без условия, потому что в контексте у нас всего две категории, если первая ветка вернет <span class="keywords">false</span>, то мы попадем во вторую.
+                </p>
+                <p>
+                    Так же одна условная конструкция <span class="keywords">if</span> здесь лучше подходит, нежели создавать две:
+                </p>
+
+
+
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                if gender == "Мужчина" {
+                                    if result <= 11.44 {
+                                        rank = 1
+                                    } else if result <= 12.04 {
+                                        rank = 2
+                                    } else if result <= 12.84 {
+                                        rank = 3
+                                    }
+                                }
+
+                                if gender == "Женшина" {
+                                    if result <= 13.44 {
+                                        rank = 1
+                                    } else if result <= 14.34 {
+                                        rank = 2
+                                    } else if result <= 15.34 {
+                                        rank = 3
+                                    }
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">if</span> <span class="className">gender</span><span class="operator"> == </span><span class="string">"Мужчина"</span><span class="operator">&#123;</span><span class="operator">
+        <span class="keywords">if</span> <span class="className">result</span> &#60;= <span class="numbers">11.44</span> {
+            <span class="className">rank</span> = <span class="numbers">1</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">12.04</span> {
+            <span class="className">rank</span> = <span class="numbers">2</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">12.84</span> {
+            <span class="className">rank</span> = <span class="numbers">3</span>
+        }
+    }
+
+    <span class="keywords">if</span> <span class="className">gender</span> == <span class="string">"Женшина"</span> {
+        <span class="keywords">if</span> <span class="className">result</span> &#60;= <span class="numbers">13.44</span> {
+            <span class="className">rank</span> = <span class="numbers">1</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">14.34</span> {
+            <span class="className">rank</span> = <span class="numbers">2</span>
+        } <span class="keywords">else if</span> <span class="className">result</span> &#60;= <span class="numbers">15.34</span> {
+            <span class="className">rank</span> = <span class="numbers">3</span>
+        }
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Это же касается и внутренних условий.
+                </p>
+                <p>
+                    Еще еще вариант не оптимального решения:
+                </p>
+
+
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let sex = "women"
+                                let time: Double = 12.70 // Значение с плавающей точкой, прописывать тип данных явно здесь не нужно.
+                                var level = 0
+                                var category = ""
+
+                                if (10.95...11.44) ~= time && sex == "men" {
+                                    category = "Мужчины"
+                                    level = 1
+                                } else if (12.65...13.44) ~= time && sex == "women" {
+                                    category = "Женщины"
+                                    level = 1
+                                } else if (11.55...12.04) ~= time && sex == "men" {
+                                    category = "Мужчины"
+                                    level = 2
+                                } else if (13.45...14.34) ~= time && sex == "women" {
+                                    category = "Женщины"
+                                    level = 2
+                                } else if (12.05...12.84) ~= time && sex == "men" {
+                                    category = "Мужчины"
+                                    level = 3
+                                } else if (14.35...15.34) ~= time && sex == "women" {
+                                    category = "Женщины"
+                                    level = 3
+                                }
+
+                                print("Спортсмену присвоен \(level) разряд по бегу на дистанцию 100 метров, в категории \(category).")
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> sex <span class="operator">=</span> <span class="string">"women"</span>
+    <span class="keywords">let</span> time: <span class="className">Double</span> <span class="operator">=</span> <span class="numbers">12.70</span> <span class="comments">// Значение с плавающей точкой, прописывать тип данных явно здесь не нужно.</span>
+    <span class="keywords">var</span> level <span class="operator">=</span> <span class="numbers">0</span>
+    <span class="keywords">var</span> category <span class="operator">=</span> <span class="string">""</span>
+
+    <span class="operator"><span class="keywords">if</span> (<span class="numbers">10.95</span>...<span class="numbers">11.44</span>) ~= <span class="className">time</span> &#38;&#38; <span class="className">sex</span> == <span class="string">"men"</span> {
+        <span class="className">category</span> = <span class="string">"Мужчины"</span>
+        <span class="className">level</span> = <span class="numbers">1</span>
+    } <span class="keywords">else if</span> (<span class="numbers">12.65</span>...<span class="numbers">13.44</span>) ~= <span class="className">time</span> &#38;&#38; <span class="className">sex</span> == <span class="string">"women"</span> {
+        <span class="className">category</span> = <span class="string">"Женщины"</span>
+        <span class="className">level</span> = <span class="numbers">1</span>
+    } <span class="keywords">else if</span> (<span class="numbers">11.55</span>...<span class="numbers">12.04</span>) ~= <span class="className">time</span> &#38;&#38; <span class="className">sex</span> == <span class="string">"men"</span> {
+        <span class="className">category</span> = <span class="string">"Мужчины"</span>
+        <span class="className">level</span> = <span class="numbers">2</span>
+    } <span class="keywords">else if</span> (<span class="numbers">13.45</span>...<span class="numbers">14.34</span>) ~= <span class="className">time</span> &#38;&#38; <span class="className">sex</span> == <span class="string">"women" </span>{
+        <span class="className">category</span> = <span class="string">"Женщины"</span>
+        <span class="className">level</span> = <span class="numbers">2</span>
+    } <span class="keywords">else if</span> (<span class="numbers">12.05</span>...<span class="numbers">12.84</span>) ~= <span class="className">time</span> &#38;&#38; <span class="className">sex</span> == <span class="string">"men"</span> {
+        <span class="className">category</span> = <span class="string">"Мужчины"</span>
+        <span class="className">level</span> = <span class="numbers">3</span>
+    } <span class="keywords">else if</span> (<span class="numbers">14.35</span>...<span class="numbers">15.34</span>) ~= <span class="className">time</span> &#38;&#38; <span class="className">sex</span> == <span class="string">"women"</span> {
+        <span class="className">category</span> = <span class="string">"Женщины"</span>
+        <span class="className">level</span> = <span class="numbers">3</span>
+    }
+
+    <span class="className">print</span>(<span class="string">"Спортсмену присвоен</span> \(<span class="className">level</span>) <span class="string">разряд по бегу на дистанцию 100 метров, в категории</span> \(<span class="className">category</span>)<span class="string">."</span>)</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Такой код тяжелее обслуживать в дальнейшем. Что бы изменить женщин на девушек, вам необходимо будет пройтись по всему коду и руками внести изменения в нужных местах. Это увеличивает время отладки.
+                </p>
+                <p>
+                    Есть еще более не оптимальное решение:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let menCategory = "Мужчины"
+                                let womenCategory = "Женщины"
+                                var level = 0
+                                var time: Double = 14.35
+
+                                if (10.95...11.44) ~= time {
+                                    level = 1
+                                    print("Спортсмену присвоен \(level) разряд по бегу на дистанцию 100 метров, в категории \(menCategory).")
+                                } else if (12.65...13.44) ~= time {
+                                    level = 1
+                                    print("Спортсмену присвоен \(level) разряд по бегу на дистанцию 100 метров, в категории \(womenCategory).")
+                                } else if (11.55...12.04) ~= time {
+                                    level = 2
+                                    print("Спортсмену присвоен \(level) разряд по бегу на дистанцию 100 метров, в категории \(menCategory).")
+                                } else if (13.45...14.34) ~= time {
+                                    level = 2
+                                    print("Спортсмену присвоен \(level) разряд по бегу на дистанцию 100 метров, в категории \(womenCategory).")
+                                } else if (12.05...12.84) ~= time {
+                                    level = 3
+                                    print("Спортсмену присвоен \(level) разряд по бегу на дистанцию 100 метров, в категории \(menCategory).")
+                                } else if (14.35...15.34) ~= time {
+                                    level = 3
+                                    print("Спортсмену присвоен \(level) разряд по бегу на дистанцию 100 метров, в категории \(womenCategory).")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> menCategory <span class="operator">=</span> <span class="string">"Мужчины"</span>
+    <span class="keywords">let</span> womenCategory <span class="operator">=</span> <span class="string">"Женщины"</span>
+    <span class="keywords">var</span> level <span class="operator">=</span> <span class="numbers">0</span>
+    <span class="keywords">var</span> time<span class="operator">:</span> <span class="className">Double</span> <span class="operator">=</span> <span class="numbers">14.35</span>
+
+    <span class="operator"><span class="keywords">if</span> (<span class="numbers">10.95</span>...<span class="numbers">11.44</span>) ~= <span class="className">time</span> {
+        <span class="className">level</span> = <span class="numbers">1</span>
+        <span class="className">print</span>(<span class="string">"Спортсмену присвоен</span> \(<span class="className">level</span>) <span class="string">разряд по бегу на дистанцию 100 метров, в категории</span> \(<span class="className">menCategory</span>)<span class="string">."</span>)
+    } <span class="keywords">else if</span> (<span class="numbers">12.65</span>...<span class="numbers">13.44</span>) ~= <span class="className">time</span> {
+        <span class="className">level</span> = <span class="numbers">1</span>
+        <span class="className">print</span>(<span class="string">"Спортсмену присвоен</span> \(<span class="className">level</span>) <span class="string">разряд по бегу на дистанцию 100 метров, в категории</span> \(<span class="className">womenCategory</span>)<span class="string">."</span>)
+    } <span class="keywords">else if</span> (<span class="numbers">11.55</span>...<span class="numbers">12.04</span>) ~= <span class="className">time</span> {
+        <span class="className">level</span> = <span class="numbers">2</span>
+        <span class="className">print</span>(<span class="string">"Спортсмену присвоен</span> \(<span class="className">level</span>) <span class="string">разряд по бегу на дистанцию 100 метров, в категории</span> \(<span class="className">menCategory</span>)<span class="string">."</span>)
+    } <span class="keywords">else if</span> (<span class="numbers">13.45</span>...<span class="numbers">14.34</span>) ~= <span class="className">time</span> {
+        <span class="className">level</span> = <span class="numbers">2</span>
+        <span class="className">print</span>(<span class="string">"Спортсмену присвоен</span> \(<span class="className">level</span>) <span class="string">разряд по бегу на дистанцию 100 метров, в категории</span> \(<span class="className">womenCategory</span>)<span class="string">."</span>)
+    } <span class="keywords">else if</span> (<span class="numbers">12.05</span>...<span class="numbers">12.84</span>) ~= <span class="className">time</span> {
+        <span class="className">level</span> = <span class="numbers">3</span>
+        <span class="className">print</span>(<span class="string">"Спортсмену присвоен</span> \(<span class="className">level</span>) <span class="string">разряд по бегу на дистанцию 100 метров, в категории</span> \(<span class="className">menCategory</span>)<span class="string">."</span>)
+    } <span class="keywords">else if</span> (<span class="numbers">14.35</span>...<span class="numbers">15.34</span>) ~= <span class="className">time</span> {
+        <span class="className">level</span> = <span class="numbers">3</span>
+        <span class="className">print</span>(<span class="string">"Спортсмену присвоен</span> \(<span class="className">level</span>) <span class="string">разряд по бегу на дистанцию 100 метров, в категории</span> \(<span class="className">womenCategory</span>)<span class="string">."</span>)
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Практически тоже самое решение что и предыдущее, но здесь повторяется print, в каждом из условий, он почти одинаковый, меняется только категория, нужно стараться выносить повторяющийся код из условий. Так же этот код не оптимальный, за счет того, что нормативы могут поменяться в следующем году, и если у женщин, например, изменить норматив первого уровеня на (11.40…13.40) то если женщина пробежит 11.42 она автоматически попадет в первую мужскую категорию, а вам придется переписывать весь код, что бы адаптировать его под изменяющиеся значения.
+                </p>
+                <p>
+                    В варианте, где мы для конкретной категории определяем нормативы (самый первый корректный вариант), исправить данные на много легче.
+                </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-4" name="task1-4" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

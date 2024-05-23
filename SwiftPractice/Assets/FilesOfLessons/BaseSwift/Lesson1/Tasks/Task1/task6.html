@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 6. Тернарный оператор.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 6.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Сперва необходимо создать все необходимые свойства, которые можно использовать в коде. В Задании сказано что у пользователя может либо быть, либо не быть карта, поэтому здесь необходимо определить логическое свойство. Далее по заданию в зависимости от карты нам дают определенную скидку, а это значит, что нам нужно свойство для хранения этой скидки, можно задать для него начальное значение 0. Так же в задании есть стоимость, поэтому нам нужно еще одно свойство. Когда вы определите все необходимые свойства, нужно приступать к решению самой задачи. Сперва определяете скидку в зависимости от наличия карты, а в конце конечную стоимость.
+                    </span>
+                </span>
+                <p>
+                    В праздничный день в магазин игрушек приходит покупатель, если у пользователя есть карта клиента то ему в этот день дают 30 процентную скидку, если нет то 15 процентов.
+                </p>
+                <p>
+                    Посчитайте сколько заплатит пользователь за игрушку стоимостью 760 рублей, если у него есть карта.
+                </p>
+                <p>
+                    <span class="accent">Это задание нужно решить с использованием тернарного оператора</span>
+                </p>
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let price = 760
+                                var sale = 0
+                                let clientCard = false
+                                var discountedPrice = 0
+
+                                sale = clientCard ? 30 : 15
+                                discountedPrice = price - (price * sale) / 100
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">760</span>
+    <span class="keywords">var</span> sale<span class="operator"> = </span><span class="numbers">0</span>
+    <span class="keywords">let</span> clientCard<span class="operator"> = </span><span class="keywords">false</span>
+    <span class="keywords">var</span> discountedPrice<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="className">sale</span><span class="operator"> = </span><span class="numbers"><span class="className">clientCard</span> <span class="operator">?</span> 30 <span class="operator">:</span> 15</span>
+    <span class="className">discountedPrice</span><span class="operator"> = <span class="className">price</span> - (<span class="className">price</span> * <span class="className">sale</span>) / <span class="numbers">100</span></span>
+                </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    свойства <span class="className">price</span> и <span class="className">clientCard</span>  я ни где в контексте не меняю, поэтому они должны быть константами.
+                </p>
+                <p>
+                   Свойства sale и discountedPrice у меня изменяются, поэтому они являются переменными.
+                </p>
+                <p>
+                    Если вы создали свойства для каждой из скидок, это не будет ошибкой, но в данном варианте можно было обойтись и без них. Конечно все будет зависеть от идеи вашей программы, если это какие то фиксированные значения, которые используются только в одном месте, то создавать для них свойства не имеет смысла, И в целом и так понятно что это именно значение скидки, потому что мы это значение присваиваем к свойству sale: <span class="className">sale</span><span class="operator"> = </span><span class="numbers"><span class="className">clientCard</span> <span class="operator">?</span> 30 <span class="operator">:</span> 15</span> то есть в зависимости от условия, мы свойству sale присвоим либо 30, либо 15.
+                </p>
+                <p>
+                    Так же не будет ошибкой, если вы реализовали следующим образом:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let price = 760
+                                var sale = 0
+                                let clientCard = false
+                                var discountedPrice = 0
+
+                                discountedPrice = clientCard
+                                ? price - (price * 30) / 100
+                                : price - (price * 15) / 100
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">760</span>
+    <span class="keywords">var</span> sale<span class="operator"> = </span><span class="numbers">0</span>
+    <span class="keywords">let</span> clientCard<span class="operator"> = </span><span class="keywords">false</span>
+    <span class="keywords">var</span> discountedPrice<span class="operator"> = </span><span class="numbers">0</span>
+
+    <span class="operator"><span class="className">discountedPrice</span> = <span class="className">clientCard</span>
+    ? <span class="className">price</span> - (<span class="className">price</span> * <span class="numbers">30</span>) / <span class="numbers">100</span>
+    : <span class="className">price</span> - (<span class="className">price</span> * <span class="numbers">15</span>) / <span class="numbers">100</span></span>
+                      </code>
+                       </pre>
+                        </div>
+                    </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Результат работы тернарного оператора, обязательно, нужно было сохранить в дополнительном свойстве, иначе вы не сможете его использовать:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let price = 760
+                                var sale = 0
+                                let clientCard = false
+
+                                clientCard
+                                ? price - (price * 30) / 100
+                                : price - (price * 15) / 100
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">760</span>
+    <span class="keywords">var</span> sale<span class="operator"> = </span><span class="numbers">0</span>
+    <span class="keywords">let</span> clientCard<span class="operator"> = </span><span class="keywords">false</span>
+
+    <span class="operator"><span class="className">clientCard</span>
+    ? <span class="className">price</span> - (<span class="className">price</span> * <span class="numbers">30</span>) / <span class="numbers">100</span>
+    : <span class="className">price</span> - (<span class="className">price</span> * <span class="numbers">15</span>) / <span class="numbers">100</span></span>
+                      </code>
+                       </pre>
+                        </div>
+                    </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Если я захочу, дальше в коде использовать цену, например отобразить в <span class="className">print</span>, то у меня не будет такой возможности.
+                </p>
+                <p>
+                    Есть еще одно не до конца продуманное решение:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let price = 760
+                                let clientCard = true
+                                let cardDiscount = 30
+                                let sale = 15
+
+                                clientCard
+                                ? (price * cardDiscount) / 100
+                                : (price * sale) / 100
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> price<span class="operator"> = </span><span class="numbers">760</span>
+    <span class="keywords">let</span> clientCard<span class="operator"> = </span><span class="keywords">true</span>
+    <span class="keywords">let</span> cardDiscount<span class="operator"> = </span><span class="numbers">30</span>
+    <span class="keywords">let</span> sale<span class="operator"> = </span><span class="numbers">15</span>
+
+    <span class="operator"><span class="className">clientCard</span>
+    ? <span class="className">price</span> - (<span class="className">price</span> * <span class="className">cardDiscount</span>) / <span class="numbers">100</span>
+    : <span class="className">price</span> - (<span class="className">price</span> * <span class="className">sale</span>) / <span class="numbers">100</span></span>
+                      </code>
+                       </pre>
+                        </div>
+                    </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Вроде все выглядит хорошо, но здесь вы рассчитываете только стоимость скидки, тогда как нужно высчитать сколько нужно заплатить в результате.
+                </p>
+                <p>
+                    Есть еще один момент, можно было не создавать дополнительное свойство <span class="className">discountedPrice</span>, а сразу менять значения у свойства <span class="className">price</span>:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var price = 760
+                                let clientCard = true
+                                let cardDiscount = 30
+                                let sale = 15
+
+                                clientCard
+                                ? (price * cardDiscount) / 100
+                                : (price * sale) / 100
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> price<span class="operator"> = </span><span class="numbers">760</span>
+    <span class="keywords">let</span> clientCard<span class="operator"> = </span><span class="keywords">true</span>
+    <span class="keywords">let</span> cardDiscount<span class="operator"> = </span><span class="numbers">30</span>
+    <span class="keywords">let</span> sale<span class="operator"> = </span><span class="numbers">15</span>
+
+    <span class="operator"><span class="className">price</span> -= <span class="className">clientCard</span>
+    ? (<span class="className">price</span> * <span class="className">cardDiscount</span>) / <span class="numbers">100</span>
+    : (<span class="className">price</span> * <span class="className">sale</span>) / <span class="numbers">100</span></span>
+                      </code>
+                       </pre>
+                        </div>
+                    </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Но в таком случае мы меняем начальное значение самого товара, и следующий покупатель, будет исходить из новой цены, а нам этого не нужно. Поэтому лучшим решением будет создать дополнительное свойство <span class="className">discountedPrice</span>
+                </p>
+                <p>
+                    Давайте рассмотрим последнее решение, и основные ошибки:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                    <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var card = true
+                                var price = 760.0
+                                var discount = 0.0
+
+                                price -= card == true
+                                ? (price/100) * 30
+                                : (price/100) * 15
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> card<span class="operator"> = </span><span class="keywords">true</span>
+    <span class="keywords">var</span> price<span class="operator"> = </span><span class="numbers">760.0</span>
+    <span class="keywords">var</span> discount<span class="operator"> = </span><span class="numbers">0.0</span>
+
+    <span class="operator"><span class="className">price</span> -= <span class="className">card</span> == <span class="keywords">true</span>
+    ? (<span class="className">price</span>/<span class="numbers">100</span>) * <span class="numbers">30</span>
+    : (<span class="className">price</span>/<span class="numbers">100</span>) * <span class="numbers">15</span></span>
+                      </code>
+                       </pre>
+                        </div>
+                    </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                    Во первых отсутствие пробелов у оператора деления <span class="className">price</span> / <span class="numbers">100</span>, код должен дышать.
+                </p>
+                <p>
+                    Во вторых  <span class="className">card</span> == <span class="keywords">true</span>, грамотный программист никогда не напишет такого условия, потому что само свойство card является логическим, оно само по себе возвращает логическое значение. Если нам нужно будет сравнить с false, мы не будем писать <span class="className">card</span> == <span class="keywords">false</span>,  мы будем использовать частичку отрицания перед логическим свойством: !<span class="className">card</span>
+                </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 6.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Для поиска секунд используйте оператор %
+                    </span>
+                </span>
+                <p>
+                    Рассчитайте количество полных минут в 2170 секундах. Если секунд не будет то выводим на консоль сообщение : “&#60;…> минут”, если есть секунды то выводим сообщение &#60;…> минут и &#60;…> секунд.
+                </p>
+                <p>
+                    <span class="accent">Это задание нужно решить с использованием тернарного оператора</span>
+                </p>
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let seconds = 2170
+                            let minutes = seconds / 60
+                            let restOfSeconds = seconds % 60
+
+                            restOfSeconds == 0
+                            ? print("\(minutes) минут.")
+                            : print("\(minutes) минут и \(restOfSeconds) секунд.")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> seconds <span class="operator">= </span><span class="numbers">2170</span>
+    <span class="keywords">let</span> minutes <span class="operator">= <span class="className">seconds</span> / </span><span class="numbers">2170</span>
+    <span class="keywords">let</span> restOfSeconds <span class="operator">= <span class="className">seconds</span> % </span><span class="numbers">2170</span>
+
+    <span class="operator"><span class="className">restOfSeconds</span> == <span class="numbers">0</span>
+    ? <span class="className">print</span>(<span class="string">"</span>\(<span class="className">minutes</span>) <span class="string">минут."</span>)
+    : <span class="className">print</span>(<span class="string">"</span>\(<span class="className">minutes</span>) <span class="string">минут и </span>\(<span class="className">restOfSeconds</span>) <span class="string">секунд."</span>)</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+            <p>
+                Обратите внимание как можно сносить тернарный оператор, если строка слишком длинная. Если вы проверяете на не равенство <span class="className">restOfSeconds</span> != <span class="numbers">0</span>, это тоже считается верным решением, только в этом случае первый и второй принт нужно поменять местами.
+            </p>
+            <p>
+                При этом лучше создать дополнительные свойства для вычислений, иначе вы будете дублировать код:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var minute = 2170
+
+                            minute % 60 != 0
+                            ? print("\(minute/60) минут и \(minute % 60) секунд")
+                            : print("\(minute/60) минут")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> minute <span class="operator">= </span><span class="numbers">2170</span>
+
+    <span class="className">minute</span> <span class="operator">% </span><span class="numbers">60</span> <span class="operator">!= </span><span class="numbers">0</span>
+    <span class="operator">? <span class="className">print</span>(<span class="string">"</span>\(<span class="className">minute</span>/<span class="numbers">60</span>) <span class="string">минут и</span> \(<span class="className">minute</span> % <span class="numbers">60</span>) <span class="string">секунд"</span>)
+    : <span class="className">print</span>(<span class="string">"</span>\(<span class="className">minute</span>/<span class="numbers">60</span>) <span class="string">минут"</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+
+            <p>
+                Посмотрите сколько дублируемых действий, плюс ко всему отсутствие пробелов у оператора <span class="className">minute</span>/<span class="numbers">60</span>. Это не корректно, не нужно лепить код, в один монолит. Код это книга, которая нуждается в пробелах: <span class="className">minute</span> / <span class="numbers">60</span>.
+            </p>
+            <p>
+                Ну и свойство <span class="className">minute</span> здесь должна быть константой, потому что в коде вы его ни где не меняете.
+            </p>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_4">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+ <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#comments" class="yakor">&#128195; Комментарии</a>
+          <a href="#interpolation" class="yakor">&#128195; Интерполяция строк</a>
+          <a href="#concoten" class="yakor">&#128195; Конкатенация строк</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 4. Интерполяция строк.
+            </h2>
+            <p class="date_p"> 1 Ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <h2 id="comments">
+                   Комментарии.
+                </h2>
+                <p>
+                    Мы будем работать в новом файле.
+                </p>
+                <p>
+                    Прежде чем перейти к интерполяции и конкатенации, давайте закроем еще одну маленькую тему.
+                </p>
+                <p>
+                    Бывает так что мы хотим оставить какой либо комментарий к коду, например пометить для себя что свойство нужно инициализировать:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let country: String Свойство нужно инициализировать
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> country<span class="operator">: </span><span class="className">String</span> <span class="operator"> Свойство нужно инициализировать</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Xcode тут же выдаст нам ошибку. И тут проблема даже не в том что мы написали на русском:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson4/Lesson4.1.png" />
+
+                <p>
+                    в таком виде будет точно такая же ошибка.
+                </p>
+                <p>
+                    Что бы исправить ошибку можно использовать однострочный комментарий, мы просто поставим два слэша перед фразой:
+                </p>
+
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let country: String //Свойство нужно инициализировать
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> country<span class="operator">: </span><span class="className">String</span> <span class="comments">// Свойство нужно инициализировать</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+
+                 <p>
+                   Теперь xcode, на нас не ругается, он эту строчку не читает, вы можете закомментировать любую часть вашего кода:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                // let country: String
+                                // country = "Russia"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">// let country: String</span>
+    <span class="comments">// country = "Russia"</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Компилятор пропустит эти строки как будто их и не было никогда.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Этот комментарий работает только в одну строку. 
+                        </p>
+                        <p>
+                            Что бы сделать многострочный комментарий нужно выделить блок кода и нажать комбинацию клавиш <strong><span class="accent">command + /</span></strong>
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                   Можно так же сделать много строчный комментарий следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                /*
+                                let country: String
+                                country = "Russia"
+                                */
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="comments">/*</span>
+    <span class="comments">let country: String</span>
+    <span class="comments">country = "Russia"</span>
+    <span class="comments">*/</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом можно с легкостью закомментировать достаточно большую область кода.
+                </p>
+                <h2 id="interpolation">
+                   Интерполяция строк.
+                </h2>
+                <p>
+                   За этим сложным названием кроется очень простое действие: внедрение в определенные места ваших строк значения других свойств или просто значений
+                </p>
+                <p>
+                   Давайте создадим свойство, которое будет содержать следующую фразу:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let greeting = "Привет, Андрей! Андрей всегда благородный, Анрдей всегда сильный"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> greeting <span class="operator">= </span> <span class="string">"Привет, Андрей! Андрей всегда благородный, Анрдей всегда сильный" </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    И все бы отлично, но если нам понадобится изменить имя, нам придется менять его ручками в каждом месте где оно присутствует.
+                </p>
+                <p>
+                   Согласитесь, не очень удобно!
+                </p>
+                <p>
+                   Что мы можем сделать? Ну для начала, давайте создадим отдельное свойство для имени:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Андрей"
+                                let greeting = "Привет, Андрей! Андрей всегда благородный, Анрдей всегда сильный"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name <span class="operator">= </span><span class="string">"Андрей" </span>
+    <span class="keywords">let</span> greeting <span class="operator">= </span> <span class="string">"Привет, Андрей! Андрей всегда благородный, Анрдей всегда сильный" </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Теперь при помощи незатейливой конструкции: \(), мы можем внедрить наше имя в саму строку:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Андрей"
+                                let greeting = "Привет, \(name)! \(name) всегда благородный, \(name) всегда сильный"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name <span class="operator">= </span><span class="string">"Андрей" </span>
+    <span class="keywords">let</span> greeting <span class="operator">= </span> <span class="string">"Привет, <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span>! <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span> всегда благородный, <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span> всегда сильный" </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Справа мы увидим результат:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson4/Lesson4.2.png" />
+                <p>
+                    При этом внутрь строки можно передавать не только текстовые значения. Это могут быть разлитые типы данных, например Int.
+                </p>
+                <p>
+                    Давайте для примера объявим константу, которая будет отвечать за возраст нашего героя и дополним нашу фразу:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Андрей"
+                                let age = 45
+
+                                let greeting = "Привет, \(name)! \(name) всегда благородный, \(name) всегда сильный. Тебе всего \(age), ты полон мудрости и знаний, а через 5 лет тебе будет 50 и это новый этап в жизни."
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name <span class="operator">= </span><span class="string">"Андрей" </span>
+    <span class="keywords">let</span> age <span class="operator">= </span><span class="numbers">45 </span>
+
+    <span class="keywords">let</span> greeting <span class="operator">= </span> <span class="string">"Привет, <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span>! <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span> всегда благородный, <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span> всегда сильный. Тебе всего <span class="operator">\(</span><span class="className">age</span><span class="operator">)</span>, ты полон мудрости и знаний, а через 5 лет тебе будет 50 и это новый этап в жизни."" </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Теперь у нас возраст так же зависит от внешнего свойства. Кроме того между круглыми скобками могут быть не только свойства, но и целые выражения:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Андрей"
+                                let age = 45
+
+                                let greeting = "Привет, \(name)! \(name) всегда благородный, \(name) всегда сильный. Тебе всего \(age), ты полон мудрости и знаний, а через 5 лет тебе будет \(age + 5) и это новый этап в жизни."
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name <span class="operator">= </span><span class="string">"Андрей" </span>
+    <span class="keywords">let</span> age <span class="operator">= </span><span class="numbers">45 </span>
+
+    <span class="keywords">let</span> greeting <span class="operator">= </span> <span class="string">"Привет, <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span>! <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span> всегда благородный, <span class="operator">\(</span><span class="className">name</span><span class="operator">)</span> всегда сильный. Тебе всего <span class="operator">\(</span><span class="className">age</span><span class="operator">)</span>, ты полон мудрости и знаний, а через 5 лет тебе будет <span class="operator">\(</span><span class="className">age</span><span class="operator"> + </span><span class="numbers">5</span><span class="operator">)</span> и это новый этап в жизни."" </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Таким образом мы получим следующую фразу:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson4/Lesson4.3.png" />
+                <p>
+                    Внешне ничего не поменялось, но концептуально очень сильно!
+                </p>
+
+                <h2 id="concoten">
+                    Конкатенация строк
+                </h2>
+                <p>
+                    Конкатенация это по сути объединение строк. Давайте создадим два новых свойства:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let firstPhrase = "I Love"
+                                let lastPhrase = " New Year"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> firstPhrase<span class="operator"> = </span><span class="string">"I Love"</span>
+    <span class="keywords">let</span> lastPhrase<span class="operator"> = </span><span class="string">" New Year"</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Далее мы их можем объединить при помощи оператора сложения:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let firstPhrase = "I Love"
+                                let lastPhrase = " New Year"
+
+                                firstPhrase + lastPhrase
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> firstPhrase<span class="operator"> = </span><span class="string">"I Love"</span>
+    <span class="keywords">let</span> lastPhrase<span class="operator"> = </span><span class="string">" New Year"</span>
+
+    <span class="className">firstPhrase</span><span class="operator"> + </span><span class="className">lastPhrase</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Запускаем компилятор, и видим полную фразу:
+                </p>
+
+                <img class="img_block" src="assets/Images/Lesson4/Lesson4.4.png" />
+
+                <p>
+                    Ну и разумеется, если нам возвращается результат, то мы его можем присвоить какому-нибудь свойству:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let firstPhrase = "I Love"
+                                let lastPhrase = " New Year"
+
+                                let fullPhrase = firstPhrase + lastPhrase
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> firstPhrase<span class="operator"> = </span><span class="string">"I Love"</span>
+    <span class="keywords">let</span> lastPhrase<span class="operator"> = </span><span class="string">" New Year"</span>
+
+    <span class="keywords">let</span> fullPhrase<span class="operator"> = </span><span class="className">firstPhrase</span><span class="operator"> + </span><span class="className">lastPhrase</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Таким образом свойство <strong><span class="language-swift">fullPhrase</span></strong> будет содержать в себе полную фразу.
+                </p>
+                <p>
+                    Но использовать конкатенацию для объединения строк, не лучшее решение, в особенности, когда нужно объединить сразу несколько свойств разных типов, в этом случае лучше выбрать интерполяцию.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

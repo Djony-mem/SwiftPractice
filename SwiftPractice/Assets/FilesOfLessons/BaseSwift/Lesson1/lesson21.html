@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_21">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#init_prop" class="yakor">&#128195; Инициализация свойств</a>
+          <a href="#init_class" class="yakor">&#128195; Инициализаторы класса</a>
+          <a href="#few_init" class="yakor">&#128195; Несколько инициализаторов</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 21. Инициализаторы Класса.
+            </h2>
+            <p class="date_p"> 11 Апреля 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <h2 id="init_prop">
+                   Инициализация свойств.
+                </h2>
+                <p>
+                    Прежде чем понять что такое инициализаторы, нам необходимо вспомнить такое понятие как  <a href="#" class="tooltipText"><span class="textInfo">
+                    Инициализировать свойство – присвоить значение свойству в момент его создания.
+                    </span>&#x270D;инициализация свойств</a>
+                </p>
+                <p>
+                    Прежде чем работать со свойством мы обязаны его инициализировать, либо сделать <a href="#" class="tooltipText"><span class="textInfo">
+                    Опциональный тип – это специальный тип данных в языке Swift, который может содержать либо значение, либо отсутствие значения (nil). Они обозначаются знаком вопроса после типа данных (например, Int?). Это позволяет вам проверять наличие значения перед использованием и избегать возникновения неожиданных ошибок.
+                    </span>&#x270D;опциональным</a>, то есть мы не cможем написать следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOne: Int
+                            let numberTwo = 5
+
+                            let result = numberOne + numberTwo
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numberOne</span>: <span class="className">Int</span>
+    <span class="keywords">let</span> <span class="language-swift">numberTwo</span> = <span class="numbers">5</span>
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = <span class="className">numberOne</span> + <span class="className">numberTwo</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    При запуске, этот код выдаст ошибку, которая будет гласить: “Constant ‘numberOne’ used before being initialized”, то есть мы пытаемся использовать свойство до его инициализации, до того момента как мы зададим ему какое то значение. В память мы помещаем только то что содержит значение, если значения нет, то это просто зарезервированная область. Мы могли бы сделать его опциональным:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numberOne: Int?
+                            let numberTwo = 5
+
+                            let result = (numberOne ?? 0) + numberTwo
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">numberOne</span>: <span class="className">Int</span>?
+    <span class="keywords">let</span> <span class="language-swift">numberTwo</span> = <span class="numbers">5</span>
+
+    <span class="keywords">let</span> <span class="language-swift">result</span> = (<span class="className">numberOne</span> ?? <span class="numbers">0</span>) + <span class="className">numberTwo</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае мы можем использовать свойство, но обязаны извлечь из него опциональное значение, я здесь использую <a href="#" class="tooltipText"><span class="textInfo">
+                    Самый быстрый и простой способ это задать значение по умолчанию и делается это следующим образом:
+                    <img class="img_block" src="assets/Images/Lesson21/Link21.1.png" />
+                    более подробно можно почитать в 14 уроке.
+                    </span>&#x270D;значение по умолчанию</a>.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Обратите внимание, что опциональное  свойство необходимо сделать переменной, потому что оно содержит в себе заглушку в виде nil, то есть можно сказать у него уже есть значение, и оно равно nil, а если у константы уже есть значение, то мы не можем его менять, и свойство навсегда останется со значением nil. Поэтому система выдает ошибку, и говорит нам что необходимо либо задать какое то начальное значение, либо сделать свойство переменной, что бы была возможность задать значение по умолчанию, при извлечении опционального значения: numberOne ?? 0.
+                        </p>
+                        <p>
+                            Проще говоря не инициализированное опциональное свойство всегда должно быть переменной.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Мы наконец подошли к сути вопроса.
+                </p>
+                <h2 id="init_class">
+                   Инициализаторы класса.
+                </h2>
+                <p>
+                    Внутри классов точно так же мы не можем создать не инициализированные свойства. Следующий код выдаст нам ошибку:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Person { // Class "Person" has no initializers
+                                let name: String
+                                let age: Int
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Person</span> { <span class="comments">// Class "Person" has no initializers</span>
+        <span class="keywords">let</span> <span class="language-swift">name</span>: <span class="className">String</span>
+        <span class="keywords">let</span> <span class="language-swift">age</span>: <span class="className">Int</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Система попросит нас задать либо начальные значения, либо сделать свойства опциональными, либо добавить инициализатор.
+                </p>
+                <p>
+                    Если с первым и вторым все понятно, то что же такое эти инициализаторы? Прежде чем в этом разобраться давайте вспомним пример из прошлого урока, где мы задавали значения для свойств внутри класса, используя созданный нами метод:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = ""
+                                var title = ""
+                                var cornerRadius = 0
+
+                                func setTitle(_ value: String) {
+                                    title = value
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">0</span>
+
+        <span class="keywords">func</span> <span class="language-swift">setTitle</span>(<span class="language-swift">_</span> value: <span class="className">String</span>) {
+            <span class="className">title</span> = value
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Когда будет вызван этот метод, система возмёт переданное в параметр значение value и передаст его в title, свойство класса:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let button = Button()
+                            button.setTitle("Кнопка")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">button</span> = Button()
+    button.setTitle(<span class="string">"Кнопка"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Прежде чем читать дальше, ответьте на вопрос: Чему будет равен title в экземпляре класса button?
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let button = Button()
+                            button.setTitle("Кнопка")
+                            button.title // Кнопка
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">button</span> = Button()
+    button.setTitle(<span class="string">"Кнопка"</span>)
+    button.title <span class="comments">// Кнопка</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    title будет иметь значение “Кнопка”, если вы ответили на вопрос верно, то можете смело двигаться дальше.
+                </p>
+                <p>
+                    Давайте теперь увеличим количество параметров в методе и переиспользуем все свойства класса (зададим новые значения для свойств):
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = ""
+                                var title = ""
+                                var cornerRadius = 0
+
+                                func initAllProperties(_ value: String, color: String, radius: Int) {
+                                    title = value
+                                    self.color = color
+                                    cornerRadius = radius
+                                }
+                            }
+
+                            let button = Button()
+                            button.initAllProperties("Кнопка", color: "красный", radius: 15)
+                            button.title
+                            button.color
+                            button.cornerRadius
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">0</span>
+
+        <span class="keywords">func</span> <span class="language-swift">initAllProperties</span>(<span class="language-swift">_</span> value: <span class="className">String</span>, <span class="language-swift">color</span>: <span class="className">String</span>, <span class="language-swift">radius</span>: <span class="className">Int</span>) {
+            <span class="className">title</span> = value
+            <span class="keywords">self</span>.<span class="className">color</span> = color
+            <span class="className">cornerRadius</span> = radius
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button()
+    button.initAllProperties(<span class="string">"Кнопка"</span>, color: <span class="string">"красный"</span>, radius: <span class="numbers">15</span>)
+    button.title
+    button.color
+    button.cornerRadius</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Проанализируйте код и снова ответьте на вопрос, какие значения будут содержать свойтсва title, color и cornarRadius?
+                </p>
+                <p>
+                    Думаю вы все ответили на вопрос верно, но если все таки запутались, ловите пояснение:
+                </p>
+                <button class="accordion">Пояснение</button>
+                <div class="panel">
+                  <p>
+                      Давайте на минуту забудем что такое класс, и выполним тот же самый код в не класса:
+                  </p>
+                  <img class="img_block" src="assets/Images/Lesson21/Lesson21.1.png" />
+                  <p>
+                      Чему будут равны свойства title, colorValue и cornerRadius? Ответ очевиден, после вызова метода, свойства приобрели новое значение, которые мы передали в параметры функции:
+                  </p>
+                  <img class="img_block" src="assets/Images/Lesson21/Lesson21.2.png" />
+                  <p>
+                      С классом обстоят дела точно так же, только что бы обратится к методу и свойствам, нам необходимо создать экземпляр класса.
+                  </p>
+                  <p>
+                      Обратите внимание что self для свойства color уже не будет работать, потому что self это сам класс, а здесь класса у нас нет, поэтому мы вынуждены придумать другое название, что бы системе было понятно к чему мы обращаемся и во что передаем значения.
+                  </p>
+                </div>
+
+                <p>
+                    Наконец вы готовы к тому что бы узнать что же такое инициализаторы.
+                </p>
+                <p>
+                    <span class="accent">Инициализаторы</span> – это методы, которые вызываются при создании нового объекта класса. Они могут принимать параметры, которые передаются при создании объекта, и использовать их для установки начальных значений свойств класса.
+                </p>
+                <p>
+                    Теперь вы знаете что это методы, который вызывается в момент создания объекта класса. Имя такого метода init,  и выглядит он следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = ""
+                                var title = ""
+                                var cornerRadius = 0
+
+                                init() {
+
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">0</span>
+
+        <span class="keywords">init</span>() {
+
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Как вы можете заметить у него нет ключевого слова func, есть только скобки для параметров и фигурные скобки для кода. Этот метод есть у каждого класса по умолчанию и он вызывается в момент создания экземпляра класса.
+                </p>
+                <p>
+                    Давайте посмотрим на вызов этого метода:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = ""
+                                var title = ""
+                                var cornerRadius = 0
+
+                                init() {
+
+                                }
+                            }
+
+                            let button = Button.init()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">0</span>
+
+        <span class="keywords">init</span>() {
+
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">button</span> = Button.init()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Но есть возможность не писать имя метода, а сразу использовать круглые скобки:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let button = Button.init()
+                            let buttonTwo = Button()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">button</span> = Button.init()
+    <span class="keywords">let</span> <span class="language-swift">buttonTwo</span> = Button()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    И в первом и во втором случае мы вызываем метод init, просто в последнем варианте запись короче и все используют ее.
+                </p>
+                <p>
+                    Вторая запись вам уже знакома и теперь вы понимаете откуда появились эти круглые скобки, это по сути параметры метода, который мы вызываем.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            В данном примере init уже есть в классе по умолчанию init() {} и нам нет необходимости его прописывать.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Если init вызывается при создании экземпляра класса, в таком случае мы можем что-нибудь сделать в момент создания класса, давайте выведем значения свойств класса на консоль:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = "Красная"
+                                var title = "Кнопка"
+                                var cornerRadius = 15
+
+                                init() {
+                                    print("\(color), \(title), \(cornerRadius)")
+                                }
+                            }
+
+                            let buttonTwo = Button()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"Красная"</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">"Кнопка"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+
+        <span class="keywords">init</span>() {
+            <span class="className">print</span>(<span class="string">"</span>\(<span class="className">color</span>), \(<span class="className">title</span>), \(<span class="className">cornerRadius</span>)<span class="string">"</span>)
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">buttonTwo</span> = Button()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В тот момент когда мы создаем экземпляр класса buttonTwo будет вызван метод init, внутри которого мы распечатываем значения наших свойств:  Красная, Кнопка, 15:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson21/Lesson21.3.png" />
+                <p>
+                    Метод <span class="accent">init</span> можно воспринимать как надзирателя, который следит, чтобы все свойства внутри класса были инициализированны, то есть имели какие то значения.
+                </p>
+                <p>
+                    Eсли <span class="accent">init</span> это метод, то значит у него могут быть параметры, давайте через его параметр зададим значение для свойства title:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = ""
+                                var title = ""
+                                var cornerRadius = 15
+
+                                init(text: String) {
+                                    title = text
+                                }
+                            }
+
+                            let buttonTwo = Button(text: "Кнопка")
+                            buttonTwo.title
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">text</span>: <span class="className">String</span>) {
+            <span class="className">title</span> = text
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">buttonTwo</span> = Button(text: <span class="string">"Кнопка"</span>)
+    buttonTwo.title</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Теперь ответьте на вопрос, какое значение будет у свойства title экземпляра класса buttonTwo?
+                </p>
+                <p>
+                    Все верно, title имеет теперь значение “Кнопка”. Обратите внимание что изначально свойство в качестве значения имело пустую строку.
+                </p>
+                <p>
+                    Благодаря методу init мы можем производить первую инициализацию свойств в самом методе, то есть нам нет необходимости задавать начальное значение для свойства title:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = ""
+                                var title: String
+                                var cornerRadius = 15
+
+                                init(text: String) {
+                                    title = text
+                                }
+                            }
+
+                            let buttonTwo = Button(text: "Кнопка")
+                            buttonTwo.title
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">text</span>: <span class="className">String</span>) {
+            <span class="className">title</span> = text
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">buttonTwo</span> = Button(text: <span class="string">"Кнопка"</span>)
+    buttonTwo.title</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае компилятор не будет выдавать нам ошибки, потому что инициализация свойства под чутким контролем метода init, мы просто не сможем создать экземпляр класса без инициализации свойства title.
+                </p>
+                <p>
+                    Давайте все свойства инициализируем, используя инициализатор:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color: String
+                                var title: String
+                                var cornerRadius: Int
+
+                                init(title: String, color: String, cornerRadius: Int) {
+                                    self.title = title
+                                    self.color = color
+                                    self.cornerRadius = cornerRadius
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">title</span>: <span class="className">String</span>, <span class="language-swift">color</span>: <span class="className">String</span>, <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) {
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+            <span class="keywords">self</span>.<span class="className">color</span> = color
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае все свойства класса обязательны для инициализации, и мы не сможем создать экземпляр класса без вызова этого инициализатора:
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Напомню! Использование self внутри инициализатора необходимо что бы была возможность создавать одинаковые имена, таким образом компилятору понятно какое свойство к чему относится. В инициализаторе лучше всегда использовать созвучные имена со свойствами класса, это позволит вам не запутаться.
+                        </p>
+                        <p>
+                            Более подробно о том что такое self, и чем оно отличается от Self мы рассмотрим на одном из уроков в дальнейшем.
+                        </p>
+                    </div>
+                    <p>
+                    </p>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <img class="img_block" src="assets/Images/Lesson21/Lesson21.4.png" />
+                <p>
+                    Нам осталось передать какие то значения в каждый из параметров:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let button = Button(
+                                title: "Кнопка",
+                                color: "Синяя",
+                                cornerRadius: 20
+                            )
+
+                            button.title
+                            button.color
+                            button.cornerRadius
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">button</span> = Button(
+        title: <span class="string">"Кнопка"</span>,
+        color: <span class="string">"Синяя"</span>,
+        cornerRadius: <span class="numbers">20</span>
+    )
+
+    button.title
+    button.color
+    button.cornerRadius</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Прежде чем продолжить ответьте на вопрос, какие значения будут у свойств title, color и cornerRadius экземпляра класса button?
+                </p>
+                <p>
+                    Таким образом мы можем создавать разные экземпляры класса и при создании сразу инициализировать свойства нужными значениями.
+                </p>
+                <h2 id="few_init">
+                   Несколько инициализаторов
+                </h2>
+                <p>
+                    В разработке бывают случаи, когда одного инициализатора может быть не достаточно, и у нас есть возможность создать столько инициализаторов, сколько нужно.
+                </p>
+                <p>
+                    Давайте рассмотрим следующий пример:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Theme {
+                                var color = "Синий"
+                                var cornerRadius = 15
+                            }
+
+
+                            class Button {
+                                var color: String
+                                var title: String
+                                var cornerRadius: Int
+
+                                init(title: String, color: String, cornerRadius: Int) {
+                                    self.title = title
+                                    self.color = color
+                                    self.cornerRadius = cornerRadius
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Theme</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"Синий"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+    }
+
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">title</span>: <span class="className">String</span>, <span class="language-swift">color</span>: <span class="className">String</span>, <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) {
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+            <span class="keywords">self</span>.<span class="className">color</span> = color
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    У нас есть дополнительный класс, который в себе содержит нужную нам информацию, и мы бы хотели иметь возможность инициализировать свойства класса Button значениями свойств класса Theme.
+                </p>
+                <p>
+                    Для этого мы можем создать еще один инициализатор:
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Обратите внимание, что у класса Theme мы не прописываем ни какого инициализатора, он нам доступен по умолчанию init() так как все свойства инициализированы.
+                        </p>
+                    </div>
+                    <p>
+                    </p>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <br/>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Theme {
+                                var color = "Синий"
+                                var cornerRadius = 15
+                            }
+
+
+                            class Button {
+                                var color: String
+                                var title: String
+                                var cornerRadius: Int
+
+                                init(title: String, color: String, cornerRadius: Int) {
+                                    self.title = title
+                                    self.color = color
+                                    self.cornerRadius = cornerRadius
+                                }
+
+                                init(theme: Theme) {
+                                    color = theme.color
+                                    cornerRadius = theme.cornerRadius
+                                } // Ошибка: "Return from initializer without initializing all stored properties"
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Theme</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"Синий"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+    }
+
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">title</span>: <span class="className">String</span>, <span class="language-swift">color</span>: <span class="className">String</span>, <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) {
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+            <span class="keywords">self</span>.<span class="className">color</span> = color
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+        }
+
+        <span class="keywords">init</span>(<span class="language-swift">theme</span>: <span class="className">Theme</span>) {
+            <span class="className">color</span> = theme.color
+            <span class="className">cornerRadius</span> = theme.cornerRadius
+        } <span class="comments">// Ошибка: "Return from initializer without initializing all stored properties"</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Этот код выдаст ошибку. Остановитесь на этом моменте и подумайте почему так произошло.
+                </p>
+                <p>
+                     Все дело в том, что при создании экземпляра класса мы не можем вызвать два инициализатора одновременно, либо один либо другой. А это значит что если мы захотим воспользоваться вторым инициализатором, то мы попытаемся создать экземпляр класса с не инициализированным свойством title, как вы уже знаете система нам не даст этого сделать, все свойства на момент создания экземпляра класса обязаны быть инициализированными, давайте добавим это свойство в инициализатор:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Theme {
+                                var color = "Синий"
+                                var cornerRadius = 15
+                            }
+
+
+                            class Button {
+                                var color: String
+                                var title: String
+                                var cornerRadius: Int
+
+                                init(title: String, color: String, cornerRadius: Int) {
+                                    self.title = title
+                                    self.color = color
+                                    self.cornerRadius = cornerRadius
+                                }
+
+                                init(theme: Theme, title: String) {
+                                    color = theme.color
+                                    cornerRadius = theme.cornerRadius
+                                    self.title = title
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Theme</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"Синий"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+    }
+
+
+    <span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>(<span class="language-swift">title</span>: <span class="className">String</span>, <span class="language-swift">color</span>: <span class="className">String</span>, <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) {
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+            <span class="keywords">self</span>.<span class="className">color</span> = color
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+        }
+
+        <span class="keywords">init</span>(<span class="language-swift">theme</span>: <span class="className">Theme</span>) {
+            <span class="className">color</span> = theme.color
+            <span class="className">cornerRadius</span> = theme.cornerRadius
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В таком случае никаких ошибок больше не будет, потому что каждый из инициализаторов позаботился о том что бы все свойства были инициализированны, и мы смело можем создать экземпляр класса с любым из инициализаторов:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson21/Lesson21.5.png" />
+                <p>
+                    Если мы добавим третий инициализатор, то он так же появится в этом списке.
+                </p>
+                <p>
+                    Давайте создадим экземпляр класса с новым инициализатором:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let theme = Theme()
+                            let customButton = Button(theme: theme, title: "Done")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">theme</span> = Theme()
+    <span class="keywords">let</span> <span class="language-swift">customButton</span> = Button(theme: theme, title: <span class="string">"Done"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Сперва мы создаем экземпляр класса Theme, и далее передаем его в параметр theme. Остановитесь и снова ответьте себе на вопрос, какие значения будут у свойств color, title и cornerRadius экземпляра класса customButton?
+                </p>
+                <img class="img_block" src="assets/Images/Lesson21/Lesson21.6.png" />
+                <p>
+                    Сперва мы создаем экземпляр класса Theme, и далее передаем его в параметр theme. Остановитесь и снова ответьте себе на вопрос, какие значения будут у свойств color, title и cornerRadius?
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Так как <span class="accent">init</span> это тот же метод, только системный, то в нем мы так же можем использовать значения по умолчанию, что сделает нужные нам параметры не обязательными.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Мы так же можем создать пустой инициализатор, внутри которого задать значения по умолчанию:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color: String
+                                var title: String
+                                var cornerRadius: Int
+
+                                init() {
+                                    color = "Зеленый"
+                                    title = "Добавить"
+                                    cornerRadius = 10
+                                }
+
+                                init(title: String, color: String, cornerRadius: Int) {
+                                    self.title = title
+                                    self.color = color
+                                    self.cornerRadius = cornerRadius
+                                }
+
+                                init(theme: Theme, title: String) {
+                                    color = theme.color
+                                    cornerRadius = theme.cornerRadius
+                                    self.title = title
+                                }
+                            }
+
+                            let defaultButton = Button()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span>: <span class="className">String</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>
+
+        <span class="keywords">init</span>() {
+            <span class="className">color</span> = <span class="string">"Зеленый"</span>
+            <span class="className">title</span> = <span class="string">"Добавить"</span>
+            <span class="className">cornerRadius</span> = <span class="numbers">10</span>
+        }
+
+        <span class="keywords">init</span>(<span class="language-swift">title</span>: <span class="className">String</span>, <span class="language-swift">color</span>: <span class="className">String</span>, <span class="language-swift">cornerRadius</span>: <span class="className">Int</span>) {
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+            <span class="keywords">self</span>.<span class="className">color</span> = color
+            <span class="keywords">self</span>.<span class="className">cornerRadius</span> = cornerRadius
+        }
+
+        <span class="keywords">init</span>(<span class="language-swift">theme</span>: <span class="className">Theme</span>, <span class="language-swift">title</span>: <span class="className">String</span>) {
+            <span class="className">color</span> = theme.color
+            <span class="className">cornerRadius</span> = theme.cornerRadius
+            <span class="keywords">self</span>.<span class="className">title</span> = title
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">defaultButton</span> = Button()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    в параметры инициализатора остаются пустыми, а вот в теле метода, мы задаем все начальные значения для свойств, теперь при вызове этого инициализатора мы получим сформированный экземпляр класса. И снова ответьте себе на вопрос: Какие значения будут у свойств color, title, cornarRadius экземпляра класса defaultButton?
+                </p>
+                <img class="img_block" src="assets/Images/Lesson21/Lesson21.7.png" />
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+    <script src="assets/js/accordion.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

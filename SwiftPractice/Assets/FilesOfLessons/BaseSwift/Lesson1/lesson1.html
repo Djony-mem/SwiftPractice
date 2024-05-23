@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+    <body id="scroll-block">
+      <progress max="100" value="0" id="scroll-progress"></progress>
+      <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#constant" class="yakor">&#128195; Создание константы</a>
+          <a href="#variable" class="yakor">&#128195; Создание переменных.</a>
+          <a href="#rulsName" class="yakor">&#128195; Правила именования свойств</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+                </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+
+            <div class="bblock_image"><img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+      <div class="main_container">
+       <div class="container">
+       <div>
+                <h2 class="title_h2">
+                    Урок 1. Свойства.
+                </h2>
+                <p class="date_p">
+                    1 Ноября 2022
+                </p>
+<!--
+                <div class="loader_icon">
+                    <div class="loader_button">
+                         <p>
+    <button class="load_button" onclick="downloadFile('https://github.com/Djony-mem/MVPApp/archive/refs/heads/developer.zip')"><img class="icon" src="assets/Images/icons/loading.png" /></button>
+                    </p>
+                    </div>
+                    <div class="loader_title" id="log">
+                         <p>
+                            Загрузить материалы к уроку.
+                        </p>
+                    </div>
+                </div>
+-->
+            </div>
+        <div class="container_lesson shadow_block">
+            <div>
+                <div>
+                    <p> <span class="accent">Свойство</span> — это объект, который хранит в себе какое-то значение. Объект, можно представить себе как некая ячейка в памяти, в которую мы собираемся положить значение. Давайте представим оперативную память устройства, как ячейки в улье </p> <img class="img_block" src="assets/Images/Lesson1/Lesson1.1.png" />
+                    <p>Например нам нужно сохранить имя вашего соседа, мы берем его имя и кладем в одну из ячеек: </p> <img class="img_block" src="assets/Images/Lesson1/Lesson1.2.png" />
+                    <p> Отлично, имя в ячейке памяти, но встает другой вопрос, как нам достать это имя если оно нам вдруг понадобится, например что бы отобразить его на экране приложения? Как компилятору найти среди однообразных ячеек нужное нам значение? Ответ простой, мы должны как то назвать эту ячейку, так сказать дать ей адрес по которому компилятор ее найдет. Давайте назовем ее </p> <img class="img_block" src="assets/Images/Lesson1/Lesson1.3.png" />
+                    <p> Остался последний момент. Свойства бывают изменяемые и неизменяемые. О чем это говорит?! Все очень просто. Компилятор должен знать будешь ты менять значение в ячейки или нет, для него это принципиальный момент, о котором я расскажу чуть позже. Давайте теперь отразим все наши действия в коде </p>
+                </div>
+                <div>
+                    <h2 id="constant">
+                        Создание константы
+                    </h2>
+                    <p>В playground, можете удалить все что находится в центральной части </p> <img class="img_block" src="assets/Images/Lesson1/Lesson1.4.png" />
+                    <p>и написать следующую строчку кода: </p>
+                    <div class="code-toolbar shadow_block">
+                    <div class="container-code">
+                        <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span>nameOfNeighbor <span class="operator">= </span><span class="string">"Tom"</span>
+                    </code></pre>
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let nameOfNeighbor = "Tom"
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <p> Ключевым словом<span class="keywords language-swift"> let</span> мы помечаем константу, то есть не изменяемое свойство. Следом идет имя свойства (имя ячейки в памяти). После равно - значение свойства, это то что мы кладем в ячейку. Таким образом мы положили в ячейку с именем <span class="language-swift">nameOfNeighbor</span> значение <span class="string">"Tom"</span> и пометили ее как константу. </p>
+                    <div>
+                        <div class="shadow_block container_terms">
+                            <p><strong>Объявить константу</strong> - по сути создать константу. Тот момент когда мы пишем let ...
+                            <br><strong>Присвоить значение</strong> - после имени ставим равно и пишем какое то значение
+                            <br>
+                            <br><strong>Инициализировать свойство</strong> - присвоить значение свойству в момент его создания.
+                            <br>
+                            <br><strong>Свойство</strong> - общее название и для константы и для переменной</p>
+                        </div>
+                        <div> <img class="img_circle" src="assets/Images/readBook.png" /> </div>
+                    </div>
+                    <div>
+                        <p> К уже объявленному свойству, дальше в коде, мы должны обращаться без ключевого слова <span class="keywords language-swift">let</span>. Ключевое слово<span class="keywords language-swift"> let</span> прописывается только при создании свойства, а новую константу с тем же именем мы объявить не можем, потому что все свойства должны быть уникальными. </p>
+                    </div>
+                    <div class="code-toolbar shadow_block">
+                    <div class="container-code">
+                        <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> nameOfNeighbor <span class="operator">= </span><span class="string">"Tom"</span>
+    <span class="className">nameOfNeighbor</span>
+                        </code></pre>
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let nameOfNeighbor = "Tom"
+                                nameOfNeighbor
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p> Запустите компилятор. </p>
+                        <p> В правой части Playground вы можете видеть значение, которое хранится в этом свойстве: </p> <img class="img_block" src="assets/Images/Lesson1/Lesson1.5.png">
+                            <p> Можно нажать на квадратики под значениями, и у нас раскроются дополнительные окна с информацией о содержимом свойства: </p> <img class="img_block" src="assets/Images/Lesson1/Lesson1.6.png">
+                                <p> Давайте попробуем присвоить константе новое значение: </p>
+                                <div class="code-toolbar shadow_block">
+                                <div class="container-code">
+                                <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> nameOfNeighbor <span class="operator">= </span><span class="string">"Tom"</span>
+    <span class="className">nameOfNeighbor</span> <span class="operator">=</span> <span class="string">"Jack"</span>
+                                    </code></pre>
+                                    <div class="toolbar">
+                                        <div class="toolbar-item">
+                                            <button type="button" onclick="copyCode(this)" data-code-text='
+                                            let nameOfNeighbor = "Tom"
+                                            nameOfNeighbor = "Jack"
+                                            '>Copy</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p> Теперь, если вы запустите компилятор, то вы столкнетесь с ошибкой: </p><img class="img_block" src="assets/Images/Lesson1/Lesson1.7.png">
+                                        <p> Ошибка нам говорит, что мы не можем присвоить новое значение для свойства <strong><span class="language-swift">nameOfNeighbor</span></strong>, потому что оно является константой. Если по простому, то мы не можем достать значение из ячейки <strong><span class="language-swift">nameOfNeighbor</span></strong> и засунуть туда новое значение. Изменить его вы сможете только в момент инициализации, то есть в момент его создания, когда только только объявляете свойство, а уже дальше в коде ни как. </p>
+                                </div>
+                                <div>
+                                    <div class="shadow_block container_info">
+                                        <p>Лучше всегда создавать константы, компилятор с ними работает быстрее, так как ему не нужно постоянно заглядывать в ячейку памяти и проверять изменилось ли там что нибудь или нет. </p>
+                                        <p>Можно всегда использовать let и заменять его на var только тогда, когда компилятор начинает ругаться!</p>
+                                    </div>
+                                    <div> <img class="img_circle" src="assets/Images/fingerUp.png" /> </div>
+                                </div>
+                            </div>
+                </div>
+                <div>
+                    <h2 id="variable">
+                        Создание переменной
+                    </h2>
+                    <p> Давайте нажмем на кнопочку Fix в окне ошибки: </p>
+                    <div class="code-toolbar shadow_block">
+                    <div class="container-code">
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">var</span> nameOfNeighbor <span class="operator">= </span><span class="string">"Tom"</span>
+    <span class="className">nameOfNeighbor</span> <span class="operator">=</span> <span class="string">"Jack"</span>
+                        </code></pre>
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var nameOfNeighbor = "Tom"
+                                nameOfNeighbor = "Jack"
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <p> Вы можете заметить, что ошибка пропала, а ключевое слово <strong><span class="language-swift keywords">let</span></strong> было заменено на <strong><span class="language-swift keywords">var</span></strong>.</p>
+                    <p>Таким образом обозначаются свойства, которые можно изменить, и называют их переменные. Это основное отличие констант от переменных. </p>
+                </div>
+                <div>
+                    <h2 id="rulsName">
+                        Правила именования свойств
+                    </h2>
+                    <ol>
+                        <li>Имя свойства всегда должно начинаться с маленькой буквы</li>
+                        <li>Не нужно использовать в имени числа. Если есть желание их использовать, то лучше прописать их в натуральном исполнении one, two ...</li>
+                        <li>Избегайте сокращений, например  <strong><span class="language-swift">ref</span> </strong>вместо <strong><span class="language-swift">reference</span></strong>, если они не обще принятые (например url)</li>
+                        <li>В имени нужно использовать только латинские буквы.</li>
+                        <li>При этом нельзя писать транслитом. Например: <strong><span class="language-swift">sobaka</span></strong>, это будет не верно! Верно будет: <strong><span class="language-swift">dog!</span></strong></li>
+                        <li>Название свойства должно отражать суть своего содержимого. Имена в одну букву будет считаться ошибкой!</li>
+                        <li>Имя должно быть написано в стиле <strong><span class="accent">CamelCase</span></strong>, первое слово всегда с маленькой буквы, а все последующие с заглавной. Получается эффект верблюжьих горбов.</li>
+                        <li>Ясность названия всегда имеет приоритет над краткостью</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </body>
+    <script src="assets/js/common.js"></script>
+</html>

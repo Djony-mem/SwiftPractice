@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_16">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#defin_func" class="yakor">&#128195; Определение функции</a>
+          <a href="#return_func" class="yakor">&#128195; Функции с возвращаемым значением</a>
+          <a href="#func_param" class="yakor">&#128195; Функции с параметрами</a>
+          <a href="#func_param_return" class="yakor">&#128195; Функции с параметрами и с возвращаемым значением</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 16. Функции. Часть 1
+            </h2>
+            <p class="date_p"> 14 Января 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+
+               <h2 id="defin_func">
+                   Определение функции
+               </h2>
+                <p>
+                    Вы подошли к одной из самых важных частей в обучении основ программирования. Это достаточно сложная тема, поэтому наберитесь терпения и постарайтесь уделить ей больше времени чем обычно. Так же старайтесь в playground записывать каждое действие и смотреть как отрабатывает код.
+                </p>
+                <p>
+                    Что же такое <span class="accent">функция</span>? Это блок кода, у которого есть имя и он может быть использован в различных частях программы.
+                </p>
+                <p>
+                    Звучит не так просто, но давайте разбираться.
+                </p>
+                <p>
+                    Начнем с простого примера:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers = [5, 4, 3.5, 8, 9.2] // (1)
+
+                            for number in numbers { // (2)
+                                print(number)
+                            }
+
+                            numbers.append(14.9) // (3)
+
+                            for number in numbers { // (4)
+                                print(number)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span> = [<span class="numbers">5</span>, <span class="numbers">4</span>, <span class="numbers">3.5</span>, <span class="numbers">8</span>, <span class="numbers">9.2</span>] <span class="comments">// (1)</span>
+
+    <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> { <span class="comments">// (2)</span>
+        <span class="className">print</span>(<span class="className">number</span>)
+    }
+
+    <span class="className">numbers</span>.<span class="className">append</span>(<span class="numbers">14.9</span>) <span class="comments">// (3)</span>
+
+    <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> { <span class="comments">// (4)</span>
+        <span class="className">print</span>(<span class="className">number</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    (1) Создаем массив с типом Double, так как там есть значения с плавающей точкой, то этот тип определяется по умолчанию и прописывать его явно не нужно.
+                </p>
+                <p>
+                    (2) При помощи цикла for <a href="#" class="tooltipText"><span class="textInfo">
+                    <img class="img_block" src="assets/Images/Lesson16/Link16.1.png" />
+                    Пример:
+                    <img class="img_block" src="assets/Images/Lesson16/Link16.1.1.png" />
+                    более подробно можно почитать в 12 уроке.
+                    </span>&#x270D;перебираем массив</a> и выводим каждое значение на консоль.
+                </p>
+                <p>
+                    (3) добавляем элемент в массив, используя метод <a href="#" class="tooltipText"><span class="textInfo">
+                        <span class="accent">Метод append()</span> - добавляет новый элемент в конец массива.
+                    </span>&#x270D;append()</a>
+                </p>
+                <p>
+                    (4) И снова перебираем массив и выводим каждый элемент на консоль.
+                </p>
+                <p>
+                    Внимательно посмотрите на код. В двух местах мы дублируем один и тот же код:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.1.png" />
+                <p>
+                    Это два абсолютно одинаковых блока кода, а хорошие программисты не любят когда что то повторяется, это же в два раза больше работы!  И следуя определению функции, мы можем этому блоку дать имя и вызывать его по имени в нужных нам местах.
+                </p>
+                <p>
+                    Имя должно быть осмысленным и нести в себе информацию о назначении функции. Когда мы называем свойства, то мы используем существительные, а когда нам нужно назвать функцию, то здесь мы должны использовать глаголы, потому что это действие.
+                </p>
+                <p>
+                    В нашем случае, блок кода занимается перебором массива и выводом элементов на консоль. Суть метода получить каждый элемент и вывести его на консоль, соответсвенно имя можно определить как  printEachElementOfArray, при этом артикли в названии можно опускать.
+                </p>
+                <p>
+                    Прежде чем мы реализуем данную функцию, давайте сперва посмотрим на синтаксис ее самого простого типа:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.2.png" />
+                <p>
+                    Первым пишется ключевое слово func, так система понимает, что вы собираетесь реализовать функцию. Далее вы прописываете имя функции, то которое отражает суть блока кода внутри функции, после имени прописываете пустые скобки, чуть позже я расскажу зачем они нужны. Ну и завершающим элементом являются фигурные скобки, в которых мы определяем тот самый блок кода, который не хотим дублировать.
+                </p>
+                <p>
+                    Наша функция будет выглядеть следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printEachElementOfArray() {
+                                for number in numbers {
+                                    print(number)
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printEachElementOfArray</span>() {
+        <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> {
+            <span class="className">print</span>(<span class="className">number</span>)
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Обратите внимание на вложенность, очень частая ошибка начинающих разработчиков, это не понимание где скобки начинаются и где заканчиваются, поэтому первое время наблюдайте что в чем лежит.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Не забывайте, что каждые фигурные скобки определяют свою <a href="#" class="tooltipText"><span class="textInfo">
+                    <img class="img_block" src="assets/Images/Lesson16/Link16.2.png" />
+                    более подробно можно почитать в 6 уроке.
+                    </span>&#x270D;локальную зону</a> видимости. Что бы проследить где начинается и заканчивается определенная зона, нужно кликнуть по открывающей или закрывающей фигурной скобке, блок за который она отвечает будет выделен.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Мы с вами реализовали функцию, но ни как к ней не обращаемся. То есть она не будет работать пока мы к ней не обратимся. Это можно сравнить с свойствами, которые мы создаем, мы определяем их через ключевое слово var или let, и если они нам нужны дальше в коде, мы  к ним обращаемся по имени уже без ключевых слов. Здесь мы тоже определили функцию через ключевое слово func, и что бы к ней обратиться ключевое слово не нужно
+                </p>
+                <p>
+                    Посмотрим как это сработает с нашим кодом:
+                </p>
+                  <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            var numbers = [5, 4, 3.5, 8, 9.2]
+
+                            func printEachElementOfArray() { // (1)
+                                for number in numbers {
+                                    print(number)
+                                }
+                            }
+
+                            printEachElementOfArray() // (2)
+
+                            numbers.append(14.9) // (3)
+
+                            printEachElementOfArray() // (4)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">numbers</span> = [<span class="numbers">5</span>, <span class="numbers">4</span>, <span class="numbers">3.5</span>, <span class="numbers">8</span>, <span class="numbers">9.2</span>]
+
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printEachElementOfArray</span>() { <span class="comments">// (1)</span>
+        <span class="keywords">for</span> number <span class="keywords">in</span> <span class="className">numbers</span> {
+            <span class="className">print</span>(<span class="className">number</span>)
+        }
+    }</span>
+
+    printEachElementOfArray() <span class="comments">// (2)</span>
+
+    <span class="className">numbers</span>.<span class="className">append</span>(<span class="numbers">14.9</span>) <span class="comments">// (3)</span>
+
+    printEachElementOfArray() <span class="comments">// (4)</span></span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    (1) Объявляем функцию, то есть создаем.
+                </p>
+                <p>
+                    (2) Вызываем функцию, то есть запускаем блок внутри нее, а именно начинаем перебирать коллекцию и выводить каждый элемент на консоль.
+                </p>
+                <p>
+                    (3) Добавляем элемент в массив.
+                </p>
+                <p>
+                    (4) Снова вызываем функцию, то есть повторно запускаем блок кода внутри нее.
+                </p>
+                <p>
+                    Таким образом вы можете в любой точке вашего кода вызвать эту функцию, и у вас будет выполняться блок кода с перебором.
+                </p>
+                 <div>
+                    <div class="shadow_block container_terms">
+                       <p>
+                           <span class="accent">Реализация функции (Объявление функции) </span> - по сути ее создание, когда пишем ключевое слово func имя() { код }
+                       </p>
+                        <p>
+                            <span class="accent">Вызов функции</span> - обращаемся к функции по ее имени и в конце определяем круглые скобки, без ключевого слова func: printEachElementOfArray()
+                        </p>
+                        <p>
+                          <span class="accent">Исполнение кода</span> - выполнение компилятором кода.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте рассмотрим еще один пример. Нам нужно объявить функцию, которая будет будет находить рандомное целое число и выводить его на консоль. Первое что мы должны сделать, так это придумать название для функции. Она будет заниматься тем что выводить на консоль рандомное значение, значит так и назовем printRandomInt
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printRandomInt() {
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printRandomInt</span>() {
+
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Второе что нам следует сделать это продумать логику. Создадим новое свойство, которому присвоим рандомное значение использовав метод  <a href="#" class="tooltipText"><span class="textInfo">
+                    Этот метод возвращает рандомное число из заданного диапазона, в нашем примере от 1 до 10.
+                    Более подробно можно почитать в 6 уроке.
+                    </span>&#x270D;random</a>:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printRandomInt() {
+                                let randomInt = Int.random(in: 1...10)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printRandomInt</span>() {
+        <span class="operator"><span class="keywords">let</span> randomInt = <span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>)
+    }</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Наше рандомное значение будет в диапазоне от 1 до 10. Все что нам осталось, это вывести данное свойство на консоль, для этого у нас есть print:
+                </p>
+                 <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Свойство randomInt будет локальным, потому что находится внутри фигурных скобок, то есть за пределами этой функции, мы его не увидим.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printRandomInt() {
+                                let randomInt = Int.random(in: 1...10)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printRandomInt</span>() {
+        <span class="operator"><span class="keywords">let</span> randomInt = <span class="className">Int</span>.<span class="className">random</span>(<span class="className">in</span>: <span class="numbers">1</span>...<span class="numbers">10</span>)
+        <span class="className">print</span>(<span class="string">"Random integer:"</span> \(randomInt)<span class="string">"</span>)
+    }</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Давайте запустим компилятор и посмотрим на результат:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.3.png" />
+                <p>
+                    Консоль осталась пустой, а все потому что мы данную функцию ни как не вызвали, она у нас есть как опция, но мы ее не используем. Это можно сравнить с педалями в автомобиле, они там есть, но пока вы на них не нажмете никакого результата не получите, машина так и будет стоять. Тут все по тому же принципу, функцию нужно запустить:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            printRandomInt()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator">printRandomInt()</span>
+                    </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Теперь, если мы запустим компилятор то увидим наше рандомное значение:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.4.png" />
+                <p>
+                    Давайте проследим каждый сделанный компилятором шаг:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.5.png" />
+                <p>
+                    1) Сперва он видит реализацию функции, но игнорирует ее, то есть не исполняет код внутри функции.
+                </p>
+                <p>
+                    2) После объявленой функции он видит ее вызов, заглядывает внутрь и выполняет код.
+                </p>
+                <p>
+                    3) Создает временное свойство randomInt, присваивает ему рандомное значение.
+                </p>
+                <p>
+                    4) Выводит на консоль.
+                </p>
+                <p>
+                    5) После того как компилятор выполнит весь код внутри, он выгрузит все созданные свойства внутри функции из памяти.
+                </p>
+                <p>
+                    Таким образом мы можем в любой момент нашей программы вызвать эту функцию, количество таких вызовов не ограниченно, и каждый вызов компилятор будет выполнять код внутри:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.6.png" />
+                <br/>
+                 <br/>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Если вы не поставите круглые скобки при вызове функции, то она не отработает, то есть компилятор ее не вызовет и код внутри не будет исполнен.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="return_func">
+                   Функции с возвращаемым значением
+                </h2>
+                <p>
+                   Мы с вами рассмотрели самый простой вариант функции. Но это не весь ее потенциал, функция могут возвращать какое либо значение. Синтаксис такой функции будет выглядеть следующим образом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.7.png" />
+                <p>
+                    После круглых скобок мы ставим результирующую стрелку (тире и знак больше), после нее определяем тип значения который хотим вернуть в этой функции, ну и сам блок где мы определим какой-то исполняемый код. Звучит не просто, но давайте разбираться.
+                </p>
+                <p>
+                    Создадим функцию, которая будет возвращать строку, то есть тип String:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreeting() -> String {
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    На данном этапе компилятор покажет нам ворнинг с просьбой вернуть значение типа String:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.8.png" />
+                <p>
+                    то есть мы должны прописать ключевое слово return и вернуть данный тип:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreeting() -> String {
+                                return "Hi everyone!"
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+        <span class="keywords">return</span> <span class="string">"Hi everyone!"</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    При помощи ключевого слова return мы вернули значение с типом String. То есть после результирующей стрелки мы определяем возвращаемый тип, а после ключевого слова return значение этого типа.
+                </p>
+                <p>
+                    Но на самом деле компилятор достаточно умный что бы понять что в функции где только одна строка, вернется эта строка, поэтому ключевое слово return будет лишним:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreeting() -> String {
+                                "Hi everyone!"
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+        <span class="string">"Hi everyone!"</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Давайте еще пару примеров рассмотрим для понимания, с разными возвращаемыми значениями:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getIntValue() -> Int {
+                                7
+                            }
+
+                            func getDoubleValue() -> Double {
+                                7.4
+                            }
+
+                            func getBoolValue() -> Bool {
+                                true
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getIntValue</span>() -> <span class="className">Int</span> {
+        <span class="numbers">7</span>
+    }</span>
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getDoubleValue</span>() -> <span class="className">Double</span> {
+        <span class="numbers">7.4</span>
+    }</span>
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getBoolValue</span>() -> <span class="className">Bool</span> {
+        <span class="keywords">true</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Это может быть и какое то свойство или выражение, которое содержит в себе значение нужного нам типа:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let number = 7
+
+                            func getIntValut() -> Int {
+                                number // вернется 7
+                            }
+
+                            let doubleNumber = 7.4
+
+                            func getDoubleValue() -> Double {
+                                doubleNumber + 6 // 7.4 + 6 вернется 13.4
+                            }
+
+                            func getBoolValue() -> Bool {
+                                doubleNumber > 8 // 7.4 > 8 вернется false
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">number</span> = <span class="numbers">7</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getIntValue</span>() -> <span class="className">Int</span> {
+        <span class="className">number</span><span class="comments"> // вернется 7</span>
+    }</span>
+
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">doubleNumber</span> = <span class="numbers">7.4</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getDoubleValue</span>() -> <span class="className">Double</span> {
+        <span class="className">doubleNumber</span> + <span class="numbers">6</span><span class="comments"> // 7.4 + 6 вернется 13.4</span>
+    }
+
+    <span class="keywords">func</span> <span class="language-swift">getBoolValue</span>() -> <span class="className">Bool</span> {
+        <span class="className">doubleNumber</span> > <span class="numbers">8 </span><span class="comments">// 7.4 > 8 вернется false</span>
+    }</span>
+
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Думаю вы уловили этот момент, но что если у вас в функции больше чем одна строка, и не совсем очевидно, что вы возвращаете. Например:
+                </p>
+               <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let doubleNumber = 7.4
+
+                            func getDoubleValue() -> Double {
+                                let number = 6.5
+                                doubleNumber + number
+                            } // Ошибка
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">doubleNumber</span> = <span class="numbers">7.4</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getDoubleValue</span>() -> <span class="className">Double</span> {
+        <span class="keywords">let</span> number = <span class="numbers">6.5</span>
+        <span class="className">doubleNumber</span> + <span class="className">number</span>
+    }<span class="comments"> // Ошибка</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Этот код выдаст ошибку, компилятор попросит вас показать что конкретно вы возвращаете, и вот в этом случае ключевое слово return обязательно:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let doubleNumber = 7.4
+
+                            func getDoubleValue() -> Double {
+                                let number = 6.5
+                                return doubleNumber + number
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">doubleNumber</span> = <span class="numbers">7.4</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getDoubleValue</span>() -> <span class="className">Double</span> {
+        <span class="keywords">let</span> number = <span class="numbers">6.5</span>
+        <span class="keywords">return </span><span class="className">doubleNumber</span> + <span class="className">number</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    При это код, который вы разместите ниже ключевого слова return, не будет выполнен, что я имею в виду?! Если я напишу следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let doubleNumber = 7.4
+
+                            func getDoubleValue() -> Double {
+                                let number = 6.5
+                                return doubleNumber + number
+                                print("Hi!") // этот код никогда не будет выполнен и мы никогда не увидим "Hi!" на консоле
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">doubleNumber</span> = <span class="numbers">7.4</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getDoubleValue</span>() -> <span class="className">Double</span> {
+        <span class="keywords">let</span> number = <span class="numbers">6.5</span>
+        <span class="keywords">return </span><span class="className">doubleNumber</span> + <span class="className">number</span>
+        <span class="className">print</span>(<span class="string">"Hi!"</span>)<span class="comments"> // этот код никогда не будет выполнен и мы никогда не увидим "Hi!" на консоле </span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Принт никогда не выведет на консоль приветствие “Hi”, потому что ключевое слово return захватывает значение и выходит из функции, то есть функция заканчивает свою работу. Все что ниже return не будет выполнено.
+                </p>
+                <p>
+                    А теперь давайте подумаем зачем нам нужно возвращать значение, и что нам это дает. Для начала вызовем все наши функции:
+                </p>
+               <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getGreeting() -> String {
+                                "Hi everyone!" // "Hi everyone!"
+                            }
+
+                            let number = 7
+                            func getIntValut() -> Int {
+                                number // 7
+                            }
+
+                            let doubleNumber = 7.4
+                            func getDoubleValue() -> Double {
+                                let number = 6.5
+                                return doubleNumber + number // 13.9
+                            }
+
+                            func getBoolValue() -> Bool {
+                                doubleNumber > 8 // false
+                            }
+
+                            getGreeting()
+                            getIntValue()
+                            getDoubleValue()
+                            getBoolValue()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getGreeting</span>() -> <span class="className">String</span> {
+        <span class="string">"Hi everyone!"</span><span class="comments"> // "Hi everyone!"</span>
+    }</span>
+
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">number</span> = <span class="numbers">7</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getIntValue</span>() -> <span class="className">Int</span> {
+        <span class="className">number</span><span class="comments"> // 7</span>
+    }</span>
+
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">doubleNumber</span> = <span class="numbers">7.4</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getDoubleValue</span>() -> <span class="className">Double</span> {
+        <span class="keywords">let</span> number = <span class="numbers">6.5</span>
+        <span class="keywords">return </span><span class="className">doubleNumber</span> + <span class="className">number</span><span class="comments"> // 13.9</span>
+    }
+
+    <span class="keywords">func</span> <span class="language-swift">getBoolValue</span>() -> <span class="className">Bool</span> {
+        <span class="className">doubleNumber</span> > <span class="numbers">8 </span><span class="comments">// false</span>
+    }</span>
+
+    <span class="operator">getGreeting()</span>
+    <span class="operator">getIntValue()</span>
+    <span class="operator">getDoubleValue()</span>
+    <span class="operator">getBoolValue()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если вы посмотрите на окно с права, то заметите что напротив вызванных методов, появлились значения, именно те которые возвращают функции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.9.png" />
+                <p>
+                    Мы с вами знаем что если что то возвращается, то мы это что то можем присвоить свойству:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let greeting = getGreeting()
+                            let intValue = getIntValut()
+                            let doubleValue = getDoubleValue()
+                            let boolValue = getBoolValue()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">greeting</span> = <span class="operator">getGreeting()</span>
+    <span class="keywords">let</span> <span class="language-swift">intValue</span> = <span class="operator">getIntValue()</span>
+    <span class="keywords">let</span> <span class="language-swift">doubleValue</span> = <span class="operator">getDoubleValue()</span>
+    <span class="keywords">let</span> <span class="language-swift">boolValue</span> = <span class="operator">getBoolValue()</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Либо использовать возвращаемое значение в какой-либо логике напрямую:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let doubleNumber = 7.4
+
+                            func getBoolValue() -> Bool {
+                                doubleNumber > 8
+                            }
+
+                            if getBoolValue() { // функция вернет false
+                                print(doubleNumber)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">doubleNumber</span> = <span class="numbers">7.4</span>
+
+    <span class="keywords">func</span> <span class="language-swift">getBoolValue</span>() -> <span class="className">Bool</span> {
+        <span class="className">doubleNumber</span> > <span class="numbers">8 </span><span class="comments"></span>
+    }
+
+    <span class="keywords">if</span> <span class="language-swift">getBoolValue</span>() { <span class="comments">// функция вернет false</span>
+        <span class="className">print</span>(<span class="className">doubleNumber</span>)
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    после ключевого слова if мы вызываем функцию, которая нам возвращает логическое значение, и в зависимости от того, какое это будет значение, мы либо выполним блок кода в фигурных скобках, либо нет.
+                </p>
+                <h2 id="func_param">
+                   Функции с параметрами
+               </h2>
+                <p>
+                    Функция может не только возвращать значение, но и принимать их извне, в качестве своих параметров. Грубо говоря мы можем создавать константы в ее круглых скобках и использовать только в ее локальной зоне.
+                </p>
+                <p>
+                    Давайте посмотрим на синтаксис:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.10.png" />
+                <p>
+                    Круглые скобки больше не пустые, внутри определяем, через запятую параметры функции, так сказать не инициализированные константы, без ключевого слова let:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func printIntValue(number: Int) {
+                                let sum = number + 3
+                                print(sum)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">printIntValue</span>(<span class="language-swift">number:</span> <span class="className">Int</span>) {
+        <span class="operator"><span class="keywords">let</span> sum = number + <span class="numbers">3</span>
+        <span class="className">print</span>(sum)
+    }</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В данной реализации number является внутренней константой, она пока не инициализирована, и обращаться к ней мы можем только внутри функции.
+                </p>
+                <p>
+                    Давайте теперь посмотрим на вызов:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.11.png" />
+                <p>
+                    именно в этот момент мы инициализируем внутренную константу функции. Как это работает?!
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.12.png" />
+                <p>
+                    Давайте теперь сравним вызовы двух разных функций:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let number = 7
+
+                            func printIntValue() { // (1)
+                                let sum = number + 3
+                                print(sum)
+                            }
+
+                            printIntValue()
+
+                            func printIntValue(number: Int) { // (2)
+                                let sum = number + 3
+                                print(sum)
+                            }
+
+                            printIntValue(number: 9)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">number</span> = <span class="numbers">7</span>
+
+    <span class="keywords">func</span> <span class="language-swift">printIntValue</span>() { <span class="comments">// (1)</span>
+        <span class="operator"><span class="keywords">let</span> sum = number + <span class="numbers">3</span>
+        <span class="className">print</span>(sum)
+    }</span></span>
+
+    <span class="operator">printIntValue()
+
+    <span class="keywords">func</span> <span class="language-swift">printIntValue</span>(<span class="language-swift">number:</span> <span class="className">Int</span>) { <span class="comments">// (2)</span>
+        <span class="operator"><span class="keywords">let</span> sum = number + <span class="numbers">3</span>
+        <span class="className">print</span>(sum)
+    }</span></span>
+
+    <span class="operator">printIntValue(number: <span class="numbers">9</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    (1) Первая функция без параметров и она использует внешнюю константу number, тогда как
+                    (2) вторая функция с параметром, и она использует внутреннюю константу number.
+                </p>
+                <p>
+                    Подумайте какой значение выведет на консоль первая функция, и какое вторая функция.
+                </p>
+                <p>
+                    В чем же плюсы второй функции с параметром?! Все дело в том, что такая функция самодостаточна, и ее можно переиспользовать, то есть вырвать из этого playground, и перенести в другой, в отличии от первого примера с внешним свойством, Где вместе с функцией придется переносить и все ее внешние свойства, иначе внутренняя логика поломается. Еще плюс второй функции, в том что по окончанию своей работы она выгружается из памяти вместе со своими параметрами, в отличии от второй, которая после завершения оставит после себя мусор в виде внешнего свойства.
+                </p>
+                <p>
+                    Но это совсем не значит что мы всегда теперь должны использовать функции с параметрами и у нас не должно быть внешних свойств, об этом подробно мы поговорим на следующем уроке.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Функция читается вместе со своими параметрами и возвращаемыми значениями, а это значит что вы можете использовать одинаковые имена, например рассмотренные функции ранее будут разными:
+                        </p>
+                        <img class="img_block" src="assets/Images/Lesson16/Lesson16.13.png" />
+                        <p>
+                            Одним словом, если у вас отличается хотя бы какая-то часть функции, будь то тип параметра или возвращаемое значение, то это будет считаться совершенно другой функцией. В списке для выбора функции у вас будет два варианта:
+                        </p>
+                         <img class="img_block" src="assets/Images/Lesson16/Lesson16.14.png" />
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте посмотрим еще одну реализация, но уже увеличим количество входных параметров:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func findValue(numbers: [Int], value: Int) {
+                                if numbers.contains(value) { // (1)
+                                    print("Значение \(value) есть в массиве") // (2)
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">findValue</span>(<span class="language-swift">numbers</span>: [<span class="className">Int</span>], <span class="language-swift">value</span>: <span class="className">Int</span>) {
+        <span class="operator"><span class="keywords">if</span> numbers.<span class="className">contains</span>(value) { <span class="comments">// (1)</span>
+            <span class="className">print</span>(<span class="string">"Значение</span> \(value)<span class="string"> есть в массиве"</span>) <span class="comments">// (2)</span>
+        }
+    }</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Данная функция принимает два параметра, массив с типом Int и value с типом Int, воспринимайте их как две внутренние не <a href="#" class="tooltipText"><span class="textInfo">
+                        <span class="accent">Инициализировать свойство</span> - присвоить значение свойству в момент его создания.
+                    </span>&#x270D;инициализированные</a> константы функции, и мы можем внутри нее их использовать
+                </p>
+                <p>
+                    (1) запускаем условную конструкцию if, определяем есть ли value в массиве, используя для этого метод <a href="#" class="tooltipText"><span class="textInfo">
+                        <span class="accent">Метод contains()</span> -  возвращает логическое значение, указывающее, содержит ли массив определенный элемент. В скобках определяете элемент, который хотите проверить, и если этот элемент есть в массиве, то метод вернет true иначе false.
+                    </span>&#x270D;contains()</a>.
+                </p>
+                <p>
+                    (2) Если метод массива contains возвращает true, то мы выводим на консоль фразу “Значение &ltзначение&gt есть в массиве”
+                </p>
+                <p>
+                    Напомню, что пока мы функцию не вызовем она работать не будет, поэтому делаем вызов:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let values = [3, 6, 4, 12]
+
+                            findValue(numbers: values, value: 6)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">values</span> = [<span class="numbers">3</span>, <span class="numbers">6</span>, <span class="numbers">4</span>, <span class="numbers">12</span>]
+
+    findValue(numbers: <span class="className">values</span>, value: <span class="numbers">6</span>) <span class="comments">// (2)</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Скорее всего вы захотите спросить, почему мы внешний массив передаем в параметр функции? Зачем тогда вообще создавать параметр если мы все равно берем данные извне?
+                </p>
+                <p>
+                    Давайте снова обратимся к примеру, и создадим похожую функцию:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let values = [3, 6, 4, 12]
+
+                            func findValue(numbers: [Int], value: Int) { // (1)
+                                if numbers.contains(value) {
+                                    print("Значение \(value) есть в массиве")
+                                }
+                            }
+
+                            findValue(numbers: values, value: 6)
+
+                            func findValue(value: Int) { // (2)
+                                if values.contains(value) {
+                                    print("Значение \(value) есть в массиве")
+                                }
+                            }
+
+                            findValue(value: 6)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">var</span> <span class="language-swift">values</span> = [<span class="numbers">3</span>, <span class="numbers">6</span>, <span class="numbers">4</span>, <span class="numbers">12</span>]
+
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">findValue</span>(<span class="language-swift">numbers</span>: [<span class="className">Int</span>], <span class="language-swift">value</span>: <span class="className">Int</span>) { <span class="comments">// (1)</span>
+        <span class="operator"><span class="keywords">if</span> numbers.<span class="className">contains</span>(value) {
+            <span class="className">print</span>(<span class="string">"Значение</span> \(value)<span class="string"> есть в массиве"</span>)
+        }
+    }</span></span>
+
+    findValue(numbers: <span class="className">values</span>, value: <span class="numbers">6</span>)
+
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">findValue</span>(<span class="language-swift">value</span>: <span class="className">Int</span>) { <span class="comments">// (2)</span>
+        <span class="operator"><span class="keywords">if</span> values.<span class="className">contains</span>(value) {
+            <span class="className">print</span>(<span class="string">"Значение</span> \(value)<span class="string"> есть в массиве"</span>)
+        }
+    }</span></span>
+
+    findValue(value: <span class="numbers">6</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Две почти одинаковые функции, выполняют одну и ту же логику, и получат один и тот же результат, но разница только в том, что реализацию функции (1) вы можете скопировать в другой файл (откройте новый плейгрануд и скопируйте туда только реализацию функции), со второй (2) у вас так не получится, потому что мы зависим от внешнего свойства values (так же попробуйте перенести эту функцию в новый файл)
+                </p>
+                <p>
+                    В дальнейшем вы научитесь определять когда вам нужно свойство снаружи, а когда в качестве параметра, пока же нужно просто понимать как это работает.
+                </p>
+                 <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Все объявленые параметры в функции должны быть использованы в логике, иначе это лишний параметр, в коде не должно быть ничего лишнего! Про запас параметры создавать не нужно!
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    По традиции давайте проследим каждый шаг нашей функции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.15.png"/>
+                <p>
+                   Если говорить по простому, то при реализации функции мы используем не инициализированные константы в параметрах, а при вызове мы их инициализируем и внутри функции работаем с уже конкретными значениями.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Параметры в пределах одной функции должны быть уникальными. Параметры не должны быть глаголами, предлогами или местоимениями. Параметры – это сущности и должны отвечать на вопрос Что?
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <h2 id="func_param_return">
+                   Функции с параметрами и с возвращаемым значением
+                </h2>
+                <p>
+                    В целом здесь вы ничего нового не узнаете, такой вид функции это объединение двух последних.
+                </p>
+                <p>
+                    Давайте сразу обратимся к синтаксису такой функции:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson16/Lesson16.16.png"/>
+                <p>
+                    Сразу обратимся к примеру и разберем его на составляющие:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            func getEvenNumbers(values: [Int]) -> [Int] {
+                                var evenNumbers: [Int] = [] // (1)
+
+                                for value in values { // (2)
+                                    if value % 2 == 0 { // (3)
+                                        evenNumbers.append(value) // (4)
+                                    }
+                                }
+
+                                return evenNumbers // (5)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">func</span> <span class="language-swift">getEvenNumbers</span>(<span class="language-swift">values</span>: [<span class="className">Int</span>]) -> [<span class="className">Int</span>] {
+        <span class="keywords">var</span> <span class="language-swift">evenNumbers</span>: [<span class="className">Int</span>] = []<span class="comments"> // (1)</span>
+
+        <span class="keywords">for</span> value <span class="keywords">in</span> <span class="className">values</span> {<span class="comments"> // (2)</span>
+            <span class="keywords">if</span> <span class="language-swift">value</span> % <span class="numbers">2</span> == <span class="numbers">0</span> { <span class="comments">// (3)</span>
+                evenNumbers.<span class="className">append</span>(value)<span class="comments"> // (4)</span>
+            }
+        }
+
+        <span class="keywords">return </span><span class="className">evenNumbers</span><span class="comments"> // (5)</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Данная функция, принимает в качестве параметра массив целых чисел, и возвращает только четные значения.
+                </p>
+                <p>
+                    Так как параметры функции являются константами, то мы не можем их изменять, а это значит что нам нужен посредник, поэтому (1) мы создаем новый пустой массив того типа, который нам нужно вернуть.
+                </p>
+                <p>
+                    (2) Далее перебираем массив, из параметра, берем каждое его значение
+                </p>
+                <p>
+                    (3) проверяем его на четность используя <a href="#" class="tooltipText"><span class="textInfo">
+                        <span class="accent">Оператор %</span> - это оператор остатка от деления. Если разделить 7 на 3, то остаток будет равен 1:
+                        <img class="img_block" src="assets/Images/Lesson16/Link16.3.png"/>
+                        Более подробно можно почитать в 3 уроке.
+                    </span>&#x270D;оператор %</a>.
+                </p>
+                <p>
+                    (4) Если число является четным, то мы добавляем его в новый массив. Напомню, что пока цикл не переберет все элементы коллекции компилятор дальше не идет. Поэтому после того как цикл закончит последнюю итерацию, у нас будет наполненный массив всеми четными значениями
+                </p>
+                <p>
+                    (5 ) возвращаем новый массив
+                </p>
+                <p>
+                    Теперь у вас есть функция, которая в любой момент может отфильтровать вам массив целых числе, и вернуть массив только с четными значениями, а ее результат мы можем использовать дальше в коде:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let evenNumbers = getEvenNumbers(values: [7, 4, 3, 9, 12, 4])
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">evenNumbers</span> = getEvenNumberse(values: [<span class="numbers">7</span>, <span class="numbers">4</span>, <span class="numbers">3</span>, <span class="numbers">9</span>, <span class="numbers">12</span>, <span class="numbers">4</span>])</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Посмотрите на тип свойтсва evenNumber (зажмите option и кликните по свойству)
+                </p>
+                <p>
+                    В следующем уроке продолжим знакомство с функциями, ну а ваша задача закрепить знания решением задач.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_6">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+   <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#ternanry" class="yakor">&#128195; Тернарный условный оператор</a>
+          <a href="#visibility" class="yakor">&#128195; Область видимости</a>
+          <a href="#random" class="yakor">&#128195; Рандомное значение</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 6. Тернарный оператор.
+            </h2>
+            <p class="date_p"> 1 Ноября 2022 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <h2 id="ternanry">
+                   Тернарный условный оператор
+                </h2>
+                <p>
+                    Это достаточно простая концепция, особенно если вы хорошо разобрались в условной конструкции if.
+                </p>
+                <p>
+                   Давайте для начала посмотрим на синтаксис конструкции
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.1.png" />
+                <p>
+                    Как видите синтаксис тернарного условного оператора достаточно простой, нужно запомнить всего два элемента, вопросительный знак после условия и двоеточие между действиями.
+                </p>
+                <p>
+                    Прежде чем посмотреть на примере работу данного оператора, давайте начнем с привычной нам условной конструкции <span class="keywords">if</span>:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let name = "Sam"
+                            if name != "Sam" {
+                                print("Who are you?")
+                            } else {
+                                print("Hello, \(name)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name<span class="operator">= </span><span class="string">"Sam"</span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">name</span> != <span class="string">"Sam"</span> {
+        <span class="className">print</span>(<span class="string">"Who are you?"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">print</span>(<span class="string">"Hello, </span>\(<span class="className">name</span>)<span class="string">"</span>)
+    } </span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Давайте проговорим как отработает компилятор. Он видит ключевое слово if, понимает что это начало условной конструкции, после ключевого слова, он проверяет условие <span class="className">name</span> != <span class="string">“Sam”</span> если оно возвращает true то компилятор выполнит блок кода в фигурных скобках, после условия.
+                </p>
+                <p>
+                   В нашем случае условие вернет false, потому что имя равно “Sam”, а мы проверяем на не равенство, то есть если name не равно “Sam” то возвращается true. Значит первое условие не выполняется и блок кода в фигурных скобках после условия не выполнится, и компилятор идет к следующей ветке else, так как там нет условия, то блок кода после else будет выполнен.
+                </p>
+                <p>
+                    Если вы наблюдаете такую простую конструкцию, когда в блоке всего одна строчка кода, то ее можно преобразовать в тернарный оператор.
+                </p>
+                <p>
+                    Тернарный оператор по сути является краткой формой if/else конструкции.
+                </p>
+                <p>
+                    Первым идет условие:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                name != "Sem"
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="className">name</span><span class="operator"> != </span><span class="string">"Sem"</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                 <p>
+                   После мы должны поставить вопросительный знак:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                name != "Sem" ?
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="className">name</span><span class="operator"> != </span><span class="string">"Sem"</span><span class="operator"> ? </span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Далее, действие, которое должно быть выполнено в случае, если условие возвращает true, в нашем случае это фраза Who are you?:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                name != "Sem" ? print("Who are you?")
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="className">name</span><span class="operator"> != </span><span class="string">"Sem"</span><span class="operator"> ? </span><span class="operator"><span class="className">print</span>(<span class="string">"Who are you?"</span>)</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                   Далее нам нужно поставить двоеточие, и определить действие, которое будет отрабатывать в том случае, если условие вернет false:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                name != "Sem" ? print("Who are you?") : print("Hello, \(name)")
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="className">name</span><span class="operator"> != </span><span class="string">"Sem"</span><span class="operator"> ? </span><span class="operator"><span class="className">print</span>(<span class="string">"Who are you?"</span>) : <span class="className">print</span>(<span class="string">Hello, </span>\(<span class="className">name</span>)<span class="string">"</span>)</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Хорошо, с этим мы разобрались, но давайте рассмотрим еще одну конструкцию <span class="keywords">if</span>:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var count = 0
+
+                                if count < 5 {
+                                    count += 1
+                                } else {
+                                    count -= 1
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> count <span class="operator">= <span class="numbers">0</span>
+
+    <span class="keywords">if</span> <span class="className">count</span> &#60; <span class="numbers">5</span> {
+        <span class="className">count</span> += <span class="numbers">1</span>
+    } <span class="keywords">else</span> {
+        <span class="className">count</span> -= <span class="numbers">1</span>
+    }</span>
+                        </code></pre>
+
+                    </div>
+                </div>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                        <svg class="tooltip-icon">
+
+                        </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        <span class="className">count</span> += <span class="numbers">1</span> это сокращенная форма от <span class="className">count</span> = <span class="className">count</span> + <span class="numbers">1</span>
+                    </span>
+                </span>
+                <p>
+                    Если свойство count меньше 5 то, мы прибавляем единицу, иначе мы вычитаем единицу.
+                </p>
+                <p>
+                    Давайте теперь попробуем сделать тоже самое, но с использованием тернарного оператора. По логике мы должны сделать следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var count = 0
+
+                                count < 5 ? count += 1 : count -= 1
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> count <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="className">count</span><span class="operator"> &#60; </span><span class="numbers">5</span><span class="operator"> ? </span><span class="operator"><span class="className">count</span> += <span class="numbers">1</span> : <span class="className">count</span> -= <span class="numbers">1</span></span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Но если мы запустим компилятор, то он нам выдаст ошибку. Потому что мы не можем в тернарном операторе делать присвоение (=). Но мы можем делать математические операции:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var count = 0
+
+                                count < 5 ? count + 1 : count - 1
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> count <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="className">count</span><span class="operator"> &#60; </span><span class="numbers">5</span><span class="operator"> ? </span><span class="operator"><span class="className">count</span> + <span class="numbers">1</span> : <span class="className">count</span> - <span class="numbers">1</span></span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Так на нас не будет ругаться компилятор, и даже выдаст результат:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.2.png" />
+                <p>
+                    то есть если <span class="className">count</span><span class="operator"> &#60; </span><span class="numbers"></span> то сработает первое действие 0 + 1. И если мы с права видим результат то его мы можем присвоить новому свойству:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var count = 0
+
+                                let result = count < 5 ? count + 1 : count - 1
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> count <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="keywords">let</span> result <span class="operator">=</span><span class="className"> count</span><span class="operator"> &#60; </span><span class="numbers">5</span><span class="operator"> ? </span><span class="operator"><span class="className">count</span> + <span class="numbers">1</span> : <span class="className">count</span> - <span class="numbers">1</span></span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Теперь result будет содержать эту единичку. но нам же нужно что бы count обновился, поэтому мы можем этот результат передать в count:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.3.png" />
+                <p>
+                    Как вы можете видеть, свойство count теперь содержит в себе значение 1.
+                </p>
+                <p>
+                    Но давайте подумаем как мы можем еще сократить данную конструкцию, и начнем мы с изменения нашей условной конструкции:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                var count = 0
+
+                                count < 5 ? 1 : -1
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">var</span> count <span class="operator">=</span> <span class="numbers">0</span>
+
+    <span class="className"> count</span><span class="operator"> &#60; </span><span class="numbers">5</span><span class="operator"> ? <span class="numbers">1</span> : -<span class="numbers">1</span></span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Если у нас условие возвращает true, то конструкция вернет 1, иначе -1. и эти значения мы можем присвоить новому свойству, и наше свойство, в зависимости от условия, будет содержать либо 1 либо -1:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.4.png" />
+                <p>
+                    Давайте для лучшего понимания, нарушим условие, и присвоим значение 6 нашему свойству count, в таком случае свойство result будет содержать -1:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.5.png" />
+                <p>
+                    Теперь понимая процесс получения результата, мы его можем прибавить к нашему свойству count:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.6.png" />
+                <p>
+                    то есть тернарная условная конструкция вернет нам либо 1 либо -1, и мы это значение прибавим к свойству count.
+                </p>
+
+
+                <h2 id="visibility">
+                   Область видимости
+                </h2>
+
+                <p>
+                   Когда вы работаете в playground, все что вы пишете находится в глобальной зоне видимости, как только вы открываете фигурные скобки будь то условная конструкция или функция, любые фигурные скобки определяют новую зону, вы сразу попадаете в локальную зону видимости.
+                </p>
+                <p>
+                   Давайте создадим простую условную конструкцию:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Sem"
+                                var count = 0
+
+                                if name == "Sem" {
+                                    let levelOne = "Зона 1"
+                                    print("\(name) в \(levelOne)")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name <span class="operator">= </span><span class="string">"Sem" </span>
+    <span class="keywords">var</span> count <span class="operator">= </span><span class="numbers">0 </span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Sem"</span> {
+        <span class="keywords">let</span> <span class="language-swift">levelOne</span> <span class="operator">= </span><span class="string">"Зона 1" </span>
+        <span class="className">print</span>(<span class="string">"</span>\(<span class="className">name</span>) <span class="string">в</span> \(<span class="className">levelOne</span>)<span class="string">"</span>)
+    }</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Если имя равно “Sem” то мы создаем новое свойство и выводим на консоль фразу “Sem в Зона 1”
+                </p>
+                <p>
+                    Давайте посмотрим на нашу локальную зону. Что бы посмотреть где она начинается и где заканчивается, нужно кликнуть по открывающей скобке два раза, у вас выделится блок:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.7.png" />
+                <p>
+                    Давайте теперь попробуем вынести принт за пределы этой зоны:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.8.png" />
+                <p>
+                    Компилятор нам говорит что он не видит свойство levelOne, потому что оно находится внутри локальной зоны. Давайте вернем принт обратно и создадим еще одну зону, внутри этой зоны:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let name = "Sem"
+                                var count = 0
+
+                                if name == "Sem" {
+                                    let levelOne = "Зона 1"
+                                    if count == 0 {
+                                        let levelTwo = "Зона 2"
+                                        print("Эта зона видит и \(name) и \(levelOne) и \(levelTwo)")
+                                    }
+                                    print("\(name) в \(levelOne)")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> name <span class="operator">= </span><span class="string">"Sem" </span>
+    <span class="keywords">var</span> count <span class="operator">= </span><span class="numbers">0 </span>
+
+    <span class="operator"><span class="keywords">if</span> <span class="className">name</span> == <span class="string">"Sem"</span> {
+        <span class="keywords">let</span> <span class="language-swift">levelOne</span> <span class="operator">= </span><span class="string">"Зона 1" </span>
+        <span class="keywords">if</span> <span class="className">count</span> == <span class="numbers">0</span> {
+            <span class="keywords">let</span> <span class="language-swift">levelTwo</span> = <span class="string">"Зона 2"</span>
+            <span class="className">print</span>(<span class="string">"Эта зона видит и </span>\(<span class="className">name</span>) <span class="string">и</span> \(<span class="className">levelOne</span>)<span class="string">и</span>\(<span class="className">levelTwo</span>)<span class="string">"</span>)
+        }
+        <span class="className">print</span>(<span class="string">"</span>\(<span class="className">name</span>) <span class="string">в</span> \(<span class="className">levelOne</span>)<span class="string">"</span>)
+    }</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Давайте посмотрим где начинается и где заканчивается эта новая зона:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.9.png" />
+                <p>
+                    Эта зона видит все что происходит выше по иерархии, она видит свойство levelOne, она видит name.
+                </p>
+                <p>
+                    Давайте выделим первую локальную зону:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.10.png" />
+                <p>
+                    Эта зона видит все что находится выше, но не видит свои внутренние зоны, то есть свойство levelTwo она не видит, что бы в этом убедится, нужно просто вынести принт на уровень выше:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.11.png" />
+                <p>
+                    Компилятор не видит свойство levelTwo, потому что оно было создано внутри второй локальной зоны.
+                </p>
+                <p>
+                    Представьте стекло, с одной стороны оно является зеркалом, а с другой прозрачное. А теперь представьте коробку, состоящую из этих стекол. снаружи ты не можешь видеть что в ней лежит, а изнутри коробки тебе прекрасно видно что происходит снаружи. Таким образом блок с фигурными скобками можно представить как эту коробку. изнутри коробки тебе все видно, а снаружи ничего. Если ты поставишь в одну коробку в другую:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.12.png" />
+                <p>
+                    Красный человечек, будет видеть все, вплоть до глобальной зоны, потому что коробки изнутри прозрачные,  синий человечек не будет видеть красного, но зато будет видеть все что происходит в глобальной зоне.
+                </p>
+                <p>
+                    Давайте подведем итог, в playground мы пишем весь код в глобальной зоне, когда мы прописываем фигурные скобки то мы создаем локальную зону (нашу коробку из примера выше).
+                </p>
+                <p>
+                    Вот первая коробка:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.13.png" />
+                <p>
+                    А внутри нее вторая коробка:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.14.png" />
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Вложенных коробок может быть сколько угодно, но лучше не создавать больше трех вложений. Иначе код будет тяжело читать и понимать.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+
+                <h2 id="random">
+                    Рандомное значение
+                </h2>
+
+                <p>
+                    Что бы было интересней решать задачки, мы можем использовать рандомное значение, Для любого числового базового типа.
+                </p>
+                <p>
+                    Для этого мы должны обратится к самому типу и вызвать у него метод random:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let randomNumber = Int.random(in: )
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> randomNumber <span class="operator">= </span><span class="className">Int</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: )</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                   В параметр мы можем передать любой диапазон. С диапазонами на данном этапе вы еще не знакомы, но в целом здесь ничего сложного, вы просто должны определить начальное значение и конечное, следующим образом:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let randomNumber = Int.random(in: 1...10)
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> randomNumber <span class="operator">= </span><span class="className">Int</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: <span class="numbers">1</span>...<span class="numbers">10</span>)</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    то есть рандомное значение будет генерироваться в диапазоне от 1 до 10. Давайте посмотрим какое присвоилось значение нашему свойству:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson6/Lesson6.15.png" />
+                <p>
+                    Каждый запуск компилятора будет выдавать нам новый результат.
+                </p>
+                <p>
+                    Это работает так же и с типом Double и Float:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let randomNumber = Int.random(in: 1...10)
+                                let randomDouble = Double.random(in: 1...9.6)
+                                let randomFloat = Float.random(in: 0.0...10)
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> randomNumber <span class="operator">= </span><span class="className">Int</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: <span class="numbers">1</span>...<span class="numbers">10</span>)</span>
+    <span class="keywords">let</span> randomDouble <span class="operator">= </span><span class="className">Double</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: <span class="numbers">1</span>...<span class="numbers">9.6</span>)</span>
+    <span class="keywords">let</span> randomFloat <span class="operator">= </span><span class="className">Float</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: <span class="numbers">0</span>...<span class="numbers">10</span>)</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    Раз уж мы с вами затронули тему диапазонов, то еще один из самых распространенных диапазонов является полузакрытый, и выглядит он следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let randomNumber = Int.random(in: 1..<10)
+                                let randomDouble = Double.random(in: 1..<9.6)
+                                let randomFloat = Float.random(in: 0.0..<10)
+                                '>Copy</button>
+                            </div>
+                        </div>
+
+                        <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="keywords">let</span> randomNumber <span class="operator">= </span><span class="className">Int</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: <span class="numbers">1</span>..&#60;<span class="numbers">10</span>)</span>
+    <span class="keywords">let</span> randomDouble <span class="operator">= </span><span class="className">Double</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: <span class="numbers">1</span>..&#60;<span class="numbers">9.6</span>)</span>
+    <span class="keywords">let</span> randomFloat <span class="operator">= </span><span class="className">Float</span><span class="operator">.</span><span class="className">random</span><span class="operator">(</span><span class="className">in</span><span class="operator">: <span class="numbers">0</span>..&#60;<span class="numbers">10</span>)</span>
+                        </code></pre>
+                    </div>
+                </div>
+                <p>
+                    как вы можете видеть, у нас вместо трех точек между значениями всего две и знак меньше, в таком случае последнее значение не будет входить в диапазон, то есть мы будем получать рандомные значения в первом случае от 1 до 9, во втором от 1 до 9,5, а в третьем от 0.0 до 9.9 То есть последнее значение не будет учавствовать.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

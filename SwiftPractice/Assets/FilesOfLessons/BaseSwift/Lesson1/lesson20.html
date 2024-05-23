@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_20">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#class_definition" class="yakor">&#128195; Определение Класса</a>
+          <a href="#class_prop" class="yakor">&#128195; Свойства класса</a>
+          <a href="#class_func" class="yakor">&#128195; Методы класса</a>
+          <a href="#stutic_prop_func" class="yakor">&#128195; Статичные свойства и методы</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 20. Классы
+            </h2>
+            <p class="date_p"> 22 Марта 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+                <p>
+                    В языке swift все программы состоятся  из взаимодействующих между собой объектов. Swift использует три абстрактные конструкции – <span class="accent">классы</span>, <span class="accent">структуры</span> и <span class="accent">перечисления</span> – для создания объектов.
+                </p>
+                <p>
+                    С перечислениями вы уже знакомы, ну а на этом уроке я расскажу о классах.
+                </p>
+                <h2 id="class_definition">
+                   Определение Класса.
+                </h2>
+                <p>
+                    Что значит абстрактная конструкция?
+                </p>
+                <p>
+                    Если я просто напишу слово “Собака”, у  себя в голове вы сразу увидите картинку какой то определенной собаки, кто то подумает о большом бульдоге, кто то о дружелюбном хаски, а кто-то о маленьком шпице, одним словом все мы будем думать о собаке, но для каждого это будет своя порода и свои характеристики, длинна хвоста, форма ушей, рост, вес и так далее. Так вот слово “Собака” – это абстракция, а те собаки, которых вы представили у себя в голове, это уже конкретный объект.
+                </p>
+                <p>
+                    Так вот класс, является абстрактной конструкцией, на основе которой можно создать объект. Давайте посмотрим на синтаксис класса:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.1.png" />
+                <p>
+                    После ключевого слова class мы прописываем название абстракции и фигурные скобки, в которых определяем структуру и поведение объектов, которые будут создаваться из него.
+                </p>
+                <p>
+                    Чтобы создать абстрактного “пёсика”, мы можем определить класс Dog, в котором будут свойства, описывающие характеристики собаки. Например:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Dog {
+                                var name = ""
+                                var breed = ""
+                                var tailLength = 0
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Dog</span> {
+        <span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">breed</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">tailLength</span> = <span class="numbers">0</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    У абстрактной собаки есть имя, порода и длина хвоста.
+                </p>
+                <p>
+                    Это только шаблон собаки, и на основе этого шаблона, мы можем создать конкретную собаку и делается это следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Dog {
+                                var name = ""
+                                var breed = ""
+                                var tailLength = 0
+                            }
+
+                            let myDog = Dog()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Dog</span> {
+        <span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">breed</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">tailLength</span> = <span class="numbers">0</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">myDog</span> = Dog()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Мы создаем свойство myDog и присваиваем ему объект класса Dog(). Это уже конкретная собака, которой можно задать свое имя, породу и длину хвоста.
+                </p>
+                <p>
+                    myDog это ссылка на объект класса, а объект класса это буквально ячейка памяти, которая создается в тот момент когда вы обращаетесь к имени класса с круглыми скобками: Dog(). Это называется инициализацией класса.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.2.png" />
+                <h2 id="class_prop">
+                   Свойства класса.
+                </h2>
+                <p>
+                    Мы можем обращаться к свойствам внутри класса через его экземпляр следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDog = Dog()
+
+                            myDog.name
+                            myDog.breed
+                            myDog.tailLength
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDog</span> = Dog()
+
+    myDog.name
+    myDog.breed
+    myDog.tailLength</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    прописываем экземпляр класса и после ставим точку, это как тропинка к свойствам класса, они нам все доступны, и если вы запустите проект и посмотрите на правое окно, то вы увидите значения этих свойств:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.3.png" />
+                <p>
+                    Давайте нашему новому “пёселю” зададим имя, породу и длину хвоста:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDog = Dog()
+
+                            myDog.name = "Toby"
+                            myDog.breed = "Labradane"
+                            myDog.tailLength = 40
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDog</span> = Dog()
+
+    myDog.name = <span class="string">"Toby"</span>
+    myDog.breed = <span class="string">"Labradane"</span>
+    myDog.tailLength = <span class="numbers">40</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Теперь у нас в памяти хранится собака со всеми характеристиками, то есть мы на основе шаблона Dog создали конкретную собаку:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.4.png" />
+                <p>
+                    И мы можем воспользоваться всеми этими свойствами в дальнейшей логике:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDog = Dog()
+
+                            myDog.name = "Toby"
+                            myDog.breed = "Labradane"
+                            myDog.tailLength = 40
+
+                            if myDog.name.isEmpty {
+                                print("Собака без имени!")
+                            } else {
+                                print("Имя собаки: \(myDog.name)")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDog</span> = Dog()
+
+    myDog.name = <span class="string">"Toby"</span>
+    myDog.breed = <span class="string">"Labradane"</span>
+    myDog.tailLength = <span class="numbers">40</span>
+
+    <span class="keywords">if</span> myDog.name.<span class="className">isEmpty</span> {
+        <span class="className">print</span>(<span class="string">"Собака без имени!"</span>)
+    } <span class="keywords">else</span> {
+        <span class="className">print</span>(<span class="string">"Имя собаки:</span> \(myDog.name)<span class="string">"</span>)
+    } </span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если мы запустим компилятор, то на консоли увидим сообщение: “Имя собаки: Toby”.
+                </p>
+                <p>
+                    На основе абстрактной конструкции мы можем создать любое количество экземпляров класса:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Dog {
+                                var name = ""
+                                var breed = ""
+                                var tailLength = 0
+                            }
+
+                            let myDog = Dog()
+                            let bulldog = Dog()
+                            let airedaleTerrier = Dog()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Dog</span> {
+        <span class="keywords">var</span> <span class="language-swift">name</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">breed</span> = <span class="string">""</span>
+        <span class="keywords">var</span> <span class="language-swift">tailLength</span> = <span class="numbers">0</span>
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">myDog</span> = Dog()
+    <span class="keywords">let</span> <span class="language-swift">bulldog</span> = Dog()
+    <span class="keywords">let</span> <span class="language-swift">airedaleTerrier</span> = Dog()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Это три конкретные собаки, которые пока имеют пустые поля (свойства внутри класса с пустыми значениями), кроме первого экземпляра, ему мы уже дали имя и породу. И если сейчас заглянем в память, то это будет выглядеть примерно следующим образом:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.5.png" />
+                <p>
+                    Как вы наверно заметили само свойство является ссылкой на объект, а это значит, что если мы ее копируем, то копия будет ссылаться на тот же объект:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDog = Dog()
+                            let copyMyDog = myDog
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDog</span> = Dog()
+    <span class="keywords">let</span> <span class="language-swift">copyMyDog</span> = <span class="className">myDog</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В памяти это выглядит примерно так:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.6.png" />
+                <p>
+                    Теперь два экземпляра класса ссылаются на один и тот же объект, и если мы меняем значения свойств у одного экземпляра, то эти изменения мы увидим и у второго:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let myDog = Dog()
+                            let copyMyDog = myDog
+
+                            myDog.name = "Tobyus"
+                            myDog.name
+                            copyMyDog.name
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">myDog</span> = Dog()
+    <span class="keywords">let</span> <span class="language-swift">copyMyDog</span> = <span class="className">myDog</span>
+
+    myDog.name = <span class="string">"Tobyus"</span>
+    myDog.name
+    copyMyDog.name</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Мы переопределяем имя Toby на Tobyus, и смотрим на значения свойств. Если запустить компилятор, то справа вы увидите абсолютно одинаковые значения свойства name у myDog и copyMyDog, хотя мы изменили значение имени только у экземпляра myDog. Это говорит о том что два экземпляра класса ссылаются на одну область в памяти.
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.7.png" />
+                <p>
+                    Давайте подведем итог с терминами:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.8.png" />
+                <p>
+                    Чтобы поместить его в память мы должны создать экземпляр класса:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.9.png" />
+                <h2 id="class_func">
+                   Методы класса.
+                </h2>
+                <p>
+                    По мимо свойств в классе есть еще методы, по сути это функции, которые вы определите внутри класса.
+                </p>
+                <p>
+                    Давайте создадим кнопку:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Это не сама кнопка, а только шаблон, на основе которого мы создадим конкретную кнопку. Какие характеристики есть у кнопки? Я думаю что это будет цвет, название, радиус скругления углов:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = "red"
+                                var title = "Button"
+                                var cornerRadius = 15
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"red"</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">"Button"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    у нас есть шаблон, благодаря которому мы можем создать любое количество кнопок:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let buttonPink = Button()
+                            let buttonGreen = Button()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">buttonPink</span> = Button()
+    <span class="keywords">let</span> <span class="language-swift">buttonGreen</span> = Button()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В данном случае у нас получится две, внешне абсолютно одинаковые, кнопки (потому что созданы от одного шаблона, у которого свойства имеют начальные значения), и мы можем поменять значения их внутренних свойств:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let buttonPink = Button()
+                            let buttonGreen = Button()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">buttonPink</span> = Button()
+    buttonPink.title = <span class="string">"pink"</span>
+
+    <span class="keywords">let</span> <span class="language-swift">buttonGreen</span> = Button()
+    buttonGreen.color = <span class="string">"green"</span>
+    buttonGreen.title = <span class="string">"Green"</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Теперь одна кнопка будет розовая, а вторая зеленая с заголовком “Green”.
+                </p>
+                <p>
+                    Думаю со свойствами класса вам теперь более менее понятно. Теперь давайте подумаем над созданием метода. Как было уже сказано выше, метод это по сути функция, которая находится внутри объекта. И метод отражает какое то действие объекта. Какие действия могут быть у кнопки? Например кнопку можно нажимать:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = "red"
+                                var title = "Button"
+                                var cornerRadius = 15
+
+                                func pushTheButton() {
+                                    print("Кнопку нажали")
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"red"</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">"Button"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+
+        <span class="keywords">func</span> <span class="language-swift">pushTheButton</span>() {
+            <span class="className">print</span>(<span class="string">"Кнопку нажали"</span>)
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    метод pushTheButton будет отражать нажатие на кнопку, и как только мы его вызовем сработает print внутри метода.
+                </p>
+                <p>
+                    Вызывать мы его будем в нужный момент из экземпляра этого класса:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.10.png" />
+                <p>
+                    Как вы можете видеть, достаточно поставить точку у экземпляра класса, что бы компилятор нам предложил список всех доступных элементов в классе, в том числе и метод pushTheButton:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.11.png" />
+                <p>
+                    Вы наверняка помните, что если поставить круглые скобки в конце функции, то она будет вызвана, поэтому мы видим на консоле сообщение “Кнопку нажали”.
+                </p>
+                <p>
+                    Методов в классе может быть сколько угодно, давайте создадим еще один, который будет задавать значение для свойства title:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = "red"
+                                var title = "Button"
+                                var cornerRadius = 15
+
+                                func pushTheButton() {
+                                    print("Кнопку нажали")
+                                }
+
+                                func setTitle(_ value: String) {
+                                    title = value
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"red"</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">"Button"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+
+        <span class="keywords">func</span> <span class="language-swift">pushTheButton</span>() {
+            <span class="className">print</span>(<span class="string">"Кнопку нажали"</span>)
+        }
+
+        <span class="keywords">func</span> <span class="language-swift">setTitle</span>(<span class="language-swift">_</span> value: <span class="className">String</span>) {
+            <span class="className">title</span> = value
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Что делает метод setTitle? Когда мы его вызовем, мы передадим в параметр значение, которое будет передано в свойство класса title. Его вызов будет выглядеть следующим образом:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let buttonPink = Button()
+                            buttonPink.title = "pink"
+
+                            buttonPink.pushTheButton()
+                            buttonPink.setTitle("PinkButton")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">buttonPink</span> = Button()
+    buttonPink.title = <span class="string">"pink"</span>
+
+    buttonPink.pushTheButton()
+    buttonPink.setTitle(<span class="string">"PinkButton"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Вызвав метод, мы переопределили свойство title  на “PinkButton”. Мы можем убедится в этом обратившись к свойству title ниже:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.12.png" />
+                <p>
+                    Давайте посмотрим как этот объект смотрится в памяти:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.13.png" />
+                <p>
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Внутри класса ко всем свойствам есть доступ на прямую и параметры для методов следует определять только в том случае если вы  хотите данные передать через экземпляр класса, как в примере выше: buttonPink.setTitle(“PinkButton”)
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    Давайте в завершении этого урока создадим еще один метод, который будет задавать цвет для свойства color:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Button {
+                                var color = "red"
+                                var title = "PinkButton"
+                                var cornerRadius = 15
+
+                                func pushTheButton() {
+                                    print("Кнопку нажали")
+                                }
+
+                                func setTitle(_ value: String) {
+                                    title = value
+                                }
+
+                                func setColor(_ color: String) {
+                                    self.color = color
+                                }
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Button</span> {
+        <span class="keywords">var</span> <span class="language-swift">color</span> = <span class="string">"red"</span>
+        <span class="keywords">var</span> <span class="language-swift">title</span> = <span class="string">"Button"</span>
+        <span class="keywords">var</span> <span class="language-swift">cornerRadius</span> = <span class="numbers">15</span>
+
+        <span class="keywords">func</span> <span class="language-swift">pushTheButton</span>() {
+            <span class="className">print</span>(<span class="string">"Кнопку нажали"</span>)
+        }
+
+        <span class="keywords">func</span> <span class="language-swift">setTitle</span>(<span class="language-swift">_</span> value: <span class="className">String</span>) {
+            <span class="className">title</span> = value
+        }
+
+        <span class="keywords">func</span> <span class="language-swift">setColor</span>(<span class="language-swift">_</span> color: <span class="className">String</span>) {
+            <span class="keywords">self</span>.<span class="className">color</span> = color
+        }
+    }</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Метод setColor получает из параметра какой то цвет, и передает его в свойство класса color. Что такое self? – спросите вы.  Это сам класс, то есть мы показываем что свойство color относится к классу, а свойство без self относится к параметру, так компилятору легче разобраться как использовать свойства с одинаковыми названиями.
+                </p>
+                <p>
+                    Через этот метод мы можем задавать значение для цвета:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let buttonPink = Button()
+                            buttonPink.title = "pink"
+                            buttonPink.pushTheButton()
+                            buttonPink.setTitle("PinkButton")
+                            buttonPink.setColor("pink")
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">buttonPink</span> = Button()
+    buttonPink.title = <span class="string">"pink"</span>
+    buttonPink.pushTheButton()
+    buttonPink.setTitle(<span class="string">"PinkButton"</span>)
+    buttonPink.setColor(<span class="string">"pink"</span>)</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В реальной разработке, всё ваше приложение будет строится из подобных объектов, которые будут взаимодействовать друг с другом.
+                </p>
+                <p>
+                    По сути создавая класс, вы создали новый тип данных, и его можно использовать в качестве типа данных, как обычные базовые типы:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let buttonGreen: Button = Button()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">buttonGreen</span>: <span class="className">Button</span> = Button()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    То есть тип свойства buttonGreen будет Button, мы его обычно не прописываем явно. так же как и свойство buttonPink, тоже имеет тип Button. Это новый тип данных придуманный нами.
+                </p>
+                <div>
+                    <div class="shadow_block container_terms">
+                        <p>
+                            Давайте подведем итог.
+                        </p>
+                        <p>
+                          <span class="accent">Метод класса</span> – это функция, которая находится внутри объекта, и связанна с этим объектом.
+                        </p>
+                        <p>
+                          <span class="accent">Метод класса</span> –  это по сути свойство, которое ссылается на объект класса, например: let buttonPink: Button
+                        </p>
+                        <p>
+                          <span class="accent">Объект класса </span> – это инициализированный класс, например: Button()
+                        </p>
+                        <p>
+                            Класс, является ссылочным типом данных.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/readBook.png" />
+                    </div>
+                </div>
+                <h2 id="stutic_prop_func">
+                   Статичные свойства и методы.
+               </h2>
+                <p>
+                    Статические свойства – это свойства, которые принадлежат типу, а не экземпляру класса. В Swift статические свойства объявляются с помощью ключевого слова <span class="accent">static</span>
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Car {
+                                static let maxSpeed = 200 // статическое свойство, максимальная скорость
+                            }
+
+                            var myCar = Car()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Car</span> {
+        <span class="keywords">static let</span> <span class="language-swift">maxSpeed</span> = <span class="numbers">200</span> <span class="comments">// статическое свойство, максимальная скорость</span>
+    }
+
+    <span class="keywords">var</span> <span class="language-swift">myCar</span> = Car()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    У нас есть класс Car, который в себе содержит статичное свойство. Из определения выше мы понимаем что это свойство нам не доступно из экземпляра класса и следующий код выдаст ошибку:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Car {
+                                static let maxSpeed = 200 // статическое свойство, максимальная скорость
+                            }
+
+                            var myCar = Car()
+                            myCar.maxSpeed // Ошибка
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Car</span> {
+        <span class="keywords">static let</span> <span class="language-swift">maxSpeed</span> = <span class="numbers">200</span> <span class="comments">// статическое свойство, максимальная скорость</span>
+    }
+
+    <span class="keywords">var</span> <span class="language-swift">myCar</span> = Car()
+    myCar.maxSpeed <span class="comments">// ошибка</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Статичное свойство принадлежит типу а не экземпляру, поэтому мы к нему должны обращаться через тип Car:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Car {
+                                static let maxSpeed = 200
+                            }
+
+                            var myCar = Car()
+                            Car.maxSpeed // 200
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Car</span> {
+        <span class="keywords">static let</span> <span class="language-swift">maxSpeed</span> = <span class="numbers">200</span>
+    }
+
+    <span class="keywords">var</span> <span class="language-swift">myCar</span> = Car()
+    Car.maxSpeed <span class="comments">// 200</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В отличие от экземплярных свойств, которые хранятся внутри каждого экземпляра класса статические свойства хранятся в единственном экземпляре, общем для всех экземпляров класса, которые используют это свойство.
+                </p>
+                <p>
+                    Давайте обратимся к примеру, и сперва вспомним как работает экземпляр класса с обычным свойством:
+                </p>
+                <img class="img_block" src="assets/Images/Lesson20/Lesson20.14.png" />
+                <p>
+                    Мы создали два экземпляра класса myCar и myNewCar, это две разные области в памяти и два разных объекта класса, и когда мы изменяем у myCar свойство maxSpeed, это ни как не влияет на свойство экземпляра myNewCar.
+                </p>
+                <p>
+                    А вот если мы будем менять значение у статичного свойства, то эти изменения будут отражены везде где мы используем это свойство:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Car {
+                                static var maxSpeed = 200
+
+                                func printMaxSpeed() {
+                                    print(Car.maxSpeed)
+                                }
+                            }
+
+                            let myCar = Car()
+                            myCar.printMaxSpeed() // 200
+
+                            Car.maxSpeed = 80
+
+                            let myNewCar = Car()
+
+                            myNewCar.printMaxSpeed() // 80
+                            myCar.printMaxSpeed() // 80
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Car</span> {
+        <span class="keywords">static var</span> <span class="language-swift">maxSpeed</span> = <span class="numbers">200</span>
+
+        <span class="keywords">func</span> <span class="language-swift">printMaxSpeed</span>() {
+            <span class="className">print</span>(Car.maxSpeed)
+        }
+    }
+
+    <span class="keywords">let</span> <span class="language-swift">myCar</span> = Car()
+    myCar.printMaxSpeed() <span class="comments">// 200</span>
+
+    Car.maxSpeed = <span class="numbers">80</span>
+
+    <span class="keywords">let</span> <span class="language-swift">myNewCar</span> = Car()
+
+    myNewCar.printMaxSpeed() <span class="comments">// 80</span>
+    myCar.printMaxSpeed() <span class="comments">// 80</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В классе Car метод printMaxSpeed будет отображать значение свойства maxSpeed.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Обратите внимание, что к свойству maxSpeed внутри класса, мы так же обращаемся через тип данных Car.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+                <p>
+                    В первый вызов метода printMaxSpeed из экземпляра класса myCar выдал результат 200, после изменения значения свойства maxSpeed на 80, это изменение отразилось во всех экземплярах в том числе и myNewCar.
+                </p>
+                <p>
+                    Та же самая история обстоит и с статичными методами. Вызвать такой метод мы можем только из типа данных и он будет общим для всех экземпляров класса, давайте немного изменим код:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            class Car {
+                                static let maxSpeed = 200
+
+                                static func printMaxSpeed() {
+                                    print(maxSpeed)
+                                }
+                            }
+
+                            Car.printMaxSpeed()
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">class</span> <span class="language-swift">Car</span> {
+        <span class="keywords">static let</span> <span class="language-swift">maxSpeed</span> = <span class="numbers">200</span>
+
+        <span class="keywords">static func</span> <span class="language-swift">printMaxSpeed</span>() {
+            <span class="className">print</span>(maxSpeed)
+        }
+    }
+
+    Car.printMaxSpeed()</span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Статические методы класса выполняются в контексте самого класса, а не конкретного экземпляра класса, и могут использоваться для выполнения операций, которые не зависят от конкретного экземпляра класса. Например, статический метод может использоваться для конвертации валюты, вычисления математических функций или получения доступа к общим данным.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            Вы не можете внутри статичного метода использовать обычные свойства класса, только статичные, при этом к свойству можно обратиться на прямую: print(maxSpeed)
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

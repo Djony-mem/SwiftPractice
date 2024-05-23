@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_15">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+<body id="scroll-block">
+ <progress max="100" value="0" id="scroll-progress"></progress>
+     <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#conver_string" class="yakor">&#128195; Преобразование типа String</a>
+          <a href="#conver_int" class="yakor">&#128195; Преобразование типа Int и Double</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+  <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+  <div class="main_container">
+   <div class="container">
+        <div>
+            <h2 class="title_h2">
+                Урок 15. Преобразование типов.
+            </h2>
+            <p class="date_p"> 14 Января 2023 </p>
+            <div class="loader_icon">
+                <div class="loader_icon_block">
+                    <p>
+                        <a> <img class="icon" src="assets/Images/icons/loading.png" /> </a>
+                    </p>
+                </div>
+                <div class="loader_icon_block">
+                    <p> Загрузить материалы к уроку. </p>
+                </div>
+            </div>
+        </div>
+    <div class="container_lesson shadow_block">
+        <div>
+            <div>
+
+               <h2 id="conver_string">
+                   Преобразование типа String.
+               </h2>
+
+                <p>
+                    В этом уроке мы будем говорить о преобразовании типов данных в языке Swift, а именно о том, как можно изменить тип свойства на другой тип данных. Это очень важная тема в программировании, так как в ходе работы приложения часто требуется работать с данными разных типов, и преобразование их в нужный формат может быть ключевым моментом в обработке информации.
+                </p>
+                <p>
+                    Начнем с типа данных String. Как вы уже знаете, этот тип данных представляет собой последовательность символов и может содержать буквы, цифры, знаки препинания и другие символы. Часто при работе с данными приложения требуется преобразовать строку в числовой тип данных, например, чтобы выполнить математические операции.
+                </p>
+                <p>
+                    Рассмотрим пример:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let someString = "123"
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="string">"123"</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   У нас есть строка, и мы можем попытаться сделать из нее число для этого мы должны использовать тип данных Int:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let someString = "123"
+                            let integer = Int(someString) // 123
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="string">"123"</span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> integer</span> = <span class="className">Int</span>(someString)</span> <span class="comments">// 123</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    В круглых скобках после типа данных Int мы определяем то свойство, которое хотим преобразовать, в нашем случае это someString.
+                </p>
+                <p>
+              В результате, свойство integer будет иметь значение опциональный Int?, давайте в этом убедимся, зажимаем option и кликаем по свойству:
+                </p>
+                    <img class="img_block" src="assets/Images/Lesson15/Lesson15.1.png" />
+                <p>
+                    Так как у системы нет уверенности что мы сможем из строки получить число, то она определяет тип как опциональный, что бы в случае не удачной попытки преобразования, мы получили nil, так сказать заглушку для компилятора.
+                </p>
+                <p>
+                    Преобразование строки в число произойдет только если там есть число, если будет хоть какой либо лишний символ, свойство integer примет значение nil, давайте поставим пробел в строку:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let someString = "123 "
+                            let integer = Int(someString) // nil
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="string">"123 "</span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> integer</span> = <span class="className">Int</span>(someString)</span> <span class="comments">// nil</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Преобразования не произошло, так как пробел это тоже символ.
+                </p>
+                <p>
+                   Вы уже знакомы с опциональными значениями, ответьте себе на вопрос, какого типа будет свойство integer и какое значение оно будет иметь, в следующей реализации:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let someString = "123 "
+                            let integer = Int(someString) ?? 0
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="string">"123 "</span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> integer</span> = <span class="className">Int</span>(someString) ??<span class="numbers"> 0</span></span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <br/>
+
+                <button class="accordion">Ответ</button>
+                <div class="panel">
+                  <p>
+                      Свойство integer будет иметь значение 0, а значит и тип данных Int.
+                  </p>
+                  <p>
+                      Напомню как это работает, компилятор пытается преобразовать строку в Int, у него это не получается из за пробела и выражение Int(someString) приобретает значение nil, мы пытаемся извлечь опциональное значение при помощи значения по умолчанию, и так как нам вернулось nil, то компилятор возьмет 0.
+                  </p>
+                  <p>
+                      Подумайте самостоятельно какое значение и какой тип данных будет у свойства integer если в нашей строке не будет лишнего пробела. (Проверьте в плейграунде)
+                  </p>
+                </div>
+
+                <p>
+                    Точно так же можно преобразовать тип String в тип Double:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let someString = "123"
+                            let integer = Int(someString)
+                            let double = Double(someString)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="string">"123"</span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> integer</span> = <span class="className">Int</span>(someString)</span> <span class="comments"></span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> double</span> = <span class="className">Double</span>(someString)</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Подумайте какой тип данных имеет свойство double (проверьте свои догадки в плейграунде)
+                </p>
+                <p>
+                    Механизм работы точно такой же как и с преобразованием в тип Int, система все так же не уверена что из строки можно получить тип Double, поэтому определяет тип свойства как опциональный Double?.
+                </p>
+                <p>
+                    Снова ответьте себе на вопрос, получится ли строку someString преобразовать в тип Double, или вернется nil?
+                </p>
+                <button class="accordion">Ответ</button>
+                <div class="panel">
+                  <p>
+                      Получится, так как целые числа можно представить типом Double. Это будет опциональное значение, потому что строка, это не предсказуемый объект, и там может быть все что угодно, что не имеет отношение к числу.
+                  </p>
+                </div>
+
+                <p>
+                   Если на последний вопрос вы себе ответите верно, то вы определенно усвоили тему. Какие значения будут у свойств integer и double в следующей реализации:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let someString = "123.0"
+                            let integer = Int(someString)
+                            let double = Double(someString)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="string">"123.0"</span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> integer</span> = <span class="className">Int</span>(someString)</span> <span class="comments"></span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> double</span> = <span class="className">Double</span>(someString)</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <br/>
+                <button class="accordion">Ответ</button>
+                <div class="panel">
+                  <p>
+                      Свойство integer будет иметь значение nil, так как в строке число с плавающей точкой, а double, будет равно 123, все по той же причине, потому что в строке число с плавающей точкой.
+                  </p>
+                </div>
+                <p>
+                    Вы так же можете строку преобразовать в тип Bool, и результат будет тот же опциональный Bool?, сами понимаете что в строке может не оказаться слова true или false.
+                </p>
+                <h2 id="conver_int">
+                   Преобразование типа Int и Double.
+                </h2>
+                <p>
+                   С числовыми типами дела обстоят гораздо проще, компилятор может их преобразовать к любому базовому типу данных кроме Bool, по объективным причинам.
+                </p>
+                <p>
+                   Рассмотрим пример:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let integer = 23
+                            let double = Double(integer)
+                            let someString = String(integer)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="numbers">23</span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> double</span> = <span class="className">Double</span>(integer)</span> <span class="comments"></span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> someString</span> = <span class="className">String</span>(integer)</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+
+                <p>
+                    Подумайте будет ли опциональными свойства double и someString.
+                </p>
+                <button class="accordion">Ответ</button>
+                <div class="panel">
+                  <p>
+                     Эти свойства не будут опциональными, а все потому что система без проблем из целого числа сможет сделать дробное, или строку, там ни каких вставок в виде не известных символов не возможно сделать, число оно всегда будет числом, поэтому все прозрачно, и опциональные типы здесь не нужны.
+                  </p>
+                </div>
+                <p>
+                    А что если мы попытаемся из числа типа Double сделать целое число или строку?!
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let double = 13.88
+                            let integer = Int(double)
+                            let someString = String(integer)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">someString</span> = <span class="numbers">13.88</span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> integer</span> = <span class="className">Int</span>(double)</span> <span class="comments"></span>
+    <span class="operator"><span class="keywords">let</span><span class="language-swift"> someString</span> = <span class="className">String</span>(integer)</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Если со строкой все понятно и мы получим результат “13.88”, то что ожидать от преобразования к типу Int? Все очень просто, компилятор не будет заморачиваться и просто отбросит все что после точки, то есть свойство integer будет равно 13
+                </p>
+                <p>
+                    Давайте решим маленькую задачку:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let firstValue = 56
+                            let secondValue = 44.22
+                            let result = firstValue / secondValue // Ошибка
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">firstValue</span> = <span class="numbers">56</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">secondValue</span> = <span class="numbers">44.22</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">result</span> = <span class="className">firstValue </span><span class="operator">/ </span><span class="className">secondValue</span><span class="comments"> // Ошибка</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                   Как вы думаете почему компилятор выдаст нам ошибку?
+                </p>
+                <p>
+                   Дело в том что язык Swift это строго типизированный язык и вы не можете вот так вот просто взят и разделить разные типы данных (firstValue это тип Int, а secondValue тип Double), то есть системе нужно понимать какой тип данных будет на выходе.
+                </p>
+                <p>
+                   Что бы решить эту задачу, нужно определится какого типа должно быть свойство result, если типа Int, то мы должны свойство secondValue преобразовать в тип Int:
+                </p>
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let firstValue = 56
+                            let secondValue = 44.22
+                            let result = firstValue / Int(secondValue)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">firstValue</span> = <span class="numbers">56</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">secondValue</span> = <span class="numbers">44.22</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">result</span> = <span class="className">firstValue </span><span class="operator">/ </span><span class="className">Int</span><span class="className">(secondValue)</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Обратите внимание что свойство result будет равно 1, так как при делении целых чисел все что после запятой отбрасывается, не округляется, а грубо выбрасывается, поэтому если вам нужна точность, то необходимо использовать тип Double.
+                </p>
+                <p>
+                    То есть в процессе преобразования числа secondValue мы отбросили у значения все что после запятой, осталось число 44, и мы делим 56 на 44, если мы достанем калькулятор и посчитаем сколько получится, то результат будет 1.272727, но в программировании этот хвостик мы не увидим, система его выбросит, и оставит только 1.
+                </p>
+                <p>
+                    Если вы решили что свойство result должно быть типа Double, то нам нужно преобразовать firstValue:
+                </p>
+                 <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let firstValue = 56
+                            let secondValue = 44.22
+                            let result = Double(firstValue) / secondValue
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift"><code readonly="true" class="language-swift">
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">firstValue</span> = <span class="numbers">56</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">secondValue</span> = <span class="numbers">44.22</span></span>
+    <span class="operator"><span class="keywords">let</span> <span class="language-swift">result</span> = <span class="className">Int</span><span class="className">(firstValue) </span><span class="operator">/ </span><span class="className">secondValue</span></span>
+                    </code></pre>
+
+                    </div>
+                </div>
+                <p>
+                    Теперь значение будет более точным, потому как все что после запятой не будет выброшено, и свойство result будет иметь значение 1,2663. Хвостик система не отбрасывает.
+                </p>
+                <div>
+                    <div class="shadow_block container_info">
+                        <p>
+                            При преобразовании расчеты на калькуляторе и в программировании могут отличатся, так как преобразование одного типа в другой происходит через шестнадцатиричную систему исчисления, поэтому если нужна точность лучше не заниматься приведением одного типа к другому, а сразу использовать нужный тип данных.
+                        </p>
+                    </div>
+                    <div>
+                        <img class="img_circle" src="assets/Images/fingerUp.png" />
+                    </div>
+                </div>
+               <br/>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/lesson.js"></script>
+    <script src="assets/js/accordion.js"></script>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

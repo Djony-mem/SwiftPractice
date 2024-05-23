@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/taskStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="scroll-block">
+       <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="../../assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+      <div class="container container_task_block">
+      <h2 class="h2_main_title">
+        Урок 7. Условная конструкция switch.
+      </h2>
+       <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 7.1 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                 </h2>
+                <p>
+                    Реализуйте логику светофора, если горит зеленый то на консоль выведите “Можно ехать!”, если желтый то “Приготовьтесь!”, а на красный “Стоп!”
+                </p>
+                <div> <a class="btn" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask">
+            <div class="container-subtask-inside">
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let trafficLight = "green"
+
+                                switch trafficLight {
+                                case "red":
+                                    print("Стоп!")
+                                case "yellow":
+                                    print("Приготовьтесь!")
+                                case "green":
+                                    print("Можно ехать!")
+                                default:
+                                    print("Не корректный цвет")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> trafficLight<span class="operator"> = </span><span class="string">"green"</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">trafficLight</span> {
+    <span class="keywords">case</span> <span class="string">"red"</span>:
+        <span class="className">print</span>(<span class="string">"Стоп!"</span>)
+    <span class="keywords">case</span> <span class="string">"yellow"</span>:
+        <span class="className">print</span>(<span class="string">"Приготовьтесь!"</span>)
+    <span class="keywords">case</span> <span class="string">"green"</span>:
+        <span class="className">print</span>(<span class="string">"Можно ехать!"</span>)
+    <span class="keywords">default</span>:
+        <span class="className">print</span>(<span class="string">"Не корректный цвет"</span>)
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Свойство <span class="className">trafficLight</span> должно быть константой.
+                </p>
+                <p>
+                    Сопоставляем значение свойства <span class="className">trfficLight</span> с цветом, срабатывает один из кейсов, выполняется код внутри, и дальше компилятор не проверяет условия.
+                </p>
+                <p>
+                    Если вы определили последний кейс в дефолтной ветке, это считается корректным решением, так как больше трех цветов мы не будем использовать в нашей программе:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let trafficLight = "green"
+
+                                switch trafficLight {
+                                case "red":
+                                    print("Стоп!")
+                                case "yellow":
+                                    print("Приготовьтесь!")
+                                default:
+                                    print("Можно ехать!")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> trafficLight<span class="operator"> = </span><span class="string">"green"</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">trafficLight</span> {
+    <span class="keywords">case</span> <span class="string">"red"</span>:
+        <span class="className">print</span>(<span class="string">"Стоп!"</span>)
+    <span class="keywords">case</span> <span class="string">"yellow"</span>:
+        <span class="className">print</span>(<span class="string">"Приготовьтесь!"</span>)
+    <span class="keywords">default</span>:
+        <span class="className">print</span>(<span class="string">"Можно ехать!"</span>)
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-1" name="task1-1" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 7.2 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+               <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                       У вас должно быть четыре свойства, первое отвечает за оригинальную стоимость, вторая за промокод, третья за скидку, а четвертая за финальную стоимость, которую пользователь получит после внесения промокода. Значение для сопоставления будет промокод. Внутри кейсов произведите нужные расчеты, что бы получить финальную стоимость.
+                    </span>
+                </span>
+                <p>
+                    Напишите программу для интернет магазина, если у пользователя есть промокод “BLACKFRIDAY” то он получает 50 процентов скидки, если у него есть промокод “CYBERMONDAY” то он получает 30 процентов скидку, во всех остальных случаях он должен заплатить полную стоимость, выведите на консоль конечную стоимость.
+                </p>
+
+                <div> <a class="btn-one" href="#">Показать решение</a> </div>
+            </div>
+        </div>
+        <div class="container-subtask-one">
+           <div class="container-subtask-inside">
+
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let originalPrice = 100.0
+                            let discountCode = "BLACKFRIDAY"
+                            var discountAmount = 0.0
+                            var finalPrice = 0.0
+
+                            switch discountCode {
+                            case "BLACKFRIDAY":
+                                discountAmount = originalPrice * 0.50
+                            case "CYBERMONDAY":
+                                discountAmount = originalPrice * 0.30
+                            default:
+                                break
+                            }
+
+                            finalPrice = originalPrice - discountAmount
+
+                            print(finalPrice)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> originalPrice <span class="operator">= </span><span class="numbers">100.0</span>
+    <span class="keywords">let</span> discountCode <span class="operator">= </span><span class="string">"BLACKFRIDAY"</span>
+    <span class="keywords">var</span> discountAmount <span class="operator">= </span><span class="numbers">0.0</span>
+    <span class="keywords">var</span> finalPrice <span class="operator">= </span><span class="numbers">0.0</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">discountCode</span> {
+    <span class="keywords">case</span> <span class="string">"BLACKFRIDAY"</span>:
+        <span class="className">discountAmount</span> = <span class="className">originalPrice</span> * <span class="numbers">0.50</span>
+    <span class="keywords">case</span> <span class="string">"CYBERMONDAY"</span>:
+        <span class="className">discountAmount</span> = <span class="className">originalPrice</span> * <span class="numbers">0.30</span>
+    <span class="keywords">default</span>:
+        <span class="keywords">break</span>
+    }
+
+    <span class="className">finalPrice</span> = <span class="className">originalPrice</span> - <span class="className">discountAmount</span>
+
+    <span class="className">print</span>(<span class="className">finalPrice</span>)</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/Ok2.png" />
+                </div>
+            </div>
+
+            <p>
+                Все свойства кроме финальной цены и скидки должны быть константами.
+            </p>
+            <p>
+                Компилятор сопоставляет значение свойства <span class="className">discountCode</span> с значениями кейса, в нашем случае отрабатывает первый кейс, и выполняется код внутри, где мы пере определяем свойство <span class="className">discountAmount</span>, а уже после конструкции <span class="keywords">switch</span> рассчитываем финальную стоимость и выводим результат на консоль.
+            </p>
+            <p>
+                В дефолтной ветке, мы не определяем последний кейс, потому что нам нужно чтобы была еще и оригинальная стоимость.
+            </p>
+            <p>
+                Можно было выполнить задание следующим образом:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let originalPrice = 100.0
+                            let discountCode = "BLACKFRIDAY"
+
+                            switch discountCode {
+                            case "BLACKFRIDAY":
+                                let discountAmount = originalPrice * 0.50
+                                let finalPrice = originalPrice - discountAmount
+                                print(finalPrice)
+                            case "CYBERMONDAY":
+                                let discountAmount = originalPrice * 0.30
+                                let finalPrice = originalPrice - discountAmount
+                                print(finalPrice)
+                            default:
+                                print(originalPrice)
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+                <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> originalPrice <span class="operator">= </span><span class="numbers">100.0</span>
+    <span class="keywords">let</span> discountCode <span class="operator">= </span><span class="string">"BLACKFRIDAY"</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">discountCode</span> {
+    <span class="keywords">case</span> <span class="string">"BLACKFRIDAY"</span>:
+        <span class="keywords">let</span> <span class="language-swift">discountAmount</span> = <span class="className">originalPrice</span> * <span class="numbers">0.50</span>
+        <span class="keywords">let</span> <span class="language-swift">finalPrice</span> = <span class="className">originalPrice</span> - <span class="className">discountAmount</span>
+        <span class="className">print</span>(<span class="className">finalPrice</span>)
+    <span class="keywords">case</span> <span class="string">"CYBERMONDAY"</span>:
+        <span class="keywords">let</span> <span class="language-swift">discountAmount</span> = <span class="className">originalPrice</span> * <span class="numbers">0.3</span>
+        <span class="keywords">let</span> <span class="language-swift">finalPrice</span> = <span class="className">originalPrice</span> - <span class="className">discountAmount</span>
+        <span class="className">print</span>(<span class="className">finalPrice</span>)
+    <span class="keywords">default</span>:
+         <span class="className">print</span>(<span class="className">originalPrice</span>)
+    }</span>
+                </code>
+                </pre>
+                    </div>
+                </div>
+                <div>
+                    <img class="img_circle" src="../../assets/Images/fingerDown.png" />
+                </div>
+            </div>
+            <p>
+                Но в таком случае мы будем дублировать один и тот же код в двух кейсах, и такую логику тяжело надстраивать, если у вас появится еще какой нибудь промокод, ваша конструкция очень быстро разрастется.
+            </p>
+            <p>
+                Так же возникнет сложность, если вам вдруг понадобится финальная стоимость за пределами конструкции, придется переделать очень много кода. Одним словом старайтесь разделять логику на мелкие компоненты, и не пытайтесь реализовать все в одном алгоритме.
+            </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-2" name="task1-2" value="yes">
+            <label for="task1-2">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class=" shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 7.3 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                </h2>
+                <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        У вас должно быть четыре свойства, первое отвечает за количество посетителей, вторая за тип услуги, третья за стоимость услуги на одного человека, а четвертая за общую стоимость. Значение для сопоставления будет тип услуги.
+                    </span>
+                </span>
+                <p>
+                    Напишите программу для столовой, в которой есть два типа предоставления услуг “sit down” где ты платишь 150 рублей за человека и “buffet” 100 рублей за человека. Определите стоимость за одного человека и посчитайте общую стоимость за пришедшую компанию людей.
+                </p>
+                <div>
+                    <a class="btn-two" href="#">Показать решение</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-subtask-two">
+           <div class="container-subtask-inside">
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOfPeople = 4
+                            let mealType = "buffet"
+                            var costPerPerson = 0
+                            let totalCost: Int
+
+                            switch mealType {
+                            case "sit-down":
+                                costPerPerson = 150
+                            case "buffet":
+                                costPerPerson = 100
+                            default:
+                                print("Invalid meal type")
+                            }
+
+                            totalCost = costPerPerson * numberOfPeople
+
+                            print(totalCost)
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> numberOfPeople <span class="operator">= </span><span class="numbers">4</span>
+    <span class="keywords">let</span> mealType <span class="operator">= </span><span class="string">"buffet"</span>
+    <span class="keywords">var</span> costPerPerson <span class="operator">= </span><span class="numbers">0</span>
+    <span class="keywords">let</span> totalCost<span class="operator">: </span><span class="className">Int</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">mealType</span> {
+    <span class="keywords">case</span> <span class="string">"sit-down"</span>:
+        <span class="className">costPerPerson</span> = <span class="numbers">150</span>
+    <span class="keywords">case</span> <span class="string">"buffet"</span>:
+        <span class="className">costPerPerson</span> = <span class="numbers">100</span>
+    <span class="keywords">default</span>:
+         <span class="className">print</span>(<span class="string">"Invalid meal type"</span>)
+    }
+
+    <span class="className">totalCost <span class="operator">=</span> costPerPerson <span class="operator">*</span> numberOfPeople</span>
+
+    <span class="className">print</span>(<span class="className">totalCost</span>)</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+            </div>
+            <p>
+                Свойства для количества людей и тип услуги должны быть константами.
+            </p>
+            <p>
+                Компилятор сопоставляет значение свойства <span class="className">mealType</span> с значениями кейса, в нашем случае отрабатывает второй кейс, и выполняется код внутри, где мы задаем новое значение для свойства <span class="className">costPerPerson</span>, а уже после конструкции <span class="keywords">switch</span> рассчитываем общую стоимость и выводим результат на консоль.
+            </p>
+            <p>
+                Если вы выполнили задание следующим образом:
+            </p>
+            <div class="code">
+                <div class="code-toolbar shadow_block code_review">
+                   <div class="container-code">
+
+                    <div class="toolbar">
+                        <div class="toolbar-item">
+                            <button type="button" onclick="copyCode(this)" data-code-text='
+                            let numberOfPeople = 4
+                            let mealType = "buffet"
+
+                            switch mealType {
+                            case "sit-down":
+                                let costPerPerson = 150
+                                let totalCost = costPerPerson * numberOfPeople
+                                print(totalCost)
+                            case "buffet":
+                                let costPerPerson = 100
+                                let totalCost = costPerPerson * numberOfPeople
+                                print(totalCost)
+                            default:
+                                print("Invalid meal type")
+                            }
+                            '>Copy</button>
+                        </div>
+                    </div>
+
+                    <pre class="language-swift">
+    <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> numberOfPeople <span class="operator">= </span><span class="numbers">4</span>
+    <span class="keywords">let</span> mealType <span class="operator">= </span><span class="string">"buffet"</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">mealType</span> {
+    <span class="keywords">case</span> <span class="string">"sit-down"</span>:
+        <span class="keywords">let</span> <span class="language-swift">costPerPerson</span> = <span class="numbers">150</span>
+        <span class="keywords">let</span> <span class="language-swift">totalCost</span> = <span class="className">costPerPerson</span> * <span class="className">numberOfPeople</span>
+        <span class="className">print</span>(<span class="className">totalCost</span>)
+    <span class="keywords">case</span> <span class="string">"buffet"</span>:
+        <span class="keywords">let</span> <span class="language-swift">costPerPerson</span> = <span class="numbers">100</span>
+        <span class="keywords">let</span> <span class="language-swift">totalCost</span> = <span class="className">costPerPerson</span> * <span class="className">numberOfPeople</span>
+        <span class="className">print</span>(<span class="className">totalCost</span>)
+    <span class="keywords">default</span>:
+         <span class="className">print</span>(<span class="string">"Invalid meal type"</span>)
+    }</span>
+                    </code>
+                    </pre>
+
+                    </div>
+                </div>
+                <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+            </div>
+            <p>
+                То такое решение, не совсем корректно, вы дублируете один и тот же код в двух кейсах, и такую логику тяжело надстраивать, если у вас появится еще какая нибудь услуга, ваша конструкция очень быстро разрастется.
+            </p>
+            <p>
+                Так же возникнет сложность, если вам вдруг понадобится общая стоимость за пределами конструкции, придется переделать очень много кода. Одним словом старайтесь разделять логику на мелкие компоненты, и не пытайтесь реализовать все в одном алгоритме.
+            </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-3" name="task1-3" value="yes">
+            <label for="task1-3">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="shadow_block">
+        <div class="container_task">
+            <div>
+                <h2>Задача 7.4 <img draggable="false" role="img" class="emoji" src="../../assets/Images/books.svg" alt="📚">
+                 </h2>
+                 <span class="tooltip">
+                    <p class="tooltip-toggle">
+                    <svg class="tooltip-icon">
+
+                    </svg>
+                    </p>
+                    <span class="tooltip-text">
+                        Вам нужно два свойства, первое с днем недели, а второе с номером текущей пятницы в месяце.
+                    </span>
+                </span>
+                <p>
+                    Создайте алгоритм будильника, при котором в понедельник и среду вы будете отображать на консоли сообщение: “wake up at 8:30 am”, в четверг, на консоли должны видеть: “wake up at 9:00 am”, и каждую четвертую пятницу месяца на консоли должно быть: “wake up at 10:30”. А во все остальные дни: “today is a day off”
+                </p>
+
+                <div> <a class="btn-three" href="#">Показать решение</a> </div>
+                <div>
+    </div>
+            </div>
+        </div>
+        <div class="container-subtask-three">
+            <div class="container-subtask-inside">
+
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let today = "Wednesday"
+                                let week = 3
+
+                                switch today {
+                                case "Monday", "Wednesday":
+                                    print("wake up at 8:30 am")
+                                case "Thursday":
+                                    print("wake up at 9:00 am")
+                                case "Friday" where week == 4:
+                                    print("wake up at 10:30 am")
+                                default:
+                                    print("today is a day off")
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> today<span class="operator"> = </span><span class="string">"Wednesday"</span>
+    <span class="keywords">let</span> week<span class="operator"> = </span><span class="numbers">3</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">today</span> {
+    <span class="keywords">case</span> <span class="string">"Monday"</span>, <span class="string">"Wednesday"</span>:
+        <span class="className">print</span>(<span class="string">"wake up at 8:30 am"</span>)
+    <span class="keywords">case</span> <span class="string">"Thursday"</span>:
+        <span class="className">print</span>(<span class="string">"wake up at 9:00 am"</span>)
+    <span class="keywords">case</span> <span class="string">"Friday"</span><span class="keywords"> where</span> <span class="className">week</span> == <span class="numbers">4</span>:
+        <span class="className">print</span>(<span class="string">"wake up at 10:30 am"</span>)
+    <span class="keywords">default</span>:
+        <span class="className">print</span>(<span class="string">"today is a day off"</span>)
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/Ok2.png" /> </div>
+                </div>
+                <p>
+                    Все два свойства являются константами, в контексте мы не планируем их изменять.
+                </p>
+                <p>
+                    Далее мы сопоставляем значение свойства <span class="className">today</span> с каждым кейсом, если значение today равно <span class="string">“Monday”</span> и <span class="string">“Wednesday”</span> то выполнится первый кейс, и на консоли мы увидим <span class="string">“wake up at 8:30”</span>, если today равно <span class="string">“Thursday”</span> то выполнится второй кейс и на консоли мы увидим <span class="string">“wake up at 9:00”</span>, в случае если <span class="className">today</span> равно <span class="string">“Friday”</span>, где week равна 4, то сработает третий кейс. Ну и все остальное будет попадать в дефолтную ветку, которая выводит на консоль сообщение <span class="string">“today is a day off”</span>
+                </p>
+                <p>
+                    Важно отметить, что компилятор будет выполнять только один из кейсов, в зависимости от значения <span class="className">today</span>, то есть если отработает один кейс, остальные проверяться и выполняться не будут. И если не один из кейсов не соответствует значению свойства <span class="className">today</span>, то сработает ветка <span class="keywords">default</span>.
+                </p>
+                <p>
+                    Давайте теперь посмотрим на не оптимальное решение:
+                </p>
+                <div class="code">
+                    <div class="code-toolbar shadow_block code_review">
+                       <div class="container-code">
+                        <div class="toolbar">
+                            <div class="toolbar-item">
+                                <button type="button" onclick="copyCode(this)" data-code-text='
+                                let today = "Wednesday"
+                                let week = 3
+
+                                switch today {
+                                case "Monday":
+                                    print("wake up at 8:30 am")
+                                case "Wednesday":
+                                    print("wake up at 8:30 am")
+                                case "Thursday":
+                                    print("wake up at 9:00 am")
+                                case "Friday" where week == 4:
+                                    print("wake up at 10:30 am")
+                                case "Tuesday", "Saturday", "Sunday":
+                                    print("today is a day off")
+                                default:
+                                    break
+                                }
+                                '>Copy</button>
+                            </div>
+                        </div>
+                        <pre class="language-swift">
+                        <code readonly="true" class="language-swift">
+    <span class="keywords">let</span> today<span class="operator"> = </span><span class="string">"Wednesday"</span>
+    <span class="keywords">let</span> week<span class="operator"> = </span><span class="numbers">3</span>
+
+    <span class="operator"><span class="keywords">switch</span> <span class="className">today</span> {
+    <span class="keywords">case</span> <span class="string">"Monday"</span>:
+        <span class="className">print</span>(<span class="string">"wake up at 8:30 am"</span>)
+    <span class="keywords">case</span> <span class="string">"Wednesday"</span>:
+        <span class="className">print</span>(<span class="string">"wake up at 8:30 am"</span>)
+    <span class="keywords">case</span> <span class="string">"Thursday"</span>:
+        <span class="className">print</span>(<span class="string">"wake up at 9:00 am"</span>)
+    <span class="keywords">case</span> <span class="string">"Friday"</span><span class="keywords"> where</span> <span class="className">week</span> == <span class="numbers">4</span>:
+        <span class="className">print</span>(<span class="string">"wake up at 10:30 am"</span>)
+    <span class="keywords">case</span> <span class="string">"Tuesday"</span>, <span class="string">"Saturday"</span>, <span class="string">"Sunday"</span>:
+        <span class="className">print</span>(<span class="string">"today is a day off"</span>)
+    <span class="keywords">default</span>:
+        <span class="keywords">break</span>
+    }</span>
+                 </code>
+                 </pre>
+                  </div>
+                   </div>
+                    <div> <img class="img_circle" src="../../assets/Images/fingerDown.png" /> </div>
+                </div>
+                <p>
+                   Первые два кейса выполняют одни и те же действия, а как вы уже знаете, дублировать код – плохо.
+                </p>
+                <p>
+                    Так же обратите внимание на то что дефолтная ветка становится бесполезной, так не должно быть, в ней всегда можно определить оставшиеся варианты, и <span class="string">“Tuesday”</span>, <span class="string">“Saturday”</span>, <span class="string">“Sunday”</span> отлично для этого подходят.
+                </p>
+                <p>
+                    Еще большей ошибкой будет каждый день недели выносить в отдельный кейс, и дублировать код в каждом из них:
+                </p>
+
+            </div>
+        </div>
+        <div class="container-bottom">
+            <input type="checkbox" class="custom-checkbox" id="task1-4" name="task1-4" value="yes">
+            <label for="task1-1">
+                Отметить как решенная
+            </label>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/common.js"></script>
+</body>
+
+</html>
+

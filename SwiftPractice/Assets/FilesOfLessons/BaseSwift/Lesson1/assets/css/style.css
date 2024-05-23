@@ -1,0 +1,480 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #2E3033;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+    overflow-y: scroll;
+    align-content: center;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+#scroll-block::-webkit-scrollbar {
+    width: 0px;
+    background-color: #e1e0e0;
+}
+
+.accent {
+    color: #ff6600;
+}
+
+.header_h1 {
+    margin: 0;
+}
+
+.title_h2 {
+    margin-top: 0;
+    padding-top: 50px;
+    color: #BDC5CA;
+}
+
+.date_p {
+    color: #88949B;
+    font-size: 14px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+
+/*loader block*/
+
+.loader_icon {
+    display: inline-block;
+    color: #88949B;
+    font-size: 15px;
+}
+
+.loader_icon_block {
+    float: left;
+    padding-right: 10px;
+}
+
+.loader_button {
+    float: left;
+    padding-right: 10px;
+}
+
+.loader_title {
+    float: left;
+    padding-top: 5px;
+}
+/* Заголовок для уроков*/
+
+.wrap {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(../Images/bgDark.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrap:last-child {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.bblock {
+    float: left;
+    /*Задаем обтекание*/
+    width: 50%;
+    height: 100%;
+    padding-left: 10%;
+}
+
+.bblock_text {
+    text-align: left;
+    /*Центрируем текст по горизонтали*/
+    padding-top: 10%;
+}
+
+.bblock_image {
+    margin-top: 30px;
+}
+
+/*Заголовок для пустого урока*/
+
+.flaxeble {
+    height: 300px;
+}
+
+.empty_wrap {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(../Images/bgDark.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#emptyBlock {
+    background-color: #35363A;
+}
+
+.empty_block_title {
+    text-align: center;
+    padding: 10%;
+}
+
+.empty_image {
+    text-align: center;
+    width: 100%;
+}
+
+.empty_block_image {
+    max-width: 200px;
+}
+
+
+/*Containers*/
+
+.main_container {
+    background-color: #35363A;
+    width: 100%;
+    z-index: 0;
+}
+
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 10%;
+}
+
+.shadow_block {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px 0px #16171a;
+}
+
+
+/*Фиолетовый контейнер*/
+
+.container_terms {
+    background-color: #4f3f52;
+    padding: 1% 7% 6% 7%;
+}
+
+/*Голубой контейнер*/
+.container_info {
+    color: #343131;
+    font-weight: 500;
+    background-color: #9dd1ed;
+    padding: 1% 7% 6% 7%;
+}
+
+.container-code {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/*Images*/
+
+.img_header {
+    height: auto;
+    width: 40%;
+    min-width: 150px;
+}
+
+.img_block {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px 0px #16171a;
+}
+
+.img_circle {
+    width: 10%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 25px 0px #16171a;
+    float: right;
+    position: relative;
+    top: -50px;
+    left: -10px;
+}
+
+
+/* Code*/
+
+.code-toolbar {
+    background-color: #272822;
+    padding: 5% 4% 0% 0%;
+}
+
+.language-swift {
+    margin: 0px;
+    color: #41A1C0;
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 16px;
+    text-align: left;
+    white-space: pre;
+    line-height: 1.5;
+}
+
+.keywords {
+    color: #FDCA73;
+}
+
+.operator {
+    color: #CDCDCD;
+}
+
+.string {
+    color: #F6844A;
+}
+
+.className {
+    color: #6EB688;
+}
+
+.comments {
+    color: dimgray;
+}
+
+.numbers {
+    color: #8E81BE;
+}
+
+.typeDeclar {
+    color: #5DD8FF;
+}
+
+
+/*Code Button*/
+
+.toolbar {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+}
+
+.toolbar-item {
+    transition: color .3s linear;
+    display: inline-block;
+}
+
+button {
+    color: #696565;
+    font-size: 18px;
+    width: 80px;
+    background: #2e3f41;
+    border: 0;
+    border-radius: 7px;
+    overflow: visible;
+    user-select: none;
+}
+
+button:hover {
+    color: #b2abab;
+}
+
+
+/* Code */
+
+.code {
+    padding-bottom: 3%;
+}
+
+.code_review {
+    padding-bottom: 3%;
+}
+
+.code-toolbar pre {
+    white-space: pre-wrap;
+}
+
+
+/*
+Всплывающая подсказка лампочка
+*/
+
+.tooltip {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    float: right;
+    position: relative;
+    top: -45px;
+    left: -10px;
+}
+
+.tooltip-toggle {
+    border: none;
+    background-image: url(../Images/icons/off.png);
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.tooltip-icon {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+.tooltip-toggle:hover .tooltip-icon {
+    background-image: url(../Images/icons/on.png);
+    background-repeat: no-repeat;
+}
+
+.tooltip-text {
+    font-family: "PT Sans", sans-serif;
+    background-color: #333333;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    text-transform: none;
+    padding: 20px 18px 18px 22px;
+    border-radius: 10px;
+    display: block;
+    width: 500px;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-80%);
+    display: none;
+}
+
+.tooltip-toggle:hover + .tooltip-text,
+.tooltip-toggle:focus + .tooltip-text {
+    display: block;
+}
+
+
+/*Всплывающая подсказка кастомная для текста*/
+
+.tooltipText {
+    position: relative;
+    cursor: help;
+    display: inline-block;
+    text-decoration: none;
+    color: violet;
+    outline: none;
+}
+
+.tooltipText .textInfo {
+    visibility: hidden; /*прячем подсказку*/
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.3);
+    color: aliceblue;
+    bottom: 30px;
+    z-index: 1;
+    width: 500px;
+    margin-left: -127px;
+    padding: 20px;
+    background-color: #3C4144; /*Задаем цвет фона*/
+    text-align: justify;
+}
+
+.tooltipText:hover {
+    border: 0; /* Фиксим появление бага в IE6*/
+}
+
+.tooltipText:hover .textInfo {
+    visibility: visible; /*Задаем поведение: отобразить при наведении*/
+}
+
+/*Аккордион*/
+.accordion {
+  color: green; /*Цвет заголовка*/
+  padding: 10px; /*Отступы вокруг содержимого аккордеона.*/
+  background-color: #343131;
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px; /*Размер заголовка*/
+  transition: 0.4s;
+}
+/*класс стилей для активного состояния аккордеона (при клике на него), класс стилей для состояния при наведении на аккордеон*/
+.active, .accordion:hover {
+    border-radius: 10px 10px 0 0;
+}
+
+.accordion:before {
+  content: '\25B8';
+  color: green;
+
+  float: left;
+  margin-right: 5px;
+}
+
+.active:before {
+  content: '\25BE';
+    color: green;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: #343131;
+  color: #BDC5CA;
+  border-radius: 0 0 10px 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+#scroll-progress {
+    /* Позиционирование */
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    /* Размеры */
+    width: 100%;
+    height: 3px;
+
+    /* скрываем индикатор */
+    appearance: none;
+
+    /* избавляемся от границ */
+    border: none;
+
+    /* прозрачный фон */
+    background-color: transparent;
+
+    /* цвет индикатора */
+    color: #ff6600;
+
+    /*приоритет*/
+    z-index: 1;
+}
+
+/*Ссылка*/
+.referes_a {
+    color: aqua
+}
+
+/*Прогресс загрузки материалов*/
+#progress {
+    border: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 9px;
+}
+
+.load_button {
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 0px 25px 0px #16171a;
+    padding-left: 5px;
+}
+
+.load_button:active {
+    box-shadow: 0px 0px 5px 0px #16171a;
+}

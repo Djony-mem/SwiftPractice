@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head id="Lesson_intro">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lessonStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/common.js"></script>
+</head>
+
+<body id="scroll-block">
+   <progress max="100" value="0" id="scroll-progress"></progress>
+   <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#xcode" class="yakor">&#128195; Где найти xcode?</a>
+          <a href="#openPlayGround" class="yakor">&#128195; Как открыть плейграунд.</a>
+          <a href="#runCompiler" class="yakor">&#128195; Как запустить компилятор.</a>
+      </div>
+      <div class="sticky"><span class="table_of_contents" onclick="openNav()">&#128214;</span></div>
+    <div class="wrap">
+        <div class="bblock">
+            <div class="bblock_text">
+                <h3 class="accent header_h1">
+              Блок 1
+          </h3>
+                <h1 class="accent header_h1">
+              Основы языка Swift.
+          </h1> </div>
+        </div>
+        <div class="bblock">
+            <div class="bblock_image"> <img class="img_header" src="assets/Images/baseSwift.png" /> </div>
+        </div>
+    </div>
+    <div class="main_container">
+        <div class="container">
+            <div>
+                <h2 class="title_h2">
+                    Среда разработки Xcode.
+                </h2>
+                <p class="date_p">
+                    03.03.87
+                </p>
+                <br/>
+            </div>
+            <div class="container_lesson shadow_block">
+                <div>
+                    <div>
+                        <p> Прежде чем нам погрузится в интересный мир разработки, давайте установим <strong><span class="accent">XCode</span></strong> — это интегрированная среда для разработки приложений под операционные системы Apple. С ее помощью можно писать и проверять код, запускать программы, описывать графические интерфейсы и их связь с кодом. В целом это все что нам понадобится на курсе. </p>
+                    </div>
+                    <div>
+                        <h2 id="xcode">
+                        Где найти Xcode?
+                    </h2>
+                        <p>Заходим в <strong><span class="accent">AppStore</span></strong>, и находим там нужное нам приложение: </p> <img class="img_block" src="assets/Images/Intro/intro1.1.png" />
+                        <p>После установки Xcode вы увидите окно приветствия: </p> <img class="img_block" src="assets/Images/Intro/intro1.2.png" />
+                        <p> через данное окно можно создать новый проект или открыть уже существующий. Но на первом блоке обучения нам это пока не понадобиться. Учиться основам языка мы будем в упрощенной версии Xcode, которая называется <strong><span class="accent">Playground</span></strong>. </p>
+                        <h2 id="openPlayGround">
+                            Как открыть Playground?
+                    </h2> <img class="img_block" src="assets/Images/Intro/intro1.3.png" />
+                        <p> У нас откроется следующее окно: </p> <img class="img_block" src="assets/Images/Intro/intro1.4.png" />
+                        <p> В верхней панели можно выбрать платформу под которую вы планируете разрабатывать приложения. Платформу macOS мы затрагивать с вами не будем. </p>
+                        <p> На вкладке <strong><span class="accent">IOS</span> </strong>вы можете видеть шаблоны файлов. Это всего лишь шаблоны, так же как если бы вы создавали документ Word, где вам предлагается создать файл с уже готовыми настройками заголовков и таблиц. Здесь все точно так же, и по умолчанию мы будем всегда выбирать <strong><span class="accent">Blank</span></strong>, нам нужен чистый файл, без предварительных настроек.</p>
+                        <p> Нажимаем кнопку <strong><span class="accent">Next</span></strong>, и далее вам предлагается назвать файл и определить дирректорию где этот файл будет хранится. </p>
+                        <p> После того как вы выполнили все процедуры, откроется сам Playground, так называемая песочница, в которой мы с вами будем тренироваться.</p> <img class="img_block" src="assets/Images/Intro/intro1.5.png" />
+                        <p> Вы можете заменить что playground по сути является текстовым редактором, который состоит из трех секций. Основное окно предназначено для ввода кода, справа мы будем видеть значения, хранящиеся в свойствах. </p>
+                        <p> Снизу располагается консоль, куда мы будем выводить результаты вычислений и алгоритмов (что бы открыть консоль, просто потяните нижний край вверх, либо комбинацией клавиш: <span class="accent"><b>command + shift + Y</b></span></p>
+                        <h2 id="runCompiler">
+                        Как запустить компилятор?
+                    </h2>
+                        <p>Что бы запустить компилятор нужно нажать на знак play над консолью в левом углу </p> <img class="img_block" src="assets/Images/Intro/intro1.6.png" />
+                        <p>Либо на кружок с знаком play в левой части кода:</p> <img class="img_block" src="assets/Images/Intro/intro1.7.png" />
+                        <p>Весь код, который будет размещаться выше данной кнопки, будет выполнен.</p>
+                        <p>После запускам, мы увидим изменения только в правой панели, на консоли же будет пусто, а все потому что мы еще не познакомились с вами с одним очень полезным методом, который может отображать данные на консоли, но об этом уже в следующем уроке.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="assets/js/common.js"></script>
+</html>

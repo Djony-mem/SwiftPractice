@@ -1,0 +1,904 @@
+{
+	"topics": [
+		{
+			"title": "UIKit",
+			"courses": [
+				{
+					"title": "Модуль 1",
+					"color": "block1",
+					"active": "true",
+					"subTitle": "Основы языка Swift",
+					"image": "baseSwift",
+					"desctiption": "Если вы еще пока не сталкивались с программированием, но очень хотите попробовать, то этот блок для тебя.",
+					"presentImages": [""],
+					"lessons": [
+						{
+							"date": "30 Октября 2022",
+							"isMain": true,
+							"title": "Среда разработки Xcode.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_intro",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/xcode",
+							"task": null,
+							"subheads": [
+								{
+									"date": "30 Октября 2022",
+									"isMain": false,
+									"title": "Где найти xcode?",
+									"htmlID": "xcode",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/xcode",
+								},
+								{
+									"date": "30 Октября 2022",
+									"isMain": false,
+									"title": "Как открыть плейграунд.",
+									"htmlID": "openPlayGround",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/xcode",
+								},
+								{
+									"date": "30 Октября 2022",
+									"isMain": false,
+									"title": "Как запустить компилятор.",
+									"htmlID": "runCompiler",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/xcode",
+								},
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 1. Свойства.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_1",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson1",
+							"task": {
+								"title": "Урок 1. Свойства.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task1",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Создание констант.",
+									"htmlID": "constant",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson1",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Создание переменных.",
+									"htmlID": "variable",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson1",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Правила именования свойств.",
+									"htmlID": "rulsName",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson1",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 2. Базовые типы данных.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_2",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson2",
+							"task": {
+								"title": "Урок 2. Базовые типы данных.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task2",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Тип String",
+									"htmlID": "string",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson2",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Тип Int",
+									"htmlID": "integer",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson2",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Типы Double и Float",
+									"htmlID": "float",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson2",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Тип Boolin",
+									"htmlID": "bollin",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson2",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Тип Character",
+									"htmlID": "character",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson2",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 3. Операторы в Swift.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_3",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson3",
+							"task": {
+								"title": "Урок 3. Операторы в Swift.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task3",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Арифметические операторы",
+									"htmlID": "arithmetic",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson3",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Составные операторы присваивания",
+									"htmlID": "composite",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson3",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Операторы сравнения",
+									"htmlID": "comparisons",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson3",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Логические операторы",
+									"htmlID": "brain_teaser",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson3",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 4. Интерполяция строк.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_4",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson4",
+							"task": {
+								"title": "Урок 4. Интерполяция строк.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task4",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Комментарии.",
+									"htmlID": "comments",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson4",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Интерполяция строк.",
+									"htmlID": "interpolation",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson4",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Конкатенация строк",
+									"htmlID": "concoten",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson4",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 5. Условная конструкция if/else.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_5",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson5",
+							"task": {
+								"title": "Урок 5. Условная конструкция if/else.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task5",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Конструкция if",
+									"htmlID": "const_if",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson5",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Конструкция if /else",
+									"htmlID": "const_if-else",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson5",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Конструкция if / else if",
+									"htmlID": "const_if-else_if",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson5",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 6. Тернарный оператор.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_6",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson6",
+							"task": {
+								"title": "Урок 6. Тернарный оператор.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task6",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Тернарный условный оператор",
+									"htmlID": "ternanry",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson6",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Область видимости",
+									"htmlID": "visibility",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson6",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Рандомное значение",
+									"htmlID": "random",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson6",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 7. Условная конструкция switch.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_7",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson7",
+							"task": {
+								"title": "Урок 7. Условная конструкция switch.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task7",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Оператор break",
+									"htmlID": "oper_break",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson7",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Оператор where",
+									"htmlID": "oper_where",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson7",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Объединение кейсов",
+									"htmlID": "comb_cases",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson7",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 8. Массивы.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_8",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson8",
+							"task": {
+								"title": "Урок 8. Массивы.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task8",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Методы массива",
+									"htmlID": "func_array",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson8",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 9. Словари.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_9",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson9",
+							"task": {
+								"title": "Урок 9. Словари.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task9",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Достать значение по ключу",
+									"htmlID": "value_key",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson9",
+								},
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Методы Словаря",
+									"htmlID": "func_dict",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson9",
+								}
+							]
+						},
+						{
+							"date": "1 Ноября 2022",
+							"isMain": true,
+							"title": "Урок 10. Множества.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_10",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson10",
+							"task": {
+								"title": "Урок 10. Множества.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task10",
+							},
+							"subheads": [
+								{
+									"date": "1 Ноября 2022",
+									"isMain": false,
+									"title": "Методы Множества",
+									"htmlID": "func_set",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson10",
+								}
+							]
+						},
+						{
+							"date": "14 Января 2023",
+							"isMain": true,
+							"title": "Урок 11. Кортежи.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_11",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson11",
+							"task": {
+								"title": "Урок 11. Кортежи.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task11",
+							},
+							"subheads": [
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Tuples",
+									"htmlID": "tuples",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson11",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Доступ к элементам кортежа",
+									"htmlID": "access_tuple",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson11",
+								}
+							]
+						},
+						{
+							"date": "14 Января 2023",
+							"isMain": true,
+							"title": "Урок 12. Циклы.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_12",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson12",
+							"task": {
+								"title": "Урок 12. Циклы.",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task12",
+							},
+							"subheads": [
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Цикл for in",
+									"htmlID": "for_in",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson12",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Цикл while",
+									"htmlID": "cycle_while",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson12",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Цикл repeat - while",
+									"htmlID": "repeat_while",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson12",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Операторы break и continue в циклах",
+									"htmlID": "break_continue",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson12",
+								}
+							]
+						},
+						{
+							"date": "24 Января 2023",
+							"isMain": true,
+							"title": "Урок 13. Перечисления",
+							"isCompleted" : false,
+							"htmlID": "Lesson_13",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson13",
+							"task": {
+								"title": "Урок 13. Перечисления",
+								"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/Tasks/Task1/task13",
+							},
+							"subheads": [
+								{
+									"date": "24 Января 2023",
+									"isMain": false,
+									"title": "Исходные значения",
+									"htmlID": "initial_values",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson13",
+								},
+								{
+									"date": "24 Января 2023",
+									"isMain": false,
+									"title": "Ассоциативные параметры",
+									"htmlID": "assoc_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson13",
+								}
+							]
+						},
+						{
+							"date": "3 Февраля 2023",
+							"isMain": true,
+							"title": "Урок 14. Опциональные типы",
+							"isCompleted" : false,
+							"htmlID": "Lesson_14",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson14",
+							"task": null,
+							"subheads": [
+								{
+									"date": "3 Февраля 2023",
+									"isMain": false,
+									"title": "Зачем опциональные типы в реальной разработке?",
+									"htmlID": "real_develop",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson14",
+								},
+								{
+									"date": "3 Февраля 2023",
+									"isMain": false,
+									"title": "Извлечение опционального значения",
+									"htmlID": "optional_value",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson14",
+								},
+								{
+									"date": "3 Февраля 2023",
+									"isMain": false,
+									"title": "Значение по умолчанию",
+									"htmlID": "default_value",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson14",
+								},
+								{
+									"date": "3 Февраля 2023",
+									"isMain": false,
+									"title": "Опциональная привязка",
+									"htmlID": "optional_binding",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson14",
+								},
+								{
+									"date": "3 Февраля 2023",
+									"isMain": false,
+									"title": "Плохие способы извлечения",
+									"htmlID": "bad_extraction",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson14",
+								}
+							]
+						},
+						{
+							"date": "14 Января 2023",
+							"isMain": true,
+							"title": "Урок 15. Преобразование типов.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_15",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson15",
+							"task": null,
+							"subheads": [
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Преобразование типа String.",
+									"htmlID": "conver_string",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson15",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Преобразование типа Int и Double.",
+									"htmlID": "conver_int",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson15",
+								}
+							]
+						},
+						{
+							"date": "14 Января 2023",
+							"isMain": true,
+							"title": "Урок 16. Функции. Часть 1",
+							"isCompleted" : false,
+							"htmlID": "Lesson_16",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson16",
+							"task": null,
+							"subheads": [
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Определение функции",
+									"htmlID": "defin_func",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson16",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Функции с возвращаемым значением",
+									"htmlID": "return_func",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson16",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Функции с параметрами",
+									"htmlID": "func_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson16",
+								},
+								{
+									"date": "14 Января 2023",
+									"isMain": false,
+									"title": "Функции с параметрами и с возвращаемым значением",
+									"htmlID": "func_param_return",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson16",
+								}
+							]
+						},
+						{
+							"date": "21 Февраля 2023",
+							"isMain": true,
+							"title": "Урок 17. Функции. Часть2",
+							"isCompleted" : false,
+							"htmlID": "Lesson_17",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+							"task": null,
+							"subheads": [
+								{
+									"date": "21 Февраля 2023",
+									"isMain": false,
+									"title": "Аргументы в функциях",
+									"htmlID": "arg_func",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+								},
+								{
+									"date": "21 Февраля 2023",
+									"isMain": false,
+									"title": "Пропуск аргументов",
+									"htmlID": "skip_arg",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+								},
+								{
+									"date": "21 Февраля 2023",
+									"isMain": false,
+									"title": "Значение параметров по умолчанию",
+									"htmlID": "default_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+								},
+								{
+									"date": "21 Февраля 2023",
+									"isMain": false,
+									"title": "Вариативый параметр",
+									"htmlID": "variable_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+								},
+								{
+									"date": "21 Февраля 2023",
+									"isMain": false,
+									"title": "Еще немного о возвращаемых значений",
+									"htmlID": "more_return_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+								},
+								{
+									"date": "21 Февраля 2023",
+									"isMain": false,
+									"title": "Функциональные типы данных",
+									"htmlID": "functional_type",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+								},
+								{
+									"date": "21 Февраля 2023",
+									"isMain": false,
+									"title": "Функции в качестве параметров",
+									"htmlID": "param_like_func",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson17",
+								}
+							]
+						},
+						{
+							"date": "1 Марта 2023",
+							"isMain": true,
+							"title": "Урок 18. Замыкания (Closures)",
+							"isCompleted" : false,
+							"htmlID": "Lesson_18",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+							"task": null,
+							"subheads": [
+								{
+									"date": "1 Марта 2023",
+									"isMain": false,
+									"title": "Блок замыкания, без возврата значения и параметров.",
+									"htmlID": "closur_w_return",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+								},
+								{
+									"date": "1 Марта 2023",
+									"isMain": false,
+									"title": "Замыкание принимающее параметры.",
+									"htmlID": "closur_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+								},
+								{
+									"date": "1 Марта 2023",
+									"isMain": false,
+									"title": "Замыкание возвращающие значения.",
+									"htmlID": "closur_return",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+								},
+								{
+									"date": "1 Марта 2023",
+									"isMain": false,
+									"title": "Викторина с разъяснениями.",
+									"htmlID": "quiz",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+								},
+								{
+									"date": "1 Марта 2023",
+									"isMain": false,
+									"title": "Замыкание в качестве параметров.",
+									"htmlID": "closure_in_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+								},
+								{
+									"date": "1 Марта 2023",
+									"isMain": false,
+									"title": "Замыкающие выражения.",
+									"htmlID": "closing_expressions",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+								},
+								{
+									"date": "1 Марта 2023",
+									"isMain": false,
+									"title": "Сокращенные имена параметров.",
+									"htmlID": "short_param",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson18",
+								}
+							]
+						},
+						{
+							"date": "23 Апреля 2023",
+							"isMain": true,
+							"title": "Урок 19. Вычисляемые свойства",
+							"isCompleted" : false,
+							"htmlID": "Lesson_19",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson19",
+							"task": null,
+							"subheads": [
+								{
+									"date": "23 Апреля 2023",
+									"isMain": false,
+									"title": "Вычисляемые свойства.",
+									"htmlID": "computed_prop",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson19",
+								},
+								{
+									"date": "23 Апреля 2023",
+									"isMain": false,
+									"title": "Вычисляемое свойство. Сеттер.",
+									"htmlID": "computed_prop_set",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson19",
+								},
+								{
+									"date": "23 Апреля 2023",
+									"isMain": false,
+									"title": "Наблюдатели свойств.",
+									"htmlID": "prop_observ",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson19",
+								}
+							]
+						},
+						{
+							"date": "22 Марта 2023",
+							"isMain": true,
+							"title": "Урок 20. Классы",
+							"isCompleted" : false,
+							"htmlID": "Lesson_20",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson20",
+							"task": null,
+							"subheads": [
+								{
+									"date": "22 Марта 2023",
+									"isMain": false,
+									"title": "Определение Класса.",
+									"htmlID": "class_definition",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson20",
+								},
+								{
+									"date": "22 Марта 2023",
+									"isMain": false,
+									"title": "Свойства класса.",
+									"htmlID": "class_prop",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson20",
+								},
+								{
+									"date": "22 Марта 2023",
+									"isMain": false,
+									"title": "Методы класса.",
+									"htmlID": "class_func",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson20",
+								},
+								{
+									"date": "22 Марта 2023",
+									"isMain": false,
+									"title": "Статичные свойства и методы.",
+									"htmlID": "stutic_prop_func",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson20",
+								}
+							]
+						},
+						{
+							"date": "11 Апреля 2023",
+							"isMain": true,
+							"title": "Урок 21. Инициализаторы Класса.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_21",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson21",
+							"task": null,
+							"subheads": [
+								{
+									"date": "11 Апреля 2023",
+									"isMain": false,
+									"title": "Инициализация свойств.",
+									"htmlID": "init_prop",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson21",
+								},
+								{
+									"date": "11 Апреля 2023",
+									"isMain": false,
+									"title": "Инициализаторы класса.",
+									"htmlID": "init_class",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson21",
+								},
+								{
+									"date": "11 Апреля 2023",
+									"isMain": false,
+									"title": "Несколько инициализаторов",
+									"htmlID": "few_init",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson21",
+								}
+							]
+						},
+						{
+							"date": "28 Апреля 2023",
+							"isMain": true,
+							"title": "Урок 22. Наследование. Часть 1.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_22",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson22",
+							"task": null,
+							"subheads": [
+								{
+									"date": "28 Апреля 2023",
+									"isMain": false,
+									"title": "Наследование.",
+									"htmlID": "inheritance",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson22",
+								},
+								{
+									"date": "28 Апреля 2023",
+									"isMain": false,
+									"title": "Инициализатор у класса-наследника.",
+									"htmlID": "init_for_inherit",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson22",
+								}
+							]
+						},
+						{
+							"date": "30 Мая 2023",
+							"isMain": true,
+							"title": "Урок 23. Наследование. Часть 2.",
+							"isCompleted" : false,
+							"htmlID": "Lesson_23",
+							"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson23",
+							"task": null,
+							"subheads": [
+								{
+									"date": "30 Мая 2023",
+									"isMain": false,
+									"title": "Переопределение методов.",
+									"htmlID": "override_func",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson23",
+								},
+								{
+									"date": "30 Мая 2023",
+									"isMain": false,
+									"title": "Переопределение геттеров.",
+									"htmlID": "override_get",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson23",
+								},
+								{
+									"date": "30 Мая 2023",
+									"isMain": false,
+									"title": "Переопределение инициализаторов.",
+									"htmlID": "override_init",
+									"htmlFilePath": "FilesOfLessons/BaseSwift/Lesson1/lesson23",
+								}
+							]
+						},
+					]
+				},
+				{
+					"title": "Модуль 2",
+					"color": "block2",
+					"active": "true",
+					"subTitle": "Работа с интерфейсом",
+					"image": "module2",
+					"desctiption": "",
+					"presentImages": [""],
+					"lessons": [
+						
+					]
+				},
+				{
+					"title": "Модуль 3",
+					"color": "block3",
+					"active": "true",
+					"subTitle": "Работа с данными",
+					"image": "module3",
+					"desctiption": "",
+					"presentImages": [""],
+					"lessons": [
+						
+					]
+				}
+			]
+		},
+		{
+			"title": "SwiftUI",
+			"courses": []
+		}
+	]
+}
